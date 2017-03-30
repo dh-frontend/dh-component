@@ -1,5 +1,5 @@
 {
-  "name": "datahunter-component",
+  "name": "dh-component",
   "version": "1.0.0",
   "description": "react component development starter kit",
   "main": "dist/index.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jimberton-js/dh-components.git"
+    "url": "git+https://github.com/shulie/dh-component.git"
   },
   "keywords": [
     "datahunter",
@@ -29,9 +29,9 @@
   "author": "jimberton",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Jimberton-js/dh-components/issues"
+    "url": "https://github.com/shulie/dh-components/issues"
   },
-  "homepage": "https://github.com/Jimberton-js/dh-components/#readme",
+  "homepage": "https://github.com/shulie/dh-component/#readme",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^6.6.1",
