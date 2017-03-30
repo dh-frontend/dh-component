@@ -15,12 +15,11 @@ class Button extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick () {
+  handleClick() {
     const checked = !this.state.checked;
     if (this.props.onClick) {
       this.props.onClick();
     }
-    console.log('我被点击了')
     this.setState({ checked });
   }
 
