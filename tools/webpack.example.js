@@ -23,7 +23,7 @@ var webpackConfig = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 query: {
                     "plugins": [

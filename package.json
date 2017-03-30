@@ -32,7 +32,9 @@
     "url": "https://github.com/shulie/dh-components/issues"
   },
   "homepage": "https://github.com/shulie/dh-component/#readme",
-  "dependencies": {},
+  "dependencies": {
+    "antd": "^2.8.3"
+  },
   "devDependencies": {
     "autoprefixer": "^6.6.1",
     "babel-cli": "^6.23.0",
