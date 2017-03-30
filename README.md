@@ -1,5 +1,6 @@
+
 ##datahunter react Component
-  
+
 
 
 ## 安装
@@ -18,3 +19,4 @@ ReactDOM.render(<Test />, mountNode);
 ```jsx
 import 'dh-component/dist/index.scss';
 ```
+
