@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 class Button extends React.Component {
   static propTypes = {
@@ -24,15 +25,15 @@ class Button extends React.Component {
   }
 
   render() {
-    let className = 'dh-btn';
     const { type, disabled, size } = this.props;
     const otherProps = this.state.checked ? { 'data-role': 'checked'} : {};
-    className = type ? `${className} dh-btn-${type}` : className;
-    className = size ? `${className} dh-btn-${size}` : className;
     return (
       <button
         type="button"
-        className={className}
+        className={classNames('dh-btn', {
+          [`dh-btn-${type}`]: type,
+          [`dh-btn-${size}`]: size
+        })}
         disabled={disabled}
         onClick={this.handleClick}
         {...otherProps}>
