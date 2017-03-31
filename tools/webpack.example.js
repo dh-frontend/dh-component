@@ -51,6 +51,10 @@ var webpackConfig = {
               loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
             },
             {
+              test: /\.css/,
+              loader: 'style-loader!css-loader?outputStyle=expanded'
+            },
+            {
                 test: /\.html$/,
                 loader: 'html-loader'
             },

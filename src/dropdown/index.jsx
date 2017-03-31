@@ -29,7 +29,7 @@ class Dropdown extends React.Component {
   renderItem(data) {
     if(Array.isArray(data) && data.length) {
       this.element = document.createElement('div');
-
+      
       this.element.className = 'dh-dropdown-list';
       document.body.appendChild(this.element);
       const itemList = (
