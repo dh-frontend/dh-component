@@ -1,0 +1,98 @@
+
+$normal-button-Height: 36px;
+$normal-button-FontSize: 14px;
+$small-button-Height: 24px;
+$small-button-FontSize: 12px;
+/* begin: default style **/
+$button-backgroundColor-default: transparent;
+$button-borderColor-default: #39b86e;
+$button-borderColor-default-hover: #ff5a44;
+$button-fontColor-default: #39b86e;
+$button-backgroundColor-default-checked: transparent;
+$button-borderColor-default-checked: #33a663;
+/* end: default **/
+
+/* begin: primary style **/
+$button-backgroundColor-primary: #39b86e;
+$button-borderColor-primary: #39b86e;
+$button-borderColor-primary-hover: #ff5a44;
+$button-fontColor-primary: #fff;
+$button-backgroundColor-primary-checked: #33a663;
+$button-borderColor-primary-checked: #33a663;
+/* end: primary **/
+
+/* begin: danger style **/
+$button-backgroundColor-danger: #ff5a44;
+$button-borderColor-danger: #ff5a44;
+$button-borderColor-danger-hover: #ff5a44;
+$button-fontColor-danger: #fff;
+$button-backgroundColor-danger-checked: #e6513d;
+$button-borderColor-danger-checked: #e6513d;
+/* end: danger **/
+
+@mixin buttonTypes($bgc, $bdc, $c, $bgcc, $bdcc){
+  background-color: $bgc;
+  border: 1px solid $bdc;
+  color: $c;
+  &[disabled], &[disabled]:hover {
+    color: #ccc;
+    background-color: #f6f6f6;
+    border: 1px solid #e6e6e6;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+  &[data-role='checked'] {
+    background-color: $bgcc;
+    border: 1px solid $bdcc;
+  }
+}
+@mixin buttonSize($bh, $fs) {
+  height: $bh;
+  font-size: $fs;
+  border-radius: $bh / 2;
+}
+.dh-btn {
+    display: inline-block;
+    padding: 0 12px;
+    @include buttonSize($normal-button-Height, $normal-button-FontSize);
+    line-height: 1;
+    text-align: center;
+    background-image: none;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-transition: all .3s cubic-bezier(.645,.045,.355,1);
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    &:hover {
+      opacity: .7;
+    }
+    @include buttonTypes(
+      $button-backgroundColor-default,
+      $button-borderColor-default,
+      $button-fontColor-default,
+      $button-backgroundColor-default-checked,
+      $button-borderColor-default-checked
+    );
+}
+.dh-btn-primary {
+  @include buttonTypes(
+    $button-backgroundColor-primary,
+    $button-backgroundColor-primary,
+    $button-fontColor-primary,
+    $button-backgroundColor-primary-checked,
+    $button-borderColor-primary-checked
+  );
+}
+.dh-btn-danger {
+  @include buttonTypes(
+    $button-backgroundColor-danger,
+    $button-borderColor-danger,
+    $button-fontColor-danger,
+    $button-backgroundColor-danger-checked,
+    $button-borderColor-danger-checked
+  );
+}
+.dh-btn-small {
+    @include buttonSize($small-button-Height, $small-button-FontSize);
+}
