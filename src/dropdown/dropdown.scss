@@ -25,28 +25,34 @@ $dropdown-itemCheckColor:#39b86e;
     }
   }
 }
-.dh-dropdown-list {
+.dh-dropdown-body {
   position:absolute;
-  background-color: red;
-  padding-top: 2px;
-  box-shadow: 7px 6px 15px rgba(0,0,0,.15);
-  ul {
-    li {
-      line-height: 32px;
-      padding-left: 32px;
-      color:$dropdown-itemColor;
-      font-size: 12px;
-      cursor: pointer;
-      &:hover {
-        color:$dropdown-itemHoverColor;
-        background-color: $dropdown-itemHoverBackgroundColor;
+  top: 0;
+  left: 0;
+  .dh-dropdown-list {
+    position:absolute;
+    padding-top: 2px;
+    box-shadow: 7px 6px 15px rgba(0,0,0,.15);
+    ul {
+      padding: 0;
+      li {
+        line-height: 32px;
+        padding-left: 32px;
+        color:$dropdown-itemColor;
+        font-size: 12px;
+        cursor: pointer;
+        list-style-type: none;
+        &:hover {
+          color:$dropdown-itemHoverColor;
+          background-color: $dropdown-itemHoverBackgroundColor;
+        }
+      }
+      .active {
+        color:$dropdown-itemCheckColor;
       }
     }
-    .active {
-      color:$dropdown-itemCheckColor;
-    }
   }
-}
-.dh-dropdown-hidden {
-  display: none;
+  .dh-dropdown-hidden {
+    display: none;
+  }
 }
