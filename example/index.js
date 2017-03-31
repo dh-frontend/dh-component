@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import './index.scss';
 import '../src/index.scss';
-
 import App from './container/index';
 
 const rootEl = document.getElementById('root');
