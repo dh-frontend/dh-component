@@ -1,5 +1,5 @@
 'use strict';
-export Test from './test';
+export Test from './test/';
 export Button from './button';
 export Icon from './icon';
 

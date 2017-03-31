@@ -10,7 +10,7 @@ const antds = ['grid', 'menu'];
 
 // 编译js文件
 gulp.task('bable', function(){
-  return gulp.src('./src/**/*.jsx')
+  return gulp.src(['./src/**/*.js', './src/**/*.jsx'])
     .pipe(babel())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist'))
