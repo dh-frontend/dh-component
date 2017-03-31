@@ -17,6 +17,6 @@ ReactDOM.render(<Test />, mountNode);
 导入依赖样式
 
 ```jsx
-import 'dh-component/dist/index.scss';
+import 'dh-component/dist/index.css';
 ```
 
