@@ -23,7 +23,7 @@ var webpackConfig = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 query: {
                     "plugins": [
@@ -49,6 +49,10 @@ var webpackConfig = {
             {
               test: /\.scss/,
               loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
+            },
+            {
+              test: /\.css/,
+              loader: 'style-loader!css-loader?outputStyle=expanded'
             },
             {
                 test: /\.html$/,

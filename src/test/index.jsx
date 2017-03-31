@@ -6,7 +6,7 @@ class Test extends React.Component {
   render() {
     return (
       <div className="test">
-        我是一个测试组件
+        欢迎使用datahunter组件
       </div>
     )
   }

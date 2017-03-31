@@ -1,15 +1,12 @@
 {
-  "name": "steamer-react-component",
-  "version": "1.0.0",
+  "name": "dh-component",
+  "version": "1.1.31",
   "description": "react component development starter kit",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node ./tools/start.js",
-    "start.code": "node ./tools/start.code.js",
-    "dev": "npm start",
-    "dev.code": "npm run start.code",
-    "dist": "npm run babel",
-    "webpack": "webpack --config ./tools/webpack.babel.js",
+    "start": "npm run dev && npm run lint",
+    "dist": "gulp start",
+    "dev": "node ./tools/start.js",
     "babel": "babel src --out-dir dist --copy-files",
     "prepublish": "npm run dist",
     "test": "jest --coverage",
@@ -17,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jimberton-js/dh-components.git"
+    "url": "git+https://github.com/shulie/dh-component.git"
   },
   "keywords": [
     "datahunter",
@@ -29,10 +26,12 @@
   "author": "jimberton",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Jimberton-js/dh-components/issues"
+    "url": "https://github.com/shulie/dh-components/issues"
   },
-  "homepage": "https://github.com/Jimberton-js/dh-components/#readme",
-  "dependencies": {},
+  "homepage": "https://github.com/shulie/dh-component/#readme",
+  "dependencies": {
+    "antd": "^2.8.3"
+  },
   "devDependencies": {
     "autoprefixer": "^6.6.1",
     "babel-cli": "^6.23.0",
@@ -45,7 +44,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "clean-webpack-plugin": "^0.1.15",
-    "css-loader": "^0.26.2",
+    "css-loader": "^0.26.4",
     "enzyme": "^2.7.1",
     "eslint": "^3.16.0",
     "eslint-plugin-babel": "^4.1.0",
@@ -53,6 +52,11 @@
     "express": "^4.14.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.5.0",
     "html-loader": "^0.4.5",
     "html-res-webpack-plugin": "^1.3.3",
     "http-proxy-middleware": "^0.17.3",
