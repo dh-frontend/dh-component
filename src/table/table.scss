@@ -1,0 +1,82 @@
+$table-border: 1px solid #e6eaee;
+$table-padding: 4px;
+$table-radius: 3px;
+$table-striped-odd: #fff;
+$table-striped-even: #f8f9fa;
+$table-header-color: #575f6d;
+$table-data-color: #333c48;
+$table-hover: #e6eaee;
+
+/** default style */
+$tr-height-default: 40px;
+
+/** small style */
+$tr-height-small: 30px;
+
+/** large style */
+$tr-height-large: 60px;
+
+.dh-table {
+  &.dh-table-default {
+    tr {
+      height: $tr-height-default;
+      font-size: 14px;
+    }
+  }
+  &.dh-table-small {
+    tr {
+      height: $tr-height-small;
+    }
+  }
+  &.dh-table-large {
+    tr {
+      height: $tr-height-large;
+    }
+  }
+
+  table {
+    border: $table-border;
+    border-radius: $table-radius;
+    tr {
+      td, th {
+        font-weight: normal;
+        border-bottom: $table-border;
+        padding-left: $table-padding;
+        padding-right: $table-padding;
+        background: $table-striped-even;
+        color: $table-header-color;
+      }
+      td {
+        color: $table-data-color;
+      }
+      &:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+      &:nth-child(odd) {
+        td {
+          background: $table-striped-odd;
+        }
+      }
+      &:hover {
+        td {
+          background: $table-hover;
+        }
+      }
+    }
+  }
+
+  &.dh-table-bordered {
+    table {
+      tr {
+        td, th {
+          border-right: $table-border;
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+}
