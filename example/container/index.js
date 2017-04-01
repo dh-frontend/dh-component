@@ -1,5 +1,5 @@
 import React from 'react';
-import { Test, Menu, Row, Col, Button, Icon } from '../../src';
+import { Test, Menu, Row, Col, Button, Icon, Pagination } from '../../src';
 
 class Wrapper extends React.Component {
 	constructor(props, context) {
@@ -40,6 +40,10 @@ class Wrapper extends React.Component {
 						<div style={{ color: 'red', fontSize: 24}}>
 							<Icon type="plus"/>
 						</div>
+				</div>
+
+				<div style={{marginTop: 24, padding: 24}}>
+					<Pagination total={500} itemCount={9} />
 				</div>
 			</div>
 		);
