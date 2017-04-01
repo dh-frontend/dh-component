@@ -1,5 +1,5 @@
 import React from 'react';
-import { Test, Menu, Row, Col, Button, Icon, Pagination } from '../../src';
+import { Test, Menu, Row, Col, Button, Icon, Dropdown, Pagination } from '../../src';
 
 class Wrapper extends React.Component {
 	constructor(props, context) {
@@ -7,12 +7,16 @@ class Wrapper extends React.Component {
 		this.state = {
 		};
 	}
-
+ handleDropdown(key,value) {
+	 console.log('key',key);
+	 console.log('value',value)
+ }
 	render() {
+		let options = [{key:'1',value:'选项一'},{key:'2',value:'选项二'},{key:'3',value:'选项三'},{key:'4',value:'选项四'},]
 		return (
 	    <div>
 			 	<Test/>
-					<Menu
+				<Menu
 						theme="dark"
 						mode="horizontal"
 						defaultSelectedKeys={['2']}
@@ -40,6 +44,12 @@ class Wrapper extends React.Component {
 						<div style={{ color: 'red', fontSize: 24}}>
 							<Icon type="plus"/>
 						</div>
+				</div>
+				<div style={{marginTop:20,marginLeft:50,width:300}}>
+					 <Dropdown
+						  options={options}
+							onClick={this.handleDropdown}
+						 />
 				</div>
 
 				<div style={{marginTop: 24, padding: 24}}>
