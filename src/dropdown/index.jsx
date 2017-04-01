@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Body from './body';
+import DropdownBody from './body';
 import Icon from '../icon';
 
 class Dropdown extends React.Component {
@@ -37,7 +37,7 @@ class Dropdown extends React.Component {
     }
     document.body.appendChild(this.element);
     ReactDOM.render((
-      <Body
+      <DropdownBody
         visiable={this.state.visiable}
         itemDataSource={options}
         style={style}
@@ -47,7 +47,7 @@ class Dropdown extends React.Component {
     ),this.element)
   }
   handleClick(key,value) {
-    if(this.props.onClick) {
+    if (this.props.onClick) {
       this.props.onClick(key,value);
       this.setState({
         value:value,
@@ -61,11 +61,11 @@ class Dropdown extends React.Component {
       <div
         className="dh-dropdown"
         ref="dropdown"
-        >
+      >
         <div
           className="dh-dropdown-title"
           onMouseEnter={() => {this.handleVisible(true)}}
-          >
+        >
           <span>{value}</span>
           <Icon type="arrow-down" />
         </div>

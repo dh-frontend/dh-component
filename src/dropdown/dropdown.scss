@@ -1,11 +1,11 @@
 /* dropdown 颜色配置 */
-$dropdown-borderBottomColor:#39b86e;
-$dropdown-titleColor:#999999;
-$dropdown-iconColor:#cccccc;
-$dropdown-itemColor:#666666;
-$dropdown-itemHoverColor:#333333;
-$dropdown-itemHoverBackgroundColor:#f6f6f6;
-$dropdown-itemCheckColor:#39b86e;
+$dropdown-borderBottomColor: #39b86e;
+$dropdown-titleColor: #999999;
+$dropdown-iconColor: #cccccc;
+$dropdown-itemColor: #666666;
+$dropdown-itemHoverColor: #333333;
+$dropdown-itemHoverBackgroundColor: #f6f6f6;
+$dropdown-itemCheckColor: #39b86e;
 
 .dh-dropdown {
   &-title {
@@ -20,17 +20,17 @@ $dropdown-itemCheckColor:#39b86e;
     i {
       float: right;
       margin-top: 6px;
-      color:$dropdown-iconColor;
+      color: $dropdown-iconColor;
       font-size: 12px;
     }
   }
 }
 .dh-dropdown-body {
-  position:absolute;
+  position: absolute;
   top: 0;
   left: 0;
   .dh-dropdown-list {
-    position:absolute;
+    position: absolute;
     padding-top: 2px;
     box-shadow: 7px 6px 15px rgba(0,0,0,.15);
     ul {
@@ -38,17 +38,17 @@ $dropdown-itemCheckColor:#39b86e;
       li {
         line-height: 32px;
         padding-left: 32px;
-        color:$dropdown-itemColor;
+        color: $dropdown-itemColor;
         font-size: 12px;
         cursor: pointer;
         list-style-type: none;
         &:hover {
-          color:$dropdown-itemHoverColor;
+          color: $dropdown-itemHoverColor;
           background-color: $dropdown-itemHoverBackgroundColor;
         }
       }
       .active {
-        color:$dropdown-itemCheckColor;
+        color: $dropdown-itemCheckColor;
       }
     }
   }
