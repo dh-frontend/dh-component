@@ -1,0 +1,42 @@
+/* 配置 参数 */
+$message-fontSize: 12px;
+$message-padding: 24px;
+$message-background: #ffffff;
+$message-titleColor: #999999;
+$message-fontColor: #cccccc;
+$message-successColor: #39b86e;
+$message-errorColor: #f04134;
+$message-warningColor: #ffbf00;
+
+.dh-message {
+  &-container {
+    padding: $message-padding;
+    border-radius: 4px;
+    background-color: $message-background;
+    font-size: $message-fontSize;
+    color: $message-fontColor;
+    overflow: hidden;
+    box-shadow: 7px 6px 15px rgba(0,0,0,.15);
+    .dh-message-left {
+      float: left;
+      margin-right: 12px;
+      span {
+        margin-left: 8px;
+        font-weight: bold;
+        color: $message-titleColor;
+      }
+    }
+    .dh-message-right {
+      float: left;
+    }
+  }
+  &-success {
+    color: $message-successColor;
+  }
+  &-error {
+    color: $message-errorColor;
+  }
+  &-warning {
+    color: $message-warningColor;
+  }
+}

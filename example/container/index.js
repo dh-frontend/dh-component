@@ -1,5 +1,5 @@
 import React from 'react';
-import { Test, Menu, Row, Col, Button, Icon, Dropdown } from '../../src';
+import { Test, Menu, Row, Col, Button, Icon, Dropdown, message } from '../../src';
 
 class Wrapper extends React.Component {
 	constructor(props, context) {
@@ -10,6 +10,10 @@ class Wrapper extends React.Component {
  handleDropdown(key,value) {
 	 console.log('key',key);
 	 console.log('value',value)
+ }
+ handleMessage() {
+	 console.log(message);
+	 message.success('message success');
  }
 	render() {
 		let options = [{key:'1',value:'选项一'},{key:'2',value:'选项二'},{key:'3',value:'选项三'},{key:'4',value:'选项四'},]
@@ -45,11 +49,21 @@ class Wrapper extends React.Component {
 							<Icon type="plus"/>
 						</div>
 				</div>
-				<div style={{marginTop:20,marginLeft:50,width:300}}>
+				{/* <div style={{marginTop:20,marginLeft:50,width:300}}>
 					 <Dropdown
 						  options={options}
 							onClick={this.handleDropdown}
 						 />
+				</div> */}
+				<h1 style={{textAlign:'center'}} >测试组件</h1>
+				<div style={{width:800,height:500,margin:'0 auto',border:'1px solid #eee'}}>
+
+					<Button onClick={this.handleMessage}>success</Button>
+					<Button onClick={()=>{message.error('error','已通知',2,()=>{
+						console.log('callback')
+					})}}>error+callback</Button>
+					<Button onClick={()=>{message.warning('warning')}}>waring</Button>
+					<Button onClick={()=>{message.clear()}}>clear</Button>
 				</div>
 			</div>
 		);

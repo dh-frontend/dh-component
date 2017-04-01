@@ -6,6 +6,7 @@ $dropdown-itemColor: #666666;
 $dropdown-itemHoverColor: #333333;
 $dropdown-itemHoverBackgroundColor: #f6f6f6;
 $dropdown-itemCheckColor: #39b86e;
+$dropdown-backgroundColor: #ffffff;
 
 .dh-dropdown {
   &-title {
@@ -33,6 +34,7 @@ $dropdown-itemCheckColor: #39b86e;
     position: absolute;
     padding-top: 2px;
     box-shadow: 7px 6px 15px rgba(0,0,0,.15);
+    background-color: $dropdown-backgroundColor; 
     ul {
       padding: 0;
       li {

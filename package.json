@@ -31,7 +31,8 @@
   "homepage": "https://github.com/shulie/dh-component/#readme",
   "dependencies": {
     "antd": "^2.8.3",
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "rc-notification": "^1.4.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.1",

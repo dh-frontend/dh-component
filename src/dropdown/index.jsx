@@ -46,9 +46,9 @@ class Dropdown extends React.Component {
       />
     ),this.element)
   }
-  handleClick(key,value) {
+  handleClick(key, value) {
     if (this.props.onClick) {
-      this.props.onClick(key,value);
+      this.props.onClick(key, value);
       this.setState({
         value:value,
         visiable:false,
