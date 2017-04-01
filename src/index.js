@@ -2,6 +2,7 @@
 export Test from './test/';
 export Button from './button';
 export Icon from './icon';
+export Dropdown from './dropdown';
 export Table from './table';
 
 /* begin --- import antd component **/
