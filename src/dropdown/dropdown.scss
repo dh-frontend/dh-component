@@ -1,0 +1,95 @@
+/* dropdown 颜色配置 */
+$dropdown-borderBottomColor: #39b86e;
+$dropdown-titleColor: #999999;
+$dropdown-iconColor: #cccccc;
+$dropdown-itemColor: #666666;
+$dropdown-itemHoverColor: #333333;
+$dropdown-itemHoverBackgroundColor: #f6f6f6;
+$dropdown-itemCheckColor: #39b86e;
+$dropdown-backgroundColor: #ffffff;
+
+.dh-dropdown {
+   position: absolute;
+   &-hidden {
+     display: none;
+   }
+   &-menu {
+     box-shadow: 7px 6px 15px rgba(0,0,0,.15);
+     &-item {
+       line-height: 32px;
+       padding: 0 8px;
+       color: $dropdown-itemColor;
+       font-size: 12px;
+       cursor: pointer;
+       &:hover {
+           color: $dropdown-itemHoverColor;
+           background-color: $dropdown-itemHoverBackgroundColor;
+         }
+     }
+   }
+   &-title {
+     width: 100%;
+     border-bottom: 1px solid $dropdown-borderBottomColor;
+     span {
+       display: inline-block;
+       margin-bottom: 8px;
+     }
+     i {
+       float: right;
+       margin-top: 4px;
+       font-size: 12px;
+       color: $dropdown-iconColor;
+     }
+   }
+}
+
+// .dh-dropdown {
+//   &-title {
+//     font-size: 14px;
+//     border-bottom: 1px solid $dropdown-borderBottomColor;
+//     cursor: pointer;
+//     span {
+//       display: inline-block;
+//       margin-bottom: 8px;
+//       color: $dropdown-titleColor;
+//     }
+//     i {
+//       float: right;
+//       margin-top: 6px;
+//       color: $dropdown-iconColor;
+//       font-size: 12px;
+//     }
+//   }
+// }
+// .dh-dropdown-body {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   .dh-dropdown-list {
+//     position: absolute;
+//     padding-top: 2px;
+//     box-shadow: 7px 6px 15px rgba(0,0,0,.15);
+//     background-color: $dropdown-backgroundColor;
+//     ul {
+//       padding: 0;
+//       li {
+//         line-height: 32px;
+//         padding-left: 32px;
+//         color: $dropdown-itemColor;
+//         font-size: 12px;
+//         cursor: pointer;
+//         list-style-type: none;
+//         &:hover {
+//           color: $dropdown-itemHoverColor;
+//           background-color: $dropdown-itemHoverBackgroundColor;
+//         }
+//       }
+//       .active {
+//         color: $dropdown-itemCheckColor;
+//       }
+//     }
+//   }
+//   .dh-dropdown-hidden {
+//     display: none;
+//   }
+// }

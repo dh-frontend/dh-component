@@ -1,4 +1,4 @@
-import React, { Component } from 'react'  
+import React, { Component } from 'react'
 import { browserHistory, Router } from 'react-router';
 import Layout from './layout';
 import Home from './home';
@@ -13,7 +13,7 @@ const childRoutes = ((args) => {
   })
 })(config);
 
-const routes = {  
+const routes = {
   path: '/',
   component: Layout,
   indexRoute: {
@@ -21,7 +21,7 @@ const routes = {
   },
   childRoutes,
 }
-export default class App extends Component {  
+export default class App extends Component {
   render () {
     return <Router history={browserHistory} routes={routes} />
   }
