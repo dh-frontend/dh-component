@@ -4,6 +4,8 @@ export Button from './button';
 export Icon from './icon';
 export Dropdown from './dropdown';
 export Table from './table';
+export message from './message';
+export Tooltip from './tooltip';
 
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';

@@ -3,3 +3,43 @@
     background-color: red;
   }
 }
+.demo {
+  padding: 0;
+}
+.demo .container {
+  height: 220px;
+  width: 350px;
+  position: relative;
+  margin-top: 30px;
+}
+.demo .container .top {
+  position: absolute;
+  top: 0;
+  left: 80px;
+}
+.demo .container .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 80px;
+}
+.demo .container .left,
+.demo .container .right {
+  width: 58px;
+  position: absolute;
+}
+.demo .container .left {
+  left: 0;
+  text-align: left;
+  top: 35px;
+}
+.demo .container .right {
+  right: 0;
+  text-align: right;
+  top: 35px;
+}
+.demo .container  a {
+  padding: 10px;
+  margin:  4px;
+  display: inline-block;
+  border: 1px solid #eee;
+}

@@ -1,18 +1,37 @@
 import React from 'react';
-import { Test, Menu, Row, Col, Button, Icon, Dropdown } from '../../src';
+import { Test, Menu, Row, Col, Button, Icon, Dropdown, message, Tooltip } from '../../src';
 
 class Wrapper extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
+			title:'请选择看板分组'
 		};
 	}
  handleDropdown(key,value) {
 	 console.log('key',key);
 	 console.log('value',value)
  }
+ handleMessage() {
+	 console.log(message);
+	 message.success('message success');
+ }
+ handleSelect(key) {
+	const title = key.item.props.children;
+	 this.setState({title});
+ }
 	render() {
-		let options = [{key:'1',value:'选项一'},{key:'2',value:'选项二'},{key:'3',value:'选项三'},{key:'4',value:'选项四'},]
+		let options = [{key:'1',value:'选项一'},{key:'2',value:'选项二'},{key:'3',value:'选项三'},{key:'4',value:'选项四'},];
+		let overlay = <div>提示文字</div>
+		const itemlist = (
+			<Menu onSelect={this.handleSelect.bind(this)}>
+				<Menu.Item key="1">选项一</Menu.Item>
+				<Menu.Item key="2">选项二</Menu.Item>
+				<Menu.Item key="3">选项三</Menu.Item>
+				<Menu.Item key="4">选项四</Menu.Item>
+			</Menu>
+		)
+		const { title } = this.state;
 		return (
 	    <div>
 			 	<Test/>
@@ -45,11 +64,81 @@ class Wrapper extends React.Component {
 							<Icon type="plus"/>
 						</div>
 				</div>
-				<div style={{marginTop:20,marginLeft:50,width:300}}>
+				{/* <div style={{marginTop:20,marginLeft:50,width:300}}>
 					 <Dropdown
 						  options={options}
 							onClick={this.handleDropdown}
 						 />
+				</div> */}
+				<h1 style={{textAlign:'center'}} >测试组件</h1>
+				<div style={{width:800,height:500,margin:'0 auto',border:'1px solid #eee'}}>
+
+					<Button onClick={this.handleMessage}>success</Button>
+					<Button onClick={()=>{message.error('error','已通知',2,() =>{
+						console.log('callback')
+					})}}>error+callback</Button>
+					<Button onClick={()=>{message.warning('warning')}}>waring</Button>
+					<Button onClick={()=>{message.clear()}}>clear</Button>
+					<div className="demo">
+        		<div className="container">
+          <div className="top">
+            <Tooltip title="提示语句" name="张三" placement="topLeft" trigger={['hover']}>
+              <a href="">上左</a>
+            </Tooltip>
+            <Tooltip title="提示语句" placement="top" trigger={['hover']}>
+							<a href="">上边</a>
+            </Tooltip>
+            <Tooltip title="提示语句" placement="topRight" trigger={['hover']}>
+              <a>上右</a>
+            </Tooltip>
+          </div>
+          <div className="bottom">
+            <Tooltip title="提示语句" placement="bottomLeft" trigger={['hover']}>
+              <a>下左</a>
+            </Tooltip>
+            <Tooltip title="提示语句" placement="bottom" trigger={['hover']}>
+							<a>下边</a>
+            </Tooltip>
+            <Tooltip title="提示语句" placement="bottomRight" trigger={['hover']}>
+              <a href="">下右</a>
+            </Tooltip>
+          </div>
+          <div className="left">
+            <Tooltip title="提示语句" placement="leftTop" trigger={['hover']}>
+              <a href="">左上</a>
+            </Tooltip>
+            <Tooltip title="提示语句" placement="left" trigger={['hover']}>
+            <a href="">左边</a>
+            </Tooltip>
+            <Tooltip title="提示语句" placement="leftBottom" trigger={['hover']}>
+              <a href="">左右</a>
+            </Tooltip>
+          </div>
+          <div className="right">
+            <Tooltip title="提示语句" placement="rightTop" trigger={['hover']}>
+              <a href="">右上</a>
+            </Tooltip>
+            <Tooltip title="提示语句" placement="right" trigger={['hover']}>
+              <a href="">右边</a>
+            </Tooltip>
+            <Tooltip title="提示语句" placement="rightBottom" trigger={['hover']}>
+              <a href="">右下</a>
+            </Tooltip>
+          </div>
+         </div>
+				 <div>
+					 <div style={{marginTop:30,width:100,float:'left'}}>
+						 <Dropdown
+							 overlay={itemlist}
+							>
+	              <a href="">dropdown</a>
+						 </Dropdown>
+					 </div>
+					 <div style={{marginTop:30,width:200,float:'left'}}>
+						 <Dropdown title={title}  overlay={itemlist} />
+					 </div>
+				 </div>
+      </div>
 				</div>
 			</div>
 		);
