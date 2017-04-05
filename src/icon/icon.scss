@@ -1,13 +1,13 @@
 @font-face {
-  font-family: 'iconfont';  /* project id 222227 */
-  src: url('//at.alicdn.com/t/font_94l2h5o9ve5vzpvi.eot');
-  src: url('//at.alicdn.com/t/font_94l2h5o9ve5vzpvi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_94l2h5o9ve5vzpvi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_94l2h5o9ve5vzpvi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_94l2h5o9ve5vzpvi.svg#iconfont') format('svg');
+  font-family: 'dhfont';  /* project id 267870 */
+  src: url('//at.alicdn.com/t/font_yhnn1yujczrm5cdi.eot');
+  src: url('//at.alicdn.com/t/font_yhnn1yujczrm5cdi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_yhnn1yujczrm5cdi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_yhnn1yujczrm5cdi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_yhnn1yujczrm5cdi.svg#dhfont') format('svg');
 }
 $iconList:
-  (plus "\e601")
+  (date "\e7a")
   (full, "\e718")
   (config, "\e60d")
   (share, "\e654")
@@ -53,7 +53,7 @@ $iconList:
 
 
 .dh-icon {
-  font-family:"iconfont" !important;
+  font-family:"dhfont" !important;
   display: inline-block;
   font-style: normal;
   vertical-align: baseline;

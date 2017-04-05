@@ -31,9 +31,11 @@ var compiler = webpack(webpackConfig),
 app.use(devMiddleWare);
 
 app.use(hotMiddleWare);
-
-// 前端转发
-app.use(config.route, proxy({target: 'http://localhost:' + port}));
+// app.use('*', (req,res) =>{
+//   res.sendFile(path.join(__dirname,'../example/index.html'))
+// })
+// // 前端转发
+// app.use(config.route, proxy({target: 'http://localhost:' + port}));
 
 app.listen(port, function(err) {
 	if (err) {

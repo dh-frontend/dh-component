@@ -1,5 +1,16 @@
-.dh-test-grad {
-  .ant-col-4 {
-    background-color: red;
+#root {
+  height: 100%;
+  .ant-layout {
+    height: 100%;
+    .logo {
+      height: 32px;
+      background: #333;
+      border-radius: 6px;
+      margin: 16px;
+      line-height: 32px;
+      text-align: center;
+      color: #fff;
+      font-size: 16px;
+    }
   }
 }
