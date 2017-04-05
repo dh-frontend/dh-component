@@ -18,7 +18,7 @@ export default class Tooltip extends React.Component {
     )
   }
   render() {
-    const { placement, trigger } =this.props;
+    const { placement, trigger } = this.props;
     const overlay = this.getContentElement();
     return (
       <RcTooltip
