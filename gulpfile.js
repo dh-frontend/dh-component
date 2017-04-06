@@ -10,7 +10,7 @@ const antds = ['grid', 'menu'];
 
 // 编译js文件
 gulp.task('bable', function(){
-  return gulp.src(['./lib/**/*.js', './lib/**/*.jsx'])
+  return gulp.src(['./src/**/*.js', './src/**/*.jsx'])
     .pipe(babel())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist'))
@@ -32,7 +32,7 @@ gulp.task('concat', ['sass', 'import'], function() {
 })
 
 gulp.task('sass', function() {
-  return gulp.src('./lib/**/*.scss')
+  return gulp.src('./src/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('dist'));
 });

@@ -6,8 +6,8 @@ var webpackHotMiddleware = require("webpack-hot-middleware");
 var proxy = require('http-proxy-middleware');
 var path = require('path');
 
-var webpackConfig = require("./webpack.example.js"),
-	config = require("../config/project");
+var webpackConfig = require("./webpack.example.js");
+var config = require("../config/project");
 var port = config.port;
 
 for (var key in webpackConfig.entry) {
@@ -15,8 +15,8 @@ for (var key in webpackConfig.entry) {
 	webpackConfig.entry[key].unshift('react-hot-loader/patch');
 }
 
-var compiler = webpack(webpackConfig),
-	devMiddleWare = webpackDevMiddleware(compiler, {
+var compiler = webpack(webpackConfig);
+var	devMiddleWare = webpackDevMiddleware(compiler, {
 	  hot: true,
 		historyApiFallback: true,
 		// noInfo: true,
@@ -35,7 +35,7 @@ app.use(hotMiddleWare);
 //   res.sendFile(path.join(__dirname,'../example/index.html'))
 // })
 // // 前端转发
-// app.use(config.route, proxy({target: 'http://localhost:' + port}));
+app.use(config.route, proxy({target: 'http://localhost:' + port}));
 
 app.listen(port, function(err) {
 	if (err) {

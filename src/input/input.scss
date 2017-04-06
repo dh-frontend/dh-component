@@ -1,0 +1,30 @@
+$inputLength: auto; // input 高度 
+$inputFontSize: 12px; // input 内的字体大小
+$inputBorderBg: #47c97d;
+
+.dh-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid $inputBorderBg;
+  &-before {
+    margin-right: 8px;
+  }
+  &-ater {
+    margin-left: 8px;
+  }
+  &-warp {
+    flex: 1;
+    padding: 4px 0;
+   
+    &-inner {
+      height: 100%;
+      font-size: $inputFontSize;
+      border: none;
+      background: transparent;
+      outline: 0;
+    }
+  
+  }
+ 
+}
