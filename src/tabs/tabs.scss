@@ -1,0 +1,93 @@
+$tap-ink-bar-height: 2px;
+$tap-bar-border-color: #d8dbe4;
+$tab-nav-padding-defalut: 8px 0;
+$tab-nav-bgColor-defalut: #3ab86e;
+$tab-nav-padding-diamond: 8px 0;
+$tab-nav-bgColor-diamond: transparent;
+/* extend --begin */
+.container {
+  .dh-tab-nav-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+  }
+}
+/*mixin --bdgin */
+@mixin tabNav($padding, $bg) {
+  .dh-tab-nav {
+    position: relative;
+    display: inline-block;
+    padding: $padding;
+    transform-origin: 0 0;
+    .dh-tab-ink-bar {
+      position: absolute;
+      bottom: 0;
+      height: $tap-ink-bar-height;
+      background-color: $bg;
+      z-index: 1;
+      transition: all cubic-bezier(.23,1,.32,1) .3s;
+      transform-origin: 0 0;
+    }
+  }
+}
+@mixin tabTab($type) {
+  @if $type == 'diamond' {
+    .dh-tab-tab {
+      height: 28px;
+      line-height: 26px;
+      border-radius: 14px;
+      padding: 0 12px;
+      border: 1px solid #e6e6e6;
+      &:not(:nth-child(2)) {
+        margin-left: 8px;
+      }
+    }
+  } @else {
+    .dh-tab-tab {
+      transition: background-color .3s ease-out,color .3s ease-out;
+      display: inline-block;
+      padding: 0 12px;
+      vertical-align: top;
+      cursor: pointer;
+      color: #999999;
+      font-size: 12px;
+    }
+  }
+}
+ @mixin tabBar($tapNavPadding, $tapNavBgColor, $type) {
+  .dh-tab-bar {
+    border-bottom: 1px solid $tap-bar-border-color;
+    outline: 0;
+    @extend .container;
+    @include tabNav($tapNavPadding, $tapNavBgColor);
+    @include tabTab($type);
+    @if $type == 'diamond' {
+      .dh-tab-tab-active {
+        background-color: #3ab86e;
+        color: #fff;
+      }
+    } @else {
+      .dh-tab-tab-active {
+        color: #666666;
+      }
+    }
+  }
+}
+.dh-tab {
+  overflow: hidden;
+  @include tabBar($tab-nav-padding-defalut, $tab-nav-bgColor-defalut, lines)
+}
+.dh-tab-diamond {
+  @include tabBar($tab-nav-padding-defalut, $tab-nav-bgColor-diamond, diamond)
+}
+.dh-tab-content-animated {
+  display: flex;
+  will-change: transform;
+  .dh-tab-tabpane {
+    transition: opacity .3s ease-out;
+    opacity: 1;
+    width: 100%;
+    display: block;
+    flex-shrink: 0;
+  }
+}

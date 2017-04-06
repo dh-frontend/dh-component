@@ -1,17 +1,19 @@
 'use strict';
 
-const path = require('path'),
-      webpack = require('webpack'),
-      utils = require('steamer-webpack-utils');
+const path                   = require('path');
 
-var config = require('../config/project'),
-    configWebpack = config.webpack;
+const webpack                = require('webpack');
+const marked                 = require("marked");
+const utils                  = require('steamer-webpack-utils');
+const config                 = require('../config/project');
+const configWebpack          = config.webpack;
+const HtmlResWebpackPlugin   = require('html-res-webpack-plugin');
+const ExtractTextPlugin      = require("extract-text-webpack-plugin");
 
-var Clean = require('clean-webpack-plugin'),
-    HtmlResWebpackPlugin = require('html-res-webpack-plugin'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin");
+const Clean = require('clean-webpack-plugin');
+const renderer = new marked.Renderer();
 
-var webpackConfig = {
+const webpackConfig = {
     entry: {
         "index": [path.join(configWebpack.path.example, "index.js")],
     },
@@ -65,6 +67,21 @@ var webpackConfig = {
                 ],
                 // include: path.resolve(configWebpack.path.src)
             },
+            {
+                test: /\.md$/,
+                use: [
+                    {
+                        loader: "html-loader"
+                    },
+                    {
+                        loader: "markdown-loader",
+                        options: {
+                            renderer
+                            /* your options here */
+                        }
+                    }
+                ]
+            }
         ]
     },
     resolve: {

@@ -11,7 +11,7 @@ class Icon extends React.Component {
   render () {
     return (
       <i className={`dh-icon dh-icon-${this.props.type}`} />
-    )
+    );
   }
 }
 

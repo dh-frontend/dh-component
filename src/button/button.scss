@@ -53,7 +53,7 @@ $button-borderColor-danger-checked: #e6513d;
 }
 .dh-btn {
     display: inline-block;
-    padding: 0 12px;
+    padding: 0 16px;
     @include buttonSize($normal-button-Height, $normal-button-FontSize);
     line-height: 1;
     text-align: center;
@@ -74,6 +74,9 @@ $button-borderColor-danger-checked: #e6513d;
       $button-backgroundColor-default-checked,
       $button-borderColor-default-checked
     );
+    .dh-icon + span {
+      margin-left: 8px;
+    }   
 }
 .dh-btn-primary {
   @include buttonTypes(
@@ -95,4 +98,12 @@ $button-borderColor-danger-checked: #e6513d;
 }
 .dh-btn-small {
     @include buttonSize($small-button-Height, $small-button-FontSize);
+}
+.dh-btn-circle {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 14px;
+  border-radius: 50%;
+  line-height: 1;
 }
