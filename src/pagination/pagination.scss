@@ -1,18 +1,36 @@
 .dh-pagination {
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
-    li {
-      display: inline-block;
-      width: 20px;
-      text-align: center;
-      cursor: pointer;
-      background: red;
-      &.active {
-        background: green;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  .dh-pagination-jump-prev, .dh-pagination-jump-next {
+    display: none;
+  }
+  .dh-pagination-item {
+    display: inline-block;
+    padding: 0 8px;
+    vertical-align: middle;
+    a {
+      color: #ccc;
+    }
+    &.dh-pagination-item-active {
+      a {
+        color: #666;
       }
     }
+  }
+  .dh-pagination-next, .dh-pagination-prev {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #e6e6e6;
+    &:hover {
+      color: #50d27c;
+    }
+  }
+  .dh-pagination-prev {
+
   }
 }

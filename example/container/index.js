@@ -1,5 +1,5 @@
 import React from 'react';
-import { Test, Menu, Row, Col, Button, Icon, Dropdown, Pagination } from '../../src';
+import { Test, Menu, Row, Col, Button, Icon, Dropdown, Pagination, Radio, Checkbox } from '../../src';
 
 class Wrapper extends React.Component {
 	constructor(props, context) {
@@ -53,7 +53,23 @@ class Wrapper extends React.Component {
 				</div>
 
 				<div style={{marginTop: 24, padding: 24}}>
-					<Pagination total={500} itemCount={9} />
+					<Pagination total={500} />
+				</div>
+
+				<div style={{marginTop: 24, padding: 24}}>
+					<Radio.Group onChange={(idx) => console.log('radio group selected', idx)}>
+						<Radio>radio测试1</Radio>
+						<Radio>radio测试2</Radio>
+					</Radio.Group>
+
+				</div>
+
+				<div style={{marginTop: 24, padding: 24}}>
+					<Checkbox.Group onChange={(idx) => console.log('radio group selected', idx)}>
+						<Checkbox>checkbox测试1</Checkbox>
+						<Checkbox>checkbox测试2</Checkbox>
+					</Checkbox.Group>
+
 				</div>
 			</div>
 		);

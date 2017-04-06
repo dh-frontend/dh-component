@@ -1,0 +1,23 @@
+.dh-radio {
+  display: inline-block;
+  margin-right: 32px;
+  color: #999;
+  &:last-child {
+    margin-right: 0;
+  }
+  cursor: pointer;
+  i {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: red;
+    margin-right: 8px;
+    position: relative;
+    top: 3px;
+  }
+  &.dh-radio-checked {
+    i {
+      background: green;
+    }
+  }
+}

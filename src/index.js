@@ -5,6 +5,8 @@ export Icon from './icon';
 export Dropdown from './dropdown';
 export Table from './table';
 export Pagination from './pagination';
+export Radio from './radio';
+export Checkbox from './checkbox';
 
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';
