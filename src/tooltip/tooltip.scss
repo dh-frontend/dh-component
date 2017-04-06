@@ -1,0 +1,110 @@
+$tooltip-color: #f6f6f6;
+$tooltip-arrawSize: 5px;
+
+.dh-tooltip {
+    position: absolute;
+
+    &-content {
+        background-color: $tooltip-color;
+        // overflow: hidden;
+        // border: 1px solid #e6e6e6;
+        box-shadow: 0 0 5px -1px rgba(0,0,0,.2);
+    }
+    &-hidden {
+        display: none;
+    }
+    &-arrow {
+        position: absolute;
+        border-color: transparent;
+        border-style: solid;
+        border-width: $tooltip-arrawSize;
+        width: 0;
+        height: 0;
+    }
+
+    &-inner {
+        padding: 12px 16px;
+        border-radius: 4px;
+        color: #666666;
+    }
+
+    &-placement-top &-arrow,
+    &-placement-topLeft &-arrow,
+    &-placement-topRight &-arrow {
+        bottom: -#{$tooltip-arrawSize};
+        border-bottom-width: 0;
+        border-top-color: $tooltip-color;
+    }
+
+    &-placement-top &-arrow {
+        left: 40%;
+    }
+
+    &-placement-topLeft &-arrow {
+        left: 15%;
+    }
+
+    &-placement-topRight &-arrow {
+        left: 65%;
+    }
+
+    &-placement-right &-arrow,
+    &-placement-rightBottom &-arrow,
+    &-placement-rightTop &-arrow {
+        left: -#{$tooltip-arrawSize};
+        border-left-width: 0;
+        border-right-color: $tooltip-color;
+    }
+
+    &-placement-right &-arrow {
+        top: 40%;
+    }
+
+    &-placement-rightBottom &-arrow {
+        top: 65%;
+    }
+
+    &-placement-rightTop &-arrow {
+        top: 15%;
+    }
+
+    &-placement-bottom &-arrow,
+    &-placement-bottomLeft &-arrow,
+    &-placement-bottomRight &-arrow {
+        top: -#{$tooltip-arrawSize};
+        border-top-width: 0;
+        border-bottom-color: $tooltip-color;
+    }
+
+    &-placement-bottom &-arrow {
+        left: 40%;
+    }
+
+    &-placement-bottomLeft &-arrow {
+        left: 15%;
+    }
+
+    &-placement-bottomRight &-arrow {
+        left: 65%;
+    }
+
+    &-placement-left &-arrow,
+    &-placement-leftBottom &-arrow,
+    &-placement-leftTop &-arrow {
+        left: -#{$tooltip-arrawSize};
+        border-right-width: 0;
+        border-left-color: $tooltip-color;
+    }
+
+    &-placement-right &-arrow {
+        top: 40%;
+    }
+
+    &-placement-rightBottom &-arrow {
+        top: 65%;
+    }
+
+    &-placement-rightTop &-arrow {
+        top: 15%;
+    }
+}

@@ -1,0 +1,108 @@
+
+$input-number-color: #999;
+$input-number-fontSize: 14px;
+$input-number-pading: 4px 0;
+$input-number-input-color: #999;
+$input-number-border-color: #49c77d;
+$input-number-handler-color: #ccc;
+$input-number-handler-over-color: #999;
+/* --- s: sass extend method -- */
+.inputNumberIcon {
+  font-family:"iconfont" !important;
+  display: inline-block;
+  font-style: normal;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.inputNumber {
+  .dh-input-number-input {
+    width: 100%;
+    text-align: left;
+    outline: 0;
+    -moz-appearance: textfield;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    color: $input-number-input-color;
+    border: 0;
+  }
+}
+/* --- e: sass extend method -- */
+
+.dh-input-number {
+  position: relative;
+  padding: $input-number-pading;
+  width: 100%;
+  cursor: text;
+  color: $input-number-color;
+  background-color: transparent;
+  background-image: none;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  margin: 0;
+  font-size: $input-number-fontSize;
+  display: inline-block;
+  border-bottom: 1px solid $input-number-border-color;
+  @extend .inputNumber;
+
+  &-handler-wrap {
+    width: initial;
+    height: 100%;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: opacity .24s linear .1s;
+    transition: opacity .24s linear .1s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-handler {
+    cursor: pointer;
+    text-align: center;
+    line-height: 0;
+    height: 50%;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    display: block;
+    width: 100%;
+    color: $input-number-handler-color;
+    font-weight: 700;
+
+    &-up {
+      transform: rotate(180deg);
+
+      &-inner {
+        @extend .inputNumberIcon;
+        &:before {
+          content: "\e609";
+        }
+      }
+    }
+
+    &-down {
+      &-inner {
+        @extend .inputNumberIcon;
+        &:before { 
+          content: "\e609"; 
+        }
+      }
+    }
+
+    &-up, &-down {
+      &:hover {
+        font-size: 14px;
+        color: $input-number-handler-over-color;
+      }
+    }
+  }
+}

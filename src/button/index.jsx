@@ -1,10 +1,13 @@
 import React from 'react';
+import Icon from '../icon';
 import classNames from 'classnames';
 
 class Button extends React.Component {
   static propTypes = {
     type: React.PropTypes.oneOf(['default', 'primary', 'danger']),
     size: React.PropTypes.oneOf(['normal', 'small']),
+    shape: React.PropTypes.oneOf(['circle']),
+    icon: React.PropTypes.string,
     onClick: React.PropTypes.func
   };
 
@@ -25,19 +28,26 @@ class Button extends React.Component {
   }
 
   render() {
-    const { type, disabled, size } = this.props;
+    const { type, disabled, size, shape, icon } = this.props;
     const otherProps = this.state.checked ? { 'data-role': 'checked'} : {};
     return (
       <button
         type="button"
         className={classNames('dh-btn', {
           [`dh-btn-${type}`]: type,
-          [`dh-btn-${size}`]: size
+          [`dh-btn-${size}`]: size,
+          [`dh-btn-${shape}`]: shape
         })}
         disabled={disabled}
         onClick={this.handleClick}
-        {...otherProps}>
-        <span>{this.props.children}</span>
+        {...otherProps}
+      >
+      {
+        !shape && icon ? (<Icon type={icon} />) : null
+      }
+      {
+        shape ? (<Icon type={icon} />) : (<span>{this.props.children}</span>)
+      } 
       </button>
     )
   }

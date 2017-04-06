@@ -7,11 +7,15 @@ export Table from './table';
 export Pagination from './pagination';
 export Radio from './radio';
 export Checkbox from './checkbox';
+export Tabs from './tabs';
+export Input from './input';
+export message from './message';
+export Tooltip from './tooltip';
 
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';
 export Col from 'antd/lib/col';
 export Menu from 'antd/lib/menu';
 export Form from 'antd/lib/form';
-
+export Layout from 'antd/lib/layout';
 /* endt --- import antd component **/
