@@ -1,6 +1,5 @@
 
-##datahunter react Component
-
+## datahunter react Component
 ### 安装
 
 ```bash
@@ -12,7 +11,7 @@
 import { Test } from 'dh-component';
 ReactDOM.render(<Test />, mountNode);
 ```
-导入依赖样式
+### 导入依赖样式
 
 ```jsx
 import 'dh-component/dist/index.css';

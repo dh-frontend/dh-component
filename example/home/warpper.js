@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { 	Layout, Menu } from '../../src';
+import config from '../config.json';
+
+import { 	Layout, Menu, Button } from '../../src';
 const { Header, Content, Footer, Sider } = Layout;
-import config from './config.js';
+
 class Wrapper extends React.Component {
 	constructor(props, context) {
 		super(props, context);
@@ -14,9 +16,7 @@ class Wrapper extends React.Component {
 		return array.map((item, idx) => {
 			return (
 				<Menu.Item key={idx}>
-					<Link to={item.name}>
-					{item.title}
-					</Link>
+					<Link to={item.path}>{item.desc}</Link>
 				</Menu.Item>
 			);
 		})
@@ -31,7 +31,7 @@ class Wrapper extends React.Component {
 				>
 					<div className="logo">使用文档</div>
 					<Menu theme="dark" mode="inline">
-						{ this.renderMenu(config)}
+						{ this.renderMenu(config.menu)}
 					</Menu>
 				</Sider>
 				<Layout>
@@ -42,7 +42,7 @@ class Wrapper extends React.Component {
 						</div>
 					</Content>
 					<Footer style={{ textAlign: 'center' }}>
-						Datahunter component ©2016 Created by DH UED
+						Datahunter component ©2016 Created by DH-jimberton
 					</Footer>
 				</Layout>
 			</Layout>
