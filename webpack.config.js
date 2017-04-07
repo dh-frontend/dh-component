@@ -1,6 +1,6 @@
 /**
  *
- * @author keyy/1501718947@qq.com 17/3/8 19:53
+ * @author keyy/jimberton.wang@gmail.com 17/4/10 19:53
  * @description
  */
 const path = require('path');
@@ -8,23 +8,31 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const marked = require("marked");
 const renderer = new marked.Renderer();
-// marked.setOptions({
-//   highlight: function (code, lang, callback) {
-//     require('pygmentize-bundled')({ lang: lang, format: 'html' }, code, function (err, result) {
-//       callback(err, result);
-//     });
-//   }
-// });
+let output =  {
+  path: path.resolve(__dirname, 'build'),
+  filename: '[name].bundle.js',
+  chunkFilename: '[id].bundle.js',
+  publicPath: '/'
+};
+let plugins = [
+  new webpack.optimize.CommonsChunkPlugin('common'),
+  new HtmlWebpackPlugin({
+    title: 'datahuner-component API',
+    description: '',
+    username: 'wangjingbo',
+    filename: 'index.html',
+    inject: 'body',
+    template: './example/index.html_vm',
+    hash: false
+  })
+]
+console.log(process.env.NODE_ENVclear
+);
 module.exports = {
   entry: {
     index: './example/entry.js'
   },
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: '[name].bundle.js',
-    chunkFilename: '[id].bundle.js',
-    publicPath: '/'
-  },
+  output,
   devtool: 'source-map',
   module: {
     rules: [
@@ -71,16 +79,5 @@ module.exports = {
       path.resolve(__dirname, 'example', 'utils', 'lib')
     ]
   },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin('common'),
-    new HtmlWebpackPlugin({
-      title: 'datahuner-component API',
-      description: '',
-      username: 'wangjingbo',
-      filename: 'index.html',
-      inject: 'body',
-      template: './example/index.html_vm',
-      hash: false
-    })
-  ]
+  plugins
 };

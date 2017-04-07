@@ -1,27 +1,21 @@
 {
   "name": "dh-component",
-  "version": "1.1.31",
-  "description": "this is datahunter frontend",
+  "version": "1.2.1",
+  "description": "The front-end development engineers jimberton gulp react component",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "rm -rf build && webpack --config webpack.dev.config.js",
-    "dist": "rm -rf build && webpack --config webpack.prod.config.js",
-    "start": "webpack-dev-server --content-base build/ --config webpack.dev.config.js --history-api-fallback --hot --inline --host 0.0.0.0"
+    "build": "rm -rf build && set NODE_ENV=production && webpack --config webpack.config.js",
+    "dist": "gulp start",
+    "start": "export NODE_ENV=development && webpack-dev-server --content-base build/ --config webpack.config.js --history-api-fallback --hot --inline --host 0.0.0.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shulie/dh-component.git"
   },
-  "files": [
-    "index.html",
-    "webpack.config.js"
-  ],
   "keywords": [
     "datahunter",
     "react",
-    "component",
-    "starter kit",
-    "boilerplate"
+    "component"
   ],
   "author": "jimberton",
   "license": "MIT",

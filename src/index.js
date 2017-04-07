@@ -13,6 +13,7 @@ export Section from './section';
 
 export message from './message';
 export Tooltip from './tooltip';
+export Modal from './modal';
 
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';
