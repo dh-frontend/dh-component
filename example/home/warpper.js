@@ -37,7 +37,7 @@ class Wrapper extends React.Component {
 				<Layout>
 					<Header style={{ background: '#fff', padding: 0 }} />
 					<Content style={{ margin: '24px 16px 0' }}>
-						<div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+						<div style={{ padding: 16, background: '#fff', minHeight: 400 }}>
 							{this.props.children}
 						</div>
 					</Content>

@@ -1,5 +1,8 @@
 {
   "menu": [{
+      "desc": "图标管理",
+      "path": "icon"
+    }, {
       "desc": "下拉框",
       "path": "select"
     }, {
