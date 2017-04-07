@@ -1,11 +1,12 @@
 'use strict';
-export Test from './test/';
+
 export Button from './button';
 export Icon from './icon';
 export Dropdown from './dropdown';
 export Table from './table';
 export Tabs from './tabs';
-export Input from './input';
+export {Input, Number } from './input';
+
 export message from './message';
 export Tooltip from './tooltip';
 

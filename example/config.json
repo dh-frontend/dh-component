@@ -1,0 +1,12 @@
+{
+  "menu": [{
+      "desc": "下拉框",
+      "path": "select"
+    }, {
+      "desc": "按钮",
+      "path": "button"
+    }, {
+      "desc": "输入框",
+      "path": "input"
+    }]
+}

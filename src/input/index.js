@@ -1,4 +1,2 @@
-import number from './number'
-export default {
-  Number: number
-}
+export Number from './number';
+export Input from './input';
