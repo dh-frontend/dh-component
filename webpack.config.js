@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const marked = require("marked");
 const renderer = new marked.Renderer();
 let output =  {
-  path: path.resolve(__dirname, 'build'),
+  path: path.resolve(__dirname, 'assets'),
   filename: '[name].bundle.js',
   chunkFilename: '[id].bundle.js',
   publicPath: '/'
@@ -26,8 +26,26 @@ let plugins = [
     hash: false
   })
 ]
-console.log(process.env.NODE_ENVclear
-);
+if (process.env.NODE_ENV === 'production') {
+  output = {
+    path: path.resolve(__dirname, 'assets'),
+    filename: '[hash].[name].bundle.js',
+    chunkFilename: '[hash].[id].bundle.js'
+  };
+  plugins = plugins.concat(plugins, [
+    new webpack.DefinePlugin({
+       'process.env': {
+         NODE_ENV: '"production"'
+       }
+     }),
+     new webpack.optimize.UglifyJsPlugin({
+       compress: {
+         warnings: false
+       }
+     })
+  ])
+}
+console.log();
 module.exports = {
   entry: {
     index: './example/entry.js'

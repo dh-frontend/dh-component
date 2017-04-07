@@ -42,7 +42,7 @@ class Wrapper extends React.Component {
 						</div>
 					</Content>
 					<Footer style={{ textAlign: 'center' }}>
-						Datahunter component ©2016 Created by DH-jimberton
+						React component ©2017 Created by DH jimberton
 					</Footer>
 				</Layout>
 			</Layout>
