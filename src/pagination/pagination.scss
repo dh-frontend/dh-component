@@ -29,8 +29,16 @@
     &:hover {
       color: #50d27c;
     }
+    &:before {
+      font-family: dhfont;
+      content: '\e6cd';
+      font-size: 24px;
+      line-height: 24px;
+    }
   }
   .dh-pagination-prev {
-
+    &:before {
+      content: '\e689';
+    }
   }
 }

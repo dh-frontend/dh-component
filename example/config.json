@@ -11,5 +11,14 @@
     }, {
       "desc": "输入框",
       "path": "input"
+    }, {
+      "desc": "复选框",
+      "path": "checkbox"
+    }, {
+      "desc": "单选框",
+      "path": "radio"
+    }, {
+      "desc": "分页",
+      "path": "pagination"
     }]
 }

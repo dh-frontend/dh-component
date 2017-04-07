@@ -6,19 +6,19 @@ class Checkbox extends Component {
   static Group = Group;
 
   static propTypes = {
-    defaultChecked: PropTypes.bool,
+    defaultValue: PropTypes.bool,
     onChange: PropTypes.function
   }
 
   static defaultProps = {
-    defaultChecked: false,
+    defaultValue: false,
     onChange: function(){}
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      checked: props.defaultChecked
+      checked: props.defaultValue
     };
     this.onClickSelect = this.onClickSelect.bind(this);
   }
@@ -45,7 +45,7 @@ class Checkbox extends Component {
 
     return (
       <div className={`dh-checkbox ${checked ? 'dh-checkbox-checked' : ''}`} onClick={this.onClickSelect}>
-        <i>ic</i>
+        <i className={`dh-icon ${checked ? 'dh-icon-checkbox-checked' : 'dh-icon-checkbox'}`} />
         <span>{this.props.children}</span>
       </div>
     )

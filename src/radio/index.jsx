@@ -45,7 +45,7 @@ class Radio extends Component {
 
     return (
       <div className={`dh-radio ${checked ? 'dh-radio-checked' : ''}`} onClick={this.onClickSelect}>
-        <i>ic</i>
+        <i className={`dh-icon ${checked ? 'dh-icon-radio-checked' : 'dh-icon-radio'}`} />
         <span>{this.props.children}</span>
       </div>
     )

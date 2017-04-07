@@ -2,19 +2,19 @@ import React, { Component, PropTypes } from 'react';
 
 class Group extends Component {
   static propTypes = {
-    defaultChecked: PropTypes.number,
+    defaultValue: PropTypes.number,
     onChange: PropTypes.function
   }
 
   static defaultProps = {
-    defaultChecked: 0,
+    defaultValue: 0,
     onChange: function(){}
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      checked: props.defaultChecked
+      checked: props.defaultValue
     };
     this.onSelectChange = this.onSelectChange.bind(this);
   }
