@@ -1,5 +1,5 @@
 'use strict';
-export Test from './test/';
+
 export Button from './button';
 export Icon from './icon';
 export Dropdown from './dropdown';
@@ -8,7 +8,8 @@ export Pagination from './pagination';
 export Radio from './radio';
 export Checkbox from './checkbox';
 export Tabs from './tabs';
-export Input from './input';
+export {Input, Number } from './input';
+
 export message from './message';
 export Tooltip from './tooltip';
 

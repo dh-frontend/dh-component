@@ -1,56 +1,26 @@
+html, body{
+    font-family: 'Roboto', sans-serif;
+}
 #root {
   height: 100%;
   .ant-layout {
     height: 100%;
-    .logo {
+  }
+  .logo {
       height: 32px;
       background: #333;
       border-radius: 6px;
       margin: 16px;
+      color: #fff;
       line-height: 32px;
       text-align: center;
-      color: #fff;
       font-size: 16px;
-    }
   }
 }
-.demo {
-  padding: 0;
-}
-.demo .container {
-  height: 220px;
-  width: 350px;
-  position: relative;
-  margin-top: 30px;
-}
-.demo .container .top {
-  position: absolute;
-  top: 0;
-  left: 80px;
-}
-.demo .container .bottom {
-  position: absolute;
-  bottom: 0;
-  left: 80px;
-}
-.demo .container .left,
-.demo .container .right {
-  width: 58px;
-  position: absolute;
-}
-.demo .container .left {
-  left: 0;
-  text-align: left;
-  top: 35px;
-}
-.demo .container .right {
-  right: 0;
-  text-align: right;
-  top: 35px;
-}
-.demo .container  a {
-  padding: 10px;
-  margin:  4px;
-  display: inline-block;
-  border: 1px solid #eee;
+.dh-marked {
+  background-color: #f3f3f3;
+  padding: 8px;
+  h2, h3 {
+    color: #000;
+  }
 }

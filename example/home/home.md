@@ -1,6 +1,5 @@
-##datahunter react Component
 
->>>>>>> 4e02b9123b3030a122efa83055d4789c64cc079d
+## datahunter react Component
 ### 安装
 
 ```bash
@@ -17,3 +16,4 @@ ReactDOM.render(<Test />, mountNode);
 ```jsx
 import 'dh-component/dist/index.css';
 ```
+
