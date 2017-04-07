@@ -1,6 +1,6 @@
 {
   "name": "dh-component",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "The front-end development engineers jimberton gulp react component",
   "main": "dist/index.js",
   "scripts": {
