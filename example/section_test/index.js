@@ -1,16 +1,15 @@
 import React from 'react';
 import { Section } from '../../src';
-class SelectTest extends React.Component {
+class SectionTest extends React.Component {
   constructor(props) {
     super(props)
   }
   render() {
     return (
       <div >
-        下拉框测试
-        <Section />
+        <Section backgroundColor="red">测试</Section>
       </div>
     )
   }
 }
-export default SelectTest;
+export default SectionTest;

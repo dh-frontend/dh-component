@@ -11,5 +11,8 @@
     }, {
       "desc": "输入框",
       "path": "input"
+    }, {
+      "desc": "区块组件",
+      "path": "section"
     }]
 }
