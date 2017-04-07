@@ -16,23 +16,26 @@ html, body{
       text-align: center;
       font-size: 16px;
   }
+
   .test-icon {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: space-around;
-    .test-icon-item {
-      width: 160px;
-      height: 64px;
-      margin: 12px 10px;
-      text-align: center;
-      cursor: pointer;
-      &:hover {
-        background-color: #50d27c;
-      }
-      span {
-        font-size: 26px;
+    .test-icon-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: space-around;
+      .test-icon-item {
+        width: 160px;
+        height: 64px;
+        margin: 12px 10px;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+          background-color: #50d27c;
+        }
+        span {
+          font-size: 26px;
+        }
       }
     }
   }

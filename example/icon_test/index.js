@@ -1,6 +1,8 @@
 import React from 'react';
+import Markdown from '../home/Markdown'
 import { Icon } from '../../src';
 import icons from './icon.json';
+import md from './icon.md';
 class IconTest extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,8 @@ class IconTest extends React.Component {
     console.log(icons);
     return (
       <div className="test-icon">
-        {this.renderIcons(icons)}
+        <div className="test-icon-box">{this.renderIcons(icons)}</div>
+        <Markdown content={md}/>
       </div>
     )
   }
