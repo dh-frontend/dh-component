@@ -9,6 +9,7 @@ export Radio from './radio';
 export Checkbox from './checkbox';
 export Tabs from './tabs';
 export {Input, Number } from './input';
+export Section from './section';
 
 export message from './message';
 export Tooltip from './tooltip';

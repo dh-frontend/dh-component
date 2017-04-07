@@ -20,5 +20,8 @@
     }, {
       "desc": "分页",
       "path": "pagination"
+    }, {
+      "desc": "区块组件",
+      "path": "section"
     }]
 }
