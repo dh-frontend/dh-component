@@ -1,0 +1,20 @@
+.dh-checkbox {
+  display: inline-block;
+  margin-right: 32px;
+  color: #666;
+  &:last-child {
+    margin-right: 0;
+  }
+  cursor: pointer;
+  i {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 12px;
+  }
+  &.dh-checkbox-checked {
+    i {
+      color: #39b86e;
+    }
+  }
+}
