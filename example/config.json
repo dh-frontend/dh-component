@@ -23,5 +23,9 @@
     }, {
       "desc": "区块组件",
       "path": "section"
+    },
+    {
+      "desc": "下拉菜单",
+      "path": "dropdown"
     }]
 }

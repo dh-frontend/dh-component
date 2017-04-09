@@ -10,7 +10,7 @@ class Dropdown extends React.Component {
         mouseEnterDelay: 0.15,
         mouseLeaveDelay: 0.1,
         placement: 'bottomLeft',
-        icon: 'arrow-down'
+        icon: 'down'
     };
 
     getChildrenElement() {
