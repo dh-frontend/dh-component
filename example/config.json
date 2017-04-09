@@ -27,5 +27,9 @@
     {
       "desc": "下拉菜单",
       "path": "dropdown"
+    },
+    {
+      "desc": "提示框",
+      "path": "message"
     }]
 }
