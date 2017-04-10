@@ -1,12 +1,15 @@
 import React from 'react';
-import { Input, Number } from '../../src';
+import Markdown from '../home/Markdown';
+
+import { Input } from '../../src';
+import md from './readme.md';
 class InputTest extends React.Component {
   render() {
-    console.log(Number)
     return (
       <div>
-        <Input searched placeholder="请输入内容"/>
-        <Number placeholder="请输入内容"/>
+        <Input searched placeholder="请输入内容" danger/>
+        <Input.Number placeholder="请输入内容" />
+        <Markdown content={md}/>
       </div>
     )
   }

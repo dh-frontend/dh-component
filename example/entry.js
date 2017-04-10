@@ -14,13 +14,13 @@ import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 const rootEl = document.getElementById('root');
 const childRoutes = ((json) =>{
-  return json.map(d => (
+  return Object.keys(json).map(k => (
     {
-      path: d.path, 
-      component: require("./" + d.path + "_test/index.js").default
+      path: k, 
+      component: require("./" + k + "_test/index.js").default
     }
   ))
-})(config.menu);
+})(config);
 
 const routes = {
   path: '/',
@@ -47,7 +47,7 @@ ReactDOM.render((<Router history={browserHistory} routes={routes} />), rootEl);
 //   	);
 // };
 //  render(App);
-	
+
 // // Hot Module Replacement API
 // if (module.hot) {
 // 	module.hot.accept('./container/index', () => {

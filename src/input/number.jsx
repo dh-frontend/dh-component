@@ -2,6 +2,15 @@ import React from 'react';
 import  RcInputNumber from 'rc-input-number';
 
 class Number extends React.Component {
+  static propTypes = {
+    width: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number
+    ]),
+    placeholder: React.PropTypes.string,
+    onChange: React.PropTypes.func,
+    onBlur: React.PropTypes.func
+  }
   constructor(props) {
     super(props)
     this.state = {
@@ -15,6 +24,9 @@ class Number extends React.Component {
   }
   handleBlur() {
     this.setState({ focus: false });
+    if (this.props.onBlur) {
+      this.props.onBlur();
+    }
   }
   render() {
     const { width } = this.props;
