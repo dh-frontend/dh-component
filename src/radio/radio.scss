@@ -2,14 +2,17 @@
   display: inline-block;
   margin-right: 32px;
   color: #666;
+  .dh-icon {
+    font-size: 14px;
+  }
   &:last-child {
     margin-right: 0;
   }
   cursor: pointer;
   i {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     margin-right: 8px;
   }
   &.dh-radio-checked {

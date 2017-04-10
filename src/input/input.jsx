@@ -1,8 +1,11 @@
 import React from 'react';
+import classNames from 'classnames';
+import Icon from '../icon';
 class Input extends React.Component {
   static defaultProps = {
     placeholder: '',
-    value: '' 
+    value: '',
+    searched: true
   }
   static propsTypes = {
     width: React.PropTypes.oneOfType([
@@ -21,15 +24,18 @@ class Input extends React.Component {
     addonAfter: React.PropTypes.oneOfType([
       React.PropTypes.element,
     ]),
+    searched: React.PropTypes.bool
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
+      focus: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
   componentWillMount() {
     if (this.props.value) {
@@ -56,22 +62,44 @@ class Input extends React.Component {
     if (this.props.onBlur) {
       this.props.onBlur(e.target.value);
     }
+    this.setState({
+      focus: false
+    })
+  }
+  handleFocus() {
+    this.setState({
+      focus: true
+    })
   }
   render() {
-    const { width, placeholder } = this.props;
+    const { width, placeholder, addonBefore, addonAfter, searched } = this.props;
+    const style = {
+      transform: this.state.focus ? 'scaleX(1)':' scaleX(0)'
+    };
     return (
       <div className="dh-input" style={{ width }}>
         {
-          this.props.addonBefore ? (
+          addonBefore &&  searched === false ? (
             <div className="dh-input-before">
             {this.props.addonBefore}
             </div>
           ) : null
         }
+        {
+          searched? (
+            <div className={classNames('dh-input-before', {
+              'dh-input-search': searched
+            })}>
+              <Icon type="search"/>
+            </div>
+          ): null
+        }
         <div className="dh-input-warp">
           <input
             type={this.props.type || 'text'}
             className="dh-input-warp-inner"
+            onFocus={this.handleFocus}
+            onMouseOut={this.handleMouseLeave}
             onChange={this.handleChange}
             onBlur={this.handleBlur}
             placeholder={placeholder}
@@ -82,13 +110,15 @@ class Input extends React.Component {
 
 
         {
-          this.props.addonAfter ? (
+          addonAfter ? (
             <div className="dh-input-after">
               { this.props.addonAfter}
             </div>
           ) : null
         }
-
+      <div
+        style={style}
+        className="dh-input-bordered"/>
       </div>
     )
   }

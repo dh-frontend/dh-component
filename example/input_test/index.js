@@ -5,8 +5,8 @@ class InputTest extends React.Component {
     console.log(Number)
     return (
       <div>
-        <Input addonBefore="测试一下" addonAfter="好"/>
-        <Number/>
+        <Input searched placeholder="请输入内容"/>
+        <Number placeholder="请输入内容"/>
       </div>
     )
   }

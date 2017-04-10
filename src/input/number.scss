@@ -8,7 +8,7 @@ $input-number-handler-color: #ccc;
 $input-number-handler-over-color: #999;
 /* --- s: sass extend method -- */
 .inputNumberIcon {
-  font-family:"iconfont" !important;
+  font-family:"dhfont" !important;
   display: inline-block;
   font-style: normal;
   vertical-align: baseline;
@@ -29,6 +29,8 @@ $input-number-handler-over-color: #999;
     transition: all .3s linear;
     color: $input-number-input-color;
     border: 0;
+    font-size: 12px;
+    color: #333333;
   }
 }
 /* --- e: sass extend method -- */
@@ -46,7 +48,6 @@ $input-number-handler-over-color: #999;
   margin: 0;
   font-size: $input-number-fontSize;
   display: inline-block;
-  border-bottom: 1px solid $input-number-border-color;
   @extend .inputNumber;
 
   &-handler-wrap {
@@ -79,12 +80,10 @@ $input-number-handler-over-color: #999;
     font-weight: 700;
 
     &-up {
-      transform: rotate(180deg);
-
       &-inner {
         @extend .inputNumberIcon;
         &:before {
-          content: "\e609";
+          content: "\e6a5";
         }
       }
     }
@@ -92,8 +91,8 @@ $input-number-handler-over-color: #999;
     &-down {
       &-inner {
         @extend .inputNumberIcon;
-        &:before { 
-          content: "\e609"; 
+        &:before {
+          content: "\e6a6";
         }
       }
     }
