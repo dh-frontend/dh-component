@@ -10,7 +10,7 @@ class Button extends React.Component {
     icon: React.PropTypes.string,
     onClick: React.PropTypes.func
   };
-
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -47,7 +47,7 @@ class Button extends React.Component {
       }
       {
         shape ? (<Icon type={icon} />) : (<span>{this.props.children}</span>)
-      } 
+      }
       </button>
     )
   }

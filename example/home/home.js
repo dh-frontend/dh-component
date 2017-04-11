@@ -9,11 +9,11 @@ class Home extends React.Component {
 	}
 
 	render() {
-		console.log(md)
+		
 		return (
       <div>
         <h2>react 文档</h2>
-				<div 
+				<div
 					className="dh-marked"
 					dangerouslySetInnerHTML={{ __html: md }}
 				/>

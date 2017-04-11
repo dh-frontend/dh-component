@@ -1,2 +1,6 @@
-export Number from './number';
-export Input from './input';
+import Input from './input';
+import number from './number';
+export const InputNumber = number;
+
+Input.Number = number;
+export default Input;
