@@ -7,5 +7,7 @@
   "checkbox": "复选框",
   "radio": "单选框",
   "pagination": "分页",
-  "section": "区块组件"
+  "section": "区块组件",
+  "dropdown": "下拉菜单",
+  "message": "提示框"
 }
