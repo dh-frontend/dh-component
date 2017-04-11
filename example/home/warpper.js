@@ -12,16 +12,17 @@ class Wrapper extends React.Component {
 			index: 0
 		};
 	}
-	renderMenu(array) {
-		return array.map((item, idx) => {
+	renderMenu(obj) {
+		return Object.keys(obj).map(key => {
 			return (
-				<Menu.Item key={idx}>
-					<Link to={item.path}>{item.desc}</Link>
+				<Menu.Item key={key}>
+					<Link to={key}>{obj[key]}</Link>
 				</Menu.Item>
 			);
 		})
 	}
 	render() {
+		const current = this.props.routes[1].path;
 		return (
 			<Layout>
 				<Sider
@@ -31,18 +32,20 @@ class Wrapper extends React.Component {
 				>
 					<div className="logo">使用文档</div>
 					<Menu theme="dark" mode="inline">
-						{ this.renderMenu(config.menu)}
+						{ this.renderMenu(config)}
 					</Menu>
 				</Sider>
 				<Layout>
-					<Header style={{ background: '#fff', padding: 0 }} />
+					<Header style={{ background: '#f3f3f3', padding: '0 16px', fontSize: 24}} >
+							{config[current]}
+					</Header>
 					<Content style={{ margin: '24px 16px 0' }}>
 						<div style={{ padding: 16, background: '#fff', minHeight: 400 }}>
 							{this.props.children}
 						</div>
 					</Content>
 					<Footer style={{ textAlign: 'center' }}>
-						Datahunter component ©2016 Created by DH-jimberton
+						React component ©2017 Created by DH jimberton
 					</Footer>
 				</Layout>
 			</Layout>
