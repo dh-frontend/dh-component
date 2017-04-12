@@ -1,0 +1,76 @@
+@mixin listItem($height) {
+  &-item {
+    height: $height;
+    line-height: 1;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 0 24px;
+    position: relative;
+    &:hover {
+      background-color: #f9f9f9;
+    }
+    &:not(:last-child) {
+      &:after {
+        content: "";
+        height: 1px;
+        background-color: #eaeaea;
+        bottom: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}
+.dh-list {
+  background-color: #fff;
+  box-shadow: 2px 2px 10px 4px #e6e6e6;
+  &-warp {
+    @include listItem(36px);
+    &-bordered {
+      position: absolute;
+      height: 100%;
+      width: 2px;
+      left: 0;
+      top: 0;
+      transform: scaleY(0);
+      transition: all .45s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      background-color: #50d27c;
+    }
+
+    &-inner {
+      position: relative;
+      height: inherit;
+      padding: 11px 0;
+      span {
+        &[class^="warp-inner"] {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        &.warp-inner-label {
+          float: left;
+          max-height: 32px;
+          overflow: hidden;
+          margin-right: 12px;
+        }
+        &.warp-inner-content {
+            font-size: 14px;
+            float: left;
+          }
+        &.warp-inner-radio {
+          float: right;
+        }
+      }
+    }
+  }
+  &-large {
+    .dh-list-warp {
+      @include listItem(64px);
+      &-inner {
+        padding: 16px 0;
+        line-height: 32px;
+      }
+    }
+  }
+
+}

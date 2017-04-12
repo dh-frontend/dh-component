@@ -1,7 +1,7 @@
 import React from 'react';
 import Markdown from '../home/Markdown'
-import {Dropdown, Menu} from '../../src';
-import md from './readme.md';
+import { Dropdown, Menu, Button } from '../../src';
+import md from './dropdown.md';
 class Dropdowntest extends React.Component {
     constructor(props) {
         super(props);
@@ -24,12 +24,14 @@ class Dropdowntest extends React.Component {
           <div>
             <div style={{overflow:'hidden'}}>
               <div style={{float:'left',width:200,marginRight:50}}>
-                <Dropdown overlay={menu}>
-                  <a href="">选择框</a>
+                <Dropdown overlay={menu} trigger="click">
+                    <Button type="primary">hover我触发</Button>
                 </Dropdown>
               </div>
               <div style={{float:'left',width:200}}>
-                 <Dropdown overlay={menu} title="自定义选择框" />
+                 <Dropdown overlay={menu} trigger="hover">
+                    <a>点击我</a>
+                 </Dropdown>
               </div>
             </div>
             <Markdown content={md}/>

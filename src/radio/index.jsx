@@ -22,10 +22,13 @@ class Radio extends Component {
     };
     this.onClickSelect = this.onClickSelect.bind(this);
   }
-
+  componentWillReceiveProps(nextProps) {
+    if (this.props.defaultValue !== nextProps.defaultValue) {
+      this.state.checked = nextProps.defaultValue;
+    }
+  }
   onClickSelect() {
     const { checked } = this.state;
-
     if (typeof(this.props.checked) !== 'undefined') {
       return this.props.onChange(!this.props.checked);
     }

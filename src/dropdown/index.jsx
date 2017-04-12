@@ -2,44 +2,26 @@ import React from 'react';
 import RcDropdown from 'rc-dropdown';
 import Icon from '../icon';
 
-const prefixCls = 'dh-dropdown';
-
 class Dropdown extends React.Component {
     static defaultProps = {
-        prefixCls: 'dh-dropdown',
-        mouseEnterDelay: 0.15,
-        mouseLeaveDelay: 0.1,
-        placement: 'bottomLeft',
-        icon: 'down'
+      trigger: 'click'
     };
-
-    getChildrenElement() {
-      const { children, title, icon } = this.props;
-      if (!children) {
-        return (
-          <div className={`${prefixCls}-title`}>
-              <span>{ title || '请选择' }</span>
-              <Icon type={icon} />
-          </div>
-        )
-      } else {
-        return children;
-      }
+    static propsTypes = {
+      trigger: React.PropTypes.oneOf(['hover', 'click']),
+      overlay: React.PropTypes.element,
+      visible: React.PropTypes.bool,
+      onVisibleChange: React.PropTypes.func
     }
-
-    getTransitionName() {
-        const { placement = '' } = this.props;
-        if (placement.indexOf('top') >= 0) {
-            return 'slide-down';
-        }
-        return 'slide-up';
-    }
-
     render() {
-        const dropdownTrigger = this.getChildrenElement();
+      const { trigger, overlay, children,  ...otherProps } = this.props;
         return (
-            <RcDropdown transitionName={this.getTransitionName()}  {...this.props}>
-              { dropdownTrigger }
+            <RcDropdown
+              {...otherProps}
+              trigger={[trigger]}
+              overlay={overlay}
+              prefixCls="dh-dropdown"
+            >
+              {children}
             </RcDropdown>
         )
     }

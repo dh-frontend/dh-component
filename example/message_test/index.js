@@ -1,7 +1,7 @@
 import React from 'react';
 import { message, Button } from '../../src';
 import Markdown from '../home/markdown';
-import md from './readme.md';
+import md from './message.md';
 
 class Messagetest extends React.Component {
   constructor(props) {

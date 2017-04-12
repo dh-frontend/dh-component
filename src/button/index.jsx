@@ -10,7 +10,7 @@ class Button extends React.Component {
     icon: React.PropTypes.string,
     onClick: React.PropTypes.func
   };
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -19,10 +19,10 @@ class Button extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick(e) {
     const checked = !this.state.checked;
     if (this.props.onClick) {
-      this.props.onClick();
+      this.props.onClick(e);
     }
     this.setState({ checked });
   }
