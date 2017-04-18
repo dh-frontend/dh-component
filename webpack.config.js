@@ -17,12 +17,12 @@ let output =  {
 let plugins = [
   new webpack.optimize.CommonsChunkPlugin('common'),
   new HtmlWebpackPlugin({
-    title: 'datahuner-component API',
+    title: 'datahunter React 组件库API文档',
     description: '',
-    username: 'wangjingbo',
+    username: 'jimberton',
     filename: 'index.html',
     inject: 'body',
-    template: './example/index.html_vm',
+    template: './example/index.ejs',
     hash: false
   })
 ]
@@ -45,7 +45,6 @@ if (process.env.NODE_ENV === 'production') {
      })
   ])
 }
-console.log();
 module.exports = {
   entry: {
     index: './example/entry.js'
