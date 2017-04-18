@@ -19,7 +19,7 @@ $modal-close-fontFamily: iconfont;
 $modal-body-padding: 24px;
 $modal-body-fontColor: #666666;
 $modal-body-fontSize: 12px;
-$modal-body-backgroundColor: #f6f6f6;
+$modal-body-backgroundColor: transparent;
 
 // 模态框-footer
 $modal-footer-padding: 24px;
@@ -80,7 +80,7 @@ $modal-footer-buttonLeft: 24px;
             text-rendering: auto;
 
             &:before {
-                content: "\e708";
+                content: "\e7dc";
                 display: block;
             }
         }
