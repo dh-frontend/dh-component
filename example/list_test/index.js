@@ -12,7 +12,7 @@ class SelectTest extends React.Component {
           <List
             theme="nomarl"
             rowSelection={{
-            type: 'dropdown',
+            type: 'radio',
             options: ['测试1', '测试2', '测试3'],
             onClick: (record) => { console.log("回调", record)}
           }}>
