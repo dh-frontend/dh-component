@@ -37,7 +37,7 @@ class Avatar extends React.Component {
         style={{
           width: size,
           height: size,
-          fontSize: fontSize || size / 2,
+          fontSize,
           backgroundColor,
           color
         }}

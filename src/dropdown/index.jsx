@@ -19,6 +19,7 @@ class Dropdown extends React.Component {
               {...otherProps}
               trigger={[trigger]}
               overlay={overlay}
+              placement="bottomCenter"
               prefixCls="dh-dropdown"
             >
               {children}

@@ -8,8 +8,30 @@ class SelectTest extends React.Component {
     return (
       <div className="test-list">
         <div className="test-list-item">
+          <h2>小列表</h2>
+          <List theme="nomarl" rowSelection={{
+            type: 'radio'
+          }}>
+            <List.Item key="1">13123</List.Item>
+            <List.Item key="2">13123</List.Item>
+            <List.Item key="3">13123</List.Item>
+            <List.Item key="4">13123</List.Item>
+            <List.Item key="5">13123</List.Item>
+          </List>
+        </div>
+        <div className="test-list-item">
           <h2>单选列表</h2>
           <List multiple>
+            <List.Item key="1">13123</List.Item>
+            <List.Item key="2">13123</List.Item>
+            <List.Item key="3">13123</List.Item>
+            <List.Item key="4">13123</List.Item>
+            <List.Item key="5">13123</List.Item>
+          </List>
+        </div>
+        <div className="test-list-item">
+          <h2>点击整行时触发</h2>
+          <List multiple rowSelected>
             <List.Item key="1">13123</List.Item>
             <List.Item key="2">13123</List.Item>
             <List.Item key="3">13123</List.Item>
