@@ -17,7 +17,6 @@
 | defaultValue | 默认选中项 | array | []
 | onChange | 选择时回调 | function(selected), selected为选中项索引数组 | 无
 
-<br>
 
 ### Checkbox
 

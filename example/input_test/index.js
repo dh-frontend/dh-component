@@ -2,7 +2,7 @@ import React from 'react';
 import Markdown from '../home/Markdown';
 
 import { Input } from '../../src';
-import md from './readme.md';
+import md from './Input.md';
 class InputTest extends React.Component {
   render() {
     return (

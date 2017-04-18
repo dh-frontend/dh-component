@@ -14,7 +14,8 @@ export Section from './section';
 export message from './message';
 export Tooltip from './tooltip';
 export Modal from './modal';
-
+export { List } from  './list';
+export { Avatar } from './avatar';
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';
 export Col from 'antd/lib/col';

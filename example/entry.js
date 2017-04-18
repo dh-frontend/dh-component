@@ -16,7 +16,7 @@ const rootEl = document.getElementById('root');
 const childRoutes = ((json) =>{
   return Object.keys(json).map(k => (
     {
-      path: k, 
+      path: k,
       component: require("./" + k + "_test/index.js").default
     }
   ))

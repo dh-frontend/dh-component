@@ -7,7 +7,7 @@ class Checkbox extends Component {
 
   static propTypes = {
     defaultValue: PropTypes.bool,
-    onChange: PropTypes.function
+    onChange: PropTypes.func
   }
 
   static defaultProps = {
