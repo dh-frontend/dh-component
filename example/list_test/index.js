@@ -9,8 +9,12 @@ class SelectTest extends React.Component {
       <div className="test-list">
         <div className="test-list-item">
           <h2>小列表</h2>
-          <List theme="nomarl" rowSelection={{
-            type: 'radio'
+          <List
+            theme="nomarl"
+            rowSelection={{
+            type: 'dropdown',
+            options: ['测试1', '测试2', '测试3'],
+            onClick: (record) => { console.log("回调", record)}
           }}>
             <List.Item key="1">13123</List.Item>
             <List.Item key="2">13123</List.Item>
@@ -21,7 +25,13 @@ class SelectTest extends React.Component {
         </div>
         <div className="test-list-item">
           <h2>单选列表</h2>
-          <List multiple>
+          <List
+            multiple
+            rowSelection={{
+            type: 'dropdown',
+            options: [{name: 'test1', key: 'a'}, { name: 'test2', key: 'b'}],
+            onClick: (record) => { console.log("回调", record)}
+          }}>
             <List.Item key="1">13123</List.Item>
             <List.Item key="2">13123</List.Item>
             <List.Item key="3">13123</List.Item>

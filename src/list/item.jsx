@@ -1,7 +1,14 @@
 import React from 'react';
 import Radio from '../radio';
 import { Menu, Dropdown, Icon } from '../index.js';
+
 class ListItem extends React.Component {
+  static defaultProps = {
+    rowSelection: {
+      type: 'radio'
+    }
+  }
+
   static propTypes = {
     radio: React.PropTypes.bool,
     eventKey: React.PropTypes.string,
@@ -9,7 +16,14 @@ class ListItem extends React.Component {
     addonAvatar: React.PropTypes.element,
     rowSelection: React.PropTypes.shape({
       type: React.PropTypes.oneOf(['radio', 'dropdown']),
-      resource: React.PropTypes.arrayOf(React.PropTypes.string)
+      onClick: React.PropTypes.func,
+      options: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.shape({
+          name: React.PropTypes.string,
+          key: React.PropTypes.string
+        })
+      ])
     })
   }
 
@@ -20,13 +34,24 @@ class ListItem extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.checked !== this.props.checked) {
       this.state.checked = nextProps.checked;
     }
   }
-
+  handleMenuItemClick(record) {
+    const { rowSelection, eventKey } = this.props;
+    if (rowSelection.onClick && typeof rowSelection.onClick === 'function') {
+      //组合callback 的 record
+      rowSelection.onClick({
+        ...record,
+        keyPath: [eventKey, record.keyPath[0]],
+        keyParent: eventKey
+      });
+    }
+  }
   handleChange(checked) {
     if (this.props.onChange) {
       this.props.onChange(checked, this.props.eventKey);
@@ -40,35 +65,41 @@ class ListItem extends React.Component {
       this.props.onChange(checked, this.props.eventKey);
     }
   }
+  /**
+   * render 后缀元素
+   */
   renderAfter(cellProps) {
-    if (this.props.rowSelection && rowSelection.type === 'radio') {
+    const { rowSelection } = this.props;
+    if (rowSelection && rowSelection.type === 'radio') {
       return (<Radio {...cellProps} defaultValue={this.state.checked}/>)
-    } else {
-      const menus = this.renderMenu();
+    } else if (rowSelection && rowSelection.type === 'dropdown') {
+      const menus = this.renderMenu(rowSelection.options);
       return (
-        <Dropdown overlay={menus} trigger="hover">
-           <span><Icon type="list-circle"/></span>
+        <Dropdown
+          overlay={menus}
+          trigger="hover"
+        >
+          <span><Icon type="list-circle"/></span>
         </Dropdown>
       )
     }
+    return null;
   }
-  renderMenu() {
-    return (
-      <Menu>
-          <Menu.Item>
-              <span>选项一</span>
+  renderMenu(options) {
+    let elements = null;
+    if (options && options instanceof Array) {
+      elements = options.map((item, idx) => {
+        return (
+          <Menu.Item key={item.key || idx} >
+            <span>{ item instanceof Object ? item.name : item }</span>
           </Menu.Item>
-          <Menu.Item>
-              <span>选项二</span>
-          </Menu.Item>
-          <Menu.Item>
-              <span>选项三</span>
-          </Menu.Item>
-      </Menu>
-    );
+        )
+      })
+    }
+    return (<Menu onClick={this.handleMenuItemClick}>{elements}</Menu>);
   }
   render() {
-    const { checked, eventKey, addonAvatar, rowSelected, rowSelection} = this.props;
+    const { checked, eventKey, addonAvatar, rowSelected } = this.props;
     const style = {
       transform: this.state.checked ? 'scaleY(1)':' scaleY(0)'
     };
@@ -78,7 +109,7 @@ class ListItem extends React.Component {
         onChange: this.handleChange
     }];
     if (rowSelected && typeof rowSelected  === 'boolean') {
-      cellProps = { };
+      cellProps = {};
     } else {
       rowProps = {};
     }
@@ -92,8 +123,7 @@ class ListItem extends React.Component {
           { addonAvatar ? (<span className="warp-inner-label">{addonAvatar}</span>) : null }
           <span className="warp-inner-content">{ this.props.children }</span>
           <span className="warp-inner-radio">
-            {/* { this.renderAfter(cellProps)} */}
-            <Radio {...cellProps} defaultValue={this.state.checked}/>
+            { this.renderAfter(cellProps)}
           </span>
         </div>
         <div

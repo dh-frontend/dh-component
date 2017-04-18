@@ -9,13 +9,20 @@ class List extends React.Component {
   }
   static propsTypes = {
     header: React.PropTypes.element,
-    onChange: React.PropTypes.func,
     theme: React.PropTypes.oneOf['nomarl', 'large'],
     multiple: React.PropTypes.bool,
+    onChange: React.PropTypes.func,
     rowSelected: React.PropTypes.bool,
     rowSelection: React.PropTypes.shape({
       type: React.PropTypes.oneOf(['radio', 'dropdown']),
-      resource: React.PropTypes.arrayOf(React.PropTypes.string)
+      onClick: React.PropTypes.func,
+      options: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.shape({
+          name: React.PropTypes.string,
+          key: React.PropTypes.string
+        })
+      ])
     })
   }
 
@@ -25,9 +32,7 @@ class List extends React.Component {
       dataIndexs: []
     };
   }
-  staticHandle(checked, current, idx) {
 
-  }
   handleChange(checked, current, idx) {
     let dataIndexs = this.state.dataIndexs;
     if (typeof this.props.multiple === 'boolean' && !this.props.multiple) {
