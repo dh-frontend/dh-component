@@ -17,6 +17,9 @@ $tr-height-small: 30px;
 $tr-height-large: 60px;
 
 .dh-table {
+  tr {
+    font-size: 14px;
+  }
   &.dh-table-default {
     tr {
       height: $tr-height-default;
@@ -26,6 +29,7 @@ $tr-height-large: 60px;
   &.dh-table-small {
     tr {
       height: $tr-height-small;
+      font-size: 12px;
     }
   }
   &.dh-table-large {
