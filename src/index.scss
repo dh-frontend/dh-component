@@ -9,6 +9,10 @@ a {
   cursor: pointer;
   transition: color .3s ease;
 }
+ul, ol {
+  list-style: none;
+}
+
 @import "./_mixin.scss";
 @import "./icon/icon.scss";
 @import "./button/button.scss";
@@ -19,7 +23,6 @@ a {
 @import "./tabs/tabs.scss";
 @import './input/number.scss';
 @import './input/input.scss';
-@import './section/section.scss';
 
 @import "./message/message.scss";
 @import "./tooltip/tooltip.scss";
