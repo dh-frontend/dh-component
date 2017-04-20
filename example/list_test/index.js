@@ -1,5 +1,10 @@
 import React from 'react';
+import Markdown from '../home/Markdown';
+import md from './list.md';
+
 import { List, Avatar } from '../../src';
+
+
 class SelectTest extends React.Component {
   constructor(props) {
     super(props)
@@ -83,6 +88,7 @@ class SelectTest extends React.Component {
             </List.Item>
           </List>
         </div>
+        <Markdown content={md}/>
       </div>
     )
   }

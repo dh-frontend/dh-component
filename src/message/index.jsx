@@ -1,75 +1,77 @@
 import React from 'react';
 import Notification from 'rc-notification';
-import classnames from 'classnames';
 import Icon from '../icon';
 
-let messageInstance;
 let key = 1;
 const defaultDuration = 2;//间隔时间(秒)
-const defaultTop = '10%';
-const prefixCls = 'dh-message';
-const iconClass = 'duihao-circle1';//to-do 需要icon type
+let multipleInstance = true;
+let messageInstance;
 
-function getMessageInstance() {
-  messageInstance = messageInstance || Notification.newInstance({
-    prefixCls,
+const icons = {
+  info: 'warning',
+  success: 'success',
+  error: 'error',
+  warning: 'warning'
+};
+function createMessageInstance() {
+  if (messageInstance && messageInstance.destroy) {
+    messageInstance.destroy();
+  }
+  messageInstance = Notification.newInstance({
+    prefixCls: 'dh-message',
     transitionName: 'move-up',
-    style: { top: defaultTop, left:'50%', position: 'absolute' }, // 覆盖原来的样式
+    style: { left:'50%' } // 覆盖原来的样式
   });
   return messageInstance;
 }
 
-function notice(content, title, duration, type, onClose) {
-  const infoClass = ({
-    info:'info',
-    success:'warning',
-    error:'error',
-    warning:'warning',
-  })[type];
-  const instance  = getMessageInstance();
+function notice(args = {}) {
+  const instance = multipleInstance && messageInstance ? messageInstance : createMessageInstance();
   instance.notice({
     content: (
-      <div
-        className={`${prefixCls}-container`}
-      >
-        <div className={`${prefixCls}-left ${prefixCls}-${type}`}>
-          <Icon type={iconClass} />
-          { title && <span>{title}</span> }
-        </div>
-        <div className={`${prefixCls}-right`}>
-          {content}
-        </div>
+      <div className="dh-message-container">
+        <span className={`dh-message-icon dh-message-${args.type}`} >
+          <Icon type={icons[args.type]} />
+        </span>
+        {
+          typeof args.content === 'object' ? (
+            <span className={`dh-message-title dh-message-${args.type}`} >
+              {args.content.title || ''}
+            </span>
+          ) : null
+        }
+
+        <span className="dh-message-desc">
+          {typeof args.content === 'object' ? args.content.desc : args.content }
+        </span>
       </div>
     ),
-    duration: duration || defaultDuration,
-    onClose,
+    duration: args.duration || defaultDuration,
+    onClose: args.onClose,
   });
   return (function () {
-    const target = key;
+    let target = key;
     key += 1;
-    return function () {
+    return function() {
       instance.removeNotice(target);
     };
   }());
 }
 
 export default {
-  info(content, title, duration, onClose) {
-    return notice(content, title, duration, 'info', onClose);
+  info(content, duration, onClose) {
+    return notice({ content, duration, onClose, type: 'info'});
   },
-  success(content, title, duration, onClose) {
-    return notice(content, title, duration, 'success', onClose);
+  success(content, duration, onClose) {
+    return notice({ content, duration, onClose, type: 'success' });
   },
-  error(content, title, duration, onClose) {
-    return notice(content, title, duration, 'error', onClose);
+  error(content, duration, onClose) {
+    return notice({ content, duration, onClose, type: 'error'});
   },
-  warning(content, title, duration, onClose) {
-    return notice(content, title, duration, 'warning', onClose);
+  warning(content, duration, onClose) {
+    return notice({ content, duration, onClose, type: 'warning' });
   },
   clear() {
-    if (messageInstance) {
-      messageInstance.destroy();
-      messageInstance = null;
-    }
+    createMessageInstance();
   }
 }

@@ -15,7 +15,7 @@ gulp.task('bable', function(){
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist'))
 });
-// 批量合并 antd 的 css文件
+// 导入 antd 的 css文件
 gulp.task('import', function() {
   const _src = antds.map(function(item) {
     return './node_modules/antd/lib/' + item + '/style/index.css'
@@ -25,16 +25,18 @@ gulp.task('import', function() {
   .pipe(gulp.dest('dist'));
 })
 
+// 合并样式文件
 gulp.task('concat', ['sass', 'import'], function() {
   return gulp.src(['./dist/index.css', './dist/antd.css'])
   .pipe(concat("index.css"))
   .pipe(gulp.dest('dist'));
 })
-
+// 编译sass
 gulp.task('sass', function() {
   return gulp.src('./src/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('start', ['bable', 'sass', 'import', 'concat']);
+
+gulp.task('default', ['bable', 'sass', 'import', 'concat']);

@@ -42,7 +42,6 @@ class List extends React.Component {
       dataIndexs = checked ? [current] : [];
     }
     this.setState({ dataIndexs });
-    this.staticHandle(checked, current);
     if (this.props.onChange) {
       this.props.onChange(checked, current, idx);
     }

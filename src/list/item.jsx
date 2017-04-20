@@ -10,7 +10,6 @@ class ListItem extends React.Component {
   }
 
   static propTypes = {
-    radio: React.PropTypes.bool,
     eventKey: React.PropTypes.string,
     rowSelected: React.PropTypes.bool,
     addonAvatar: React.PropTypes.element,
