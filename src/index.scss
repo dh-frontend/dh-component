@@ -1,3 +1,18 @@
+html, body{
+  font-family: PingFang SC, Helvetica Neue, Helvetica,STHeitiSC-Light,WOL_SB,'Segoe UI Semibold','Segoe UI',Tahoma,Helvetica,sans-serif;
+}
+a {
+  color: #666666;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color .3s ease;
+}
+ul, ol {
+  list-style: none;
+}
+
 @import "./_mixin.scss";
 @import "./icon/icon.scss";
 @import "./button/button.scss";
@@ -8,7 +23,6 @@
 @import "./tabs/tabs.scss";
 @import './input/number.scss';
 @import './input/input.scss';
-@import './section/section.scss';
 
 @import "./message/message.scss";
 @import "./tooltip/tooltip.scss";

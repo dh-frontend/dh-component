@@ -51,14 +51,17 @@ $icons: (
   date: "\e7a7",
   checkbox-checked: "\e65a",
   destroy: '\e6db',
+  error: '\e63f',
+  success: '\e63c',
+  warning: '\e685'
 );
 @font-face {
   font-family: 'dhfont';  /* project id 267870 */
-  src: url('//at.alicdn.com/t/font_aogjae9oza43rf6r.eot');
-  src: url('//at.alicdn.com/t/font_aogjae9oza43rf6r.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_aogjae9oza43rf6r.woff') format('woff'),
-  url('//at.alicdn.com/t/font_aogjae9oza43rf6r.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_aogjae9oza43rf6r.svg#dhfont') format('svg');
+   src: url('//at.alicdn.com/t/font_2jt5f1u7mdt2o6r.eot');
+   src: url('//at.alicdn.com/t/font_2jt5f1u7mdt2o6r.eot?#iefix') format('embedded-opentype'),
+   url('//at.alicdn.com/t/font_2jt5f1u7mdt2o6r.woff') format('woff'),
+   url('//at.alicdn.com/t/font_2jt5f1u7mdt2o6r.ttf') format('truetype'),
+   url('//at.alicdn.com/t/font_2jt5f1u7mdt2o6r.svg#dhfont') format('svg');
 }
 .dh-icon {
   font-family:"dhfont" !important;

@@ -5,7 +5,7 @@ class Input extends React.Component {
   static defaultProps = {
     placeholder: '',
     value: '',
-    searched: true
+    searched: false
   }
   static propsTypes = {
     width: React.PropTypes.oneOfType([
@@ -95,7 +95,7 @@ class Input extends React.Component {
           ) : null
         }
         {
-          searched? (
+          searched ? (
             <div className={classNames('dh-input-before', {
               'dh-input-search': searched
             })}>

@@ -17,18 +17,28 @@
   </List>
 ```
 
-### 文字输入框
+### List
 
 | props | 说明 | 参数类型 | 默认值|
 | ------| ------ | ------ |
 | header | 列表插入头部 | element | 无 |
 | theme | 列表样式主题 | string | 无 （只接受 'radio', 'dropdown'）|
-| name | 字段名字 | string | 无 |
-| defaultValue | 默认值 | number | 无 |
-| value | 输入框的值 | number或 string | 无 |
-| addonBefore | 前置元素 | element | 无 |
-| addonAfter | 后置元素 | element | 无 |
-| searched | 搜索框 | bool | 无 |
-| danger  | 危险输入框 | bool | 无 |
-| onChange | 输入内容改变的回调function(current, e)|  function |无 |
-| onBlur| 鼠标离开的回调function(current, e)|  function |无 |
+| multiple | 多选或者单选 | bool | 默认false 多选 |
+| onChange | 列表改变时的回调 (checked, current, index) => {}| function | 无 |
+| rowSelected | 整行选择是否触发 | bool | false |
+| rowSelection | 后置元素配置 | object （详见例子配置）| 无 |
+
+### Item
+
+| props | 说明 | 参数类型 | 默认值|
+| ------| ------ | ------ |
+| eventKey | 每一项的key必填项* | string | 无 |
+| addonAvatar | 前置头像属性 | element | 无|
+
+### rowSelection (字符串数组或者对象数组)
+
+| props | 说明 | 参数类型 | 默认值|
+| ------| ------ | ------ |
+| name |  下拉名称| string | 无 |
+| key | 下拉key必须 | string | 无 |
+| onClick |  点击回调({key, keyParent, keyPath, ...args}) => {} | function | 无 |

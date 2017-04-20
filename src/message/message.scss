@@ -1,14 +1,18 @@
 /* 配置 参数 */
 $message-fontSize: 12px;
-$message-padding: 24px;
+$message-padding: 12px;
 $message-background: #ffffff;
 $message-titleColor: #999999;
-$message-fontColor: #cccccc;
-$message-successColor: #39b86e;
-$message-errorColor: #f04134;
-$message-warningColor: #ffbf00;
+$message-fontColor: #999999;
+$fontTyps: (success: #39b86e, error: #f04134, warning: #ffbf00);
 
 .dh-message {
+  position: fixed;
+  top: 3%;
+  z-index: 99999;
+  &-notice {
+    position: relative;
+  }
   &-container {
     padding: $message-padding;
     border-radius: 4px;
@@ -16,27 +20,29 @@ $message-warningColor: #ffbf00;
     font-size: $message-fontSize;
     color: $message-fontColor;
     overflow: hidden;
-    box-shadow: 7px 6px 15px rgba(0,0,0,.15);
-    .dh-message-left {
-      float: left;
-      margin-right: 12px;
-      span {
-        margin-left: 8px;
-        font-weight: bold;
-        color: $message-titleColor;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .dh-message-icon {
+      i {
+        font-size: 14px;
       }
     }
-    .dh-message-right {
-      float: left;
+    .dh-message-title {
+      margin-left: 4px;
+      color: $message-titleColor;
     }
-  }
-  &-success {
-    color: $message-successColor;
-  }
-  &-error {
-    color: $message-errorColor;
-  }
-  &-warning {
-    color: $message-warningColor;
+    .dh-message-desc {
+      margin-left: 10px;
+
+    }
+
+    @each $key, $value in $fontTyps {
+      .dh-message-#{$key} {
+        color: $value;
+      }
+    }
   }
 }
