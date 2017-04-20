@@ -7,6 +7,12 @@ $message-fontColor: #999999;
 $fontTyps: (success: #39b86e, error: #f04134, warning: #ffbf00);
 
 .dh-message {
+  position: fixed;
+  top: 3%;
+  z-index: 99999;
+  &-notice {
+    position: relative;
+  }
   &-container {
     padding: $message-padding;
     border-radius: 4px;

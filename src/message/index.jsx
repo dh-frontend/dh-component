@@ -4,7 +4,6 @@ import Icon from '../icon';
 
 let key = 1;
 const defaultDuration = 2;//间隔时间(秒)
-const defaultTop = '8%';
 let multipleInstance = true;
 let messageInstance;
 
@@ -21,7 +20,7 @@ function createMessageInstance() {
   messageInstance = Notification.newInstance({
     prefixCls: 'dh-message',
     transitionName: 'move-up',
-    style: { top: defaultTop, left:'50%', position: 'absolute' }, // 覆盖原来的样式
+    style: { left:'50%' } // 覆盖原来的样式
   });
   return messageInstance;
 }

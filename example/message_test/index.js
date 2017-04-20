@@ -13,7 +13,7 @@ class Messagetest extends React.Component {
         <div>
           <Button onClick={()=>{message.success({ title: '成功', desc: '我提交成功了'})}}>Success</Button>
           <Button onClick={()=>{message.error('失败')}}>error</Button>
-          <Button onClick={()=>{message.info('警告')}}>warning</Button>
+          <Button onClick={()=>{message.info('警告', 200)}}>warning</Button>
           <Button onClick={()=>{message.clear()}}>clear</Button>
         </div>
         <Markdown content={md} />

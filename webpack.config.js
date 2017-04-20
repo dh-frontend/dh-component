@@ -1,6 +1,6 @@
 /**
  *
- * @author keyy/jimberton.wang@gmail.com 17/4/10 19:53
+ * @author key/jimberton.wang@gmail.com 17/4/10 19:53
  * @description
  */
 const path = require('path');

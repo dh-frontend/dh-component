@@ -1,5 +1,5 @@
 
-##datahunter react Component
+## datahunter react Component
 ### 安装
 
 ```bash
