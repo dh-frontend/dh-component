@@ -16,6 +16,7 @@ class SelectTest extends React.Component {
           <h2>小列表</h2>
           <List
             theme="nomarl"
+            onChange={() => { console.log(123)}}
             rowSelection={{
             type: 'radio',
             options: ['测试1', '测试2', '测试3'],

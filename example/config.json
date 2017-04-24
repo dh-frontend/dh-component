@@ -1,13 +1,13 @@
 
 {
   "icon": "图标管理",
-  "list": "列表List",
+  "list": "列表组件",
   "button": "按钮",
   "input": "输入框",
+  "menu": "菜单组件",
   "checkbox": "复选框",
   "radio": "单选框",
   "pagination": "分页",
-  "section": "区块组件",
   "dropdown": "下拉菜单",
   "message": "提示框"
 }

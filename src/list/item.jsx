@@ -60,7 +60,7 @@ class ListItem extends React.Component {
   handleClick() {
     const checked = !this.state.checked
     this.setState({ checked });
-    if (this.props.onClick) {
+    if (this.props.onChange) {
       this.props.onChange(checked, this.props.eventKey);
     }
   }
