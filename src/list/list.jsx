@@ -4,7 +4,7 @@ import ListItem from './item';
 class List extends React.Component {
   static defaultProps = {
     multiple: false,
-    rowSelected: false,
+    rowSelected: true,
     theme: 'large'
   }
   static propsTypes = {
