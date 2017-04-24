@@ -1,11 +1,11 @@
 {
   "name": "dh-c",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "description": "The front-end development engineers jimberton gulp react component",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf build && set NODE_ENV=production && webpack --config webpack.config.js",
-    "dist": "gulp",
+    "dist": "rm -rf dist && gulp",
     "start": "export NODE_ENV=development && webpack-dev-server --content-base build/ --config webpack.config.js --history-api-fallback --hot --inline --host 0.0.0.0"
   },
   "repository": {

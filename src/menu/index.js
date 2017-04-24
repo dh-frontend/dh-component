@@ -1,1 +1,1 @@
-export Menu from './menu.jsx';
+export Menu from './menu';

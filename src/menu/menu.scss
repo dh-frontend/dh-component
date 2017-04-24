@@ -1,3 +1,8 @@
+
+@mixin keyframesScale {
+  -webkit-animation: keyframesScale .5s cubic-bezier(0.23, 1, 0.32, 1) 0s forwards;
+  animation: keyframesScale .5s cubic-bezier(0.23, 1, 0.32, 1) 0s forwards;
+}
 .dp {
   font-family: dhfont !important;
   font-style: normal;
