@@ -57,7 +57,8 @@ class Menu extends React.Component {
         prefixCls={prefixCls}
         className={
           classNames({
-            'dh-menu-border': props.bordered
+            'dh-menu-border': props.bordered,
+            'dh-menu-dark': props.theme === 'dark'
           })
         }
         {...props}
