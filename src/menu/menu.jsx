@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import RcMenu, { SubMenu, Item, Divider } from 'rc-menu';
 import classNames from 'classnames';
 import Ani from 'css-animation';
@@ -8,7 +10,7 @@ class Menu extends React.Component {
     bordered: true
   }
   static propTypes = {
-    bordered: React.PropTypes.bool
+    bordered: PropTypes.bool
   }
 
   constructor(props) {

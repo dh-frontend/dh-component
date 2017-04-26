@@ -4,9 +4,11 @@
   "description": "The front-end development engineers jimberton gulp react component",
   "main": "dist/index.js",
   "scripts": {
+    "start": "export NODE_ENV=development && webpack-dev-server --content-base build/ --config webpack.config.js --history-api-fallback --hot --inline --host 0.0.0.0",
     "build": "rm -rf build && set NODE_ENV=production && webpack --config webpack.config.js",
     "dist": "rm -rf dist && gulp",
-    "start": "export NODE_ENV=development && webpack-dev-server --content-base build/ --config webpack.config.js --history-api-fallback --hot --inline --host 0.0.0.0"
+    "lint": "lint src",
+    "lib": "npm run babel && npm run sass"
   },
   "repository": {
     "type": "git",
@@ -24,12 +26,14 @@
   },
   "homepage": "https://github.com/shulie/dh-component/#readme",
   "dependencies": {
+    "antd": "^2.9.0",
+    "prop-types": "^15.5.8",
+    "rc-input-number": "^3.4.14",
     "rc-menu": "^5.0.10",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
-    "antd": "^2.9.0",
     "autoprefixer": "^6.7.6",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.4.0",

@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 import Icon from '../icon';
 class Avatar extends React.Component {
   static defaultProps = {
@@ -7,12 +9,12 @@ class Avatar extends React.Component {
     radius: true
   }
   static propsTypes = {
-    size: React.PropTypes.number,
-    src: React.PropTypes.string,
-    icon: React.PropTypes.string,
-    color: React.PropTypes.string,
-    fontSize: React.PropTypes.number,
-    backgroundColor: React.PropTypes.string
+    size: PropTypes.number,
+    src: PropTypes.string,
+    icon: PropTypes.string,
+    color: PropTypes.string,
+    fontSize: PropTypes.number,
+    backgroundColor: PropTypes.string
   }
 
   constructor(props) {

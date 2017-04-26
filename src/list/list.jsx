@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
 import ListItem from './item';
 class List extends React.Component {
@@ -8,19 +10,19 @@ class List extends React.Component {
     theme: 'large'
   }
   static propsTypes = {
-    header: React.PropTypes.element,
-    theme: React.PropTypes.oneOf['nomarl', 'large'],
-    multiple: React.PropTypes.bool,
-    onChange: React.PropTypes.func,
-    rowSelected: React.PropTypes.bool,
-    rowSelection: React.PropTypes.shape({
-      type: React.PropTypes.oneOf(['radio', 'dropdown']),
-      onClick: React.PropTypes.func,
-      options: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.shape({
-          name: React.PropTypes.string,
-          key: React.PropTypes.string
+    header: PropTypes.element,
+    theme: PropTypes.oneOf['nomarl', 'large'],
+    multiple: PropTypes.bool,
+    onChange: PropTypes.func,
+    rowSelected: PropTypes.bool,
+    rowSelection: PropTypes.shape({
+      type: PropTypes.oneOf(['radio', 'dropdown']),
+      onClick: PropTypes.func,
+      options: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.shape({
+          name: PropTypes.string,
+          key: PropTypes.string
         })
       ])
     })

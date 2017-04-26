@@ -1,15 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import  RcInputNumber from 'rc-input-number';
 
 class Number extends React.Component {
   static propTypes = {
-    width: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number
+    width: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
     ]),
-    placeholder: React.PropTypes.string,
-    onChange: React.PropTypes.func,
-    onBlur: React.PropTypes.func
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func,
+    onBlur: PropTypes.func
   }
   constructor(props) {
     super(props)
