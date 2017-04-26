@@ -24,4 +24,6 @@ export Col from 'antd/lib/col';
 // export Menu from 'antd/lib/menu';
 export Form from 'antd/lib/form';
 export Layout from 'antd/lib/layout';
+export Upload from 'antd/lib/upload';
+export Select from 'antd/lib/select';
 /* endt --- import antd component **/

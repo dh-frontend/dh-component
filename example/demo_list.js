@@ -1,9 +1,7 @@
 import React from 'react';
-import Markdown from '../home/Markdown';
-import md from './list.md';
-
-import { List, Avatar } from '../../src';
-
+import Mark from './component/mark';
+import { List, Avatar } from '../src';
+import docList from '../doc/list.md';
 
 class SelectTest extends React.Component {
   constructor(props) {
@@ -89,7 +87,7 @@ class SelectTest extends React.Component {
             </List.Item>
           </List>
         </div>
-        <Markdown content={md}/>
+        <Mark content={docList}/>
       </div>
     )
   }

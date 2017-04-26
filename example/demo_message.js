@@ -1,7 +1,7 @@
 import React from 'react';
-import { message, Button } from '../../src';
-import Markdown from '../home/markdown';
-import md from './message.md';
+import { message, Button } from '../src';
+import Mark from './component/mark';
+import docMessage from '../doc/message.md';
 
 class Messagetest extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Messagetest extends React.Component {
           <Button onClick={()=>{message.info('警告', 200)}}>warning</Button>
           <Button onClick={()=>{message.clear()}}>clear</Button>
         </div>
-        <Markdown content={md} />
+        <Mark content={docMessage} />
       </div>
     )
   }

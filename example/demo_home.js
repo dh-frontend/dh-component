@@ -1,5 +1,5 @@
 import React from 'react';
-import md from './home.md';
+import docHome from '../doc/home.md';
 class Home extends React.Component {
 	constructor(props, context) {
 		super(props, context);
@@ -9,13 +9,13 @@ class Home extends React.Component {
 	}
 
 	render() {
-		
+
 		return (
       <div>
         <h2>react 文档</h2>
 				<div
 					className="dh-marked"
-					dangerouslySetInnerHTML={{ __html: md }}
+					dangerouslySetInnerHTML={{ __html: docHome }}
 				/>
       </div>
 		);

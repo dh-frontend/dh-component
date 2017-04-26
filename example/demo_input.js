@@ -1,8 +1,9 @@
 import React from 'react';
-import Markdown from '../home/Markdown';
+import Mark from './component/mark';
 
-import { Input, Form } from '../../src';
-import md from './Input.md';
+import { Input, Form } from '../src';
+import docInput from '../doc/input.md';
+
 class InputTest extends React.Component {
   render() {
     return (
@@ -17,7 +18,7 @@ class InputTest extends React.Component {
             </Form.Item>
           </Form>
         </div>
-        <Markdown content={md}/>
+        <Mark content={docInput}/>
       </div>
     )
   }

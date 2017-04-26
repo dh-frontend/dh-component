@@ -1,6 +1,6 @@
 import React from 'react';
 import "./markdown.scss";
-class Markdown extends React.Component {
+class Doc extends React.Component {
 	constructor(props, context) {
 		super(props);
 	}
@@ -8,11 +8,11 @@ class Markdown extends React.Component {
 	render() {
 		return (
       <div
-        className="dh-markdown"
+        className="dh-doc"
         dangerouslySetInnerHTML={{ __html: this.props.content }}
       />
 		);
 	}
 }
 
-export default Markdown;
+export default Doc;

@@ -6,6 +6,19 @@ html, body{
   .ant-layout {
     height: 100%;
   }
+  .ant-layout-sider {
+    li {
+      a {
+        font-size: 18px;
+        color: #e6e6e6;
+        small {
+          color: #939393;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
   .logo {
       height: 32px;
       background: #333;

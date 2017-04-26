@@ -1,9 +1,8 @@
 import React from 'react';
-import Markdown from '../home/Markdown';
+import Mark from './component/mark';
+import { Radio } from '../src';
 
-import { Radio } from '../../src';
-import md from './readme.md';
-
+import docRadio from '../doc/radio.md';
 class RadioTest extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +21,7 @@ class RadioTest extends React.Component {
           <Radio>单选框3</Radio>
         </Radio.Group>
 
-        <Markdown content={md}/>
+        <doc content={docRadio}/>
       </div>
     )
   }
