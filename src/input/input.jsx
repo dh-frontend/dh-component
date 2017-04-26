@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../icon';
 class Input extends React.Component {
@@ -8,25 +9,25 @@ class Input extends React.Component {
     searched: false
   }
   static propsTypes = {
-    width: React.PropTypes.oneOfType([
-      React.PropTypes.number,
-      React.PropTypes.string
+    width: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
     ]),
-    placeholder: React.PropTypes.string,
-    name: React.PropTypes.string,
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number
+    placeholder: PropTypes.string,
+    name: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
     ]),
-    disabled: React.PropTypes.bool,
-    addonBefore: React.PropTypes.oneOfType([
-      React.PropTypes.element,
+    disabled: PropTypes.bool,
+    addonBefore: PropTypes.oneOfType([
+      PropTypes.element,
     ]),
-    addonAfter: React.PropTypes.oneOfType([
-      React.PropTypes.element,
+    addonAfter: PropTypes.oneOfType([
+      PropTypes.element,
     ]),
-    searched: React.PropTypes.bool,
-    danger: React.PropTypes.bool
+    searched: PropTypes.bool,
+    danger: PropTypes.bool
   }
 
   constructor(props) {
@@ -109,7 +110,7 @@ class Input extends React.Component {
             className="dh-input-warp-inner"
             onFocus={this.handleFocus}
             name={name}
-            defaultValue={123}
+            defaultValue={this.props.defaultValue}
             onMouseOut={this.handleMouseLeave}
             onChange={this.handleChange}
             onBlur={this.handleBlur}

@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Icon extends React.Component {
   static propTypes = {
-    type: React.PropTypes.string.isRequired
+    type: PropTypes.string.isRequired
   };
 
   constructor(props) {

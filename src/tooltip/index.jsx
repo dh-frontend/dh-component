@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import RcTooltip from 'rc-tooltip';
 
 const prefixCls= 'dh-tooltip';

@@ -1,8 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import RcMenu, { SubMenu, Item, Divider } from 'rc-menu';
+import classNames from 'classnames';
 import Ani from 'css-animation';
 const prefixCls = 'dh-menu';
 class Menu extends React.Component {
+  static defaultProps = {
+    bordered: true
+  }
+  static propTypes = {
+    bordered: PropTypes.bool
+  }
+
   constructor(props) {
     super(props);
   }
@@ -47,7 +57,12 @@ class Menu extends React.Component {
     return (
       <RcMenu
         prefixCls={prefixCls}
-        className="dh-menu-dark"
+        className={
+          classNames({
+            'dh-menu-border': props.bordered,
+            'dh-menu-dark': props.theme === 'dark'
+          })
+        }
         {...props}
       />
     );
