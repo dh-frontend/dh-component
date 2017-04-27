@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Radio from '../radio';
 import { Menu, Dropdown, Icon } from '../index.js';
 
@@ -10,17 +12,17 @@ class ListItem extends React.Component {
   }
 
   static propTypes = {
-    eventKey: React.PropTypes.string,
-    rowSelected: React.PropTypes.bool,
-    addonAvatar: React.PropTypes.element,
-    rowSelection: React.PropTypes.shape({
-      type: React.PropTypes.oneOf(['radio', 'dropdown']),
-      onClick: React.PropTypes.func,
-      options: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.shape({
-          name: React.PropTypes.string,
-          key: React.PropTypes.string
+    eventKey: PropTypes.string,
+    rowSelected: PropTypes.bool,
+    addonAvatar: PropTypes.element,
+    rowSelection: PropTypes.shape({
+      type: PropTypes.oneOf(['radio', 'dropdown']),
+      onClick: PropTypes.func,
+      options: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.shape({
+          name: PropTypes.string,
+          key: PropTypes.string
         })
       ])
     })
@@ -60,7 +62,7 @@ class ListItem extends React.Component {
   handleClick() {
     const checked = !this.state.checked
     this.setState({ checked });
-    if (this.props.onClick) {
+    if (this.props.onChange) {
       this.props.onChange(checked, this.props.eventKey);
     }
   }

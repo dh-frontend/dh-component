@@ -8,6 +8,7 @@ $inputBorderBg: #e6e6e6;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid $inputBorderBg;
+  line-height: normal;
   &-before {
     margin-right: 8px;
   }
@@ -45,7 +46,7 @@ $inputBorderBg: #e6e6e6;
     transition: all .45s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     background-color: #39b86e;
     &-danger {
-      background-color: #ff5a44; 
+      background-color: #ff5a44;
     }
   }
   &-search {

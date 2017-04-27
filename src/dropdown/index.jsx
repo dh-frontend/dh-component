@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import RcDropdown from 'rc-dropdown';
 import Icon from '../icon';
 
@@ -7,10 +9,10 @@ class Dropdown extends React.Component {
       trigger: 'click'
     };
     static propsTypes = {
-      trigger: React.PropTypes.oneOf(['hover', 'click']),
-      overlay: React.PropTypes.element,
-      visible: React.PropTypes.bool,
-      onVisibleChange: React.PropTypes.func
+      trigger: PropTypes.oneOf(['hover', 'click']),
+      overlay: PropTypes.element,
+      visible: PropTypes.bool,
+      onVisibleChange: PropTypes.func
     }
     render() {
       const { trigger, overlay, children,  ...otherProps } = this.props;

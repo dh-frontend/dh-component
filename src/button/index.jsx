@@ -1,14 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Icon from '../icon';
 import classNames from 'classnames';
 
 class Button extends React.Component {
   static propTypes = {
-    type: React.PropTypes.oneOf(['default', 'primary', 'danger']),
-    size: React.PropTypes.oneOf(['normal', 'small']),
-    shape: React.PropTypes.oneOf(['circle']),
-    icon: React.PropTypes.string,
-    onClick: React.PropTypes.func
+    type: PropTypes.oneOf(['default', 'primary', 'danger']),
+    size: PropTypes.oneOf(['normal', 'small']),
+    shape: PropTypes.oneOf(['circle']),
+    icon: PropTypes.string,
+    onClick: PropTypes.func
   };
 
   constructor(props) {

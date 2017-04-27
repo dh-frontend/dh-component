@@ -1,4 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+
+import PropTypes from 'prop-types';
 import Checkbox from 'antd/lib/checkbox';
 
 class Table extends Component {
@@ -7,8 +9,8 @@ class Table extends Component {
     columns: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.oneOfType([
-          React.PropTypes.string,
-          React.PropTypes.element
+          PropTypes.string,
+          PropTypes.element
         ]),
         dataIndex: PropTypes.string,
         render: PropTypes.function,

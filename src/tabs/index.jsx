@@ -1,19 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
 import RcTabs from 'rc-tabs';
 import TabContent from 'rc-tabs/lib/TabContent';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 
 class Tabs extends React.Component {
-  
   static defaultProps = Object.assign({}, RcTabs.defaultProps, {
     prefixCls: 'dh-tab'
   });
 
   static propTypes = {
-    type: React.PropTypes.oneOf(['line', 'diamond']),
-    className: React.PropTypes.string,
-    animated: React.PropTypes.bool
+    type: PropTypes.oneOf(['line', 'diamond']),
+    className: PropTypes.string,
+    animated: PropTypes.bool
   }
   constructor(props) {
     super(props);

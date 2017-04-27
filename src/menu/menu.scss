@@ -1,0 +1,313 @@
+
+@mixin keyframesScale {
+  -webkit-animation: keyframesScale .5s cubic-bezier(0.23, 1, 0.32, 1) 0s forwards;
+  animation: keyframesScale .5s cubic-bezier(0.23, 1, 0.32, 1) 0s forwards;
+}
+.dp {
+  font-family: dhfont !important;
+  font-style: normal;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  font-size: 18px;
+  text-rendering: auto;
+  transition: transform .3s ease;
+  position: absolute;
+  right: 10px;
+  line-height: 37px;
+}
+//#50d27c
+@mixin avtived($width, $height, $top, $bg) {
+  &:before {
+    content: "";
+    position: absolute;
+    width: $width;
+    height: $height;
+    top: $top;
+    left: 0;
+    background: $bg;
+    transform: scaleY(0);
+    @include keyframesScale();
+  }
+}
+
+.dh-menu {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  z-index: 1001;
+  color: #666666;
+  background: #fff;
+  outline: none;
+  font-size: 14px;
+  line-height: 36px;
+  // 子元素
+  &-item {
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    line-height: 36px;
+  }
+  // 展开元素
+  &-submenu {
+    position: relative;
+    display: block;
+    &-inline {
+      > .dh-menu-submenu-title {
+        position: relative;
+        cursor: pointer;
+        &:after {
+          @extend .dp;
+          content: "\e6a6";
+          top: 0;
+        }
+      }
+      &.dh-menu-submenu-active {
+      .dh-menu-submenu-title {
+          position: relative;
+          background-color: #f5fcf7;
+        }
+      }
+      &.dh-menu-submenu-open  {
+        > .dh-menu-submenu-title {
+          &:after  {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    &-vertical {
+      > .dh-menu-submenu-title {
+        position: relative;
+        cursor: pointer;
+        padding-left: 24px;
+        &:after {
+          @extend .dp;
+          content: "\e6a7";
+          top: 0;
+        }
+      }
+      &.dh-menu-submenu-active  {
+        .dh-menu-submenu-title {
+          position: relative;
+          background-color: #f5fcf7;
+        }
+      }
+      >.dh-menu {
+        top: 0;
+        left: 100%;
+        position: absolute;
+        min-width: 160px;
+        margin-left: 4px;
+        z-index: 1050;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 1px 6px rgba(0,0,0,.2);
+      }
+      >.dh-menu-vertical {
+        .dh-menu-item-selected {
+          &:before {
+            background: transparent;
+          }
+        }
+      }
+    }
+    &-float {
+      > .dh-menu-submenu-title {
+        position: relative;
+        cursor: pointer;
+        padding-left: 24px;
+        &:after {
+          @extend .dp;
+          content: "\e60d";
+          top: 0;
+          font-size: 14px;
+        }
+      }
+      &.dh-menu-submenu-active  {
+        .dh-menu-submenu-title {
+          position: relative;
+          background-color: #f5fcf7;
+        }
+      }
+      >.dh-menu-sub {
+        top: 100%;
+        right: 0;
+        position: absolute;
+        min-width: 100px;
+        margin-left: 4px;
+        z-index: 1050;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 1px 6px rgba(0,0,0,.2);
+        .dh-menu-item-selected {
+          &:before {
+            background: transparent;
+          }
+        }
+      }
+    }
+    &-horizontal {
+      float: left;
+      > .dh-menu-submenu-title {
+        position: relative;
+        cursor: pointer;
+        padding: 0 20px;
+      }
+      &.dh-menu-submenu-active  {
+        .dh-menu-submenu-title {
+          position: relative;
+          background-color: #f5fcf7;
+        }
+      }
+      >.dh-menu-sub {
+        top: 100%;
+        left: 0;
+        position: absolute;
+        min-width: 100%;
+        margin-top: 7px;
+        z-index: 1050;
+      }
+      >.dh-menu-vertical {
+        .dh-menu-item-selected {
+          &:before {
+            background: transparent;
+          }
+        }
+      }
+    }
+  }
+  // 内联的 子菜单样式
+  &-inline {
+    font-size: 14px;
+    line-height: 36px;
+    >.dh-menu-item {
+      &-active, &-selected {
+        background-color: #f5fcf7;
+      }
+      &-selected {
+        color: #50d27c;
+        font-weight: bold;
+        @include avtived(2px, 100%, 0, #50d27c);
+      }
+    }
+  }
+  // 垂直 子菜单样式
+  &-vertical {
+    >.dh-menu-item {
+      padding: 0 24px;
+      &-active, &-selected {
+        background-color: #f5fcf7;
+      }
+      &-selected {
+        color: #50d27c;
+        font-weight: bold;
+        @include avtived(2px, 100%, 0, #50d27c);
+      }
+    }
+
+  }
+  &-horizontal {
+    font-size: 16px;
+    line-height: 48px;
+    &:after {
+      content: "\20";
+      display: block;
+      height: 0;
+      clear: both;
+    }
+    >.dh-menu-item {
+      position: relative;
+      float: left;
+      padding: 0 20px;
+      line-height: 48px;
+      &-active, &-selected {
+        background-color: #f5fcf7;
+      }
+      &-selected {
+        color: #50d27c;
+        font-weight: bold;
+        @include avtived(100%, 2px, 46px, #50d27c);
+      }
+    }
+  }
+  &-float {
+    >.dh-menu-item {
+      padding: 0 24px;
+      &-active, &-selected {
+        background-color: #f5fcf7;
+      }
+      &-selected {
+        color: #50d27c;
+        font-weight: bold;
+        @include avtived(2px, 100%, 0, #50d27c);
+      }
+    }
+  }
+  &-hidden {
+    display: none;
+  }
+  &-border {
+    &.dh-menu-inline, &.dh-menu-vertical {
+      border-right: 1px solid #e9e9e9;
+    }
+    &.dh-menu-horizontal {
+      border-bottom: 1px solid #e9e9e9;
+    }
+  }
+  //黑色主题
+  &.dh-menu-dark {
+    background-color: #404040;
+    color: hsla(0,0%,100%,.67);
+    >.dh-menu-submenu {
+      &.dh-menu-submenu-active  {
+        .dh-menu-submenu-title {
+          position: relative;
+          background-color: #404040;
+        }
+      }
+      >.dh-menu-sub {
+        background-color: #404040;
+        color: hsla(0,0%,100%,.67);
+        >.dh-menu-item {
+          &-active, &-selected {
+            background: none;
+            color: #fff;
+            font-weight: bold;
+          }
+          &-selected {
+            color: #fff;
+            font-weight: bold;
+            @include avtived(2px, 100%, 0, none);
+          }
+        }
+      }
+    }
+    &.dh-menu-inline {
+      >.dh-menu-item {
+        &-active, &-selected {
+          background-color: #50d27c;
+        }
+        &-selected {
+          color: #fff;
+          font-weight: bold;
+          @include avtived(2px, 100%, 0, #50d27c);
+        }
+      }
+    }
+    &.dh-menu-vertical, &.dh-menu-float, &.dh-menu-horizontal {
+      >.dh-menu-item {
+        &-active, &-selected {
+          background: none;
+          color: #fff;
+          font-weight: bold;
+        }
+        &-selected {
+          color: #fff;
+          font-weight: bold;
+          @include avtived(2px, 100%, 0, none);
+        }
+      }
+    }
+  }
+}

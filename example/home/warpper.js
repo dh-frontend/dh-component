@@ -16,7 +16,9 @@ class Wrapper extends React.Component {
 		return Object.keys(obj).map(key => {
 			return (
 				<Menu.Item key={key}>
-					<Link to={key}>{obj[key]}</Link>
+					<Link to={key}>
+						{key}<small>{obj[key]}</small>
+					</Link>
 				</Menu.Item>
 			);
 		})
