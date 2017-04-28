@@ -9,5 +9,7 @@
   "radio": "单选框",
   "pagination": "分页",
   "dropdown": "下拉菜单",
-  "message": "提示框"
+  "message": "提示框",
+  "tooltip": "文字提示",
+  "steps": "步骤条"
 }

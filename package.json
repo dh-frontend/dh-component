@@ -1,6 +1,6 @@
 {
   "name": "dh-c",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "The front-end development engineers jimberton gulp react component",
   "main": "dist/index.js",
   "scripts": {
@@ -30,6 +30,7 @@
     "prop-types": "^15.5.8",
     "rc-input-number": "^3.4.14",
     "rc-menu": "^5.0.10",
+    "rc-select": "^6.8.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
