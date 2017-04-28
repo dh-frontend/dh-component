@@ -1,73 +1,75 @@
+@mixin keyframes_inline_start {
+  -webkit-animation: keyframes_inline_start 1s cubic-bezier(0.23, 1, 0.32, 1) .1s forwards;
+  animation: keyframes_inline_start 1s cubic-bezier(0.23, 1, 0.32, 1) .1s forwards;
+}
+
 .dh-steps {
-  font-size: 0;
   width: 100%;
-  line-height: 1.5;
+  display: flex;
+
   &-item {
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    .dh-steps-status-finish {
-      background-color: red;
-    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
-  &-tail {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    top: 13px;
-    padding: 0 10px;
-    i {
-      display: inline-block;
-      vertical-align: top;
-      background: #e9e9e9;
-      height: 1px;
-      border-radius: 1px;
-      width: 100%;
-      position: relative;
-      &:after {
-        position: absolute;
-        content: "";
-        top: 0;
-        width: 0;
-        background: #e9e9e9;
-        height: 100%;
-        opacity: 0;
-      }
-    }
+  &-step {
+    // 前缀
+    //
+    padding: 0 8px;
   }
   &-head {
-    position: relative;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
     display: inline-block;
-    vertical-align: top;
+    position: relative;
     &-inner {
-      display: block;
-      background-color: rgba(255, 255, 255, .5);
-      width: 26px;
-      height: 26px;
-      line-height: 23px;
+      display: inline-block;
+      width: 100%;
+      height: inherit;
+      background-color: #50d27c;
       text-align: center;
-      border-radius: 26px;
+      color: #fff;
       font-size: 14px;
-      margin-right: 8px;
-      -webkit-transition: background-color .3s ease,border-color .3s ease;
-      transition: background-color .3s ease,border-color .3s ease;
-      .dh-steps-icon {
-        color: #50d27c;
-        line-height: 26px;
+      font-weight: 400;
+      border-radius: 50%;
+      &-finish {
+        display: inline-block;
+        width: 100%;
+        height: inherit;
+        background-color: #50d27c;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+        border-radius: 50%
       }
     }
   }
   &-main {
-    position: relative;
     display: inline-block;
-    vertical-align: top;
-   }
-   &-title {
+    margin-left: 6px;
     font-size: 14px;
-    margin-bottom: 4px;
-    color: rgba(255, 255, 255, .6);
-    font-weight: 700;
-    display: inline-block;
-    padding-right: 10px;
+    &-title {
+      &-finish {
+        
+      }
+    }
+  }
+  //尾部条
+  &-tail {
+    flex: 1;
+    height: 4px;
+    background: #e9e9e9;
+    position: relative;
+    &__inline {
+      width: 0;
+      height: 100%;
+      background-color: #50d27c;
+      &[data-slide="true"] {
+        @include keyframes_inline_start;
+      }
+    }
+
   }
 }

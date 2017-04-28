@@ -27,7 +27,7 @@
     left: 0;
     background: $bg;
     transform: scaleY(0);
-    @include keyframesScale();
+    @include keyframesScale;
   }
 }
 
