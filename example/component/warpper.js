@@ -15,7 +15,7 @@ class Wrapper extends React.Component {
 	renderMenu(obj) {
 		return Object.keys(obj).map(key => {
 			return (
-				<Menu.Item key={key}>
+				<Menu.Item key={key} >
 					<Link to={key}>
 						{key}<small>{obj[key]}</small>
 					</Link>
@@ -33,7 +33,7 @@ class Wrapper extends React.Component {
 					onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
 				>
 					<div className="logo">使用文档</div>
-					<Menu theme="dark" mode="inline">
+					<Menu theme="dark" mode="vertical">
 						{ this.renderMenu(config)}
 					</Menu>
 				</Sider>

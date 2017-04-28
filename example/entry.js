@@ -17,15 +17,15 @@ const childRoutes = ((json) =>{
   return Object.keys(json).map(k => (
     {
       path: k,
-      component: require("./" + k + "_test/index.js").default
+      component: require("./demo_" + k + ".js").default
     }
   ))
 })(config);
 
 const routes = {
   path: '/',
-  component: require("./home/warpper.js").default,
-  indexRoute: { component:require("./home/home.js").default },
+  component: require("./component/warpper.js").default,
+  indexRoute: { component: require("./demo_home.js").default },
   childRoutes
 }
 

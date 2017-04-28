@@ -1,7 +1,7 @@
 import React from 'react';
-import Markdown from '../home/Markdown'
-import { Dropdown, Menu, Button } from '../../src';
-import md from './dropdown.md';
+import Mark from './component/mark';
+import { Dropdown, Menu, Button } from '../src';
+import docDropdown from '../doc/dropdown.md';
 class Dropdowntest extends React.Component {
     constructor(props) {
         super(props);
@@ -34,7 +34,7 @@ class Dropdowntest extends React.Component {
                  </Dropdown>
               </div>
             </div>
-            <Markdown content={md}/>
+            <Mark content={docDropdown}/>
           </div>
     )
   }

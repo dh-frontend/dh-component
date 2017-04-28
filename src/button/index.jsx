@@ -42,7 +42,8 @@ class Button extends React.Component {
         })}
         disabled={disabled}
         onClick={this.handleClick}
-        {...otherProps}
+        data-role={ this.state.checked ? "checked" : null}
+        {...this.props}
       >
       {
         !shape && icon ? (<Icon type={icon} />) : null

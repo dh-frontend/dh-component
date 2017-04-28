@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Menu } from '../../src/'
+import { Button, Menu } from '../src/'
 class ButtonTest extends React.Component {
   constructor(props) {
     super(props)

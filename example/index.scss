@@ -6,6 +6,19 @@ html, body{
   .ant-layout {
     height: 100%;
   }
+  .ant-layout-sider {
+    li {
+      a {
+        font-size: 18px;
+        color: #e6e6e6;
+        small {
+          color: #939393;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
   .logo {
       height: 32px;
       background: #333;
@@ -44,5 +57,34 @@ html, body{
     .test-list-item {
       margin-bottom: 20px;
     }
+  }
+}
+.tooltip-test {
+   width: 400px;
+   height: 200px;
+  position: relative;
+  &-left {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  &-top {
+    position: absolute;
+    top: 0;
+    left: 100px;
+  }
+  &-right {
+    position: absolute;
+     top: 35px;
+     right: 0;
+     display: flex;
+     flex-direction: column;
+  }
+  &-bottom {
+    position: absolute;
+     bottom: 0;
+     left: 100px;
   }
 }

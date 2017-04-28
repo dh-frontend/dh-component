@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from '../../src/'
+import { Menu } from '../src/'
 // import { Menu } from 'antd';
 class ButtonTest extends React.Component {
 

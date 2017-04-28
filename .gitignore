@@ -10,3 +10,4 @@ jest
 dist
 coverage
 .idea
+assets

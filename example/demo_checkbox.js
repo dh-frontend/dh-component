@@ -1,8 +1,8 @@
 import React from 'react';
-import Markdown from '../home/Markdown';
+import Mark from './component/mark';
+import { Checkbox } from '../src';
 
-import { Checkbox } from '../../src';
-// import md from './readme.md';
+import docCheckbox from '../doc/checkbox.md';
 
 class CheckboxTest extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class CheckboxTest extends React.Component {
           <Checkbox>复选框3</Checkbox>
         </Checkbox.Group>
 
-        {/* <Markdown content={md}/> */}
+        <Mark content={docCheckbox}/>
       </div>
     )
   }
