@@ -19,7 +19,8 @@ class Table extends Component {
     size: PropTypes.oneOf(['default', 'small', 'large']),
     bordered: PropTypes.bool,
     striped: PropTypes.bool,
-    rowSelection: PropTypes.object
+    rowSelection: PropTypes.object,
+    block: PropTypes.bool
   }
 
   static defaultProps = {
@@ -78,12 +79,12 @@ class Table extends Component {
   }
 
   render() {
-    const { columns, dataSource, size, bordered, striped, rowSelection } = this.props;
+    const { columns, dataSource, size, bordered, striped, rowSelection, block } = this.props;
     const { selectedIdx } = this.state;
 
     return (
       <div className={`dh-table dh-table-${size} ${bordered ? 'dh-table-bordered' : ''} ${striped ? 'dh-table-striped' : ''}`}>
-        <table cellSpacing="0">
+        <table cellSpacing="0" style={{width: block ? '100%' : 'auto'}}>
           <thead>
           <tr>
             {rowSelection && (
