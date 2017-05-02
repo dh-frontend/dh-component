@@ -45,6 +45,7 @@ class Input extends React.Component {
     //   this.state.value = this.props.value;
     // }
   }
+  componentDidMount()
   componentWillReceiveProps(nextProps) {
     if (this.props.value !== nextProps.value) {
       this.state.value = nextProps.value;
