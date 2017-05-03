@@ -11,5 +11,6 @@
   "dropdown": "下拉菜单",
   "message": "提示框",
   "tooltip": "文字提示",
-  "steps": "步骤条"
+  "steps": "步骤条",
+  "table": "表格"
 }
