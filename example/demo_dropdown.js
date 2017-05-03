@@ -1,6 +1,6 @@
 import React from 'react';
 import Mark from './component/mark';
-import { Dropdown, Menu, Button } from '../src';
+import { Dropdown, Menu, Button, Icon } from '../src';
 import docDropdown from '../doc/dropdown.md';
 class Dropdowntest extends React.Component {
     constructor(props) {
@@ -31,6 +31,11 @@ class Dropdowntest extends React.Component {
               <div style={{float:'left',width:200}}>
                  <Dropdown overlay={menu} trigger="hover">
                     <a>点击我</a>
+                 </Dropdown>
+              </div>
+              <div style={{float:'left',width:200}}>
+                 <Dropdown overlay={menu} trigger="hover">
+                    <Icon type="setting"/>
                  </Dropdown>
               </div>
             </div>

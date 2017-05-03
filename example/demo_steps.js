@@ -1,7 +1,7 @@
 import React from 'react';
 import Mark from './component/mark'
 import { Steps, Button } from '../src';
-
+import docSteps from '../doc/steps.md';
 class StepsTest extends React.Component {
   constructor(props) {
     super(props);
@@ -80,6 +80,7 @@ class StepsTest extends React.Component {
             <Steps.Step icon="5"/>
           </Steps>
         </div>
+        <Mark content={docSteps}/>
       </div>
     )
   }

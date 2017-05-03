@@ -55,14 +55,6 @@ $icons: (
   success: '\e63c',
   warning: '\e685'
 );
-@font-face {
-  font-family: 'dhfont';  /* project id 267870 */
-   src: url('//at.alicdn.com/t/font_2jt5f1u7mdt2o6r.eot');
-   src: url('//at.alicdn.com/t/font_2jt5f1u7mdt2o6r.eot?#iefix') format('embedded-opentype'),
-   url('//at.alicdn.com/t/font_2jt5f1u7mdt2o6r.woff') format('woff'),
-   url('//at.alicdn.com/t/font_2jt5f1u7mdt2o6r.ttf') format('truetype'),
-   url('//at.alicdn.com/t/font_2jt5f1u7mdt2o6r.svg#dhfont') format('svg');
-}
 .dh-icon {
   font-family:"dhfont" !important;
   display: inline-block;

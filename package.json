@@ -32,7 +32,8 @@
     "rc-menu": "^5.0.10",
     "rc-select": "^6.8.2",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-slick": "^0.14.11"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.6",

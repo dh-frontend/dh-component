@@ -1,135 +1,86 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import Radio from '../radio';
 import { Menu, Dropdown, Icon } from '../index.js';
 
 class ListItem extends React.Component {
-  static defaultProps = {
-    rowSelection: {
-      type: 'radio'
-    }
+  static contextTypes = {
+    onChange: PropTypes.func,
+    trigger: PropTypes.bool
   }
-
   static propTypes = {
+    prefix: PropTypes.element,
+    suffix: PropTypes.element,
     eventKey: PropTypes.string,
-    rowSelected: PropTypes.bool,
-    addonAvatar: PropTypes.element,
-    rowSelection: PropTypes.shape({
-      type: PropTypes.oneOf(['radio', 'dropdown']),
-      onClick: PropTypes.func,
-      options: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.shape({
-          name: PropTypes.string,
-          key: PropTypes.string
-        })
-      ])
-    })
+    onRowClick: PropTypes.func,
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      checked: false
-    }
-    this.handleChange = this.handleChange.bind(this);
+      selected: false
+    };
     this.handleClick = this.handleClick.bind(this);
-    this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
+  }
+  componentDidMount() {
+    // this.element = ReactDOM.findDOMNode(this);
+    // this.staticEventManger();
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.checked !== this.props.checked) {
-      this.state.checked = nextProps.checked;
+    if (nextProps.selected !== this.props.selected) {
+      this.state.selected = nextProps.selected;
     }
   }
-  handleMenuItemClick(record) {
-    const { rowSelection, eventKey } = this.props;
-    if (rowSelection.onClick && typeof rowSelection.onClick === 'function') {
-      //组合callback 的 record
-      rowSelection.onClick({
-        ...record,
-        keyPath: [eventKey, record.keyPath[0]],
-        keyParent: eventKey
-      });
-    }
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.selected !== nextProps.selected
   }
-  handleChange(checked) {
-    if (this.props.onChange) {
-      this.props.onChange(checked, this.props.eventKey);
-      this.setState({ checked })
-    }
-  }
+  // staticEventManger() {
+  //   if (this.refs.suffix) {
+  //     const nodes = this.refs.suffix.childNodes;
+  //     nodes.forEach(itemNode => {
+  //       itemNode.addEventListener('click', () => {
+  //         this.element.addEventListener('click', (e) => {
+  //           e.preventDefault();
+  //         })
+  //       })
+  //     });
+  //   }
+  // }
   handleClick() {
-    const checked = !this.state.checked
-    this.setState({ checked });
-    if (this.props.onChange) {
-      this.props.onChange(checked, this.props.eventKey);
+    const selected = !this.state.selected;
+    const eventKey = this.props.eventKey;
+    if (this.context.onChange) {
+      this.context.onChange(selected, eventKey);
+    } else {
+      this.setState({ selected });
     }
-  }
-  /**
-   * render 后缀元素
-   */
-  renderAfter(cellProps) {
-    const { rowSelection } = this.props;
-    if (rowSelection && rowSelection.type === 'radio') {
-      return (<Radio {...cellProps} defaultValue={this.state.checked}/>)
-    } else if (rowSelection && rowSelection.type === 'dropdown') {
-      const menus = this.renderMenu(rowSelection.options);
-      return (
-        <Dropdown
-          overlay={menus}
-          trigger="hover"
-        >
-          <span><Icon type="list-circle"/></span>
-        </Dropdown>
-      )
+    if (this.props.onRowClick) {
+      this.props.onRowClick(eventKey, selected);
     }
-    return null;
-  }
-  renderMenu(options) {
-    let elements = null;
-    if (options && options instanceof Array) {
-      elements = options.map((item, idx) => {
-        return (
-          <Menu.Item key={item.key || idx} >
-            <span>{ item instanceof Object ? item.name : item }</span>
-          </Menu.Item>
-        )
-      })
-    }
-    return (<Menu onClick={this.handleMenuItemClick}>{elements}</Menu>);
   }
   render() {
-    const { checked, eventKey, addonAvatar, rowSelected } = this.props;
-    const style = {
-      transform: this.state.checked ? 'scaleY(1)':' scaleY(0)'
-    };
-    let [rowProps, cellProps] = [{
-        onClick: this.handleClick
-      }, {
-        onChange: this.handleChange
-    }];
-    if (rowSelected && typeof rowSelected  === 'boolean') {
-      cellProps = {};
-    } else {
-      rowProps = {};
+    const borderStyle = {
+      transform: this.state.selected ? 'scaleY(1)' : ' scaleY(0)'
     }
+    const { prefix, suffix, eventKey } = this.props;
+    const otherProps = this.context.trigger ? { onClick: this.handleClick } : null;
     return (
-      <li
-        className="dh-list-warp-item"
-        data-checked={checked}
-        {...rowProps}
-      >
-        <div className="dh-list-warp-inner">
-          { addonAvatar ? (<span className="warp-inner-label">{addonAvatar}</span>) : null }
-          <span className="warp-inner-content">{ this.props.children }</span>
-          <span className="warp-inner-radio">
-            { this.renderAfter(cellProps)}
-          </span>
+      <li 
+        className="dh-list-child dh-list-animation"
+        data-selected={this.state.selected}
+        {...otherProps}>
+        <div className="dh-list-child__inner">
+          {
+            prefix ? (<span className="dh-list-inner__icon">{prefix}</span>) : null
+          }
+          <span className="dh-list-inner__title">{this.props.children}</span>
+          {
+            suffix ? (<span className="dh-list-inner__tail">{suffix}</span>) : null
+          }
         </div>
-        <div
-          style={style}
-          className="dh-list-warp-bordered"/>
+        <div style={borderStyle} className="dh-list-child__border" />
       </li>
     )
   }
