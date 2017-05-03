@@ -17,38 +17,33 @@ $tr-height-small: 30px;
 $tr-height-large: 60px;
 
 .dh-table {
-  tr {
-    font-size: 14px;
-  }
-  &.dh-table-default {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: $table-border;
+  border-radius: $table-radius;
+  height: 100%;
+  table {
+    height: 100%;
+    min-width: 100%;
+    thead {
+      height: $tr-height-default;
+      line-height: $tr-height-default;
+      z-index: 100;
+    }
     tr {
       height: $tr-height-default;
+      line-height: $tr-height-default;
       font-size: 14px;
-    }
-  }
-  &.dh-table-small {
-    tr {
-      height: $tr-height-small;
-      font-size: 12px;
-    }
-  }
-  &.dh-table-large {
-    tr {
-      height: $tr-height-large;
-    }
-  }
-
-  table {
-    border: $table-border;
-    border-radius: $table-radius;
-    tr {
       td, th {
+        text-align: left;
         font-weight: normal;
         border-bottom: $table-border;
         padding-left: $table-padding;
         padding-right: $table-padding;
-        background: $table-striped-even;
         color: $table-header-color;
+        white-space: nowrap;
+        position: relative;
       }
       td {
         color: $table-data-color;
@@ -58,15 +53,61 @@ $tr-height-large: 60px;
           border-bottom: none;
         }
       }
-      &:nth-child(odd) {
-        td {
-          background: $table-striped-odd;
-        }
-      }
       &:hover {
         td {
-          background: $table-hover;
+          background: $table-hover!important;
         }
+      }
+    }
+  }
+  .an-table-col-frozen {
+    pointer-events: none;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(248, 248, 248, 0.8);
+    }
+  }
+
+  &.dh-table-fixed {
+    tbody {
+      padding-top: $tr-height-default;
+    }
+  }
+
+  &.dh-table-small {
+    thead {
+      height: $tr-height-small;
+      line-height: $tr-height-small;
+    }
+    tr {
+      height: $tr-height-small;
+      line-height: $tr-height-small;
+      font-size: 12px;
+    }
+    &.dh-table-fixed {
+      tbody {
+        padding-top: $tr-height-small;
+      }
+    }
+  }
+  &.dh-table-large {
+    thead {
+      height: $tr-height-large;
+      line-height: $tr-height-large;
+    }
+    tr {
+      height: $tr-height-large;
+      line-height: $tr-height-large;
+    }
+    &.dh-table-fixed {
+      tbody {
+        padding-top: $tr-height-large;
       }
     }
   }
@@ -80,6 +121,17 @@ $tr-height-large: 60px;
             border-right: none;
           }
         }
+      }
+    }
+  }
+
+  &.dh-table-striped {
+    table {
+      tr:nth-child(even) td, th {
+        background: $table-striped-even;
+      }
+      tr:nth-child(odd) td {
+        background: $table-striped-odd;
       }
     }
   }
