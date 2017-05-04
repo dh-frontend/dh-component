@@ -4,12 +4,19 @@ $normal-button-FontSize: 14px;
 $small-button-Height: 24px;
 $small-button-FontSize: 12px;
 /* begin: default style **/
-$button-backgroundColor-default: transparent;
-$button-borderColor-default: #39b86e;
-$button-borderColor-default-hover: #ff5a44;
-$button-fontColor-default: #39b86e;
+$button-backgroundColor-default: #ffffff;
+$button-borderColor-default: #d9d9d9;
+$button-borderColor-default-hover: #f4f4f4;
+$button-fontColor-default: #999999;
 $button-backgroundColor-default-checked: transparent;
 $button-borderColor-default-checked: #33a663;
+/* begin: normal style **/
+$button-backgroundColor-normal: transparent;
+$button-borderColor-normal: #39b86e;
+$button-borderColor-normal-hover: #ff5a44;
+$button-fontColor-normal: #39b86e;
+$button-backgroundColor-normal-checked: transparent;
+$button-borderColor-normal-checked: #33a663;
 /* end: default **/
 
 /* begin: primary style **/
@@ -77,6 +84,15 @@ $button-borderColor-danger-checked: #e6513d;
     .dh-icon + span {
       margin-left: 8px;
     }   
+}
+.dh-btn-normal {
+  @include buttonTypes(
+    $button-backgroundColor-normal,
+    $button-borderColor-normal,
+    $button-fontColor-normal,
+    $button-backgroundColor-normal-checked,
+    $button-borderColor-normal-checked
+  );
 }
 .dh-btn-primary {
   @include buttonTypes(

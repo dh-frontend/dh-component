@@ -1,3 +1,12 @@
+// 字体库
+ @font-face {
+    font-family: 'dhfont';  /* project id 267870 */
+    src: url('//at.alicdn.com/t/font_ona9a63hmu1k0529.eot');
+    src: url('//at.alicdn.com/t/font_ona9a63hmu1k0529.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_ona9a63hmu1k0529.woff') format('woff'),
+    url('//at.alicdn.com/t/font_ona9a63hmu1k0529.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_ona9a63hmu1k0529.svg#dhfont') format('svg');
+}
 @mixin keyframes($animationName) {
   @-webkit-keyframes #{$animationName} {
     @content;
@@ -16,3 +25,10 @@
   0%   { transform: scale(0); }
   100% { transform: scale(1); }
  }
+
+/*拉伸*/
+@include keyframes(keyframes_inline_start) {
+  0%   { width: 0%; }
+  100% { width: 100%; }
+}
+

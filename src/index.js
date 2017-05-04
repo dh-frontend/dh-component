@@ -18,6 +18,7 @@ export { Avatar } from './avatar';
 export { Menu } from './menu';
 export { Select } from './select';
 export { Steps } from './steps';
+export Slick from './slick';
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';
 export Col from 'antd/lib/col';

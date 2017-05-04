@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 
 class Icon extends React.Component {
@@ -9,9 +10,14 @@ class Icon extends React.Component {
   constructor(props) {
     super(props);
   }
+
+
   render () {
     return (
-      <i className={`dh-icon dh-icon-${this.props.type}`} />
+      <i 
+        {...this.props}
+        className={`dh-icon dh-icon-${this.props.type}`} 
+      />
     );
   }
 }

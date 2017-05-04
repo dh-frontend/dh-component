@@ -41,9 +41,9 @@ class Input extends React.Component {
     this.handleFocus = this.handleFocus.bind(this);
   }
   componentWillMount() {
-    // if (this.props.value) {
-    //   this.state.value = this.props.value;
-    // }
+    if (this.props.value) {
+      this.state.value = this.props.value;
+    }
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.value !== nextProps.value) {

@@ -9,9 +9,7 @@ class TooptipTest extends React.Component {
 			index: 0
 		};
 	}
-
 	render() {
-
 		return (
       <div>
         <div className="tooltip-test">

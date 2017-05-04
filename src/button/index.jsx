@@ -5,7 +5,11 @@ import Icon from '../icon';
 import classNames from 'classnames';
 
 class Button extends React.Component {
+  static defaultProps = {
+    htmlType: 'button'
+  }
   static propTypes = {
+    htmlType: PropTypes.oneOfType(['button', 'submit']),
     type: PropTypes.oneOf(['default', 'primary', 'danger']),
     size: PropTypes.oneOf(['normal', 'small']),
     shape: PropTypes.oneOf(['circle']),
@@ -30,11 +34,11 @@ class Button extends React.Component {
   }
 
   render() {
-    const { type, disabled, size, shape, icon } = this.props;
+    const { htmlType,type, disabled, size, shape, icon } = this.props;
     const otherProps = this.state.checked ? { 'data-role': 'checked'} : {};
     return (
       <button
-        type="button"
+        
         className={classNames('dh-btn', {
           [`dh-btn-${type}`]: type,
           [`dh-btn-${size}`]: size,
@@ -44,6 +48,7 @@ class Button extends React.Component {
         onClick={this.handleClick}
         data-role={ this.state.checked ? "checked" : null}
         {...this.props}
+        type={htmlType}
       >
       {
         !shape && icon ? (<Icon type={icon} />) : null
