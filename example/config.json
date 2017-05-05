@@ -12,5 +12,6 @@
   "message": "提示框",
   "tooltip": "文字提示",
   "steps": "步骤条",
-  "table": "表格"
+  "table": "表格",
+  "modal": "模态框"
 }
