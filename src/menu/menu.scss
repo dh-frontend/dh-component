@@ -35,7 +35,7 @@
   margin-bottom: 0;
   padding-left: 0;
   list-style: none;
-  z-index: 1001;
+  z-index: 1050;
   color: #666666;
   background: #fff;
   outline: none;
@@ -146,6 +146,7 @@
   &-inline {
     font-size: 14px;
     line-height: 36px;
+    z-index: auto;
     >.dh-menu-item {
       &-active, &-selected {
         background-color: #f5fcf7;
@@ -159,6 +160,7 @@
   }
   // 垂直 子菜单样式
   &-vertical {
+    z-index: auto;
     >.dh-menu-item {
       padding: 0 24px;
       &-active, &-selected {
@@ -175,6 +177,7 @@
   &-horizontal {
     font-size: 16px;
     line-height: 48px;
+    z-index: 0;
     &:after {
       content: "\20";
       display: block;
