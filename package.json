@@ -8,7 +8,9 @@
     "build": "rm -rf build && set NODE_ENV=production && webpack --config webpack.config.js",
     "lint": "lint src",
     "lib": "rm -rf dist && gulp",
-    "server": "node server.js"
+    "server": "node server.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,7 @@
     "react-slick": "^0.14.11"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
     "autoprefixer": "^6.7.6",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.4.0",
@@ -48,6 +51,7 @@
     "css-loader": "^0.26.4",
     "ejs": "^2.5.6",
     "file-loader": "^0.10.1",
+    "getstorybook": "^1.7.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",
