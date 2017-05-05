@@ -30,11 +30,12 @@ class CheckboxTest extends React.Component {
   render() {
     return (
       <div>
-        <div className="test-table" style={{height: 200}}>
+        <div className="test-table" >
           <Table
             dataSource={dataSource}
             columns={columns}
             fixed
+            style={{height: 200}}
           />
         </div>
 

@@ -3,18 +3,23 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import Radio from '../radio';
-import { Menu, Dropdown, Icon } from '../index.js';
+import { Icon } from '../index.js';
 
 class ListItem extends React.Component {
   static contextTypes = {
-    onChange: PropTypes.func,
-    trigger: PropTypes.bool
+    onClick: PropTypes.func,
+    animation: PropTypes.bool,
+    icon: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
+    ]), // 后缀图标， 如果设置false 则不显示
   }
+
   static propTypes = {
     prefix: PropTypes.element,
     suffix: PropTypes.element,
     eventKey: PropTypes.string,
-    onRowClick: PropTypes.func,
+    onSuffixClick: PropTypes.func, // 如果选取默认的icon 时点击回调
   }
 
   constructor(props) {
@@ -23,6 +28,12 @@ class ListItem extends React.Component {
       selected: false
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleSuffixClick = this.handleSuffixClick.bind(this);
+  }
+  componentWillMount() {
+    if (this.props.selected) {
+      this.state. selected = this.props.selected;
+    }
   }
   componentDidMount() {
     // this.element = ReactDOM.findDOMNode(this);
@@ -36,51 +47,67 @@ class ListItem extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return this.props.selected !== nextProps.selected
   }
-  // staticEventManger() {
-  //   if (this.refs.suffix) {
-  //     const nodes = this.refs.suffix.childNodes;
-  //     nodes.forEach(itemNode => {
-  //       itemNode.addEventListener('click', () => {
-  //         this.element.addEventListener('click', (e) => {
-  //           e.preventDefault();
-  //         })
-  //       })
-  //     });
-  //   }
-  // }
   handleClick() {
     const selected = !this.state.selected;
     const eventKey = this.props.eventKey;
-    if (this.context.onChange) {
-      this.context.onChange(selected, eventKey);
-    } else {
-      this.setState({ selected });
-    }
-    if (this.props.onRowClick) {
-      this.props.onRowClick(eventKey, selected);
+    this.setState({ selected });
+    this.context.onClick(selected, eventKey);
+  }
+  handleSuffixClick() {
+    if (this.props.onSuffixClick) {
+      this.props.onSuffixClick(this.props.eventKey);
     }
   }
-  render() {
-    const borderStyle = {
-      transform: this.state.selected ? 'scaleY(1)' : ' scaleY(0)'
+  renderSuffixElement() {
+    const { selected } = this.state;
+    const suffix = this.props.suffix;
+    const icon = this.context.icon;
+    const otherProps = { onClick: this.handleSuffixClick }
+    let element = null;
+    if (React.isValidElement(suffix)) {
+      element = suffix;
+    } else if (icon && typeof icon === 'string') {
+      element = (<span className="dh-list-info" {...otherProps}><Icon type={icon} /></span>)
+    } else if (typeof icon === 'boolean' && icon ) {
+     element =  selected ? (
+        <span className="dh-list-info" {...otherProps}> 
+          <Icon type="success" />
+        </span>
+      ) : null;;
     }
+    return element;
+  }
+  render() {
+    const { selected } = this.state;
     const { prefix, suffix, eventKey } = this.props;
-    const otherProps = this.context.trigger ? { onClick: this.handleClick } : null;
+    const borderStyle = {
+      transform: selected ? 'scaleY(1)' : ' scaleY(0)'
+    }
     return (
       <li 
-        className="dh-list-child dh-list-animation"
-        data-selected={this.state.selected}
-        {...otherProps}>
+        className="dh-list-child"
+        data-selected={selected}>
         <div className="dh-list-child__inner">
           {
-            prefix ? (<span className="dh-list-inner__icon">{prefix}</span>) : null
+            prefix ? (<div className="dh-list-inner__avatar">{prefix}</div>) : null
           }
-          <span className="dh-list-inner__title">{this.props.children}</span>
+          <div className="dh-list-inner__title" onClick={this.handleClick}>
+            {this.props.children}
+          </div>
           {
-            suffix ? (<span className="dh-list-inner__tail">{suffix}</span>) : null
+            React.isValidElement(this.renderSuffixElement()) ? (
+              <div className="dh-list-inner__icon">
+                {this.renderSuffixElement()}
+              </div>
+            ) : null      
           }
+
         </div>
-        <div style={borderStyle} className="dh-list-child__border" />
+        {
+          typeof this.context.animation === 'boolean' && this.context.animation ? 
+          (<div style={borderStyle} className="dh-list-child__border" />) : null 
+        }
+        
       </li>
     )
   }

@@ -3,7 +3,7 @@
 .slick-slider {
     position: relative;
     display: block;
-    height: inherit;
+    height: 100%;
     box-sizing: border-box;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -21,7 +21,7 @@
     display: block;
     margin: 0;
     padding: 0;
-    height: inherit;
+    height: 100%;
     &:focus {
         outline: none;
     }
@@ -97,4 +97,4 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
-@import './slick.theme';
+@import './slider.theme';

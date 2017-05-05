@@ -8,7 +8,7 @@ class InputTest extends React.Component {
   render() {
     return (
       <div>
-        <Input placeholder="请输入内容"/>
+        <Input placeholder="请输入内容" searched/>
         <Input.Number placeholder="请输入内容" />
         <div style={{ height: 100}}>
           <Select>
