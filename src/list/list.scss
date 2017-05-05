@@ -1,33 +1,39 @@
 $li_border_color: #e6e6e6;
 $ul_border_color: #e6e6e6;
 @mixin public_li {
-  .dh-list-child {
-    height: 64px;
-    padding: 0 24px;
-    &:not(:last-child) {
-      border-bottom: 1px solid $li_border_color;
-    }
-    &:hover {
-      background-color: #f5fcf7;
-    }
-    line-height: 1;
-    &__inner {
-      padding: 16px 0;
-      line-height: 32px;
-    }
-  }
+  
 }
 .dh-list {
+  background-color: #fff;
   .dh-list-child {
     cursor: pointer;
     box-sizing: border-box;
     position: relative;
+    height: 64px;
+    padding-left: 24px;
+    &:not(:last-child) {
+      border-bottom: 1px solid $li_border_color;
+    }
+    &:hover {
+      background-color: #f6f6f6;
+    }
+    &[data-selected="true"] {
+      background: #f6f6f6;
+    }
+    line-height: 1;
+    &__inner {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
   }
-  @include public_li;
-  background-color: #fff;
-  box-shadow: 2px 2px 10px 4px #e6e6e6;
   &-borderd {
     border: 1px solid $ul_border_color
+  }
+  &-shadow{
+    box-shadow: 2px 2px 10px 4px #e6e6e6;
   }
   .dh-list-child__border {
     position: absolute;
@@ -41,33 +47,38 @@ $ul_border_color: #e6e6e6;
     transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     background-color: #50d27c;
   }
-  .dh-list-inner {
-    &__icon, &__title, &__tail {
-      display: inline-block;
-      vertical-align: middle;
-     
-    }
-    &__icon {
-      float: left;
+  &-inner {
+    &__avatar {
       max-height: 32px;
+      max-width: 32px;
       overflow: hidden;
-      margin-right: 12px;
     }
     &__title {
-      float: left;
+      flex: 1;
+      padding-left: 12px;
+      max-height: 64px;
+      height: 64px;
+      line-height: 64px;
       font-size: 14px;
+      overflow: hidden;
     }
-    &__tail {
-      float: right;
-    }
-  }
-  &-animation {
-    &[data-selected="true"] {
-      background: #f5fcf7;
-      color: #50d27c;
-      &:hover {
-        background: #f5fcf7;
+    &__icon {
+      width: 64px;
+      height: 100%;
+      line-height: 1;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      .dh-list-info {
+        cursor: pointer;
+        font-size: 20px;
         color: #50d27c;
+        height: 32px;
+        width: 32px;
+        text-align: center;
+        line-height: 32px;
       }
     }
   }

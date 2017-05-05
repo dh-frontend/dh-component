@@ -25,60 +25,54 @@ class SelectTest extends React.Component {
     );
     return (
       <div className="test-list">
-        <div className="test-list-item">
-          <h2>小列表</h2>
-          <List
-            theme="nomarl"
-            onChange={(eventKey) => { console.log(eventKey)}}
-            mode="multiple"
-            trigger={true}
-          >
-            <List.Item key="1" suffix={suffix}>13123</List.Item>
-            <List.Item key="2" suffix={suffix}>13123</List.Item>
-            <List.Item key="3" suffix={suffix}>13123</List.Item>
-            <List.Item key="4" suffix={suffix}>13123</List.Item>
-            <List.Item key="5" suffix={suffix}>13123</List.Item>
-          </List>
-        </div>
-        <div className="test-list-item">
-          <h2>单选列表</h2>
-          <List
-            multiple
-            rowSelection={{
-            type: 'dropdown',
-            options: [{name: 'test1', key: 'a'}, { name: 'test2', key: 'b'}],
-            onClick: (record) => { console.log("回调", record)}
-          }}>
-            <List.Item key="1">13123</List.Item>
-            <List.Item key="2">13123</List.Item>
-            <List.Item key="3">13123</List.Item>
-            <List.Item key="4">13123</List.Item>
-            <List.Item key="5">13123</List.Item>
-          </List>
-        </div>
-        <div className="test-list-item">
-          <h2>点击整行时触发</h2>
-          <List multiple rowSelected>
-            <List.Item key="1">13123</List.Item>
-            <List.Item key="2">13123</List.Item>
-            <List.Item key="3">13123</List.Item>
-            <List.Item key="4">13123</List.Item>
-            <List.Item key="5">13123</List.Item>
-          </List>
-        </div>
-        <div className="test-list-item">
-          <h2>多选列表</h2>
+        {/*<div className="test-list-item">
+          <h2>后缀自定义列表</h2>
           <List>
-            <List.Item key="1">13123</List.Item>
-            <List.Item key="2">13123</List.Item>
-            <List.Item key="3">13123</List.Item>
-            <List.Item key="4">13123</List.Item>
-            <List.Item key="5">13123</List.Item>
+            <List.Item key="1" suffix={suffix}> 我是一个自定义后缀的列表 </List.Item>
+            <List.Item key="2" suffix={suffix}> 我是一个自定义后缀的列表 </List.Item>
+            <List.Item key="3" suffix={suffix}> 我是一个自定义后缀的列表 </List.Item>
           </List>
         </div>
+        <div className="test-list-item">
+          <h2>后缀图标列表回调</h2>
+          <List>
+            <List.Item 
+              key="1" 
+              onSuffixClick={(d) =>{ console.log(d)}}
+            >
+              点击后面的图标回调
+            </List.Item>
+            <List.Item 
+              key="2" 
+              onSuffixClick={(d) =>{ console.log(d)}}
+            >
+              点击后面的图标回调
+            </List.Item>
+
+          </List>
+        </div>
+        <div className="test-list-item">
+          <h2>去掉过渡效果</h2>
+          <List animation={false}>
+            <List.Item key="1">我已经没有任何效果了</List.Item>
+            <List.Item key="2">我已经没有任何效果了</List.Item>
+            <List.Item key="3">我已经没有任何效果了</List.Item>
+          </List>
+        </div>
+        <div className="test-list-item">
+          <h2>多选列表并且带Icon</h2>
+          <List multiple onChange={(eventKey) => { console.log(eventKey)}} icon>
+            <List.Item key="1">我是多选择哦</List.Item>
+            <List.Item key="2">我是多选择哦</List.Item>
+            <List.Item key="3">我是多选择哦</List.Item>
+            <List.Item key="4">我是多选择哦</List.Item>
+            <List.Item key="5">我是多选择哦</List.Item>
+          </List>
+        </div>
+        */}
         <div className="test-list-item">
           <h2>带前置插件图标的</h2>
-          <List multiple>
+          <List multiple defaultKeys={['1', '2', '3']}>
             <List.Item key="1" prefix={<Avatar />}>Avatar的前置图标</List.Item>
             <List.Item
               key="2"

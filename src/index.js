@@ -18,7 +18,7 @@ export { Avatar } from './avatar';
 export { Menu } from './menu';
 export { Select } from './select';
 export { Steps } from './steps';
-export Slick from './slick';
+export Slider from './slider';
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';
 export Col from 'antd/lib/col';
@@ -26,5 +26,7 @@ export Col from 'antd/lib/col';
 export Form from 'antd/lib/form';
 export Layout from 'antd/lib/layout';
 export Upload from 'antd/lib/upload';
+export Progress from 'antd/lib/progress';
+export Collapse from 'antd/lib/collapse';
 // export Select from 'antd/lib/select';
 /* endt --- import antd component **/

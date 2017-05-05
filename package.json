@@ -1,6 +1,6 @@
 {
   "name": "dh-c",
-  "version": "1.0.14",
+  "version": "1.0.19",
   "description": "The front-end development engineers jimberton gulp react component",
   "main": "dist/index.js",
   "scripts": {
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/shulie/dh-component/#readme",
   "dependencies": {
     "antd": "^2.9.0",
+    "dh-c": "^1.0.15",
     "prop-types": "^15.5.8",
     "rc-input-number": "^3.4.14",
     "rc-menu": "^5.0.10",
