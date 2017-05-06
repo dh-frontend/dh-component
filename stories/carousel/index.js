@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Carousel } from '../src';
+import { Button, Carousel } from '../../src';
 
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 const addWithInfoOptions = { inline: true, propTables: false };

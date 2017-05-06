@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Popover } from '../src';
+import { Button, Popover } from '../../src';
 
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 const options = {

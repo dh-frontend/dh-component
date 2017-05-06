@@ -11,6 +11,12 @@ module.exports = {
     // your custom plugins
   ],
   module: {
+    rules: [
+      {
+        test: /\.json$/,
+        use: 'json-loader'
+      }
+    ],
     loaders: [
        {
         test: /\.css$/,
@@ -25,6 +31,6 @@ module.exports = {
         loader: "raw"
       }
       // add your custom loaders.
-    ],
+    ]
   },
 };

@@ -17,10 +17,11 @@ import '../src/index.scss';
 import 'antd/dist/antd.css';
 
 function loadStories() {
-  require('../stories/button');
-  require('../stories/list');
-  require('../stories/tooltip');
-  require('../stories/popover');
-  require('../stories/carousel');
+  require('../stories/button/index.js');
+  require('../stories/list/index.js');
+  require('../stories/tooltip/index.js');
+  require('../stories/popover/index.js');
+  require('../stories/carousel/index.js');
+   require('../stories/icon/index.js');
 }
 configure(loadStories, module);
