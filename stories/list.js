@@ -23,10 +23,11 @@ const suffix = (
   </Dropdown>
  );
 storiesOf('列表组件', module)
-  .addWithInfo('默认列表', withReadme(listReadme, () => (
+  .addDecorator(withReadme(listReadme))
+  .addWithInfo('默认列表', () => (
     <List>
       <List.Item key="1"> 我是一个自定义后缀的列表 </List.Item>
       <List.Item key="2"> 我是一个自定义后缀的列表 </List.Item>
       <List.Item key="3"> 我是一个自定义后缀的列表 </List.Item>
     </List>
-  )))
+  ), { inline: true })
