@@ -9,3 +9,4 @@ npm-debug.log
 yarn-error.log
 jest
 coverage
+storybook-static
