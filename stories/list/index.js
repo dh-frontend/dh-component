@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import withReadme from 'storybook-readme/with-readme';
 
-import { List, Menu, Dropdown, Icon, Avatar} from '../src';
-import listReadme from '../doc/list.md';
+import { List, Menu, Dropdown, Icon, Avatar} from '../../src';
+import listReadme from './list.md';
 const addWithInfoOptions = { inline: true, propTables: false };
 const menu = (
   <Menu>
