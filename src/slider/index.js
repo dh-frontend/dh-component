@@ -13,15 +13,6 @@ class Slider extends React.Component {
     super(props);
     this.slickNext = this.slickNext.bind(this);
   }
-  static slickNext() {
-    this.slick.slickNext();
-  }
-  static slickPrev() {
-    this.slick.slickPrev();
-  }
-  static slickGoTo(slideNumber) {
-    this.slick.slickGoTo(slideNumber);
-  }
   render() {
     return (
       <RcSlider
