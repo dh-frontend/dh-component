@@ -1,6 +1,12 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
+
 import { List, Menu, Dropdown, Icon} from '../src';
+import withReadme from 'storybook-readme/with-readme';
+import listReadme from '../doc/list.md';
+const options = {
+  inline: true
+}
 const menu = (
   <Menu>
     <Menu.Item>
@@ -17,25 +23,10 @@ const suffix = (
   </Dropdown>
  );
 storiesOf('列表组件', module)
-  .add('默认列表', () => (
+  .addWithInfo('默认列表', withReadme(listReadme, () => (
     <List>
       <List.Item key="1"> 我是一个自定义后缀的列表 </List.Item>
       <List.Item key="2"> 我是一个自定义后缀的列表 </List.Item>
       <List.Item key="3"> 我是一个自定义后缀的列表 </List.Item>
     </List>
-  ))
-  .add('后面带按钮', () => (
-     <List>
-        <List.Item key="1" suffix={suffix}> 我是一个自定义后缀的列表 </List.Item>
-        <List.Item key="2" suffix={suffix}> 我是一个自定义后缀的列表 </List.Item>
-        <List.Item key="3" suffix={suffix}> 我是一个自定义后缀的列表 </List.Item>
-      </List>
-  ))
-  .add('点击子元素', () => (
-    <List icon>
-      <List.Item key="1" onSuffixClick={action('点击了第')}>点击后面的图标回调</List.Item>
-      <List.Item key="2" onSuffixClick={action('点击了第')}>点击后面的图标回调</List.Item>
-      <List.Item key="3" onSuffixClick={action('点击了第')}>点击后面的图标回调</List.Item>
-      <List.Item key="4" onSuffixClick={action('点击了第')}>点击后面的图标回调</List.Item>
-      </List>
-  ))
+  )))

@@ -1,10 +1,16 @@
 import React from 'react';
+import { Button, Modal } from '../src';
+
 import { storiesOf, action, linkTo } from '@kadira/storybook';
-import { Button, Modal } from '../src'
+const options = {
+  inline: true
+}
 storiesOf('按钮', module)
-  .add('with text', () => (
-    <Button type="primary" onClick={action('clicked')}>Hello Button</Button>
-  ))
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
+  .addWithInfo(
+    '按钮样式', 
+    () => (
+    <Button type="primary" onClick={action('clicked')}>点击我</Button>
+  ), options)
+  .add('Icon', () => (
+    <Button icon="setting"></Button>
   ));
