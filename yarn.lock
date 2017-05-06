@@ -252,7 +252,7 @@ ansi-styles@^2.2.1:
   version "2.2.1"
   resolved "https://registry.npmjs.org/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
 
-antd@^2.9.0:
+antd@^2.10.0:
   version "2.10.0"
   resolved "https://registry.npmjs.org/antd/-/antd-2.10.0.tgz#45cfd7ce9501589604fe24f0701cffda50446308"
   dependencies:
@@ -2089,20 +2089,6 @@ detect-newline@2.X:
   version "2.1.0"
   resolved "https://registry.npmjs.org/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
 
-dh-c@^1.0.15:
-  version "1.0.22"
-  resolved "https://registry.npmjs.org/dh-c/-/dh-c-1.0.22.tgz#e97e6d463e5e1ced894b260c31897552ca759229"
-  dependencies:
-    antd "^2.9.0"
-    dh-c "^1.0.15"
-    prop-types "^15.5.8"
-    rc-input-number "^3.4.14"
-    rc-menu "^5.0.10"
-    rc-select "^6.8.2"
-    react "^15.5.4"
-    react-dom "^15.5.4"
-    react-slick "^0.14.11"
-
 diff@^3.0.0:
   version "3.2.0"
   resolved "https://registry.npmjs.org/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
@@ -3493,6 +3479,10 @@ is-windows@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/is-windows/-/is-windows-0.2.0.tgz#de1aa6d63ea29dd248737b69f1ff8b8002d2108c"
 
+is_js@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.npmjs.org/is_js/-/is_js-0.9.0.tgz#0ab94540502ba7afa24c856aa985561669e9c52d"
+
 isarray@0.0.1:
   version "0.0.1"
   resolved "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
@@ -3745,10 +3735,6 @@ liftoff@^2.1.0:
     lodash.mapvalues "^4.4.0"
     rechoir "^0.6.2"
     resolve "^1.1.7"
-
-lint@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.npmjs.org/lint/-/lint-1.1.2.tgz#35ed064f322547c331358d899868664968ba371f"
 
 load-json-file@^1.0.0:
   version "1.1.0"

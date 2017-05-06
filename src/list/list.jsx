@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import is from 'is_js';
 import classNames from 'classnames';
 import ListItem from './item';
 class List extends React.Component {
@@ -8,11 +9,15 @@ class List extends React.Component {
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.string)
     ]),
-    multiple: PropTypes.bool,
+    mode: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.oneOf(['only', 'multiple']), //新的模式
+    ]),
+    multiple: PropTypes.bool, // 多选模式开启 旧模式
+    immutable: PropTypes.bool, // only模式下的可变性
     animation: PropTypes.bool,
     onChange: PropTypes.func,
-    bordered: PropTypes.bool,
-    shadow: PropTypes.bool,
+    className: PropTypes.string,
     icon: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.string,
@@ -27,12 +32,12 @@ class List extends React.Component {
     ]), // 子元素的后缀图标， 如果设置false 则不显示
   }
   static defaultProps = {
+    mode: false,
     multiple: false,
+    immutable: false,
     animation: true,
     icon: false,
-    bordered: true
   }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -51,40 +56,49 @@ class List extends React.Component {
       this.state.selectedRowKeys = Array.isArray(defaultKeys) ? defaultKeys : [defaultKeys];
     }
   }
-  getChildContext() {;
+  getChildContext() {
     return {
       icon: this.props.icon,
       animation: this.props.animation,
       onClick: (selected, eventKey) => {
         this.handleChange(selected, eventKey);
       }
-    }
+    };
   }
   handleChange(selected, eventKey) {
-    const { multiple } = this.props;
-    let selectedRowKeys = this.state.selectedRowKeys;
-    if (typeof multiple === 'boolean' && multiple) {
-      selectedRowKeys = selected ? Array.from(new Set([...selectedRowKeys, eventKey])) 
-      : selectedRowKeys.filter(srk => srk !== eventKey);
-    } else {
-      selectedRowKeys = selected ? [eventKey] : [];
-    }
-    this.setState({ selectedRowKeys });
-    if (this.props.onChange) {
-      this.props.onChange(selectedRowKeys)
+    const { multiple, mode, immutable } = this.props;
+    if (is.not.boolean(mode)) {
+      let selectedRowKeys = this.state.selectedRowKeys;
+      if ( mode === 'multiple' || is.boolean(multiple) && multiple) {
+        selectedRowKeys = selected ? Array.from(new Set([...selectedRowKeys, eventKey])) 
+        : selectedRowKeys.filter(srk => srk !== eventKey);
+      } else if (mode === 'only') {
+        if (is.boolean(immutable) && immutable) {
+           selectedRowKeys = [eventKey];
+        } else {
+          selectedRowKeys = selected ? [eventKey] : [];
+        }
+      }
+        this.setState({ selectedRowKeys });
+      if (this.props.onChange) {
+        const record = mode === 'only' ? selectedRowKeys[0] : selectedRowKeys;
+        this.props.onChange(record)
+      }
     }
   }
   render() {
-    const { children, bordered, shadow } = this.props;
+    const { children, bordered, shadow, className, ...otherProps } = this.props;
     const { selectedRowKeys } = this.state;
     return (
       <ul 
         className={
           classNames('dh-list', {
             'dh-list-borderd': bordered,
-            'dh-list-shadow': shadow
+            [className]: className
           })
-        }>
+        }
+        {...otherProps}
+      >
         {
           React.Children.map(children, (child, idx) => {
             const props = {

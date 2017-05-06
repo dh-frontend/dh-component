@@ -14,9 +14,12 @@ setOptions({
   sortStoriesByKind: false,
 });
 import '../src/index.scss';
+import 'antd/dist/antd.css';
+
 function loadStories() {
   require('../stories/button');
   require('../stories/list');
   require('../stories/tooltip');
+  require('../stories/popover');
 }
 configure(loadStories, module);

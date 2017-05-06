@@ -2,6 +2,7 @@ $li_border_color: #e6e6e6;
 $ul_border_color: #e6e6e6;
 .dh-list {
   background-color: #fff;
+  border: 1px solid $ul_border_color;
   .dh-list-child {
     cursor: pointer;
     box-sizing: border-box;
@@ -25,12 +26,6 @@ $ul_border_color: #e6e6e6;
       justify-content: center;
       align-items: center;
     }
-  }
-  &-borderd {
-    border: 1px solid $ul_border_color
-  }
-  &-shadow{
-    box-shadow: 2px 2px 10px 4px #e6e6e6;
   }
   .dh-list-child__border {
     position: absolute;
