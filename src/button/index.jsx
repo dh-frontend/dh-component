@@ -9,14 +9,13 @@ class Button extends React.Component {
     htmlType: 'button'
   }
   static propTypes = {
-    htmlType: PropTypes.oneOfType(['button', 'submit']),
+    htmlType: PropTypes.oneOf(['button', 'submit']),
     type: PropTypes.oneOf(['default', 'primary', 'danger']),
     size: PropTypes.oneOf(['normal', 'small']),
     shape: PropTypes.oneOf(['circle']),
     icon: PropTypes.string,
     onClick: PropTypes.func
   };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -34,11 +33,9 @@ class Button extends React.Component {
   }
 
   render() {
-    const { htmlType,type, disabled, size, shape, icon } = this.props;
-    const otherProps = this.state.checked ? { 'data-role': 'checked'} : {};
+    const { htmlType, type, disabled, size, shape, icon, ...others } = this.props;
     return (
       <button
-        
         className={classNames('dh-btn', {
           [`dh-btn-${type}`]: type,
           [`dh-btn-${size}`]: size,
@@ -47,7 +44,7 @@ class Button extends React.Component {
         disabled={disabled}
         onClick={this.handleClick}
         data-role={ this.state.checked ? "checked" : null}
-        {...this.props}
+        {...others}
         type={htmlType}
       >
       {

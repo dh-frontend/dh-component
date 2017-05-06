@@ -1,5 +1,4 @@
 'use strict';
-
 export Button from './button';
 export Icon from './icon';
 export Dropdown from './dropdown';
@@ -22,11 +21,10 @@ export Slider from './slider';
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';
 export Col from 'antd/lib/col';
-// export Menu from 'antd/lib/menu';
 export Form from 'antd/lib/form';
 export Layout from 'antd/lib/layout';
 export Upload from 'antd/lib/upload';
 export Progress from 'antd/lib/progress';
 export Collapse from 'antd/lib/collapse';
-// export Select from 'antd/lib/select';
+export Popover from 'antd/lib/popover';
 /* endt --- import antd component **/

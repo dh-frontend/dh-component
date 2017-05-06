@@ -1,44 +1,32 @@
-## List 组件的使用
+#### 使用方法
 
-```jsx
+```javascript
+  // common js
+   const dhc = require('dh-c');
+   const List = dhc.List;
+  // es6
   import { List } from 'dh-c';
-  <List
-    theme="nomarl"
-    rowSelection={{
-    type: 'dropdown',
-    options: ['测试1', '测试2', '测试3'],
-    onClick: (record) => { console.log("回调", record)}
-  }}>
-    <List.Item key="1">我是测试1</List.Item>
-    <List.Item key="2">我是测试2</List.Item>
-    <List.Item key="3">我是测试3</List.Item>
-    <List.Item key="4">我是测试4</List.Item>
-    <List.Item key="5">我是测试5</List.Item>
-  </List>
+ 
 ```
+#### List 属性说明
 
-### List
+| props 	| 说明 | 参数类型 | 默认值|
+| ------	| ------ | ------ |----|
+| defaultKeys | 默认选中的项 | string或者 array | 无 |
+| mode | 列表选择模式，false无点选功能 | string | false（只接受 'only', 'multiple'）|
+| multiple | 是否可以多重选择 | bool | 建议将此方法，替换成mode，可能被弃用 |
+| immutable | 单选数据的不可变性，配合mode=only模式下使用 | bool | false |
+| onChange | 列表改变时的回调 (record = array或string) => {}| function | 无 |
+| animation | 过渡效果 | bool | true |
+| className | 可添加样式类 | string | 无 |
+| icon | 选中时的图标，可自定义图标 | bool或者 string | false |
 
-| props | 说明 | 参数类型 | 默认值|
-| ------| ------ | ------ |
-| header | 列表插入头部 | element | 无 |
-| theme | 列表样式主题 | string | 无 （只接受 'radio', 'dropdown'）|
-| multiple | 多选或者单选 | bool | 默认false 多选 |
-| onChange | 列表改变时的回调 (checked, current, index) => {}| function | 无 |
-| rowSelected | 整行选择是否触发 | bool | false |
-| rowSelection | 后置元素配置 | object （详见例子配置）| 无 |
 
 ### Item
 
 | props | 说明 | 参数类型 | 默认值|
-| ------| ------ | ------ |
+| ------| ------ | ------ |----|
 | eventKey | 每一项的key必填项* | string | 无 |
-| addonAvatar | 前置头像属性 | element | 无|
-
-### rowSelection (字符串数组或者对象数组)
-
-| props | 说明 | 参数类型 | 默认值|
-| ------| ------ | ------ |
-| name |  下拉名称| string | 无 |
-| key | 下拉key必须 | string | 无 |
-| onClick |  点击回调({key, keyParent, keyPath, ...args}) => {} | function | 无 |
+| prefix | 前置元素或头像 | element | 无|
+| suffix | 后置元素，若果设置了， 父元素的icon属性将被覆盖 | element | 无 |
+| onSuffixClick | 父元素的icon属性设置时的回调  (eventKey) => {}| element | 无 |
