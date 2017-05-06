@@ -17,6 +17,7 @@ export { Avatar } from './avatar';
 export { Menu } from './menu';
 export { Select } from './select';
 export { Steps } from './steps';
+export Carousel from './carousel';
 export Slider from './slider';
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';

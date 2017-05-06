@@ -21,5 +21,6 @@ function loadStories() {
   require('../stories/list');
   require('../stories/tooltip');
   require('../stories/popover');
+  require('../stories/carousel');
 }
 configure(loadStories, module);
