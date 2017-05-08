@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Checkbox from '../checkbox';
 
-const SELECTION_WIDTH = 50;
+const SELECTION_WIDTH = 48;
+const EXT_WIDTH = 48;
 
 class Table extends Component {
   static propTypes = {
@@ -15,6 +16,7 @@ class Table extends Component {
           PropTypes.string,
           PropTypes.element
         ]),
+        ext: PropTypes.element,
         dataIndex: PropTypes.string,
         render: PropTypes.function,
       })
@@ -135,7 +137,8 @@ class Table extends Component {
     let tableStyle = {}, theadStyle = {}, tbodyStyle = {}, trStyle = {}, thStyle = {};
 
     if (fixed && fixedHeader) {
-      const total = columns.map(d => d.width).reduce((a, b) => a + b) + (rowSelection ? SELECTION_WIDTH : 0);
+      const total = columns.map(d => d.width + (d.ext ? EXT_WIDTH : 0)).reduce((a, b) => a + b, 0)
+        + (rowSelection ? SELECTION_WIDTH : 0);
 
       tableStyle = {
         width: total,
@@ -203,6 +206,9 @@ class Table extends Component {
                 }}
               >
                 {d.title}
+                <div style={{float: 'right'}}>
+                  {d.ext}
+                </div>
               </th>
             ))}
           </tr>
