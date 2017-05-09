@@ -3,30 +3,14 @@ import PropTypes from 'prop-types';
 import { createForm } from 'rc-form';
 import classNames from 'classnames';
 import Item from './item';
-const FIELD_META_PROP = 'data-__meta';
+import  { FIELD_META_PROP } from './constants';
 class Form extends React.Component {
   constructor(props) {
     super(props);
   }
-  static create() {
-
-  }
-  render() {
-    const { layout } = this.props;
-    return (
-      <div className={classNames('dh-form', {
-          [`dh-form-${layout}`]: layout
-        }) 
-      }>
-        {
-           this.props.children 
-        }
-      </div>
-    )
-  }
-}
-Form.create = function (options) {
-      const formWrapper = createForm(Object.assign({
+  // if create 
+  static create(options) {
+    const formWrapper = createForm(Object.assign({
       fieldNameProp: 'id',
     }, options, {
       fieldMetaProp: FIELD_META_PROP
@@ -64,6 +48,20 @@ Form.create = function (options) {
         return <Component {...this.props} {...withRef} />;
       },
     }))
-};
+  }
+  render() {
+    const { layout } = this.props;
+    return (
+      <div className={classNames('dh-form', {
+          [`dh-form-${layout}`]: layout
+        }) 
+      }>
+        {
+           this.props.children 
+        }
+      </div>
+    )
+  }
+}
 Form.Item = Item;
 export default Form;

@@ -19,11 +19,11 @@ export { Select } from './select';
 export { Steps } from './steps';
 export Carousel from './carousel';
 export Slider from './slider';
-// export Form from './form';
+export Form from './form';
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';
 export Col from 'antd/lib/col';
-export Form from 'antd/lib/form';
+// export Form from 'antd/lib/form';
 export Layout from 'antd/lib/layout';
 export Upload from 'antd/lib/upload';
 export Progress from 'antd/lib/progress';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Form, Button } from '../../src';
+import { Input, Form, Button, Select } from '../../src';
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -10,7 +10,7 @@ const formItemLayout = {
     sm: { span: 14 },
   },
 };
- class FormDemo extends React.Component {
+class FormDemo extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -43,26 +43,55 @@ const formItemLayout = {
             }
             </Form.Item>
             <Form.Item
-              label="出生日期"
+              label="性别"
+              extra="我是个人爱好"
+            >
+              {
+              getFieldDecorator('sex')(
+                <Select>
+                  <Select.Option value="1">男</Select.Option>
+                  <Select.Option value="2">女</Select.Option>
+                  <Select.Option value="3">无</Select.Option> 
+                </Select>
+              )
+            }
+            </Form.Item>
+            <Form.Item
+              label="个人爱好"
+              extra="我是个人爱好"
             >
               {
               getFieldDecorator('name')(<Input type="text" />)
             }
             </Form.Item>
+              <Form.Item
+              label="个人爱好"
+              extra="我是个人爱好"
+            >
+              {
+              getFieldDecorator('name')(<Input type="text" />)
+            }
+            </Form.Item>
+            <Form.Item
+            >
+              <Button onClick={this.handleClick}> 提交 </Button>
+            </Form.Item>
           </Form>
-          <Button onClick={this.handleClick}> 提交 </Button>
+         
         </div>
-        {/**
-         *         <div className="test-form">
+      
+        {/*<div className="test-form">
           <p>垂直布局</p>
           <Form layout="vertical">
             <Form.Item
+              key="a"
               label="用户名"
               hasFeedback
             >
               <Input type="text" />
             </Form.Item>
             <Form.Item
+              key="b"
               label="出生日期"
               hasFeedback
             >
@@ -70,8 +99,7 @@ const formItemLayout = {
             </Form.Item>
           </Form>
         </div>
-         */}
-
+        */}
       </div>
 
     )

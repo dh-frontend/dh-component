@@ -2,9 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
-const FIELD_META_PROP = 'data-__meta';
-import { Row, Col } from '../index.js';
-class Item extends React.Component {
+import  { FIELD_META_PROP } from './constants';
+import { Row, Col } from '../index';
+class FormItem extends React.Component {
   static propTypes = {
     label: PropTypes.string,
     labelCol: PropTypes.object,
@@ -23,7 +23,6 @@ class Item extends React.Component {
       span: 12
     }
   }
-  
   constructor(props) {
     super(props);
   }
@@ -54,7 +53,7 @@ class Item extends React.Component {
         break;
       }
       const child = childrenArray[i];
-      if (child.type === Item) {
+      if (child.type === FormItem) {
         continue;
       }
       if (!child.props) {
@@ -86,7 +85,7 @@ class Item extends React.Component {
     const prefixCls = this.props.prefixCls;
     const help = this.getHelpMsg();
     return help ? (
-      <div className={`dh-form-item-explain`} key="help">
+      <div className={`dh-form-explain`} key="help">
         {help}
       </div>
     ) : null;
@@ -94,13 +93,12 @@ class Item extends React.Component {
   renderExtra() {
     const { extra } = this.props;
     return extra ? (
-      <div className='dh-form-item-extra'>{extra}</div>
+      <div className='dh-form-extra'>{extra}</div>
     ) : null;
   }
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
     const fieldId = this.getId();
-     console.log('fieldId', fieldId)
     if (!fieldId) {
       return '';
     }
@@ -145,7 +143,11 @@ class Item extends React.Component {
   renderWrapper(children) {
     const wrapperCol = this.props.wrapperCol;
     return (
-      <Col className="dh-form-item-control-wrapper" {...wrapperCol} key="wrapper">
+      <Col 
+        className="dh-form-item-control-wrapper" 
+        {...wrapperCol} 
+        key="wrapper"
+      >
         {children}
       </Col>
     );
@@ -180,30 +182,33 @@ class Item extends React.Component {
     return (
       <Col 
         {...labelCol} 
+        key="label"
         className="dh-form-item-label">
         <label 
+          htmlFor={id || this.getId()}
           className={classNames({
            'dh-item-required': required,
           })}
+          title={ typeof label === 'string' ? label : ''}
         >
-          {label}
+          {labelChildren}
         </label>
       </Col>
     );
   }
   renderChildren() {
     const props = this.props;
-    const children = React.Children.map(props.children, (child) => {
-      if (child && typeof child.type === 'function' && !child.props.size) {
-        return React.cloneElement(child, { size: 'large' });
-      }
-      return child;
-    });
+    // const children = React.Children.map(props.children, (child) => {
+    //   if (child && typeof child.type === 'function' && !child.props.size) {
+    //     return React.cloneElement(child, { size: 'large' });
+    //   }
+    //   return child;
+    // });
     return [
       this.renderLabel(),
       this.renderWrapper(
         this.renderValidateWrapper(
-          children,
+          props.children,
           this.renderHelp(),
           this.renderExtra(),
         ),
@@ -215,7 +220,6 @@ class Item extends React.Component {
     const { 
       children,
       className,
-      ...props
     } = this.props;
     return (
       <Row 
@@ -223,11 +227,10 @@ class Item extends React.Component {
         type="flex"
         align="middle"
         justify="center"
-        {...props}
       >
-      {this.renderChildren()}
+       { this.renderChildren() }
       </Row>
     )
   }
 }
-export default Item;
+export default FormItem;

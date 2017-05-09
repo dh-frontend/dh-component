@@ -72,9 +72,9 @@ class Input extends React.Component {
       addonBefore,
       addonAfter,
       searched,
-      danger, ...props } = this.props;
+      ...props } = this.props;
     const style = {
-      transform: this.state.focus || danger ? 'scaleX(1)':' scaleX(0)'
+      transform: this.state.focus  ? 'scaleX(1)':' scaleX(0)'
     };
     return (
       <div className="dh-input" style={{ width }}>
@@ -113,9 +113,7 @@ class Input extends React.Component {
         }
       <div
         style={style}
-        className={classNames('dh-input-bordered', {
-          'dh-input-bordered-danger': danger
-        })}/>
+        className="dh-input-bordered"/>
       </div>
     )
   }
