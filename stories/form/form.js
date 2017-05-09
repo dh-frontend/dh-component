@@ -26,51 +26,41 @@ class FormDemo extends React.Component {
     const { getFieldError,  getFieldDecorator} = this.props.form;
     return (
       <div>
-        {/*<div className="test-form">
+        <div className="test-form">
           <p>水平布局</p>
           <Form>
             <Form.Item
               colon
+              label="固定样式"
+            >
+            我是个固定的数据
+            </Form.Item>
+            <Form.Item
+              colon
               label="用户名"
             >
-            {
-              getFieldDecorator('email', {
-              rules: [{
-                type: 'email', message: 'The input is not valid E-mail!',
-              }, {
-                required: true, message: 'Please input your E-mail!',
-              }],
-          })(<Input type="text" />)
-            }
+            <Input type="text" />
             </Form.Item>
             <Form.Item
               label="性别"
             >
-              {
-              getFieldDecorator('sex')(
-                <Select placeholder="请选择">
+              <Select placeholder="请选择">
                   <Select.Option value="1">男</Select.Option>
                   <Select.Option value="2">女</Select.Option>
                   <Select.Option value="3">4</Select.Option> 
-                </Select>
-              )
-            }
+              </Select>
             </Form.Item>
             <Form.Item
               label="个人爱好"
               extra="我是个人爱好"
             >
-              {
-              getFieldDecorator('name')(<Input type="text" />)
-            }
+              <Input type="text" />
             </Form.Item>
               <Form.Item
               label="个人爱好"
               extra="我是个人爱好"
             >
-              {
-              getFieldDecorator('name')(<Input type="text" />)
-            }
+            <Input type="text" />
             </Form.Item>
             <Form.Item
             >
@@ -78,8 +68,7 @@ class FormDemo extends React.Component {
             </Form.Item>
           </Form>
          
-        </div>*/}
-      
+        </div>
         <div className="test-form">
           <p>垂直布局</p>
           <Form layout="vertical">
@@ -88,9 +77,7 @@ class FormDemo extends React.Component {
               label="用户名"
               hasFeedback
             >
-              <Input type="text" onBlur={(e) => {
-                console.log(e.target.value);
-              }}/>
+            <Input type="text" />
             </Form.Item>
             <Form.Item
               key="b"
@@ -100,8 +87,24 @@ class FormDemo extends React.Component {
               <Input type="text" />
             </Form.Item>
           </Form>
+          
         </div>
-        
+         <div className="test-form" style={{ width: 600 }}>
+          <p>行内布局</p>
+          <Form layout="inline">
+            <Form.Item>
+            <Input type="text" />
+            </Form.Item>
+            <Form.Item
+              key="b"
+              label="出生日期"
+              hasFeedback
+            >
+              <Input type="text" />
+            </Form.Item>
+          </Form>
+          
+        </div>
       </div>
 
     )

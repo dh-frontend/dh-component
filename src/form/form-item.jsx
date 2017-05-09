@@ -19,9 +19,6 @@ class FormItem extends React.Component {
     colon: false,
     labelCol: {
       span: 4
-    },
-    wrapperCol: {
-      span: 12
     }
   }
   constructor(props) {
@@ -180,7 +177,7 @@ class FormItem extends React.Component {
     if (haveColon && typeof label === 'string' && label.trim() !== '') {
       labelChildren = label.replace(/[：|:]\s*$/, '');
     }
-    return (
+    return label ? (
       <Col 
         {...labelCol} 
         key="label"
@@ -195,7 +192,7 @@ class FormItem extends React.Component {
           {labelChildren}
         </label>
       </Col>
-    );
+    ) : null
   }
   renderChildren() {
     const props = this.props;
