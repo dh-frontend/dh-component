@@ -18,8 +18,7 @@ $tr-height-large: 60px;
 
 .dh-table {
   position: relative;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto;
   border: $table-border;
   border-radius: $table-radius;
   height: 100%;
@@ -75,6 +74,7 @@ $tr-height-large: 60px;
   }
 
   &.dh-table-fixed {
+    overflow-y: hidden;
     tbody {
       padding-top: $tr-height-default;
     }
