@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Checkbox from '../checkbox';
 
 const SELECTION_WIDTH = 48;
-const EXT_WIDTH = 48;
+const EXT_WIDTH = 24;
 
 class Table extends Component {
   static propTypes = {
@@ -53,6 +53,7 @@ class Table extends Component {
     let shouldUpdate = false;
     const columns = this.state.columns.map(d => {
       const width = this.refs['th-' + d.dataIndex].offsetWidth || 200;
+      console.log('========', d.title && d.title.props.children, width)
       if (d.width !== width) {
         shouldUpdate = true;
       }
@@ -96,8 +97,8 @@ class Table extends Component {
       dataSource,
       rowSelection: {
         onSelectAll = function(){}
-      }
-    } = this.props;
+        }
+      } = this.props;
 
     let selectedIdx = [];
     if (checked) {
@@ -114,8 +115,8 @@ class Table extends Component {
       dataSource,
       rowSelection: {
         onSelect = function(){}
-      }
-    } = this.props;
+        }
+      } = this.props;
     const { selectedIdx } = this.state;
 
     const p = selectedIdx.indexOf(idx);
@@ -137,7 +138,7 @@ class Table extends Component {
     let tableStyle = {}, theadStyle = {}, tbodyStyle = {}, trStyle = {}, thStyle = {};
 
     if (fixed && fixedHeader) {
-      const total = columns.map(d => d.width + (d.ext ? EXT_WIDTH : 0)).reduce((a, b) => a + b, 0)
+      const total = columns.map(d => d.width || 0).reduce((a, b) => a + b, 0)
         + (rowSelection ? SELECTION_WIDTH : 0);
 
       tableStyle = {
@@ -146,7 +147,7 @@ class Table extends Component {
       };
       theadStyle = {
         width: total,
-          position: 'absolute'
+        position: 'absolute'
       };
       tbodyStyle = {
         width: total,
@@ -206,9 +207,11 @@ class Table extends Component {
                 }}
               >
                 {d.title}
-                <div style={{float: 'right'}}>
-                  {d.ext}
-                </div>
+                {d.ext && (
+                  <div style={{position: 'absolute', textAlign: 'center', right: 0, top: 0, width: EXT_WIDTH}}>
+                    {d.ext}
+                  </div>
+                )}
               </th>
             ))}
           </tr>
@@ -235,7 +238,7 @@ class Table extends Component {
                   key={c.dataIndex}
                   style={{
                     ...thStyle,
-                    width: c.width,
+                    width: c.width
                   }}
                 >
                   {c.render ? c.render(d[c.dataIndex], d, i) : (d[c.dataIndex] || '(空白)')}
