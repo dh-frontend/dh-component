@@ -26,6 +26,12 @@
     }
   }  
 }
+.dh-form-inline {
+  display: flex;
+  .dh-form-item-label {
+    width: auto;
+  }
+}
 .dh-form-item {
   padding: 16px 0;
   >.dh-form-item-label {
