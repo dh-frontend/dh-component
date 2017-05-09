@@ -26,7 +26,7 @@ class FormDemo extends React.Component {
     const { getFieldError,  getFieldDecorator} = this.props.form;
     return (
       <div>
-        <div className="test-form">
+        {/*<div className="test-form">
           <p>水平布局</p>
           <Form>
             <Form.Item
@@ -78,9 +78,9 @@ class FormDemo extends React.Component {
             </Form.Item>
           </Form>
          
-        </div>
+        </div>*/}
       
-        {/*<div className="test-form">
+        <div className="test-form">
           <p>垂直布局</p>
           <Form layout="vertical">
             <Form.Item
@@ -88,7 +88,9 @@ class FormDemo extends React.Component {
               label="用户名"
               hasFeedback
             >
-              <Input type="text" />
+              <Input type="text" onBlur={(e) => {
+                console.log(e.target.value);
+              }}/>
             </Form.Item>
             <Form.Item
               key="b"
@@ -99,7 +101,7 @@ class FormDemo extends React.Component {
             </Form.Item>
           </Form>
         </div>
-        */}
+        
       </div>
 
     )
