@@ -1,7 +1,10 @@
 $inputLength: auto; // input 高度
 $inputFontSize: 12px; // input 内的字体大小
 $inputBorderBg: #e6e6e6;
-
+$inputColor: #333333;
+$inputPlaceholderColor: #cccccc;
+$inputBorderColorDefault: #39b86e;
+$inputBorderColorDanger: #ff5a44;
 .dh-input {
   position: relative;
   display: flex;
@@ -26,15 +29,23 @@ $inputBorderBg: #e6e6e6;
       border: none;
       background: transparent;
       outline: 0;
-      color: #333333;
+      color: $inputColor;
       &[disabled] {
         cursor: not-allowed;
       }
-      &:focus .dh-input-bordered {
-        background-color: red;
+      &::-webkit-input-placeholder { /* WebKit browsers */
+        color: $inputPlaceholderColor;
+      }
+      &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: $inputPlaceholderColor;
+      }
+      &::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: $inputPlaceholderColor;
+      }
+      &:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: $inputPlaceholderColor;
       }
     }
-
   }
   &-bordered {
     position: absolute;
@@ -44,10 +55,7 @@ $inputBorderBg: #e6e6e6;
     left: 0;
     right: 0;
     transition: all .45s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-    background-color: #39b86e;
-    &-danger {
-      background-color: #ff5a44;
-    }
+    background-color: $inputBorderColorDefault;
   }
   &-search {
     cursor: pointer;

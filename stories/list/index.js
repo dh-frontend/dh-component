@@ -32,7 +32,7 @@ storiesOf('列表组件', module)
   .addWithInfo('单行选择', () => (
     <List
       mode="only"
-      icon
+      icon="close"
       onChange={action('onChange')}>
       <List.Item key="1"> 我可以被操作选择</List.Item>
       <List.Item key="2"> 我可以被操作选择</List.Item>

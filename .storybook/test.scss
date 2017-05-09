@@ -1,0 +1,13 @@
+.test-input, .test-form {
+  margin-left: 20px;
+  width: 400px;
+  display: flex;
+  border: 1px solid red;
+  flex-direction: column;
+  .test-input-eq {
+    margin: 12px;
+  }
+}
+.test-form {
+
+}

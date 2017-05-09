@@ -15,13 +15,14 @@ setOptions({
 });
 import '../src/index.scss';
 import 'antd/dist/antd.css';
-
+import './test.scss';
 function loadStories() {
+  require('../stories/form/index.js');
   require('../stories/button/index.js');
   require('../stories/list/index.js');
   require('../stories/tooltip/index.js');
   require('../stories/popover/index.js');
   require('../stories/carousel/index.js');
-   require('../stories/icon/index.js');
+  require('../stories/icon/index.js');
 }
 configure(loadStories, module);

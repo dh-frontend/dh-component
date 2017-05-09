@@ -6,6 +6,9 @@ import classNames from 'classnames';
 import Ani from 'css-animation';
 const prefixCls = 'dh-menu';
 class Menu extends React.Component {
+  static SubMenu = SubMenu
+  static Item = Item
+  static Divider = Divider
   static defaultProps = {
     bordered: true
   }
@@ -68,8 +71,6 @@ class Menu extends React.Component {
     );
   }
 }
-Menu.SubMenu = SubMenu;
-Menu.Item = Item;
-Menu.Divider = Divider;
+
 
 export default Menu;
