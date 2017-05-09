@@ -4,6 +4,8 @@ import is from 'is_js';
 import classNames from 'classnames';
 import ListItem from './item';
 class List extends React.Component {
+  static Item = ListItem
+
   static propsTypes = {
     defaultKeys: PropTypes.oneOfType([
       PropTypes.string,
@@ -87,17 +89,17 @@ class List extends React.Component {
     }
   }
   render() {
-    const { children, bordered, shadow, className, ...otherProps } = this.props;
+    const { children, bordered, shadow, className, style } = this.props;
     const { selectedRowKeys } = this.state;
     return (
       <ul 
+        style={style}
         className={
           classNames('dh-list', {
             'dh-list-borderd': bordered,
             [className]: className
           })
         }
-        {...otherProps}
       >
         {
           React.Children.map(children, (child, idx) => {
@@ -113,5 +115,4 @@ class List extends React.Component {
     )
   }
 }
-List.Item = ListItem;
 export default List;

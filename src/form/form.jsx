@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import createClass from 'create-react-class'
 import { createForm } from 'rc-form';
 import classNames from 'classnames';
-import Item from './item';
+import FormItem from './form-item';
 import  { FIELD_META_PROP } from './constants';
 class Form extends React.Component {
   constructor(props) {
     super(props);
   }
+  static Item = FormItem
   // if create 
   static create(options) {
     const formWrapper = createForm(Object.assign({
@@ -15,9 +17,9 @@ class Form extends React.Component {
     }, options, {
       fieldMetaProp: FIELD_META_PROP
     }));
-    return (Component) => formWrapper(React.createClass({
+    return (Component) => formWrapper(createClass({
       propTypes: {
-        form: PropTypes.object.isRequire,
+        form: PropTypes.object.isRequired,
       },
       childContextTypes: {
         form: PropTypes.object.isRequired,
@@ -63,5 +65,4 @@ class Form extends React.Component {
     )
   }
 }
-Form.Item = Item;
 export default Form;

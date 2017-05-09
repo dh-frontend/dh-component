@@ -30,6 +30,7 @@ class FormDemo extends React.Component {
           <p>水平布局</p>
           <Form>
             <Form.Item
+              colon
               label="用户名"
             >
             {
@@ -44,14 +45,13 @@ class FormDemo extends React.Component {
             </Form.Item>
             <Form.Item
               label="性别"
-              extra="我是个人爱好"
             >
               {
               getFieldDecorator('sex')(
-                <Select>
+                <Select placeholder="请选择">
                   <Select.Option value="1">男</Select.Option>
                   <Select.Option value="2">女</Select.Option>
-                  <Select.Option value="3">无</Select.Option> 
+                  <Select.Option value="3">4</Select.Option> 
                 </Select>
               )
             }

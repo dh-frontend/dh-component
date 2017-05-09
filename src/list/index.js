@@ -1,2 +1,2 @@
 
-export List from './list';
+export default from './list';

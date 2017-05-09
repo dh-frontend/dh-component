@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+import warn from 'rc-util/lib/warn';
 import  { FIELD_META_PROP } from './constants';
 import { Row, Col } from '../index';
 class FormItem extends React.Component {
@@ -27,7 +28,7 @@ class FormItem extends React.Component {
     super(props);
   }
   componentDidMount() {
-    console.log(
+    warn(
       this.getControls(this.props.children, true).length <= 1,
       '`Form.Item` cannot generate `validateStatus` and `help` automatically, ' +
       'while there are more than one `getFieldDecorator` in it.',

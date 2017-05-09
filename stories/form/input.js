@@ -25,9 +25,6 @@ export default class InputDemo extends React.Component {
         <div className="test-input-eq "> 
           <Input placeholder="请输入内容" searched	/> 
         </div>
-         <div className="test-input-eq "> 
-          <Input placeholder="危险内容" searched	danger/> 
-        </div>
         <div className="test-input-eq "> 
           <Input.Number placeholder="数字输入框" /> 
         </div>
