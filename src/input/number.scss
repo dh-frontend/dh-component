@@ -4,7 +4,7 @@ $input-number-fontSize: 14px;
 $input-number-pading: 4px 0;
 $input-number-input-color: #999;
 $input-number-border-color: #49c77d;
-$input-number-handler-color: #ccc;
+$input-number-handler-color: #999;
 $input-number-handler-over-color: #999;
 /* --- s: sass extend method -- */
 .inputNumberIcon {
@@ -52,20 +52,22 @@ $input-number-handler-over-color: #999;
   font-size: $input-number-fontSize;
   display: inline-block;
   @extend .inputNumber;
-
+  &:hover {
+    .dh-input-number-handler-wrap {
+       opacity: 1;
+    }
+  }
   &-handler-wrap {
     width: initial;
-    height: 100%;
     background: transparent;
     position: absolute;
-    top: 0;
+    top: 2px;
     right: 0;
+    bottom: 2px;
     opacity: 0;
     -webkit-transition: opacity .24s linear .1s;
     transition: opacity .24s linear .1s;
-    &:hover {
-      opacity: 1;
-    }
+
   }
 
   &-handler {
@@ -80,31 +82,11 @@ $input-number-handler-over-color: #999;
     display: block;
     width: 100%;
     color: $input-number-handler-color;
-    font-weight: 700;
-
-    &-up {
-      &-inner {
-        @extend .inputNumberIcon;
-        &:before {
-          content: "\e6a5";
-        }
-      }
-    }
-
-    &-down {
-      &-inner {
-        @extend .inputNumberIcon;
-        &:before {
-          content: "\e6a6";
-        }
-      }
-    }
-
-    &-up, &-down {
-      &:hover {
-        font-size: 14px;
-        color: $input-number-handler-over-color;
-      }
+    &:hover { 
+      i { 
+        color: #666;
+        font-size: 14px; 
+      } 
     }
   }
 }

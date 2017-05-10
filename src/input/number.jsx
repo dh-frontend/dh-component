@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import  RcInputNumber from 'rc-input-number';
-
+import { Icon } from '../index';
 class Number extends React.Component {
   static propTypes = {
     width: PropTypes.oneOfType([
@@ -42,6 +41,8 @@ class Number extends React.Component {
         <RcInputNumber
           {...this.props}
           prefixCls="dh-input-number"
+          upHandler={(<Icon type="up"/>)}
+          downHandler={(<Icon type="down"/>)}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
         />

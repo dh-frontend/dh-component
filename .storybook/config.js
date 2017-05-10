@@ -24,5 +24,6 @@ function loadStories() {
   require('../stories/popover/index.js');
   require('../stories/carousel/index.js');
   require('../stories/icon/index.js');
+  require('../stories/modal/index.js');
 }
 configure(loadStories, module);

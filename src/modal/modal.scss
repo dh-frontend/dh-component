@@ -1,7 +1,7 @@
 // 模态框- mask
 $modal-mask-backgroundColor: rgba(0,0,0,.4);
 $modal-content-backgroundColor: #ffffff;
-$modal-borderRadius: 5px;
+$modal-borderRadius: 0px;
 
 // 模态框-标题
 $modal-title-fontColor: #666666;
@@ -12,7 +12,7 @@ $mdoal-title-padding: 24px;
 
 // 模态框-close
 $modal-close-position: 24px;
-$modal-close-fontSize: 14px;
+$modal-close-fontSize: 18px;
 $modal-close-fontFamily: dhfont;
 
 // 模态框-body
@@ -62,23 +62,24 @@ $modal-footer-buttonLeft: 24px;
         border: 0;
         background: transparent;
         position: absolute;
-        right: $modal-close-position;
-        top: $modal-close-position;
+        right: 0;
+        top: 0;
         z-index: 10;
         text-decoration: none;
         transition: color 0.3s ease;
         outline: 0;
-
         &-x {
+            height: 64px;
+            width: 64px;
             display: block;
             font-style: normal;
             font-family: $modal-close-fontFamily;
-            font-size: $modal-close-fontSize;
+            font-size: 18px;
             vertical-align: baseline;
             text-align: center;
             text-transform: none;
             text-rendering: auto;
-
+            line-height: 64px;
             &:before {
                 content: "\e7dc";
                 display: block;
@@ -87,29 +88,42 @@ $modal-footer-buttonLeft: 24px;
     }
 
     &-header {
-        padding: $mdoal-title-padding;
+			padding: 24px;
+			color: rgba(0,0,0,.65);
     }
     &-title {
-      font-size: 14px;
-      color: #666666;
-      &-sub {
-        margin-top: 12px;
-        font-size: 12px;
-        color: #aaaaaa;
-      }
+     	color: #666666;
+			font-size: 14px;
+			&__desc {
+				font-size: 12px;
+				color: #aaaaaa;
+			}
     }
     &-body {
-        margin: 0 $modal-body-padding;
-        background-color: $modal-body-backgroundColor;
-        color: $modal-body-fontColor;
-        font-size: $modal-body-fontSize;
+      padding: 0 24px;
+			background: transparent;
     }
-
     &-footer {
-        padding:  $modal-footer-padding;
+        padding:  24px;
         text-align: right;
         button {
           margin-left: $modal-footer-buttonLeft;
         }
+			.dh-modal-footer-wapper {
+				.dh-modal-footer__btn {
+					cursor: pointer;
+					display: inline-block;
+					background-color: transparent;
+					font-size: 14px;
+					padding: 8px 16px;
+					text-align: center;
+					color: #50d27c;
+					margin-left: 8px;
+					border-radius: 24px;
+					&:hover {
+						background-color: #f7f7f7;
+					}
+				}
+			}
     }
 }
