@@ -28,11 +28,11 @@ class ModalDemo extends React.Component {
     return (
       <div>
         <Button type="primary" onClick={this.handleClick}>打开</Button>
-        <Modal 
+        <Modal
           title="我是一个测试数据"
           desc="我是一个描述信息"
           visible={this.state.visible}
-          onClose={() => { this.setState({visible: false})}}
+          onCancel={() => { this.setState({visible: false})}}
         >
           <Dropdown overlay={menu}>
             <a>惦记我</a>
