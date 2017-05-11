@@ -53,7 +53,6 @@ class Table extends Component {
     let shouldUpdate = false;
     const columns = this.state.columns.map(d => {
       const width = this.refs['th-' + d.dataIndex].offsetWidth || 200;
-      console.log('========', d.title && d.title.props.children, width)
       if (d.width !== width) {
         shouldUpdate = true;
       }
