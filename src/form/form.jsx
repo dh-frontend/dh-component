@@ -6,6 +6,17 @@ import classNames from 'classnames';
 import FormItem from './form-item';
 import  { FIELD_META_PROP } from './constants';
 class Form extends React.Component {
+   static defaultProps = {
+    layout: 'horizontal',
+    onSubmit(e) {
+      e.preventDefault();
+    },
+  };
+  static propTypes = {
+    layout: PropTypes.oneOf(['horizontal', 'inline', 'vertical']),
+    children: PropTypes.any,
+    onSubmit: PropTypes.func,
+  };
   constructor(props) {
     super(props);
   }
@@ -52,16 +63,18 @@ class Form extends React.Component {
     }))
   }
   render() {
-    const { layout } = this.props;
+    const { layout, ...props } = this.props;
     return (
-      <div className={classNames('dh-form', {
+      <form
+        {...props}
+        className={classNames('dh-form', {
           [`dh-form-${layout}`]: layout
-        }) 
+        })
       }>
         {
            this.props.children 
         }
-      </div>
+      </form>
     )
   }
 }

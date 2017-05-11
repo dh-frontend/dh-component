@@ -6,7 +6,7 @@
   text-align: center;
   text-transform: none;
   line-height: 1;
-  font-size: 14px;
+  font-size: 12px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -29,15 +29,7 @@
 
 .dh-icon-play:before { content: "\e604"; }
 
-.dh-icon-left:before { content: "\e697"; }
-
 .dh-icon-email:before { content: "\e69f"; }
-
-.dh-icon-up:before { content: "\e6a5"; }
-
-.dh-icon-down:before { content: "\e6a6"; }
-
-.dh-icon-right:before { content: "\e6a7"; }
 
 .dh-icon-plus:before { content: "\e6b9"; }
 
@@ -113,6 +105,14 @@
 
 .dh-icon-team:before { content: "\e89f"; }
 
+.dh-icon-right:before { content: "\e621"; }
+
+.dh-icon-up:before { content: "\e63d"; }
+
+.dh-icon-down:before { content: "\e63e"; }
+
+.dh-icon-left:before { content: "\e640"; }
+
 .dh-icon-chat-trend:before { content: "\e625"; }
 
 .dh-icon-loading:before { content: "\e648"; }
@@ -134,5 +134,4 @@
 .dh-icon-date:before { content: "\e7a7"; }
 
 .dh-icon-ok-circle:before { content: "\e8a0"; }
-
 

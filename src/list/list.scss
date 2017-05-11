@@ -44,10 +44,11 @@ $ul_border_color: #e6e6e6;
       max-height: 32px;
       max-width: 32px;
       overflow: hidden;
+      margin-right: 12px;
     }
     &__title {
       flex: 1;
-      padding-left: 12px;
+    
       max-height: 64px;
       height: 64px;
       line-height: 64px;

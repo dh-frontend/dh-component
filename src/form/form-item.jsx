@@ -11,6 +11,10 @@ class FormItem extends React.Component {
     labelCol: PropTypes.object,
     wrapperCol: PropTypes.object,
     colon: PropTypes.bool,
+    width: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
+    ])
   }
   static contextTypes = {
     form: PropTypes.object,
@@ -166,7 +170,7 @@ class FormItem extends React.Component {
     return false;
   }
   renderLabel() {
-    const { label, labelCol, colon, id } = this.props;
+    const { label, labelCol, colon, id, width } = this.props;
     const context = this.context;
     const required = this.isRequired();
 
@@ -181,6 +185,7 @@ class FormItem extends React.Component {
       <Col 
         {...labelCol} 
         key="label"
+        style={width ? {width} : {}}
         className="dh-form-item-label">
         <label 
           htmlFor={id || this.getId()}
