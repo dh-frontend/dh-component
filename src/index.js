@@ -8,21 +8,21 @@ export Radio from './radio';
 export Checkbox from './checkbox';
 export Tabs from './tabs';
 export Input, { InputNumber } from './input';
-
 export message from './message';
 export Tooltip from './tooltip';
 export Modal from './modal';
-export { List } from  './list';
-export { Avatar } from './avatar';
-export { Menu } from './menu';
-export { Select } from './select';
-export { Steps } from './steps';
+export List  from  './list';
+export Avatar from './avatar';
+export Menu from './menu';
+export Select from './select';
+export Steps from './steps';
 export Carousel from './carousel';
 export Slider from './slider';
+export Form from './form';
 /* begin --- import antd component **/
 export Row from 'antd/lib/row';
 export Col from 'antd/lib/col';
-export Form from 'antd/lib/form';
+// export Form from 'antd/lib/form';
 export Layout from 'antd/lib/layout';
 export Upload from 'antd/lib/upload';
 export Progress from 'antd/lib/progress';

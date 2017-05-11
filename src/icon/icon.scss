@@ -1,63 +1,3 @@
-$icons: (
-  list: "\e600",
-  filter: "\e69c",
-  resource: "\e602",
-  share: "\e61a",
-  wifi: "\e6f2",
-  calendar: "\e62d",
-  play: "\e604",
-  left: "\e697",
-  email: "\e69f",
-  up: "\e6a5",
-  down: "\e6a6",
-  right: "\e6a7",
-  plus: "\e6b9",
-  picture-fill: "\e72c",
-  edit: "\e644",
-  backward: "\e74d",
-  forward: "\e74e",
-  user: "\e61f",
-  upload: "\e75d",
-  minus: "\e6fe",
-  ok: "\e650",
-  search: "\e611",
-  store: "\e7d7",
-  round-down: "\e6c9",
-  round-right: "\e6cd",
-  radio-checked: "\e71f",
-  radio: "\e72f",
-  key: "\e65c",
-  resize-full: "\e645",
-  sharp: "\e726",
-  round-left: "\e689",
-  round-up: "\e68d",
-  remove: "\e755",
-  picture: "\e7b7",
-  home: "\e6b5",
-  list-circle: "\e60d",
-  text: "\e607",
-  location: "\e73a",
-  exit: "\e7cb",
-  preview: "\e617",
-  team: "\e89f",
-  chat-trend: "\e625",
-  loading: "\e648",
-  setting: "\e60c",
-  close: "\e7dc",
-  lock: "\e701",
-  checkbox: "\e610",
-  link: "\e628",
-  change: "\e620",
-  date: "\e7a7",
-  checkbox-checked: "\e65a",
-  destroy: '\e6db',
-  error: '\e63f',
-  success: '\e63c',
-  warning: '\e685',
-  refresh: '\e601',
-  calculate: '\e652',
-  table: '\e606'
-);
 .dh-icon {
   font-family:"dhfont" !important;
   display: inline-block;
@@ -66,13 +6,132 @@ $icons: (
   text-align: center;
   text-transform: none;
   line-height: 1;
+  font-size: 12px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
-@each $key, $value in $icons {
-  .dh-icon-#{$key} {
-    &:before {
-      content: $value;
-    }
-  }
-}
+
+.dh-icon-list:before { content: "\e600"; }
+
+.dh-icon-refresh:before { content: "\e601"; }
+
+.dh-icon-filter:before { content: "\e69c"; }
+
+.dh-icon-resource:before { content: "\e602"; }
+
+.dh-icon-search:before { content: "\e611"; }
+
+.dh-icon-share:before { content: "\e61a"; }
+
+.dh-icon-wifi:before { content: "\e6f2"; }
+
+.dh-icon-calendar:before { content: "\e62d"; }
+
+.dh-icon-play:before { content: "\e604"; }
+
+.dh-icon-email:before { content: "\e69f"; }
+
+.dh-icon-plus:before { content: "\e6b9"; }
+
+.dh-icon-picture-fill:before { content: "\e72c"; }
+
+.dh-icon-edit:before { content: "\e644"; }
+
+.dh-icon-plus-circle:before { content: "\e7b9"; }
+
+.dh-icon-backward:before { content: "\e74d"; }
+
+.dh-icon-forward:before { content: "\e74e"; }
+
+.dh-icon-user:before { content: "\e61f"; }
+
+.dh-icon-upload:before { content: "\e75d"; }
+
+.dh-icon-minus:before { content: "\e6fe"; }
+
+.dh-icon-destroy:before { content: "\e6db"; }
+
+.dh-icon-ok:before { content: "\e650"; }
+
+.dh-icon-close-circle:before { content: "\e83e"; }
+
+.dh-icon-error:before { content: "\e63f"; }
+
+.dh-icon-store:before { content: "\e7d7"; }
+
+.dh-icon-round-down:before { content: "\e6c9"; }
+
+.dh-icon-round-right:before { content: "\e6cd"; }
+
+.dh-icon-redio-checked:before { content: "\e71f"; }
+
+.dh-icon-redio:before { content: "\e72f"; }
+
+.dh-icon-calculate:before { content: "\e652"; }
+
+.dh-icon-success:before { content: "\e63c"; }
+
+.dh-icon-key:before { content: "\e65c"; }
+
+.dh-icon-resize-full:before { content: "\e645"; }
+
+.dh-icon-warning:before { content: "\e685"; }
+
+.dh-icon-sharp:before { content: "\e726"; }
+
+.dh-icon-table:before { content: "\e606"; }
+
+.dh-icon-round-left:before { content: "\e689"; }
+
+.dh-icon-round-up:before { content: "\e68d"; }
+
+.dh-icon-remove:before { content: "\e755"; }
+
+.dh-icon-picture:before { content: "\e7b7"; }
+
+.dh-icon-home:before { content: "\e6b5"; }
+
+.dh-icon-list-circle:before { content: "\e60d"; }
+
+.dh-icon-text:before { content: "\e607"; }
+
+.dh-icon-location:before { content: "\e73a"; }
+
+.dh-icon-point:before { content: "\e675"; }
+
+.dh-icon-exit:before { content: "\e7cb"; }
+
+.dh-icon-preview:before { content: "\e617"; }
+
+.dh-icon-team:before { content: "\e89f"; }
+
+.dh-icon-right:before { content: "\e621"; }
+
+.dh-icon-up:before { content: "\e63d"; }
+
+.dh-icon-down:before { content: "\e63e"; }
+
+.dh-icon-left:before { content: "\e640"; }
+
+.dh-icon-chat-trend:before { content: "\e625"; }
+
+.dh-icon-loading:before { content: "\e648"; }
+
+.dh-icon-setting:before { content: "\e60c"; }
+
+.dh-icon-close:before { content: "\e7dc"; }
+
+.dh-icon-lock:before { content: "\e701"; }
+
+.dh-icon-checkbox:before { content: "\e610"; }
+
+.dh-icon-link:before { content: "\e628"; }
+
+.dh-icon-checkbox-checked:before { content: "\e65a"; }
+
+.dh-icon-change:before { content: "\e620"; }
+
+.dh-icon-date:before { content: "\e7a7"; }
+
+.dh-icon-ok-circle:before { content: "\e8a0"; }
+

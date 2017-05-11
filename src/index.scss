@@ -1,5 +1,8 @@
 html, body{
   font-family: PingFang SC, Helvetica Neue, Helvetica,STHeitiSC-Light,WOL_SB,'Segoe UI Semibold','Segoe UI',Tahoma,Helvetica,sans-serif;
+  font-size: 12px;
+  color: #666666;
+  background-color: #fff;
 }
 a {
   color: #666666;
@@ -38,3 +41,4 @@ ul, ol {
 @import "./list/list.scss";
 @import "./avatar/avatar.scss";
 @import './menu/menu.scss';
+@import './form/form.scss';

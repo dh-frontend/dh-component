@@ -1,90 +1,115 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RcDialog from 'rc-dialog';
+import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import is from 'is_js';
 import Button from '../button';
+let mousePosition;
+let mousePositionEventBinded;
 
 class Modal extends React.Component {
   static defaultProps = {
-    prefixCls:'dh-modal',
     width: 520,
     transitionName: 'zoom',
     maskTransitionName: 'fade',
     confirmLoading: false,
     visible: false,
+    okText: '确定',
+    cancelText:'取消',
   };
   static propType = {
-    prefixCls: PropTypes.string,
     onOk: PropTypes.func,
     onCancel: PropTypes.func,
-    okText: PropTypes.node,
-    cancelText: PropTypes.node,
+    okText: PropTypes.string,
+    cancelText: PropTypes.string,
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     confirmLoading: PropTypes.bool,
-    visible: PropTypes.bool,
-    footer: PropTypes.node,
-    title: PropTypes.node,//sting: 主标题； object: {title:'主标题',subhead:'副标题'}
-    closable: PropTypes.bool,
-    keyboard: PropTypes.bool,
+    footer: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.bool
+    ]),
+    title: PropTypes.node, //sting: 主标题；
+    desc: PropTypes.string // 描述信息
   };
   constructor(props) {
     super(props);
-    this.renderDefaultFooter = this.renderDefaultFooter.bind(this);
-    this.renderSubheadTitle = this.renderSubheadTitle.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleOk = this.handleOk.bind(this);
   }
-  handleCancel = (e) => {
-    const onCancel = this.props.onCancel;
-    if (onCancel) {
-      onCancel(e);
+  componentDidMount() {
+    this.setMousePosition();
+  }
+  setMousePosition() {
+    if (mousePositionEventBinded) {
+      return;
+    }
+    // 只有点击事件支持从鼠标位置动画展开
+    addEventListener(document.documentElement, 'click', (e) => {
+      mousePosition = {
+        x: e.pageX,
+        y: e.pageY,
+      };
+      // 100ms 内发生过点击事件，则从点击位置动画展示
+      // 否则直接 zoom 展示
+      // 这样可以兼容非点击方式展开
+      setTimeout(() => mousePosition = null, 100);
+    });
+    mousePositionEventBinded = true;
+  }
+  handleCancel() {
+    if (this.props.onCancel) {
+      this.props.onCancel();
     }
   }
-  handleOk = (e) => {
-    const onOk = this.props.onOk;
-    if (onOk) {
-      onOk(e);
+  handleOk() {
+    if (this.props.onOk) {
+      this.props.onOk();
     }
   }
-  renderDefaultFooter() {
-    const { prefixCls,  cancelText, okText, footer, confirmLoading } = this.props;
-      return [
-        <Button
-          key="cancel"
-          onClick={this.handleCancel}
-        >
-          {cancelText || '取消'}
-        </Button>,
-        <Button
-          key="confirm"
-          type="primary"
-          loading={confirmLoading}
+  renderFooter() {
+    const { cancelText, okText, footer } = this.props;
+    const footerElement = (
+      <div className="dh-modal-footer-wapper">
+        <span
           onClick={this.handleOk}
+          className="dh-modal-footer__btn"
         >
-          {okText || '确定'}
-        </Button>,
-     ];
+          {okText}
+        </span>
+        <span
+          onClick={this.handleCancel}
+          className="dh-modal-footer__btn"
+        >
+          {cancelText}
+        </span>
+      </div>
+    );
+    return footerElement;
   }
-  renderSubheadTitle() {
-    const {  prefixCls, title } = this.props;
-    if (title instanceof Object) {
-      return [
-        <div key="title" className={`${prefixCls}-title-main`}>
-          { title.title }
-        </div>,
-        <div key="sub" className={`${prefixCls}-title-sub`}>
-          { title.subhead }
-        </div>,
-      ]
-    }
-    return title;
+  renderTitle() {
+    const { title, desc, footer } = this.props;
+    const titleElement = title ? (
+       <div key="title" className="dh-modal-title__label">
+          { title }
+        </div>
+    ) : null;
+   const descElement = desc ? (
+      <div key="desc" className="dh-modal-title__desc">
+          { desc }
+      </div>
+    ) : null;
+    return [titleElement, descElement];
   }
   render() {
-    const { prefixCls, visible, title, footer, confirmLoading } = this.props;
+    const { title, footer, confirmLoading, ...props } = this.props;
     return (
       <RcDialog
+        prefixCls="dh-modal"
         onClose={this.handleCancel}
-        {...this.props}
-        footer={footer || this.renderDefaultFooter()}
-        visible={visible}
-        title={ this.renderSubheadTitle() }
+        {...props}
+        footer={ is.boolean(footer) && !footer ? null : this.renderFooter()}
+        title={ this.renderTitle() }
+        mousePosition={mousePosition}
       />
     )
   }

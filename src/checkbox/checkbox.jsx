@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Group from './group';
+import CheckboxGroup from './group';
 
 class Checkbox extends Component {
-  static Group = Group;
-
+  static Group = CheckboxGroup
   static propTypes = {
     defaultValue: PropTypes.bool,
     onChange: PropTypes.func
   }
-
   static defaultProps = {
     defaultValue: false,
     onChange: function(){}

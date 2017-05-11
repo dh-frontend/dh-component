@@ -9,7 +9,8 @@ const options = {
   3: 'Waiting'
 };
 class Steps extends React.Component {
-   static propTypes = {
+  static Step = Step
+  static propTypes = {
      lineOption: PropTypes.shape({
        weight: PropTypes.number,
        color: PropTypes.string,
@@ -77,5 +78,5 @@ class Steps extends React.Component {
   }
 }
 
-Steps.Step = Step;
+
 export default Steps;

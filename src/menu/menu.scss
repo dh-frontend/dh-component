@@ -46,6 +46,8 @@
     position: relative;
     cursor: pointer;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 36px;
   }
   // 展开元素

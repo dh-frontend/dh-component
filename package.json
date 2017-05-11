@@ -1,13 +1,13 @@
 {
   "name": "dh-c",
-  "version": "1.0.23",
+  "version": "1.0.28",
   "description": "The front-end development engineers jimberton gulp react component",
   "main": "dist/index.js",
   "scripts": {
     "start": "npm run storybook",
     "build": "npm run build-storybook",
     "test": "npm run test-storybook",
-    "lint": "lint src",
+    "lint": "eslint src",
     "lib": "rm -rf dist && gulp",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -29,11 +29,14 @@
   },
   "homepage": "https://github.com/shulie/dh-component/#readme",
   "dependencies": {
-    "prop-types": "^15.5.8",
+    "create-react-class": "^15.5.2",
     "is_js": "^0.9.0",
+    "prop-types": "^15.5.8",
+    "rc-form": "^1.3.1",
     "rc-input-number": "^3.4.14",
     "rc-menu": "^5.0.10",
     "rc-select": "^6.8.2",
+    "rc-util": "^4.0.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-slick": "^0.14.11"
