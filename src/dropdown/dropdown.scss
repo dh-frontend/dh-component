@@ -11,6 +11,7 @@ $dropdown-backgroundColor: #ffffff;
 .dh-dropdown {
    position: absolute;
    background-color: $dropdown-backgroundColor;
+   z-index: 1050;
    &-hidden {
      display: none;
    }
