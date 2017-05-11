@@ -76,7 +76,8 @@ class Modal extends React.Component {
         >
           {okText}
         </span>
-        <span 
+        <span
+          onClick={this.handleCancel}
           className="dh-modal-footer__btn"
         >
           {cancelText}
@@ -104,6 +105,7 @@ class Modal extends React.Component {
     return (
       <RcDialog
         prefixCls="dh-modal"
+        onClose={this.handleCancel}
         {...props}
         footer={ is.boolean(footer) && !footer ? null : this.renderFooter()}
         title={ this.renderTitle() }
