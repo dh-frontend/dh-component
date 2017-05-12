@@ -25,5 +25,6 @@ function loadStories() {
   require('../stories/carousel/index.js');
   require('../stories/icon/index.js');
   require('../stories/modal/index.js');
+  require('../stories/table/index.js');
 }
 configure(loadStories, module);
