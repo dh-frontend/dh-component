@@ -84,7 +84,7 @@ class Modal extends React.Component {
         </span>
       </div>
     );
-    return footerElement;
+    return footer || footerElement;
   }
   renderTitle() {
     const { title, desc, footer } = this.props;
