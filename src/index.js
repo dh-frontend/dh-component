@@ -28,4 +28,5 @@ export Upload from 'antd/lib/upload';
 export Progress from 'antd/lib/progress';
 export Collapse from 'antd/lib/collapse';
 export Popover from 'antd/lib/popover';
+export Tree from 'antd/lib/tree';
 /* endt --- import antd component **/
