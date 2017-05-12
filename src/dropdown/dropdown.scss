@@ -22,8 +22,7 @@ $dropdown-backgroundColor: #ffffff;
      box-shadow: 7px 6px 15px rgba(0,0,0,.15);
      outline: 0;
      &-item {
-       line-height: 32px;
-       padding: 0 8px;
+       padding: 8px 16px;
        color: $dropdown-itemColor;
        font-size: 12px;
        cursor: pointer;
