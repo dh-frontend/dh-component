@@ -48,12 +48,16 @@ $ul_border_color: #e6e6e6;
     }
     &__title {
       flex: 1;
-    
+
       max-height: 64px;
       height: 64px;
       line-height: 64px;
       font-size: 14px;
       overflow: hidden;
+      color: #999999;
+      &:hover {
+        color: #333333;
+      }
     }
     &__icon {
       width: 64px;

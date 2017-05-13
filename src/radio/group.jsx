@@ -2,29 +2,28 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 class Group extends Component {
   static propTypes = {
-    defaultValue: PropTypes.number,
-    onChange: PropTypes.function
+    defaultSelectKey: PropTypes.string,
+    onChange: PropTypes.func
   }
 
   static defaultProps = {
-    defaultValue: 0,
     onChange: function(){}
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      checked: props.defaultValue
+      checked: props.defaultSelectKey
     };
     this.onSelectChange = this.onSelectChange.bind(this);
   }
 
-  onSelectChange(checked, idx) {
-    if (checked && this.state.checked != idx) {
+  onSelectChange(checked, key) {
+    if (checked && this.state.checked != key) {
       this.setState({
-        checked: idx
+        checked: key
       });
-      this.props.onChange(idx);
+      this.props.onChange(key);
     }
   }
 
@@ -37,9 +36,9 @@ class Group extends Component {
         {React.Children.map(children, (child, i) => {
           const props = {
             ...child.props,
-            onChange: (checked) => this.onSelectChange(checked, i),
-            checked: i == checked,
-            key: i
+            onChange: (checked) => this.onSelectChange(checked, child.key),
+            checked: checked == child.key,
+            key: child.key || i
           };
           return {...child, props};
         })}

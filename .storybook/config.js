@@ -16,6 +16,7 @@ setOptions({
 import '../src/index.scss';
 import 'antd/dist/antd.css';
 import './test.scss';
+
 function loadStories() {
   require('../stories/form/index.js');
   require('../stories/button/index.js');
@@ -28,5 +29,6 @@ function loadStories() {
   require('../stories/table/index.js');
   require('../stories/dropdown/index.js');
   require('../stories/tabs/index.js');
+  require('../stories/radio/index.js');
 }
 configure(loadStories, module);
