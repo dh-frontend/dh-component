@@ -38,19 +38,19 @@ export default function confirm(config) {
   let footer = null;
   if (props.okCancel) {
     footer = (
-      <div className={`${prefixCls}-btns`}>
+      <div className={`${prefixCls}-footer-wapper`}>
+        <ActionButton actionFn={props.onOk} closeModal={close} autoFocus>
+          {props.okText || '确定'}
+        </ActionButton>
         <ActionButton actionFn={props.onCancel} closeModal={close}>
           {props.cancelText || '取消'}
-        </ActionButton>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>
-          {props.okText || '确定'}
         </ActionButton>
       </div>
     );
   } else {
     footer = (
-      <div className={`${prefixCls}-btns`}>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>
+      <div className={`${prefixCls}-footer-wapper`}>
+        <ActionButton actionFn={props.onOk} closeModal={close} autoFocus>
           {props.okText || '确定'}
         </ActionButton>
       </div>
