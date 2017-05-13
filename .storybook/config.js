@@ -27,5 +27,6 @@ function loadStories() {
   require('../stories/modal/index.js');
   require('../stories/table/index.js');
   require('../stories/dropdown/index.js');
+  require('../stories/radio/index.js');
 }
 configure(loadStories, module);

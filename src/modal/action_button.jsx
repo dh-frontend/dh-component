@@ -47,7 +47,7 @@ export default class ActionButton extends React.Component {
     const { type, children } = this.props;
     const loading = this.state.loading;
     return (
-      <span type={type} onClick={this.onClick}>
+      <span type={type} onClick={this.onClick} className="dh-modal-footer__btn">
         {children}
       </span>
     );
