@@ -11,6 +11,17 @@ class ModalDemo extends React.Component {
   handleClick() {
     this.setState({ visible: true });
   }
+  handleConfirm = () => {
+    Modal.confirm({
+      title: 'Confirm',
+      content: 'Bla bla ...',
+      okText: 'OK',
+      cancelText: 'Cancel',
+      onOk: () => {
+        console.log('我是confirm');
+      }
+    })
+  }
   render() {
     const menu = (
       <Menu>
@@ -27,7 +38,8 @@ class ModalDemo extends React.Component {
   );
     return (
       <div>
-        <Button type="primary" onClick={this.handleClick}>打开</Button>
+        <Button type="primary" onClick={this.handleClick}>打开</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button type="primary" onClick={this.handleConfirm}>confirm</Button>
         <Modal
           title="我是一个测试数据"
           desc="我是一个描述信息"
