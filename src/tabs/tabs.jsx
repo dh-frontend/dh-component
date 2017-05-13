@@ -8,7 +8,8 @@ import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 
 class Tabs extends React.Component {
   static defaultProps = Object.assign({}, RcTabs.defaultProps, {
-    prefixCls: 'dh-tab'
+    prefixCls: 'dh-tab',
+    type: 'inline'
   });
 
   static propTypes = {
@@ -21,13 +22,12 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const props = this.props;
-    const { type, extraContent, onTabClick, animated } = props;
+    const { type, extraContent, onTabClick, animated, ...props } = this.props;
     return (
       <RcTabs
         {...props}
         className={classNames({
-          [`dh-tab-${type}`]: type,
+          [`dh-tab-${type}`]: type ? true : false,
           [props.classname]: !!props.className
         })}
         renderTabBar={() => (
@@ -42,5 +42,5 @@ class Tabs extends React.Component {
     );
   }
 }
-Tabs.TabPanel = RcTabs.TabPane;
+Tabs.TabPane = RcTabs.TabPane;
 export default Tabs;
