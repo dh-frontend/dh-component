@@ -1,6 +1,6 @@
 
-$primary-button-Height: 36px;
-$primary-button-FontSize: 14px;
+$default-button-Height: 36px;
+$default-button-FontSize: 14px;
 $small-button-Height: 24px;
 $small-button-FontSize: 12px;
 /* begin: default style **/
@@ -79,7 +79,7 @@ $button-borderColor-danger-checked: #e6513d;
 .dh-btn {
     display: inline-block;
     padding: 0 16px;
-    @include buttonSize($primary-button-Height, $primary-button-FontSize);
+    @include buttonSize($default-button-Height, $default-button-FontSize);
     line-height: 1;
     text-align: center;
     background-image: none;
