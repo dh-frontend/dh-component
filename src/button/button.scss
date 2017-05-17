@@ -1,6 +1,6 @@
 
-$normal-button-Height: 36px;
-$normal-button-FontSize: 14px;
+$default-button-Height: 36px;
+$default-button-FontSize: 14px;
 $small-button-Height: 24px;
 $small-button-FontSize: 12px;
 /* begin: default style **/
@@ -10,23 +10,41 @@ $button-borderColor-default-hover: #f4f4f4;
 $button-fontColor-default: #999999;
 $button-backgroundColor-default-checked: transparent;
 $button-borderColor-default-checked: #33a663;
-/* begin: normal style **/
-$button-backgroundColor-normal: transparent;
-$button-borderColor-normal: #39b86e;
-$button-borderColor-normal-hover: #ff5a44;
-$button-fontColor-normal: #39b86e;
-$button-backgroundColor-normal-checked: transparent;
-$button-borderColor-normal-checked: #33a663;
-/* end: default **/
-
 /* begin: primary style **/
-$button-backgroundColor-primary: #39b86e;
+$button-backgroundColor-primary: transparent;
 $button-borderColor-primary: #39b86e;
 $button-borderColor-primary-hover: #ff5a44;
-$button-fontColor-primary: #fff;
-$button-backgroundColor-primary-checked: #33a663;
+$button-fontColor-primary: #39b86e;
+$button-backgroundColor-primary-checked: transparent;
 $button-borderColor-primary-checked: #33a663;
-/* end: primary **/
+/* end: default **/
+
+/* begin: success style **/
+$button-backgroundColor-success: #39b86e;
+$button-borderColor-success: #39b86e;
+$button-borderColor-success-hover: #ff5a44;
+$button-fontColor-success: #fff;
+$button-backgroundColor-success-checked: #33a663;
+$button-borderColor-success-checked: #33a663;
+/* end: success **/
+
+/* begin: info style **/
+$button-backgroundColor-info: #4690ff;
+$button-borderColor-info: #4690ff;
+$button-borderColor-info-hover: #ff5a44;
+$button-fontColor-info: #fff;
+$button-backgroundColor-info-checked: #2a77e8;
+$button-borderColor-info-checked: #2a77e8;
+/* end: info **/
+
+/* begin: warning style **/
+$button-backgroundColor-warning: #ffbf00;
+$button-borderColor-warning: #ffbf00;
+$button-borderColor-warning-hover: #ff5a44;
+$button-fontColor-warning: #fff;
+$button-backgroundColor-warning-checked: #e4bb3c;
+$button-borderColor-warning-checked: #e4bb3c;
+/* end: warning **/
 
 /* begin: danger style **/
 $button-backgroundColor-danger: #ff5a44;
@@ -61,7 +79,7 @@ $button-borderColor-danger-checked: #e6513d;
 .dh-btn {
     display: inline-block;
     padding: 0 16px;
-    @include buttonSize($normal-button-Height, $normal-button-FontSize);
+    @include buttonSize($default-button-Height, $default-button-FontSize);
     line-height: 1;
     text-align: center;
     background-image: none;
@@ -83,24 +101,42 @@ $button-borderColor-danger-checked: #e6513d;
     );
     .dh-icon + span {
       margin-left: 8px;
-    }   
-}
-.dh-btn-normal {
-  @include buttonTypes(
-    $button-backgroundColor-normal,
-    $button-borderColor-normal,
-    $button-fontColor-normal,
-    $button-backgroundColor-normal-checked,
-    $button-borderColor-normal-checked
-  );
+    }
 }
 .dh-btn-primary {
   @include buttonTypes(
     $button-backgroundColor-primary,
-    $button-backgroundColor-primary,
+    $button-borderColor-primary,
     $button-fontColor-primary,
     $button-backgroundColor-primary-checked,
     $button-borderColor-primary-checked
+  );
+}
+.dh-btn-success {
+  @include buttonTypes(
+    $button-backgroundColor-success,
+    $button-backgroundColor-success,
+    $button-fontColor-success,
+    $button-backgroundColor-success-checked,
+    $button-borderColor-success-checked
+  );
+}
+.dh-btn-info {
+  @include buttonTypes(
+    $button-backgroundColor-info,
+    $button-backgroundColor-info,
+    $button-fontColor-info,
+    $button-backgroundColor-info-checked,
+    $button-borderColor-info-checked
+  );
+}
+.dh-btn-warning {
+  @include buttonTypes(
+    $button-backgroundColor-warning,
+    $button-backgroundColor-warning,
+    $button-fontColor-warning,
+    $button-backgroundColor-warning-checked,
+    $button-borderColor-warning-checked
   );
 }
 .dh-btn-danger {
