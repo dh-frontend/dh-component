@@ -10,8 +10,8 @@ class Button extends React.Component {
   }
   static propTypes = {
     htmlType: PropTypes.oneOf(['button', 'submit']),
-    type: PropTypes.oneOf(['default', 'primary', 'danger']),
-    size: PropTypes.oneOf(['normal', 'small']),
+    type: PropTypes.oneOf(['default','success','primary','info','warning','danger']),
+    size: PropTypes.oneOf(['default', 'small']),
     shape: PropTypes.oneOf(['circle']),
     icon: PropTypes.string,
     onClick: PropTypes.func
