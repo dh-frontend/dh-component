@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { Icon } from '../../src';
+import { Icon } from '../index.js';
 
 import PropTypes from 'prop-types';
 import Checkbox from '../checkbox';
