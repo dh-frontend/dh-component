@@ -3,8 +3,9 @@ import { storiesOf, action, linkTo } from '@kadira/storybook';
 
 import { Dropdown, Menu, Button } from '../../src';
 import withReadme from 'storybook-readme/with-readme';
+const SubMenu = Menu.SubMenu;
 const options = {
-  inline: true
+  inline: true, propTables: false
 }
 const menu = (
   <Menu>
@@ -17,6 +18,10 @@ const menu = (
     <Menu.Item>
       <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">第三个</a>
     </Menu.Item>
+    <SubMenu title="更多">
+      <Menu.Item>3d menu item</Menu.Item>
+      <Menu.Item>4th menu item</Menu.Item>
+    </SubMenu>
   </Menu>
 );
 
