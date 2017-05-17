@@ -39,6 +39,7 @@
     "rc-tabs": "^7.5.0",
     "rc-util": "^4.0.2",
     "react": "^15.5.4",
+    "react-color": "^2.11.7",
     "react-dom": "^15.5.4",
     "react-slick": "^0.14.11"
   },
