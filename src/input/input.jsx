@@ -101,8 +101,7 @@ class Input extends React.Component {
             className="dh-input-warp-inner"
             {...props}
             onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
-            
+            onBlur={this.handleBlur}       
           />
         </div>
 

@@ -18,6 +18,7 @@
 | ------| ------ | ------ |
 | dataSource | 数据数组 | array | 无
 | columns | 表格列的配置描述，具体项见下表 | array | 无
+| onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) | 无
 | rowSelection | 列表项是否可选择 | object | 无
 | size | 表格尺寸 | string (default, large, small) | default
 | bordered | 是否显示边框 | bool | false
@@ -31,8 +32,10 @@
 | ------| ------ | ------ |
 | title | 列头显示文字 | string/ReactNode | 无
 | dataIndex | 列数据在数据项中对应的 key | string | 无
+| sorter | 排序函数，本地排序使用一个函数(参考 Array.sort 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | 无
 | render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引 | function(text, record, index) | 无
 | frozen | 冻结此列 | bool | false
+| ext | 额外选项, 靠右显示 | element | null
 
 
 ### rowSelection

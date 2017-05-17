@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import { Icon } from '../index.js';
 
 import PropTypes from 'prop-types';
 import Checkbox from '../checkbox';
@@ -18,9 +19,14 @@ class Table extends Component {
         ]),
         ext: PropTypes.element,
         dataIndex: PropTypes.string,
-        render: PropTypes.function,
+        render: PropTypes.func,
+        sorter: PropTypes.oneOfType([
+          PropTypes.func,
+          PropTypes.bool
+        ])
       })
     ),
+    onChange: PropTypes.func,
     size: PropTypes.oneOf(['default', 'small', 'large']),
     bordered: PropTypes.bool,
     striped: PropTypes.bool,
@@ -42,6 +48,8 @@ class Table extends Component {
       columns: props.columns,
       fixedHeader: false
     };
+
+    this.sorter = {};
 
     this.onClickSelect = this.onClickSelect.bind(this);
   }
@@ -130,6 +138,13 @@ class Table extends Component {
     onSelect(dataSource[idx], checked, dataSource.filter((d, i) => selectedIdx.indexOf(i) > -1))
   }
 
+  handleSortChange = (field) => {
+    this.sorter[field] = ((this.sorter[field] || 0) + 1) % 3;
+    if (this.props.onChange) {
+      this.props.onChange(null, null, this.sorter);
+    }
+  };
+
   render() {
     const { dataSource, size, bordered, striped, rowSelection, fixed, ...props } = this.props;
     const { selectedIdx, columns, fixedHeader } = this.state;
@@ -206,6 +221,11 @@ class Table extends Component {
                 }}
               >
                 {d.title}
+                {d.sorter && (
+                  <a href="javascript:;" onClick={() => this.handleSortChange(d.dataIndex)}>
+                    <Icon type="change" style={{fontSize: 12, transform: 'rotate(90deg)'}} />
+                  </a>
+                )}
                 {d.ext && (
                   <div style={{position: 'absolute', textAlign: 'center', right: 0, top: 0, width: EXT_WIDTH}}>
                     {d.ext}

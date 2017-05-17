@@ -41,7 +41,7 @@ class FormDemo extends React.Component {
               label="用户名"
             >
             <Input type="text" />
-            </Form.Item>
+            </Form.Item> 
             <Form.Item
               label="性别"
             >
