@@ -17,7 +17,7 @@ const dataSource = [
 
 const columns = [
   {title: '姓名', dataIndex: 'name', frozen: true},
-  {title: '年龄', dataIndex: 'age'},
+  {title: '年龄', dataIndex: 'age', sorter: true},
   {title: '性别', dataIndex: 'sex', render: (text) => text ? '男' : '女'},
   {title: '身高', dataIndex: 'height'},
   {title: '体重', dataIndex: 'weight'},
@@ -32,6 +32,7 @@ storiesOf('表格组件', module)
         dataSource={dataSource}
         columns={columns}
         fixed
+        onChange={(pagination, filter, sorter) => console.log(pagination, filter, sorter)}
       />
     </div>
   ), { inline: true })
