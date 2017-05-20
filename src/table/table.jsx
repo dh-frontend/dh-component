@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import update from 'react/lib/update';
 import classNames from 'classnames';
 import { Icon } from '../index.js';
 
@@ -31,14 +32,16 @@ class Table extends Component {
     bordered: PropTypes.bool,
     striped: PropTypes.bool,
     rowSelection: PropTypes.object,
-    fixed: PropTypes.bool
+    fixed: PropTypes.bool,
+    sortIcon: PropTypes.string
   };
 
   static defaultProps = {
     size: 'default',
     striped: true,
     columns: [],
-    dataSource: []
+    dataSource: [],
+    sortIcon: 'up'
   };
 
   constructor(props) {
@@ -46,10 +49,9 @@ class Table extends Component {
     this.state = {
       selectedIdx: [],
       columns: props.columns,
-      fixedHeader: false
+      fixedHeader: false,
+      sorter: {}
     };
-
-    this.sorter = {};
 
     this.onClickSelect = this.onClickSelect.bind(this);
   }
@@ -138,16 +140,22 @@ class Table extends Component {
     onSelect(dataSource[idx], checked, dataSource.filter((d, i) => selectedIdx.indexOf(i) > -1))
   }
 
-  handleSortChange = (field) => {
-    this.sorter[field] = ((this.sorter[field] || 0) + 1) % 3;
+  handleSortChange = (field, sort) => {
+    this.setState(update(this.state, {
+      sorter: {
+        $merge: {
+          [field]: this.state.sorter[field] == sort ? '' : sort
+        }
+      }
+    }));
     if (this.props.onChange) {
-      this.props.onChange(null, null, this.sorter);
+      this.props.onChange(null, null, this.state.sorter);
     }
   };
 
   render() {
-    const { dataSource, size, bordered, striped, rowSelection, fixed, ...props } = this.props;
-    const { selectedIdx, columns, fixedHeader } = this.state;
+    const { dataSource, size, bordered, striped, rowSelection, fixed, sortIcon, ...props } = this.props;
+    const { selectedIdx, columns, fixedHeader, sorter } = this.state;
 
     let tableStyle = {}, theadStyle = {}, tbodyStyle = {}, trStyle = {}, thStyle = {};
 
@@ -220,16 +228,23 @@ class Table extends Component {
                   width: d.width
                 }}
               >
-                {d.title}
+                {d.title}&nbsp;&nbsp;
                 {d.sorter && (
-                  <a href="javascript:;" onClick={() => this.handleSortChange(d.dataIndex)}>
-                    <Icon type="change" style={{fontSize: 12, transform: 'rotate(90deg)'}} />
-                  </a>
+                  <span className="dh-sort-icon" href="javascript:;">
+                    <a className="dh-sort-icon-btn" role="up" onClick={() => this.handleSortChange(d.dataIndex, 'asc')}>
+                      <Icon type={sortIcon} role={sorter[d.dataIndex] == 'asc' ? 'active' : ''} />
+                    </a>
+                    <a className="dh-sort-icon-btn" role="down" onClick={() => this.handleSortChange(d.dataIndex, 'desc')}>
+                      <Icon type={sortIcon} role={sorter[d.dataIndex] == 'desc' ? 'active' : ''} />
+                    </a>
+                  </span>
                 )}
                 {d.ext && (
-                  <div style={{position: 'absolute', textAlign: 'center', right: 0, top: 0, width: EXT_WIDTH}}>
-                    {d.ext}
-                  </div>
+                  <span style={{paddingLeft: 20}}>
+                    <div style={{position: 'absolute', textAlign: 'center', right: 0, top: 0, width: EXT_WIDTH}}>
+                      {d.ext}
+                    </div>
+                  </span>
                 )}
               </th>
             ))}
