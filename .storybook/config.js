@@ -32,5 +32,6 @@ function loadStories() {
   require('../stories/radio/index.js');
   require('../stories/checkbox/index.js');
   require('../stories/slider/index.js');
+  require('../stories/select/index.js');
 }
 configure(loadStories, module);

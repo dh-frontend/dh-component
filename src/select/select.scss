@@ -34,7 +34,7 @@ $placeholder-color: #999999;
     font-size: 12px;
     color: $placeholder-color;
   }
-  
+
   &-arrow {
     height: 100%;
     position: absolute;
@@ -183,7 +183,6 @@ $placeholder-color: #999999;
       transition: background .3s ease;
       &-selected {
         color: #39b68e;
-        font-size: 14px;
       }
       &-active {
         background-color: #f6f6f6;
