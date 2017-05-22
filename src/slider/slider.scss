@@ -1,0 +1,55 @@
+.dh-slider {
+    position: relative;
+    margin: 10px 6px;
+    height: 12px;
+    border-radius: 5px;
+    background-color: #e9e9e9;
+    cursor: pointer;
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    transition: background-color 0.3s ease;
+
+    &-track {
+        position: absolute;
+        left: 0;
+        height: 4px;
+        border-radius: 4px;
+        background: linear-gradient(to right, #2ad450, #12d8db);
+        z-index: 1;
+        transition: background-color 0.3s ease;
+    }
+
+    &-step {
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background: transparent;
+        z-index: 1;
+    }
+
+    &-handle {
+        position: absolute;
+        margin-left: -8px;
+        margin-top: -10px;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        background-color: #fff;
+        z-index: 2;
+        &:after {
+          font-family: dhfont !important;
+          color: #39b86e;
+          content: '\e71f';
+          font-size: 16px;
+        }
+    }
+
+    &-mark {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        font-size: 12px;
+        z-index: 3;
+    }
+}

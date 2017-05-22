@@ -5,7 +5,7 @@ $tooltip-arrawSize: 6px;
   position: absolute;
   left: -9999px;
   top: -9999px;
-  z-index: 1070;
+  z-index: 1050;
   display: block;
   font-size: 12px;
   font-weight: 400;
@@ -39,7 +39,7 @@ $tooltip-arrawSize: 6px;
       padding: 0 6px;
       .dh-tooltip-arrow {
         top: 50%;
-        right: 1px;
+        right: 2px;
         margin-top: -5px;
         width: 10px;
         height: 10px;
@@ -55,7 +55,7 @@ $tooltip-arrawSize: 6px;
       padding: 0 6px;
       .dh-tooltip-arrow {
         top: 50%;
-        left: 1px;
+        left: 2px;
         margin-top: -5px;
         width: 10px;
         height: 10px;
@@ -70,7 +70,7 @@ $tooltip-arrawSize: 6px;
       margin-top: -3px;
       padding: 6px 0;
       .dh-tooltip-arrow {
-        bottom: 1px;
+        bottom: 2px;
         left: 50%;
         margin-left: -5px;
         width: 10px;
@@ -86,7 +86,7 @@ $tooltip-arrawSize: 6px;
       margin-top: 3px;
       padding: 6px 0;
       .dh-tooltip-arrow {
-        top: 1px;
+        top: 2px;
         left: 50%;
         margin-left: -5px;
         width: 10px;

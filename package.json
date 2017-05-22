@@ -36,6 +36,7 @@
     "rc-input-number": "^3.4.14",
     "rc-menu": "^5.0.10",
     "rc-select": "^6.8.2",
+    "rc-slider": "^7.0.8",
     "rc-tabs": "^7.5.0",
     "rc-util": "^4.0.2",
     "react": "^15.5.4",
