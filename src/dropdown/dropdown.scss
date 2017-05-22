@@ -41,10 +41,28 @@ $dropdown-fontSize: 12px;
        font-size: $dropdown-fontSize;
        cursor: pointer;
        white-space: nowrap;
-       &:hover {
-           color: $dropdown-itemHoverColor;
-           background-color: $dropdown-itemHoverBackgroundColor;
+       &>a {
+         color: $dropdown-itemColor;
+         &:hover {
+            color: $dropdown-itemHoverColor;
          }
+       }
+       &-divider {
+         height: 1px;
+         overflow: hidden;
+         background-color: #e9e9e9;
+         line-height: 0;
+       }
+       &-active {
+         color: $dropdown-itemHoverColor;
+         background-color: $dropdown-itemHoverBackgroundColor;
+      }
+      &-selected {
+        color: $dropdown-itemCheckColor;
+        &>a {
+          color: $dropdown-itemCheckColor;
+        }
+      }
      }
      &-hidden {
        display: none;

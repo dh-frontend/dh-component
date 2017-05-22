@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 
 import { Dropdown, Menu, Button } from '../../src';
+import DropdownDemo from './dropdown'
 import withReadme from 'storybook-readme/with-readme';
 const SubMenu = Menu.SubMenu;
 const options = {
@@ -25,9 +26,9 @@ const menu = (
   </Menu>
 );
 
-storiesOf('下拉菜单', module)
+storiesOf('Dropdown 下拉菜单', module)
   .addWithInfo('默认列表', () => (
-   <Dropdown placement="bottomLeft" overlay={menu}>
-     <Button>下拉菜单</Button>
-    </Dropdown>
+    <div>
+      <DropdownDemo />
+    </div>
   ), options)
