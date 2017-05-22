@@ -29,4 +29,5 @@ export Progress from 'antd/lib/progress';
 export Collapse from 'antd/lib/collapse';
 export Popover from 'antd/lib/popover';
 export Tree from 'antd/lib/tree';
+// export Tooltip from 'antd/lib/tooltip';
 /* endt --- import antd component **/
