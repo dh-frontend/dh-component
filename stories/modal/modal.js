@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Menu, Dropdown, ColorPicker } from '../../src';
+import { Modal, Button, Menu, Dropdown } from '../../src';
 class ModalDemo extends React.Component {
   constructor(props) {
     super(props);
@@ -40,7 +40,6 @@ class ModalDemo extends React.Component {
       <div>
         <Button type="primary" onClick={this.handleClick}>打开</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <Button type="primary" onClick={this.handleConfirm}>confirm</Button>
-        <ColorPicker/>
         <Modal
           title="我是一个测试数据"
           desc="我是一个描述信息"
