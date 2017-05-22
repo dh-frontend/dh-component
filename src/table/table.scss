@@ -11,10 +11,42 @@ $table-hover: #e6eaee;
 $tr-height-default: 40px;
 
 /** small style */
-$tr-height-small: 30px;
+$tr-height-small: 32px;
 
 /** large style */
 $tr-height-large: 60px;
+
+.dh-sort-icon {
+  display: inline-block;
+  position: relative;
+  width: 8px;
+  height: 18px;
+  vertical-align: middle;
+  .dh-sort-icon-btn {
+    position: absolute;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    line-height: 8px;
+    text-align: center;
+    i {
+      font-size: 12px;
+      transform-origin: -3px 2px;
+      transform: scale(0.8);
+      color: #aaa;
+      &[role=active] {
+        color: #108ee9;
+      }
+    }
+    &[role=up] {
+      top: 0;
+    }
+    &[role=down] {
+      bottom: 0;
+      transform: rotate(180deg);
+    }
+  }
+}
 
 .dh-table {
   position: relative;

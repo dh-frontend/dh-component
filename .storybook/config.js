@@ -30,6 +30,7 @@ function loadStories() {
   require('../stories/dropdown/index.js');
   require('../stories/tabs/index.js');
   require('../stories/radio/index.js');
+  require('../stories/checkbox/index.js');
   require('../stories/slider/index.js');
 }
 configure(loadStories, module);

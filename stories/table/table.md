@@ -24,6 +24,7 @@
 | bordered | 是否显示边框 | bool | false
 | striped | 是否显示条纹 | bool | true
 | fixed | 是否固定表头 | bool | false
+| sortIcon | sort icon | string | 'up'
 
 
 ### columns
