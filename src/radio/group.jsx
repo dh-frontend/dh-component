@@ -34,11 +34,12 @@ class Group extends Component {
     return (
       <div>
         {React.Children.map(children, (child, i) => {
+          const key = child.key || i;
           const props = {
             ...child.props,
-            onChange: (checked) => this.onSelectChange(checked, child.key),
-            checked: checked == child.key,
-            key: child.key || i
+            onChange: (checked) => this.onSelectChange(checked, key),
+            checked: checked === key,
+            key: key
           };
           return {...child, props};
         })}
