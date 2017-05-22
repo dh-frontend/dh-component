@@ -6,7 +6,8 @@ import update from 'react/lib/update';
 class Group extends Component {
   static propTypes = {
     defaultValue: PropTypes.array,
-    onChange: PropTypes.function
+    defaultSelectKeys: PropTypes.array,
+    onChange: PropTypes.func
   }
 
   static defaultProps = {
@@ -17,21 +18,22 @@ class Group extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: props.defaultValue
+      checked: props.defaultSelectKeys || props.defaultValue || [],
     };
     this.onSelectChange = this.onSelectChange.bind(this);
   }
 
-  onSelectChange(chk, idx) {
+  onSelectChange(chk, key) {
+    const { selectKeys } = this.state;
     let checked;
     if (chk) {
       checked = update(this.state.checked, {
         $push: [
-          idx
+          key
         ]
       });
     } else {
-      const i = this.state.checked.indexOf(idx);
+      const i = this.state.checked.indexOf(key);
       if (i > -1) {
         checked = update(this.state.checked, {
           $splice: [
@@ -53,11 +55,12 @@ class Group extends Component {
     return (
       <div>
         {React.Children.map(children, (child, i) => {
+          const key = child.key || i;
           const props = {
             ...child.props,
-            onChange: (checked) => this.onSelectChange(checked, i),
-            checked: checked.indexOf(i) > -1,
-            key: i
+            onChange: (checked) => this.onSelectChange(checked, key),
+            checked: checked.indexOf(key) > -1,
+            key: key
           };
           return {...child, props};
         })}

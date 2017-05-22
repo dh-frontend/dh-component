@@ -17,7 +17,7 @@ const dataSource = [
 
 const columns = [
   {title: '姓名', dataIndex: 'name', frozen: true},
-  {title: '年龄', dataIndex: 'age', sorter: true},
+  {title: '年龄', dataIndex: 'age', sorter: true, ext: '*'},
   {title: '性别', dataIndex: 'sex', render: (text) => text ? '男' : '女'},
   {title: '身高', dataIndex: 'height'},
   {title: '体重', dataIndex: 'weight'},
@@ -27,7 +27,7 @@ const columns = [
 storiesOf('表格组件', module)
   .addDecorator(withReadme(tableReadme))
   .addWithInfo('默认表格', () => (
-    <div style={{height: 400}}>
+    <div style={{height: 400, width:100}}>
       <Table
         dataSource={dataSource}
         columns={columns}
