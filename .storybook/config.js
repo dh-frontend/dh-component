@@ -33,5 +33,6 @@ function loadStories() {
   require('../stories/checkbox/index.js');
   require('../stories/slider/index.js');
   require('../stories/select/index.js');
+  require('../stories/color_picker/index.js');
 }
 configure(loadStories, module);

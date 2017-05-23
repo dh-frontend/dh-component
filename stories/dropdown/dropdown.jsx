@@ -36,7 +36,7 @@ class DropdownDemo extends React.Component {
   render() {
     return (
       <div>
-        <Dropdown overlay={menu} trigger="hover">
+        <Dropdown overlay={menu} trigger="hover" visible={false}>
             <Button>Hover me</Button>
         </Dropdown>
         <Dropdown
