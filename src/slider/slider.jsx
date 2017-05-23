@@ -19,15 +19,17 @@ class Slider extends React.Component {
     super(props);
   }
 
-  renderHandle = (value) => {
+  renderHandle = (value, index) => {
     const { tipFormatter, overlay } = this.props;
+    if (Array.isArray(overlay)) {
+      return overlay[index];
+    }
     if (overlay) return overlay;
     return tipFormatter ? tipFormatter(value) : ''
   }
 
   renderPlacement = (index) => {
-    if (index) return index == 0 ? "top" : "bottom";
-    return 'top';
+     return index == 0 ? "top" : "bottom";
   }
 
   handleTooltip = ({ value, dragging, index, ...restProps }) => {
@@ -35,7 +37,7 @@ class Slider extends React.Component {
      return (
        <Tooltip
          prefixCls={tooltipPrefixCls}
-         overlay={this.renderHandle(value)}
+         overlay={this.renderHandle(value,index)}
          placement={this.renderPlacement(index)}
          key={index}
          trigger={trigger}
