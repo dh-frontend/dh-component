@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import withReadme from 'storybook-readme/with-readme';
 import sliderReadme from './slider.md';
-import { Slider, Dropdown, Icon, Menu } from '../../src';
+import { Slider, Dropdown, Icon, Menu, DatePicker } from '../../src';
 const options = {
   inline: true, propTables: false
 }
@@ -70,5 +70,7 @@ storiesOf('Silder 滑动输入条', module)
         <br/>
         <br/>
         <Slider  step={null} max={80} reverse  marks={marks2}  defaultValue={10} />
+        <br/>
+        <DatePicker onChange={(date, dateString) => {console.log(date, dateString)}} />
       </div>
   ), options)
