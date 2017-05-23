@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RcSlider, { Range, Handle } from 'rc-slider';
+import classnames from 'classnames';
 import { Tooltip, Button } from '../index';
 const RcRange = Range;
 const RcHandle = Handle;
@@ -9,6 +10,7 @@ const RcHandle = Handle;
 class Slider extends React.Component {
   static defaultProps = {
     prefixCls: 'dh-slider',
+    tooltipPrefixCls: 'dh-slider-tooltip',
     tipFormatter: (value) => {
       return value.toString()
     }
@@ -29,9 +31,10 @@ class Slider extends React.Component {
   }
 
   handleTooltip = ({ value, dragging, index, ...restProps }) => {
-    const { trigger } = this.props;
+    const { trigger, tooltipPrefixCls } = this.props;
      return (
        <Tooltip
+         prefixCls={tooltipPrefixCls}
          overlay={this.renderHandle(value)}
          placement={this.renderPlacement(index)}
          key={index}
@@ -44,11 +47,11 @@ class Slider extends React.Component {
      );
   }
   render() {
-    const { range, ...restProps } = this.props;
+    const { range, reverse, ...restProps } = this.props;
     if (range) {
-      return <RcRange {...restProps} handle={this.handleTooltip} />
+      return <RcRange className={classnames({'dh-slider-reverse': reverse})}  {...restProps} handle={this.handleTooltip} />
     }
-    return <RcSlider {...restProps} handle={this.handleTooltip} />
+    return <RcSlider className={classnames({'dh-slider-reverse': reverse})} {...restProps} handle={this.handleTooltip} />
   }
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import withReadme from 'storybook-readme/with-readme';
 import sliderReadme from './slider.md';
-import { Slider, Dropdown, Icon, Menu } from '../../src';
+import { Slider, Dropdown, Icon, Menu, DatePicker } from '../../src';
 const options = {
   inline: true, propTables: false
 }
@@ -28,16 +28,49 @@ const element = (
     </Dropdown>
   </div>
 )
+const label = (
+  <div>
+    <p>起始日期</p>
+    <span>2017.08.17</span>
+  </div>
+);
+const marks1 = {
+  10: {
+    label: label
+  },
+  20: '20%',
+  60: '60%',
+};
+const marks2 = {
+  0: '0%',
+  10: '10%',
+  20: '20%',
+  60: '60%',
+  80: {
+    style: {
+      color: 'red'
+    },
+    label: <div>
+      <p>起始日期</p>
+      <span>2017.08.17</span>
+    </div>
+  }
+};
 
-storiesOf('滑动输入条', module)
+storiesOf('Silder 滑动输入条', module)
   .addDecorator(withReadme(sliderReadme))
   .addWithInfo(
     '默认样式',
     () => (
-      <div>
-        <Slider trigger={['click']} onChange={(value) => {console.log(value)}} overlay={element} range defaultValue={[20, 50]} />
+      <div style={{padding: '16px'}}>
+        <Slider allowCross={false}  trigger={['click']} onChange={(value) => {console.log(value)}} overlay={element} range={2} defaultValue={[20, 50]} />
         <br/>
         <br/>
-        <Slider  defaultValue={30} />
+        <Slider step={null} min={10}  marks={marks1}  defaultValue={30} />
+        <br/>
+        <br/>
+        <Slider  step={null} max={80} reverse  marks={marks2}  defaultValue={10} />
+        <br/>
+        <DatePicker onChange={(date, dateString) => {console.log(date, dateString)}} />
       </div>
   ), options)

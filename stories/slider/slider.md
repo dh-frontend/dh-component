@@ -9,6 +9,7 @@ import { Slider } from 'dh-c';
 |trigger | tooltip触发的事件|['click','hover']| 'hover'|
 | min | 最小值 | number | 0|
 | max | 最大值 | number | 100|
+| reverse| 设置反方向滑动 |boolean| false|
 | disabled | 值为 true 时，滑块为禁用状态 | boolean | false|
 | vertical |值为 true 时，Slider 为垂直方向 | boolean | false|
 | value | 设置当前取值。当 range 为 false 时，使用 number，否则用 [number, number] | number、number[] | -|
