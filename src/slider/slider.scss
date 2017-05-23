@@ -45,7 +45,6 @@ $sider-tooltip-color: #f6f6f6;
 
     &-handle {
         position: absolute;
-        margin-left: -8px;
         margin-top: -10px;
         width: 16px;
         height: 16px;
@@ -200,7 +199,7 @@ $sider-tooltip-color: #f6f6f6;
         }
     }
 }
-//反转 
+//反转
 .dh-slider-reverse {
   background: linear-gradient(to right, #2ad450, #12d8db);
   .dh-slider-track {
