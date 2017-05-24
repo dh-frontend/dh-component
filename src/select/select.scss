@@ -33,6 +33,7 @@ $placeholder-color: #999999;
     position: relative;
     font-size: 12px;
     color: $placeholder-color;
+    border: 1px solid transparent;
   }
 
   &-arrow {
