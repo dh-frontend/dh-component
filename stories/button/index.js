@@ -26,7 +26,7 @@ storiesOf('按钮', module)
         <div className="test-btn-item">
           <span>success</span>
           <Button type="success">按钮1</Button>
-          <Button type="success" icon="setting">我是带图标</Button>
+          <Button type="success" icon="setting" onClick={action('点击了我')}>我是带图标</Button>
           <Button type="success" icon="setting" shape="circle"/>
           <Button type="success" icon="search" shape="circle" size="small"/>
           <Button type="success" size="small">我是小按钮</Button>
