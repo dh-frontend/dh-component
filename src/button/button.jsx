@@ -10,49 +10,56 @@ class Button extends React.Component {
   }
   static propTypes = {
     htmlType: PropTypes.oneOf(['button', 'submit']),
-    type: PropTypes.oneOf(['default','success','primary','info','warning','danger']),
-    size: PropTypes.oneOf(['default', 'small']),
+    type: PropTypes.oneOf(['success','primary','info','warning','danger']),
+    size: PropTypes.oneOf(['small']),
     shape: PropTypes.oneOf(['circle']),
     icon: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    ghost: PropTypes.bool,
+    className: PropTypes.string,
   };
   constructor(props) {
     super(props);
-    this.state = {
-      checked: false
-    };
-    this.handleClick = this.handleClick.bind(this);
   }
-
-  handleClick(e) {
-    const checked = !this.state.checked;
-    if (this.props.onClick) {
-      this.props.onClick(e);
-    }
-    this.setState({ checked });
-  }
-
   render() {
-    const { htmlType, type, disabled, size, shape, icon, ...others } = this.props;
+    const {
+      htmlType,
+      type,
+      disabled,
+      size,
+      shape,
+      ghost,
+      icon,
+      className,
+      ...others } = this.props;
     return (
       <button
         className={classNames('dh-btn', {
           [`dh-btn-${type}`]: type,
           [`dh-btn-${size}`]: size,
-          [`dh-btn-${shape}`]: shape
+          [`dh-btn-${shape}`]: shape,
+          'dh-btn-background-ghost': ghost,
+          [className]: className
         })}
         disabled={disabled}
-        onClick={this.handleClick}
-        data-role={ this.state.checked ? "checked" : null}
+        data-ghost={ghost}
         {...others}
         type={htmlType}
       >
-      {
-        !shape && icon ? (<Icon type={icon} />) : null
-      }
-      {
-        shape ? (<Icon type={icon} />) : (<span>{this.props.children}</span>)
-      }
+        {
+          icon && !shape ?
+            (<span className="dh-btn-prefix"><Icon type={icon} /></span>)
+             :
+             null
+        }
+        {
+          icon && shape ?
+            (<span><Icon type={icon} /></span>)
+            :
+            (<span>{this.props.children}</span>)
+        }
+
+
       </button>
     )
   }

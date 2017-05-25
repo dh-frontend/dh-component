@@ -42,15 +42,12 @@ class ModalDemo extends React.Component {
         <Button type="primary" onClick={this.handleConfirm}>confirm</Button>
         <Modal
           title="我是一个测试数据"
-          desc="我是一个描述信息"
           visible={this.state.visible}
           onCancel={() => { this.setState({visible: false})}}
         >
-          <Dropdown overlay={menu}>
-            <a>惦记我</a>
-          </Dropdown>
-          <p>some contents...</p>
-          <p>some contents...</p>
+          <div style={{ backgroundColor: "#cdac00", height: 300}}>
+            我是模态框的body， 随便塞元素
+          </div>
         </Modal>
       </div>
     )
