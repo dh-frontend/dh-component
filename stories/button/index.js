@@ -12,21 +12,60 @@ storiesOf('按钮', module)
   .addWithInfo(
     '按钮样式',
     () => (
-      <div>
-        <div style={{marginBottom: '16px'}}>
-          <Button type="default" onClick={action('clicked')}>default</Button>
-          <Button type="primary" onClick={action('clicked')}>primary</Button>
-          <Button type="success" onClick={action('clicked')}>success</Button>
-          <Button type="info" onClick={action('clicked')}>info</Button>
-          <Button type="warning" onClick={action('clicked')}>warning</Button>
-          <Button type="danger" onClick={action('clicked')}>danger</Button>
-          <Button type="success" disabled onClick={action('clicked')}>danger</Button>
-          <Button type="warning" size="small" onClick={action('clicked')}>small</Button>
+      <div className="test-btn">
+        <div className="test-btn-item">
+          <span>默认按钮</span>
+          <Button>按钮1</Button>
+          <Button icon="setting">我是带图标</Button>
+          <Button icon="setting" shape="circle"/>
+          <Button icon="search" shape="circle" size="small"/>
+          <Button size="small">我是小按钮</Button>
+          <Button icon="setting" size="small">我是小按钮</Button>
+          <Button type="success" disabled>我被禁用</Button>
         </div>
-        <div>
-          <Button type="success" data-role="checked" onClick={action('clicked')}>success checked</Button>
-          <Button type="info" data-role="checked" onClick={action('clicked')}>info checked</Button>
-          <Button type="warning" data-role="checked" onClick={action('clicked')}>warning checked</Button>
+        <div className="test-btn-item">
+          <span>success</span>
+          <Button type="success">按钮1</Button>
+          <Button type="success" icon="setting">我是带图标</Button>
+          <Button type="success" icon="setting" shape="circle"/>
+          <Button type="success" icon="search" shape="circle" size="small"/>
+          <Button type="success" size="small">我是小按钮</Button>
+          <Button type="success" icon="setting" size="small">我是小按钮</Button>
+          <Button type="success" type="success" disabled>我被禁用</Button>
+          <Button type="success" type="success" ghost>我被幽灵</Button>
+        </div>
+        <div className="test-btn-item">
+          <span>info</span>
+          <Button type="info">按钮1</Button>
+          <Button type="info" icon="setting">我是带图标</Button>
+          <Button type="info" icon="setting" shape="circle"/>
+          <Button type="info" icon="search" shape="circle" size="small"/>
+          <Button type="info" size="small">我是小按钮</Button>
+          <Button type="info" icon="setting" size="small">我是小按钮</Button>
+          <Button type="info" type="info" disabled>我被禁用</Button>
+          <Button type="info" type="info" ghost>我被幽灵</Button>
+        </div>
+        <div className="test-btn-item">
+          <span>warning</span>
+          <Button type="warning">按钮1</Button>
+          <Button type="warning" icon="setting">我是带图标</Button>
+          <Button type="warning" icon="setting" shape="circle"/>
+          <Button type="warning" icon="search" shape="circle" size="small"/>
+          <Button type="warning" size="small">我是小按钮</Button>
+          <Button type="warning" icon="setting" size="small">我是小按钮</Button>
+          <Button type="warning" type="warning" disabled>我被禁用</Button>
+          <Button type="warning" type="warning" ghost>我被幽灵</Button>
+        </div>
+        <div className="test-btn-item">
+          <span>danger</span>
+          <Button type="danger">按钮1</Button>
+          <Button type="danger" icon="setting">我是带图标</Button>
+          <Button type="danger" icon="setting" shape="circle"/>
+          <Button type="danger" icon="search" shape="circle" size="small"/>
+          <Button type="danger" size="small">我是小按钮</Button>
+          <Button type="danger" icon="setting" size="small">我是小按钮</Button>
+          <Button type="danger" type="danger" disabled>我被禁用</Button>
+          <Button type="danger" type="danger" ghost>我被幽灵</Button>
         </div>
       </div>
   ), options)

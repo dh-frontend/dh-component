@@ -10,7 +10,7 @@ const addWithInfoOptions = { inline: true, propTables: false };
 storiesOf('模态框', module)
   .addDecorator(withReadme(ModalReadme))
   .addWithInfo(
-    '默认模态框', 
+    '默认模态框',
     () => (
      <ModalDemo />
   ), addWithInfoOptions)
