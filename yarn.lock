@@ -1679,6 +1679,16 @@ colors@~1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
 
+colr-convert@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/colr-convert/-/colr-convert-1.0.5.tgz#b4a22c9322dfa238d2a80aa90736c11271841b71"
+
+colr@~1.2.1:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/colr/-/colr-1.2.2.tgz#6003289b8e3c53f60824ec7bbc08e033878ad4f6"
+  dependencies:
+    colr-convert "^1.0.5"
+
 combined-stream@^1.0.5, combined-stream@~1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.5.tgz#938370a57b4a51dea2c77c15d5c5fdf895164009"
@@ -2315,6 +2325,10 @@ escope@^3.6.0:
     es6-weak-map "^2.0.1"
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
+
+eslint-plugin-babel@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-babel/-/eslint-plugin-babel-4.1.1.tgz#ef285c87039b67beb3bbd227f5b0eed4fb376b87"
 
 eslint@^3.0.0:
   version "3.19.0"
@@ -5084,6 +5098,15 @@ rc-collapse@~1.7.0:
     prop-types "^15.5.6"
     rc-animate "2.x"
 
+rc-color-picker@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/rc-color-picker/-/rc-color-picker-1.1.5.tgz#28efcc81ec8f58ac272b0681e826f9b8742be5fe"
+  dependencies:
+    colr "~1.2.1"
+    prop-types "^15.5.8"
+    rc-trigger "1.x"
+    rc-util "^4.0.2"
+
 rc-dialog@~6.5.0:
   version "6.5.9"
   resolved "https://registry.npmjs.org/rc-dialog/-/rc-dialog-6.5.9.tgz#e0798a5fc2c51f4105915e6a9bcad4111a6cc19d"
@@ -5215,15 +5238,15 @@ rc-select@^6.8.2, rc-select@~6.8.0:
     rc-util "4.x"
     warning "2.x"
 
-rc-slider@~7.0.0:
-  version "7.0.6"
-  resolved "https://registry.npmjs.org/rc-slider/-/rc-slider-7.0.6.tgz#06050ad1b36a32db2fbc4fe8e94efeaba4e23c04"
+rc-slider@^7.0.8, rc-slider@~7.0.0:
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/rc-slider/-/rc-slider-7.0.8.tgz#1bdd7cbfd8ec1b6418ba55e506888bbb50159556"
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.5"
     prop-types "^15.5.4"
     rc-tooltip "^3.4.2"
-    rc-util "^4.0.0"
+    rc-util "^4.0.4"
     warning "^3.0.0"
 
 rc-steps@~2.5.0:
@@ -5347,7 +5370,7 @@ rc-util@3.x:
     classnames "2.x"
     shallowequal "0.2.x"
 
-rc-util@4.x, rc-util@^4.0.0, rc-util@^4.0.1, rc-util@^4.0.2:
+rc-util@4.x, rc-util@^4.0.1, rc-util@^4.0.2, rc-util@^4.0.4:
   version "4.0.4"
   resolved "https://registry.npmjs.org/rc-util/-/rc-util-4.0.4.tgz#99813dd90aee7e29b64939a70ac176ead3f4ff39"
   dependencies:
