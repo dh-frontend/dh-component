@@ -114,10 +114,10 @@ $modal-footer-btn-hover-color: #e9f8ea;
       padding: $modal-footer-padding;
       font-size: $modal-footer-fontSize;
       text-align: right;
-      color: $modal-footer-color;
       &_btn {
         width: $modal-footer-btn-width;
         height: $modal-footer-btn-height;
+        color: $modal-footer-color;
         white-space: nowrap;
         text-align: center;
         background-image: none;

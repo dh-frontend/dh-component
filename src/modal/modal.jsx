@@ -70,6 +70,7 @@ class Modal extends React.Component {
     const { cancelText, okText, footer } = this.props;
     const buttonOk = (
       <button
+        key="ok"
         onClick={this.handleOk}
         className="dh-modal-footer_btn"
       >
@@ -78,6 +79,7 @@ class Modal extends React.Component {
     )
     const buttonCancel = (
       <button
+        key="cancel"
         onClick={this.handleCancel}
         className="dh-modal-footer_btn"
       >
