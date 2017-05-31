@@ -15,11 +15,10 @@ class ModalDemo extends React.Component {
     Modal.confirm({
       title: 'Confirm',
       content: 'Bla bla ...',
-      okText: 'OK',
-      cancelText: 'Cancel',
       onOk: () => {
         console.log('我是confirm');
-      }
+      },
+      okCancel: () => {}
     })
   }
   render() {
@@ -44,6 +43,7 @@ class ModalDemo extends React.Component {
           title="我是一个测试数据"
           visible={this.state.visible}
           onCancel={() => { this.setState({visible: false})}}
+          onOk={() => {console.log('modal onOk')}}
         >
           <div style={{ backgroundColor: "#cdac00", height: 300}}>
             我是模态框的body， 随便塞元素
