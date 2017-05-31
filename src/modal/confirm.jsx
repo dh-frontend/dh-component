@@ -11,7 +11,7 @@ export default function confirm(config) {
   let div = document.createElement('div');
   document.body.appendChild(div);
 
-  let width = props.width || 416;
+  let width = props.width || 360;
   let style = props.style || {};
 
   const maskClosable = props.maskClosable === undefined ? true : props.maskClosable;
@@ -60,7 +60,6 @@ export default function confirm(config) {
   const classString = classNames(prefixCls, {
     [`${prefixCls}-${props.type}`]: true,
   }, props.className);
-
   ReactDOM.render(
     <Dialog
       className={classString}
