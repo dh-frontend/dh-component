@@ -9,7 +9,7 @@ let mousePositionEventBinded;
 
 class Modal extends React.Component {
   static defaultProps = {
-    width: 520,
+    width: 380,
     transitionName: 'zoom',
     maskTransitionName: 'fade',
     confirmLoading: false,
@@ -68,6 +68,7 @@ class Modal extends React.Component {
   }
   renderFooter() {
     const { cancelText, okText, footer } = this.props;
+    if (is.object(footer)) return footer; //element类型 直接返回
     const buttonOk = (
       <button
         key="ok"
