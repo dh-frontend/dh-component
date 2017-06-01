@@ -1,41 +1,44 @@
 // 模态框- mask
-$modal-mask-backgroundColor: rgba(0,0,0,.4);
-$modal-content-backgroundColor: #ffffff;
-$modal-borderRadius: 0px;
+$modal-mask-backgroundColor: rgba(0, 0, 0, 0.4);
 
-// 模态框-标题
-$modal-title-fontColor: #666666;
-$modal-title-fontSize: 14px;
-$modal-smTitle-fontColor: #aaaaaa;
-$modal-smTitle-fontSize: 12px;
-$mdoal-title-padding: 24px;
+$modal-backgroundColor: #ffffff;
+$modal-borderRadius: 0;
+$modal-padding: 10px 0;
 
 // 模态框-close
-$modal-close-position: 24px;
+$modal-close-top: 10px;
+$modal-close-right: 10px;
 $modal-close-fontSize: 18px;
-$modal-close-fontFamily: dhfont;
 
+$modal-close-x-width: 30px;
+$modal-close-x-height: 30px;
+$modal-close-x-fontSize: 18px;
+
+$modal-header-padding: 0 20px;
+$modal-title-height: 30px;
+$modal-title-fontSize: 14px;
+$modal-title-color: #666666;
 // 模态框-body
-$modal-body-padding: 24px;
+$modal-body-padding: 10px 20px;
 $modal-body-fontColor: #666666;
 $modal-body-fontSize: 12px;
 $modal-body-backgroundColor: transparent;
 
 // 模态框-footer
-$modal-footer-padding: 24px;
-$modal-footer-buttonLeft: 24px;
+$modal-footer-padding: 0 20px;
+$modal-footer-fontSize: 12px;
+$modal-footer-color: #23C132;
 
-@mixin maskStyle {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 1000;
-}
-
+$modal-footer-btn-width: 60px;
+$modal-footer-btn-height: 30px;
+$modal-footer-btn-hover-color: #e9f8ea;
 .dh-modal-mask {
-    @include maskStyle;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
     background-color: $modal-mask-backgroundColor;
     height: 100%;
     &-hidden {
@@ -44,7 +47,12 @@ $modal-footer-buttonLeft: 24px;
 }
 
 .dh-modal-wrap {
-    @include maskStyle;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
     overflow: auto;
     outline: 0;
     display: flex;
@@ -54,32 +62,32 @@ $modal-footer-buttonLeft: 24px;
 .dh-modal {
     position: relative;
     margin: 0 auto;
-    background-color: $modal-content-backgroundColor;
+    background-color: $modal-backgroundColor;
     border-radius: $modal-borderRadius;
-
+    padding: $modal-padding;
     &-close {
         cursor: pointer;
         border: 0;
         background: transparent;
         position: absolute;
-        right: 0;
-        top: 0;
+        right: $modal-close-right;
+        top: $modal-close-top;
         z-index: 10;
         text-decoration: none;
         transition: color 0.3s ease;
         outline: 0;
         &-x {
-            height: 64px;
-            width: 64px;
+            height: $modal-close-x-height;
+            width: $modal-close-x-width;
             display: block;
             font-style: normal;
-            font-family: $modal-close-fontFamily;
-            font-size: 18px;
+            font-family: dhfont;
+            font-size: $modal-close-x-fontSize;
             vertical-align: baseline;
-            text-align: center;
+            text-align: right;
             text-transform: none;
             text-rendering: auto;
-            line-height: 64px;
+            line-height: $modal-close-x-height;
             &:before {
                 content: "\e7dc";
                 display: block;
@@ -88,42 +96,40 @@ $modal-footer-buttonLeft: 24px;
     }
 
     &-header {
-			padding: 24px;
-			color: rgba(0,0,0,.65);
+      padding: $modal-header-padding;
     }
     &-title {
-     	color: #666666;
-			font-size: 14px;
-			&__desc {
-				font-size: 12px;
-				color: #aaaaaa;
-			}
+      height: $modal-title-height;
+      line-height: $modal-title-height;
+     	color: $modal-title-color;
+			font-size: $modal-title-fontSize;
     }
     &-body {
-      padding: 0 24px;
-			background: transparent;
+			position: relative;
+      width: 100%;
+      height: auto;
+      padding: $modal-body-padding;
     }
     &-footer {
-        padding:  24px;
-        text-align: right;
-        button {
-          margin-left: $modal-footer-buttonLeft;
+      padding: $modal-footer-padding;
+      font-size: $modal-footer-fontSize;
+      text-align: right;
+      &_btn {
+        width: $modal-footer-btn-width;
+        height: $modal-footer-btn-height;
+        color: $modal-footer-color;
+        outline: none;
+        white-space: nowrap;
+        text-align: center;
+        background-image: none;
+        cursor: pointer;
+        user-select: none;
+        user-select: none;
+        border: none;
+        background: none;
+        &:hover {
+          background: $modal-footer-btn-hover-color;
         }
-			.dh-modal-footer-wapper {
-				.dh-modal-footer__btn {
-					cursor: pointer;
-					display: inline-block;
-					background-color: transparent;
-					font-size: 14px;
-					padding: 8px 16px;
-					text-align: center;
-					color: #50d27c;
-					margin-left: 8px;
-					border-radius: 24px;
-					&:hover {
-						background-color: #f7f7f7;
-					}
-				}
-			}
+      }
     }
 }

@@ -9,7 +9,7 @@ let mousePositionEventBinded;
 
 class Modal extends React.Component {
   static defaultProps = {
-    width: 520,
+    width: 380,
     transitionName: 'zoom',
     maskTransitionName: 'fade',
     confirmLoading: false,
@@ -68,23 +68,26 @@ class Modal extends React.Component {
   }
   renderFooter() {
     const { cancelText, okText, footer } = this.props;
-    const footerElement = (
-      <div className="dh-modal-footer-wapper">
-        <span
-          onClick={this.handleOk}
-          className="dh-modal-footer__btn"
-        >
-          {okText}
-        </span>
-        <span
-          onClick={this.handleCancel}
-          className="dh-modal-footer__btn"
-        >
-          {cancelText}
-        </span>
-      </div>
+    if (is.object(footer)) return footer; //element类型 直接返回
+    const buttonOk = (
+      <button
+        key="ok"
+        onClick={this.handleOk}
+        className="dh-modal-footer_btn"
+      >
+        {okText}
+      </button>
+    )
+    const buttonCancel = (
+      <button
+        key="cancel"
+        onClick={this.handleCancel}
+        className="dh-modal-footer_btn"
+      >
+        {cancelText}
+      </button>
     );
-    return footer || footerElement;
+    return [buttonOk, buttonCancel];
   }
   renderTitle() {
     const { title, desc, footer } = this.props;
@@ -101,14 +104,13 @@ class Modal extends React.Component {
     return [titleElement, descElement];
   }
   render() {
-    const { title, footer, confirmLoading, ...props } = this.props;
+    const {footer, confirmLoading, ...props } = this.props;
     return (
       <RcDialog
         prefixCls="dh-modal"
         onClose={this.handleCancel}
         {...props}
         footer={ is.boolean(footer) && !footer ? null : this.renderFooter()}
-        title={ this.renderTitle() }
         mousePosition={mousePosition}
       />
     )

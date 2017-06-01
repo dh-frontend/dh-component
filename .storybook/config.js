@@ -31,5 +31,9 @@ function loadStories() {
   require('../stories/tabs/index.js');
   require('../stories/radio/index.js');
   require('../stories/checkbox/index.js');
+  require('../stories/slider/index.js');
+  require('../stories/select/index.js');
+  require('../stories/color_picker/index.js');
+  require('../stories/menu/index.js');
 }
 configure(loadStories, module);

@@ -1,7 +1,10 @@
+
+@import './styles/_variable';
 html, body{
-  font-family: PingFang SC, Helvetica Neue, Helvetica,STHeitiSC-Light,WOL_SB,'Segoe UI Semibold','Segoe UI',Tahoma,Helvetica,sans-serif;
-  font-size: 12px;
-  color: #666666;
+  font-family: PingFang SC, Helvetica Neue, Helvetica,
+  STHeitiSC-Light,WOL_SB,'Segoe UI Semibold','Segoe UI',Tahoma,Helvetica,sans-serif;
+  font-size: $default-fontSize;
+  color: $default-color;
   background-color: #fff;
 }
 a {
@@ -18,7 +21,7 @@ ul, ol {
   list-style: none;
 }
 
-@import "./_mixin.scss";
+@import "./styles/_mixin.scss";
 @import "./icon/icon.scss";
 @import "./button/button.scss";
 
@@ -42,3 +45,5 @@ ul, ol {
 @import "./avatar/avatar.scss";
 @import './menu/menu.scss';
 @import './form/form.scss';
+@import './slider/slider.scss';
+@import './color_picker/color_picker.scss';

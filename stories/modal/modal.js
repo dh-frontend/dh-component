@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Menu, Dropdown, ColorPicker } from '../../src';
+import { Modal, Button, Menu, Dropdown } from '../../src';
 class ModalDemo extends React.Component {
   constructor(props) {
     super(props);
@@ -15,11 +15,10 @@ class ModalDemo extends React.Component {
     Modal.confirm({
       title: 'Confirm',
       content: 'Bla bla ...',
-      okText: 'OK',
-      cancelText: 'Cancel',
       onOk: () => {
         console.log('我是confirm');
-      }
+      },
+      okCancel: () => {}
     })
   }
   render() {
@@ -40,18 +39,15 @@ class ModalDemo extends React.Component {
       <div>
         <Button type="primary" onClick={this.handleClick}>打开</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <Button type="primary" onClick={this.handleConfirm}>confirm</Button>
-        <ColorPicker/>
         <Modal
           title="我是一个测试数据"
-          desc="我是一个描述信息"
           visible={this.state.visible}
           onCancel={() => { this.setState({visible: false})}}
+          onOk={() => {console.log('modal onOk')}}
         >
-          <Dropdown overlay={menu}>
-            <a>惦记我</a>
-          </Dropdown>
-          <p>some contents...</p>
-          <p>some contents...</p>
+          <div style={{ backgroundColor: "#cdac00", height: 300}}>
+            我是模态框的body， 随便塞元素
+          </div>
         </Modal>
       </div>
     )

@@ -1,6 +1,6 @@
 
 $input-number-color: #999;
-$input-number-fontSize: 14px;
+$input-number-fontSize: 12px;
 $input-number-pading: 4px 0;
 $input-number-input-color: #999;
 $input-number-border-color: #49c77d;
@@ -82,11 +82,11 @@ $input-number-handler-over-color: #999;
     display: block;
     width: 100%;
     color: $input-number-handler-color;
-    &:hover { 
-      i { 
+    &:hover {
+      i {
         color: #666;
-        font-size: 14px; 
-      } 
+        font-size: 14px;
+      }
     }
   }
 }

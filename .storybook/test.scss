@@ -7,6 +7,23 @@
     margin: 12px;
   }
 }
-.test-form {
-
+.test-btn {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .test-btn-item {
+    display: flex;
+    align-items: center;
+    >span {
+      display: block;
+      width: 80px;
+      padding-left: 6px;
+      font-size: 18px;
+      font-weight: bolder;
+    }
+    >.dh-btn {
+      margin: 0 12px;
+    }
+  }
 }
