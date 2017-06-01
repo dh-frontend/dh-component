@@ -16,7 +16,7 @@
   right: 10px;
   line-height: 37px;
 }
-//#50d27c
+//#23c132
 @mixin avtived($width, $height, $top, $bg) {
   &:before {
     content: "";
@@ -85,7 +85,7 @@
         padding-left: 24px;
         &:after {
           @extend .dp;
-          content: "\e6a7";
+          content: "\e621";
           top: 0;
         }
       }
@@ -154,9 +154,9 @@
         background-color: #f5fcf7;
       }
       &-selected {
-        color: #50d27c;
+        color: #23c132;
         font-weight: bold;
-        @include avtived(2px, 100%, 0, #50d27c);
+        @include avtived(2px, 100%, 0, #23c132);
       }
     }
   }
@@ -169,9 +169,9 @@
         background-color: #f5fcf7;
       }
       &-selected {
-        color: #50d27c;
+        color: #23c132;
         font-weight: bold;
-        @include avtived(2px, 100%, 0, #50d27c);
+        @include avtived(2px, 100%, 0, #23c132);
       }
     }
 
@@ -195,9 +195,9 @@
         background-color: #f5fcf7;
       }
       &-selected {
-        color: #50d27c;
+        color: #23c132;
         font-weight: bold;
-        @include avtived(100%, 2px, 46px, #50d27c);
+        @include avtived(100%, 2px, 46px, #23c132);
       }
     }
   }
@@ -243,12 +243,12 @@
     &.dh-menu-inline {
       >.dh-menu-item {
         &-active, &-selected {
-          background-color: #50d27c;
+          background-color: #23c132;
         }
         &-selected {
           color: #fff;
           font-weight: bold;
-          @include avtived(2px, 100%, 0, #50d27c);
+          @include avtived(2px, 100%, 0, #23c132);
         }
       }
     }
