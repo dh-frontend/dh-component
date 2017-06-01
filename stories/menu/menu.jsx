@@ -17,27 +17,37 @@ class MenuDemo extends React.Component {
   render() {
     return (
       <div>
-        <Menu>
+        <Menu mode="inline">
           <Menu.Item>菜单项</Menu.Item>
-          <SubMenu title="子菜单">
-            <Menu.Item>子菜单项</Menu.Item>
+          <SubMenu title="inline">
+            <Menu.Item key="1">子菜单项1</Menu.Item>
+            <Menu.Item key="2">子菜单项1</Menu.Item>
+            <Menu.Item key="3">子菜单项1</Menu.Item>
+            <Menu.Item key="4">子菜单项1</Menu.Item>
+            <Menu.Item key="5">子菜单项1</Menu.Item>
+            <Menu.Item key="6">子菜单项2</Menu.Item>
           </SubMenu>
         </Menu>
-        <br/>
-        <Menu multiple>
-          <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">第一个</a>
-          </Menu.Item>
-          <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">第二个</a>
-          </Menu.Item>
-          <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">第三个</a>
-          </Menu.Item>
-          <Menu.Divider />
-          <SubMenu title="更多">
-            <Menu.Item>3d menu item</Menu.Item>
-            <Menu.Item>4th menu item</Menu.Item>
+        <Menu mode="vertical">
+          <Menu.Item>菜单项</Menu.Item>
+          <SubMenu title="子菜单vertical">
+            <Menu.Item key="1">子菜单项1</Menu.Item>
+            <Menu.Item key="2">子菜单项1</Menu.Item>
+            <Menu.Item key="3">子菜单项1</Menu.Item>
+            <Menu.Item key="4">子菜单项1</Menu.Item>
+            <Menu.Item key="5">子菜单项1</Menu.Item>
+            <Menu.Item key="6">子菜单项2</Menu.Item>
+          </SubMenu>
+        </Menu>
+        <Menu mode="inline">
+          <Menu.Item>菜单项</Menu.Item>
+          <SubMenu title="子菜单horizontal">
+            <Menu.Item key="1">子菜单项1</Menu.Item>
+            <Menu.Item key="2">子菜单项1</Menu.Item>
+            <Menu.Item key="3">子菜单项1</Menu.Item>
+            <Menu.Item key="4">子菜单项1</Menu.Item>
+            <Menu.Item key="5">子菜单项1</Menu.Item>
+            <Menu.Item key="6">子菜单项2</Menu.Item>
           </SubMenu>
         </Menu>
       </div>
