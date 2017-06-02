@@ -241,7 +241,7 @@ class Table extends Component {
                 )}
                 {d.ext && (
                   <span style={{paddingLeft: 20}}>
-                    <div style={{position: 'absolute', textAlign: 'center', right: 0, top: 0, width: EXT_WIDTH}}>
+                    <div className="dh-table-ext" style={{width: EXT_WIDTH}}>
                       {d.ext}
                     </div>
                   </span>

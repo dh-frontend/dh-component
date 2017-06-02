@@ -61,6 +61,11 @@ $tr-height-large: 60px;
       height: $tr-height-default;
       line-height: $tr-height-default;
       z-index: 100;
+      th:hover {
+        .dh-table-ext {
+          opacity: 1;
+        }
+      }
     }
     tr {
       height: $tr-height-default;
@@ -166,5 +171,13 @@ $tr-height-large: 60px;
         background: $table-striped-odd;
       }
     }
+  }
+  &-ext {
+    position: absolute;
+    text-align: center;
+    right: 0px;
+    top: 0px;
+    opacity: 0;
+    cursor: pointer;
   }
 }
