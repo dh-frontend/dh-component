@@ -90,7 +90,14 @@ $sider-tooltip-color: #f6f6f6;
         line-height: 1.5;
 
         &-arrow {
-            position: absolute;
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          border: 1px solid rgba(31,56,88,.2);
+          background-color: #fff;
+          transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
         }
 
         &-content {
@@ -115,88 +122,163 @@ $sider-tooltip-color: #f6f6f6;
             border-radius: 3px;
             background-color: #fff;
         }
-
         &-placement {
-            &-left,
-            &-leftBottom,
-            &-leftTop {
-                margin-left: -3px;
-                padding: 0 6px;
-
-                .dh-slider-tooltip-arrow {
-                    top: 50%;
-                    right: 2px;
-                    margin-top: -5px;
-                    width: 10px;
-                    height: 10px;
-                    border: 1px solid rgba(31,56,88,.2);
-                    background-color: #fff;
-                    transform: rotate(45deg);
-                    -ms-transform: rotate(45deg);
-                    box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
-                }
+          &-left, &-leftBottom, &-leftTop {
+            margin-left: -3px;
+            padding: 0 6px;
+            .dh-slider-tooltip-arrow {
+              right: 2px;
             }
+          }
+          &-leftTop .dh-slider-tooltip-arrow {
+             top: 8px;
+          }
+          &-left .dh-slider-tooltip-arrow {
+             top: 50%;
+             margin-top: -4px;
+          }
+          &-leftBottom .dh-slider-tooltip-arrow {
+            bottom: 8px;
+          }
 
-            &-right,
-            &-rightBottom,
-            &-rightTop {
-                margin-left: 3px;
-                padding: 0 6px;
 
-                .dh-slider-tooltip-arrow {
-                    top: 50%;
-                    left: 2px;
-                    margin-top: -5px;
-                    width: 10px;
-                    height: 10px;
-                    border: 1px solid rgba(31,56,88,.2);
-                    background-color: #fff;
-                    transform: rotate(45deg);
-                    -ms-transform: rotate(45deg);
-                    box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
-                }
+          &-right, &-rightBottom, &-rightTop {
+            margin-left: 3px;
+            padding: 0 6px;
+            .dh-slider-tooltip-arrow {
+              left: 2px;
             }
+          }
+          &-rightTop .dh-slider-tooltip-arrow {
+            top: 8px;
+          }
+          &-right .dh-slider-tooltip-arrow {
+            top: 50%;
+            margin-top: -4px;
+          }
+          &-rightBottom .dh-slider-tooltip-arrow {
+            bottom: 8px;
+          }
 
-            &-top,
-            &-topLeft,
-            &-topRight {
-                margin-top: -3px;
-                padding: 6px 0;
 
-                .dh-slider-tooltip-arrow {
-                    bottom: 2px;
-                    left: 50%;
-                    margin-left: -5px;
-                    width: 10px;
-                    height: 10px;
-                    border: 1px solid rgba(31,56,88,.2);
-                    background-color: #fff;
-                    transform: rotate(45deg);
-                    -ms-transform: rotate(45deg);
-                    box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
-                }
+
+          &-top, &-topLeft, &-topRight {
+            margin-top: -3px;
+            padding: 6px 0;
+            .dh-slider-tooltip-arrow {
+              bottom: 2px;
             }
-
-            &-bottom,
-            &-bottomLeft,
-            &-bottomRight {
-                margin-top: 3px;
-                padding: 6px 0;
-
-                .dh-slider-tooltip-arrow {
-                    top: 2px;
-                    left: 50%;
-                    margin-left: -5px;
-                    width: 10px;
-                    height: 10px;
-                    border: 1px solid rgba(31,56,88,.2);
-                    background-color: #fff;
-                    transform: rotate(45deg);
-                    -ms-transform: rotate(45deg);
-                    box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
-                }
+          }
+          &-top .dh-slider-tooltip-arrow {
+            left: 50%;
+            margin-left: -6px;
+          }
+          &-topLeft .dh-slider-tooltip-arrow {
+            left: 12px;
+          }
+          &-topRight .dh-slider-tooltip-arrow {
+            right: 12px;
+          }
+          &-bottom, &-bottomLeft, &-bottomRight {
+            margin-top: 3px;
+            padding: 6px 0;
+            .dh-slider-tooltip-arrow {
+               top: 2px;
             }
+          }
+          &-bottomLeft .dh-slider-tooltip-arrow {
+             left: 12px;
+          }
+          &-bottom .dh-slider-tooltip-arrow {
+             left: 50%;
+             margin-left: -6px;
+          }
+          &-bottomRight .dh-slider-tooltip-arrow {
+             right: 12px;
+          }
         }
+
+        // &-placement {
+        //     &-left,
+        //     &-leftBottom,
+        //     &-leftTop {
+        //         margin-left: -3px;
+        //         padding: 0 6px;
+        //
+        //         .dh-slider-tooltip-arrow {
+        //             top: 50%;
+        //             right: 2px;
+        //             margin-top: -5px;
+        //             width: 10px;
+        //             height: 10px;
+        //             border: 1px solid rgba(31,56,88,.2);
+        //             background-color: #fff;
+        //             transform: rotate(45deg);
+        //             -ms-transform: rotate(45deg);
+        //             box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
+        //         }
+        //     }
+        //
+        //     &-right,
+        //     &-rightBottom,
+        //     &-rightTop {
+        //         margin-left: 3px;
+        //         padding: 0 6px;
+        //
+        //         .dh-slider-tooltip-arrow {
+        //             top: 50%;
+        //             left: 2px;
+        //             margin-top: -5px;
+        //             width: 10px;
+        //             height: 10px;
+        //             border: 1px solid rgba(31,56,88,.2);
+        //             background-color: #fff;
+        //             transform: rotate(45deg);
+        //             -ms-transform: rotate(45deg);
+        //             box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
+        //         }
+        //     }
+        //
+        //     &-top,
+        //     &-topLeft,
+        //     &-topRight {
+        //         margin-top: -3px;
+        //         padding: 6px 0;
+        //
+        //         .dh-slider-tooltip-arrow {
+        //             bottom: 2px;
+        //             left: 50%;
+        //             margin-left: -5px;
+        //             width: 10px;
+        //             height: 10px;
+        //             border: 1px solid rgba(31,56,88,.2);
+        //             background-color: #fff;
+        //             transform: rotate(45deg);
+        //             -ms-transform: rotate(45deg);
+        //             box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
+        //         }
+        //     }
+        //
+        //     &-bottom,
+        //     &-bottomLeft,
+        //     &-bottomRight {
+        //         margin-top: 3px;
+        //         padding: 6px 0;
+        //
+        //         .dh-slider-tooltip-arrow {
+        //             top: 2px;
+        //             left: 50%;
+        //             margin-left: -5px;
+        //             width: 10px;
+        //             height: 10px;
+        //             border: 1px solid rgba(31,56,88,.2);
+        //             background-color: #fff;
+        //             transform: rotate(45deg);
+        //             -ms-transform: rotate(45deg);
+        //             box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
+        //         }
+        //     }
+        // }
     }
 }
 //反转
