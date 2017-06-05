@@ -33,7 +33,7 @@ class Slider extends React.Component {
   }
 
   handleTooltip = ({ value, dragging, index, ...restProps }) => {
-    const { trigger, tooltipPrefixCls } = this.props;
+    const { trigger, tooltipPrefixCls, visible } = this.props;
      return (
        <Tooltip
          prefixCls={tooltipPrefixCls}
@@ -41,6 +41,7 @@ class Slider extends React.Component {
          placement={this.renderPlacement(index)}
          key={index}
          trigger={trigger}
+         visible={visible}
        >
          <RcHandle
            {...restProps}
