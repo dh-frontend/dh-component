@@ -1,5 +1,14 @@
 $tooltip-color: #ffffff;
 $tooltip-arrawSize: 6px;
+@mixin arrow {
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(31,56,88,.2);
+  background-color: #fff;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
+}
 
 .dh-tooltip {
   position: absolute;
@@ -12,6 +21,13 @@ $tooltip-arrawSize: 6px;
   line-height: 1.5;
   &-arrow {
     position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgba(31,56,88,.2);
+    background-color: #fff;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
   }
   &-content {
     background-color: $tooltip-color;
@@ -38,65 +54,74 @@ $tooltip-arrawSize: 6px;
       margin-left: -3px;
       padding: 0 6px;
       .dh-tooltip-arrow {
-        top: 50%;
         right: 2px;
-        margin-top: -5px;
-        width: 10px;
-        height: 10px;
-        border: 1px solid rgba(31,56,88,.2);
-        background-color: #fff;
-        transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
       }
     }
+    &-leftTop .dh-tooltip-arrow {
+       top: 8px;
+    }
+    &-left .dh-tooltip-arrow {
+       top: 50%;
+       margin-top: -4px;
+    }
+    &-leftBottom .dh-tooltip-arrow {
+      bottom: 8px;
+    }
+
+
     &-right, &-rightBottom, &-rightTop {
       margin-left: 3px;
       padding: 0 6px;
       .dh-tooltip-arrow {
-        top: 50%;
         left: 2px;
-        margin-top: -5px;
-        width: 10px;
-        height: 10px;
-        border: 1px solid rgba(31,56,88,.2);
-        background-color: #fff;
-        transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        box-shadow: 0 1px 4px 0 rgba(31,56,88,.15)
       }
     }
+    &-rightTop .dh-tooltip-arrow {
+      top: 8px;
+    }
+    &-right .dh-tooltip-arrow {
+      top: 50%;
+      margin-top: -4px;
+    }
+    &-rightBottom .dh-tooltip-arrow {
+      bottom: 8px;
+    }
+
+
+
     &-top, &-topLeft, &-topRight {
       margin-top: -3px;
       padding: 6px 0;
       .dh-tooltip-arrow {
         bottom: 2px;
-        left: 50%;
-        margin-left: -5px;
-        width: 10px;
-        height: 10px;
-        border: 1px solid rgba(31,56,88,.2);
-        background-color: #fff;
-        transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        box-shadow: 0 1px 4px 0 rgba(31,56,88,.15)
       }
+    }
+    &-top .dh-tooltip-arrow {
+      left: 50%;
+      margin-left: -6px;
+    }
+    &-topLeft .dh-tooltip-arrow {
+      left: 12px;
+    }
+    &-topRight .dh-tooltip-arrow {
+      right: 12px;
     }
     &-bottom, &-bottomLeft, &-bottomRight {
       margin-top: 3px;
       padding: 6px 0;
       .dh-tooltip-arrow {
-        top: 2px;
-        left: 50%;
-        margin-left: -5px;
-        width: 10px;
-        height: 10px;
-        border: 1px solid rgba(31,56,88,.2);
-        background-color: #fff;
-        transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        box-shadow: 0 1px 4px 0 rgba(31,56,88,.15)
+         top: 2px;
       }
+    }
+    &-bottomLeft .dh-tooltip-arrow {
+       left: 12px;
+    }
+    &-bottom .dh-tooltip-arrow {
+       left: 50%;
+       margin-left: -6px;
+    }
+    &-bottomRight .dh-tooltip-arrow {
+       right: 12px;
     }
   }
 }

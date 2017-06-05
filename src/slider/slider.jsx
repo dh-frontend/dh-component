@@ -29,7 +29,7 @@ class Slider extends React.Component {
   }
 
   renderPlacement = (index) => {
-     return index == 0 ? "top" : "bottom";
+     return index == 0 ? "topLeft" : "bottomRight";
   }
 
   handleTooltip = ({ value, dragging, index, ...restProps }) => {
