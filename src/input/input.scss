@@ -1,5 +1,6 @@
 $inputLength: auto; // input 高度
 $inputFontSize: 12px; // input 内的字体大小
+$inputLineHeight: 15px;
 $inputBorderBg: #e6e6e6;
 $inputColor: #333333;
 $inputPlaceholderColor: #cccccc;
@@ -21,6 +22,7 @@ $inputBorderColorDanger: #ff5a44;
   &-warp {
     flex: 1;
     padding: 4px 0;
+    line-height: $inputLineHeight;
 
     &-inner {
       height: 100%;
