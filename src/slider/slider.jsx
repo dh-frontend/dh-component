@@ -43,8 +43,8 @@ class Slider extends React.Component {
   }
 
   handleTooltip = ({ value, dragging, index, ...restProps }) => {
-    const { trigger, tooltipPrefixCls, visible } = this.props;
-    if (visible) {
+    const { trigger, tooltipPrefixCls, visible, auto } = this.props;
+    if (auto) {
       return (
         <Tooltip
           prefixCls={tooltipPrefixCls}

@@ -74,6 +74,7 @@ class SliderDemo extends React.Component{
       <div style={{padding: '16px'}}>
         <Slider
           visible
+          auto
           min={1470153600000}
           max={1495527496000}
           allowCross={false}
@@ -86,7 +87,7 @@ class SliderDemo extends React.Component{
          />
         <br/>
         <br/>
-        <Slider visible  placement="right" step={null} min={10}  marks={marks1}  defaultValue={30} />
+        <Slider auto visible  placement="right" step={null} min={10}  marks={marks1}  defaultValue={30} />
         <br/>
         <br/>
         <Slider  step={null} max={80} reverse  marks={marks2}  defaultValue={10} />
