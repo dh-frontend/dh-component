@@ -64,12 +64,19 @@
           top: 0;
         }
       }
+      /*
       &.dh-menu-submenu-active {
       .dh-menu-submenu-title {
-          position: relative;
-          background-color: #f5fcf7;
-        }
+         position: relative;
+         background-color: #f5fcf7;
+       }
       }
+      */
+      .dh-menu-submenu-title:hover {
+        position: relative;
+        background-color: #f5fcf7;
+      }
+
       &.dh-menu-submenu-open  {
         > .dh-menu-submenu-title {
           &:after  {
@@ -89,12 +96,18 @@
           top: 0;
         }
       }
+      .dh-menu-submenu-title:hover {
+        position: relative;
+        background-color: #f5fcf7;
+      }
+      /*
       &.dh-menu-submenu-active  {
         .dh-menu-submenu-title {
           position: relative;
           background-color: #f5fcf7;
         }
       }
+      */
       >.dh-menu {
         top: 0;
         left: 100%;
@@ -121,12 +134,18 @@
         cursor: pointer;
         padding: 0 20px;
       }
+      .dh-menu-submenu-title:hover {
+        position: relative;
+        background-color: #f5fcf7;
+      }
+      /*
       &.dh-menu-submenu-active  {
         .dh-menu-submenu-title {
           position: relative;
           background-color: #f5fcf7;
         }
       }
+      */
       >.dh-menu-sub {
         top: 100%;
         left: 0;
@@ -220,12 +239,18 @@
     background-color: #404040;
     color: hsla(0,0%,100%,.67);
     >.dh-menu-submenu {
+      .dh-menu-submenu-title:hover {
+        position: relative;
+        background-color: #f5fcf7;
+      }
+      /*
       &.dh-menu-submenu-active  {
         .dh-menu-submenu-title {
           position: relative;
           background-color: #404040;
         }
       }
+      */
       >.dh-menu-sub {
         background-color: #404040;
         color: hsla(0,0%,100%,.67);
