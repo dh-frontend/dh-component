@@ -9,7 +9,7 @@
   vertical-align: baseline;
   text-align: center;
   text-transform: none;
-  font-size: 18px;
+  font-size: 12px;
   text-rendering: auto;
   transition: transform .3s ease;
   position: absolute;
@@ -60,7 +60,7 @@
         cursor: pointer;
         &:after {
           @extend .dp;
-          content: "\e6a6";
+          content: "\e63e";
           top: 0;
         }
       }
@@ -142,6 +142,9 @@
           }
         }
       }
+    }
+    &-menu-hidden {
+      display: none;
     }
   }
   // 内联的 子菜单样式

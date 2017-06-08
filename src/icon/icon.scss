@@ -10,6 +10,7 @@
   -webkit-font-smoothing: antialiased;
 }
 
+
 .dh-icon-list:before { content: "\e600"; }
 
 .dh-icon-refresh:before { content: "\e601"; }
@@ -27,6 +28,8 @@
 .dh-icon-calendar:before { content: "\e62d"; }
 
 .dh-icon-play:before { content: "\e604"; }
+
+.dh-icon-close1:before { content: "\e629"; }
 
 .dh-icon-email:before { content: "\e69f"; }
 
@@ -66,6 +69,8 @@
 
 .dh-icon-radio:before { content: "\e72f"; }
 
+.dh-icon-triup:before { content: "\e646"; }
+
 .dh-icon-calculate:before { content: "\e652"; }
 
 .dh-icon-success:before { content: "\e63c"; }
@@ -75,6 +80,8 @@
 .dh-icon-resize-full:before { content: "\e645"; }
 
 .dh-icon-warning:before { content: "\e685"; }
+
+.dh-icon-tridown:before { content: "\e608"; }
 
 .dh-icon-sharp:before { content: "\e726"; }
 
@@ -133,3 +140,5 @@
 .dh-icon-date:before { content: "\e7a7"; }
 
 .dh-icon-ok-circle:before { content: "\e8a0"; }
+
+.dh-icon-file:before { content: "\e60a"; }

@@ -72,10 +72,22 @@ class SliderDemo extends React.Component{
   render() {
     return (
       <div style={{padding: '16px'}}>
-        <Slider min={1470153600000} max={1495527496000} allowCross={false} value={this.state.values}  trigger={['hover']} onChange={this.handleChange} overlay={this.renderElement()} range={2} defaultValue={[20, 50]} />
+        <Slider
+          visible
+          auto
+          min={1470153600000}
+          max={1495527496000}
+          allowCross={false}
+          value={this.state.values}
+          trigger={['hover']}
+          overlay={this.renderElement()}
+          range={2}
+          defaultValue={[20, 1495527496000]}
+          onChange={this.handleChange}
+         />
         <br/>
         <br/>
-        <Slider step={null} min={10}  marks={marks1}  defaultValue={30} />
+        <Slider auto visible  placement="right" step={null} min={10}  marks={marks1}  defaultValue={30} />
         <br/>
         <br/>
         <Slider  step={null} max={80} reverse  marks={marks2}  defaultValue={10} />
