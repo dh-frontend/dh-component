@@ -24,7 +24,7 @@ class MenuDemo extends React.Component {
             <Menu.Item key="2">子菜单项1</Menu.Item>
             <Menu.Item key="3">子菜单项1</Menu.Item>
             <Menu.Item key="4">子菜单项1</Menu.Item>
-            <Menu.Item key="5">子菜单项1</Menu.Item>
+            <Menu.Item key="5"></Menu.Item>
             <Menu.Item key="6">子菜单项2</Menu.Item>
           </SubMenu>
         </Menu>

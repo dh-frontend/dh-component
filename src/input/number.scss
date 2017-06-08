@@ -31,6 +31,7 @@ $input-number-handler-over-color: #999;
     border: 0;
     font-size: 12px;
     color: #333333;
+    background: transparent;
     &[disabled] {
       cursor: not-allowed;
     }
