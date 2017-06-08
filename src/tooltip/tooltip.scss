@@ -1,14 +1,5 @@
 $tooltip-color: #ffffff;
 $tooltip-arrawSize: 6px;
-@mixin arrow {
-  width: 10px;
-  height: 10px;
-  border: 1px solid rgba(31,56,88,.2);
-  background-color: #fff;
-  transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
-}
 
 .dh-tooltip {
   position: absolute;
