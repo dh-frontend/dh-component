@@ -43,7 +43,11 @@ class Checkbox extends Component {
     }
 
     return (
-      <div className={`dh-checkbox ${checked ? 'dh-checkbox-checked' : ''}`} onClick={this.onClickSelect}>
+      <div
+        className={`dh-checkbox ${checked ? 'dh-checkbox-checked' : ''}`}
+        onClick={this.onClickSelect}
+        style={this.props.style}
+      >
         <i className={`dh-icon ${checked ? 'dh-icon-checkbox-checked' : 'dh-icon-checkbox'}`} />
         <span>{this.props.children}</span>
       </div>
