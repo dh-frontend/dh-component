@@ -6,8 +6,8 @@ class TableDemo extends React.Component {
   }
   render() {
     const dataSource = [
-      {name: '小红', age: 18, sex: 0, height: 163, weight: 46},
-      {name: '小黄', age: 19, sex: 1, height: 178, weight: 55},
+      {name: '小红', age: 12222222222222222228, sex: 0, height: 163, weight: 46},
+      {name: '小dddddddddddddddddddd黄', age: 19, sex: 1, height: 178, weight: 55},
       {name: '小蓝', age: 21, sex: 0, height: 177, weight: 52},
       {name: '小白', age: 17, sex: 1, height: 165, weight: 49},
       {name: '小黑', age: 20, sex: 1, height: 182, weight: 66},
@@ -22,11 +22,12 @@ class TableDemo extends React.Component {
       {title: '体重', dataIndex: 'weight'}
     ];
     return (
-      <div style={{height: 400}}>
+      <div style={{height: 500}}>
         <Table
+          bordered
           dataSource={dataSource}
           columns={columns}
-          fixed
+          fixed={false}
           onChange={(pagination, filter, sorter) => console.log(pagination, filter, sorter)}
         />
       </div>
