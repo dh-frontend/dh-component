@@ -18,6 +18,8 @@ $modal-header-padding: 0 20px;
 $modal-title-height: 30px;
 $modal-title-fontSize: 14px;
 $modal-title-color: #666666;
+
+$modal-title-maxWidth: 94%;
 // 模态框-body
 $modal-body-padding: 10px 20px;
 $modal-body-fontColor: #666666;
@@ -99,13 +101,17 @@ $modal-footer-btn-hover-color: #e9f8ea;
       padding: $modal-header-padding;
     }
     &-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: $modal-title-maxWidth;
       height: $modal-title-height;
       line-height: $modal-title-height;
-     	color: $modal-title-color;
-			font-size: $modal-title-fontSize;
+      color: $modal-title-color;
+      font-size: $modal-title-fontSize;
     }
     &-body {
-			position: relative;
+      position: relative;
       width: 100%;
       height: auto;
       padding: $modal-body-padding;
@@ -123,7 +129,6 @@ $modal-footer-btn-hover-color: #e9f8ea;
         text-align: center;
         background-image: none;
         cursor: pointer;
-        user-select: none;
         user-select: none;
         border: none;
         background: none;
