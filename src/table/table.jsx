@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 import update from 'react/lib/update';
 import classNames from 'classnames';
-import { Icon } from '../index.js';
 
 import PropTypes from 'prop-types';
 import Checkbox from '../checkbox';
+import Icon from '../icon';
 
 const SELECTION_WIDTH = 48;
 const EXT_WIDTH = 24;
+
+import './table.scss';
+
+const textWidth = (txt, style = {'font-size': '12px'}) => {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  Object.assign(text.style, style);
+  svg.appendChild(text);
+  document.body.appendChild(svg);
+
+  text.textContent = txt;
+  let len = text.getComputedTextLength();
+
+  document.body.removeChild(svg);
+
+  return len;
+};
 
 class Table extends Component {
   static propTypes = {
@@ -41,71 +58,60 @@ class Table extends Component {
     striped: true,
     columns: [],
     dataSource: [],
-    sortIcon: 'up'
+    sortIcon: 'up',
+    fixed: false
   };
 
   constructor(props) {
     super(props);
     this.state = {
       selectedIdx: [],
-      columns: props.columns,
+      columns: this.setWidth(props),
       fixedHeader: false,
-      sorter: {}
+      sorter: {},
+      scrollLeft: 0
     };
 
     this.onClickSelect = this.onClickSelect.bind(this);
   }
 
-  componentDidMount() {
-    if (!this.props.fixed) {
-      return;
-    }
-    let shouldUpdate = false;
-    const columns = this.state.columns.map(d => {
-      const width = this.refs['th-' + d.dataIndex].offsetWidth || 200;
-      if (d.width !== width) {
-        shouldUpdate = true;
-      }
-      return {...d, width};
-    });
-
-    if (shouldUpdate) {
-      this.setState({
-        fixedHeader: true,
-        columns: columns
-      });
-    } else {
-      if (!this.state.fixedHeader) {
-        this.setState({
-          fixedHeader: true
-        })
-      }
-    }
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.columns !== this.props.columns) {
       this.setState({
-        columns: nextProps.columns
+        columns: this.setWidth(nextProps)
       })
     }
   }
 
-  componentWillUpdate() {
-    if (this.props.fixed && this.state.fixedHeader) {
-      this.setState({fixedHeader: false});
-    }
-  }
+  setWidth = ({ dataSource, columns }, calcData = false) => {
+    const t = (new Date()).getTime();
+    const newColumns = columns.map(c => {
+      let width = textWidth(c.title, {fontSize: '14px'}) + 20;
 
-  componentDidUpdate() {
-    this.componentDidMount();
-  }
+      if (calcData) {
+        let count = 0;
+        width = dataSource.reduce((width, d) => {
+          return Math.max(width, textWidth(this.render(c, d, count++)));
+        }, width);
+      }
+
+      return {
+        ...c,
+        width
+      }
+    });
+
+    console.log('*** time', (new Date()).getTime() - t);
+
+    return newColumns;
+  };
 
   onClickSelectAll(checked) {
     const {
       dataSource,
       rowSelection: {
-        onSelectAll = function(){}
+        onSelectAll = function () {
+        }
         }
       } = this.props;
 
@@ -123,7 +129,8 @@ class Table extends Component {
     const {
       dataSource,
       rowSelection: {
-        onSelect = function(){}
+        onSelect = function () {
+        }
         }
       } = this.props;
     const { selectedIdx } = this.state;
@@ -153,43 +160,61 @@ class Table extends Component {
     }
   };
 
+  handleScroll = () => {
+    this.refs.table.style.marginLeft = -this.refs.body.scrollLeft + 'px';
+  };
+
+  renderTd = (c, d, i) => {
+    return c.render ? c.render(d[c.dataIndex], d, i) : (d[c.dataIndex] || '(空白)')
+  };
+
   render() {
     const { dataSource, size, bordered, striped, rowSelection, fixed, sortIcon, ...props } = this.props;
-    const { selectedIdx, columns, fixedHeader, sorter } = this.state;
+    const { selectedIdx, columns, sorter } = this.state;
 
-    let tableStyle = {}, theadStyle = {}, tbodyStyle = {}, trStyle = {}, thStyle = {};
-
-    if (fixed && fixedHeader) {
-      const total = columns.map(d => d.width || 0).reduce((a, b) => a + b, 0)
-        + (rowSelection ? SELECTION_WIDTH : 0);
-
-      tableStyle = {
-        width: total,
-        display: 'block'
-      };
-      theadStyle = {
-        width: total,
-        position: 'absolute'
-      };
-      tbodyStyle = {
-        width: total,
-        overflowY: 'auto',
-        overflowX: 'hidden',
-        display: 'block',
-        height: '100%',
-      };
-
-      //避免滚动条影响
-      trStyle = {
-        width: total,
-        display: 'block'
-      };
-
-      thStyle = {
-        display: 'block',
-        float: 'left'
-      };
-    }
+    const thead = (
+      <thead>
+      <tr>
+        {rowSelection && (
+          <th>
+            <div
+              style={{
+                      width: SELECTION_WIDTH
+                    }}
+            >
+              <Checkbox onChange={this.onClickSelectAll.bind(this)}/>
+            </div>
+          </th>
+        )}
+        {columns.map(d => (
+          <th key={d.dataIndex}>
+            <div style={{width: d.width}}>
+              {d.title}&nbsp;&nbsp;
+              {d.sorter && (
+                <span className="dh-sort-icon" href="javascript:;">
+                      <a className="dh-sort-icon-btn" role="up"
+                         onClick={() => this.handleSortChange(d.dataIndex, 'asc')}>
+                        <Icon type={sortIcon} role={sorter[d.dataIndex] == 'asc' ? 'active' : ''}/>
+                      </a>
+                      <a className="dh-sort-icon-btn" role="down"
+                         onClick={() => this.handleSortChange(d.dataIndex, 'desc')}>
+                        <Icon type={sortIcon} role={sorter[d.dataIndex] == 'desc' ? 'active' : ''}/>
+                      </a>
+                    </span>
+              )}
+              {d.ext && (
+                <span style={{paddingLeft: 20}}>
+                      <div className="dh-table-ext" style={{width: EXT_WIDTH}}>
+                        {d.ext}
+                      </div>
+                    </span>
+              )}
+            </div>
+          </th>
+        ))}
+      </tr>
+      </thead>
+    );
 
     return (
       <div
@@ -198,90 +223,65 @@ class Table extends Component {
           [`dh-table-${size}`]: size,
           [`dh-table-bordered`]: bordered,
           [`dh-table-striped`]: striped,
-          [`dh-table-fixed`]: fixed
+          [`dh-table-fixed`]: true
         })}
       >
-        <table
-          cellSpacing="0"
-          style={{
-            ...tableStyle
-          }}
+        <div
+          className="dh-table-header"
         >
-          <thead style={theadStyle}>
-          <tr>
-            {rowSelection && (
-              <th
-                style={{
-                  ...thStyle,
-                  width: SELECTION_WIDTH
-                }}
-              >
-                <Checkbox onChange={this.onClickSelectAll.bind(this)}/>
-              </th>
-            )}
-            {columns.map(d => (
-              <th
-                ref={`th-${d.dataIndex}`}
-                key={d.dataIndex}
-                style={{
-                  ...thStyle,
-                  width: d.width
-                }}
-              >
-                {d.title}&nbsp;&nbsp;
-                {d.sorter && (
-                  <span className="dh-sort-icon" href="javascript:;">
-                    <a className="dh-sort-icon-btn" role="up" onClick={() => this.handleSortChange(d.dataIndex, 'asc')}>
-                      <Icon type={sortIcon} role={sorter[d.dataIndex] == 'asc' ? 'active' : ''} />
-                    </a>
-                    <a className="dh-sort-icon-btn" role="down" onClick={() => this.handleSortChange(d.dataIndex, 'desc')}>
-                      <Icon type={sortIcon} role={sorter[d.dataIndex] == 'desc' ? 'active' : ''} />
-                    </a>
-                  </span>
-                )}
-                {d.ext && (
-                  <span style={{paddingLeft: 20}}>
-                    <div className="dh-table-ext" style={{width: EXT_WIDTH}}>
-                      {d.ext}
-                    </div>
-                  </span>
-                )}
-              </th>
-            ))}
-          </tr>
-          </thead>
+          <table cellSpacing="0" ref="table">
+            {thead}
+          </table>
+        </div>
 
-          <tbody style={tbodyStyle}>
-          {dataSource.map((d, i) => (
-            <tr key={i} style={trStyle}>
-              {rowSelection && (
-                <td
-                  style={{
-                    ...thStyle,
-                    width: SELECTION_WIDTH
-                  }}
-                >
-                  <Checkbox checked={selectedIdx.indexOf(i) > -1} onChange={(checked) => this.onClickSelect(checked, i)}/>
-                </td>
-              )}
-              {columns.map(c => (
-                <td
-                  className={classNames({
-                    'an-table-col-frozen': c.frozen
-                  })}
-                  key={c.dataIndex}
-                  style={{
-                    ...thStyle,
-                    width: c.width
-                  }}
-                >
-                  {c.render ? c.render(d[c.dataIndex], d, i) : (d[c.dataIndex] || '(空白)')}
-                </td>
+        <div className="dh-table-body">
+          <div
+            ref="body"
+            className="dh-table-body-content"
+            onWheel={this.handleScroll}
+          >
+            <table cellSpacing="0">
+              {thead}
+
+              <tbody>
+              {dataSource.map((d, i) => (
+                <tr key={i}>
+                  {rowSelection && (
+                    <td>
+                      <div
+                        style={{
+                          width: SELECTION_WIDTH
+                        }}
+                      >
+                        <Checkbox
+                          checked={selectedIdx.indexOf(i) > -1}
+                          onChange={(checked) => this.onClickSelect(checked, i)}
+                        />
+                      </div>
+                    </td>
+                  )}
+                  {columns.map(c => (
+                    <td
+                      className={classNames({
+                        'an-table-col-frozen': c.frozen
+                      })}
+                      key={c.dataIndex}
+                    >
+                      <div
+                        style={{
+                          width: c.width
+                        }}
+                      >
+                        {this.renderTd(c, d, i)}
+                      </div>
+                    </td>
+                  ))}
+                </tr>
               ))}
-            </tr>
-          ))}
-          </tbody>
-        </table>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     )
   }
