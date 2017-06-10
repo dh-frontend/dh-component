@@ -22,7 +22,7 @@ class TableDemo extends React.Component {
       {title: '体重', dataIndex: 'weight'}
     ];
     return (
-      <div style={{height: 200, width: 200}}>
+      <div style={{height: 500}}>
         <Table
           bordered
           dataSource={dataSource}

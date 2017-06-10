@@ -29,6 +29,7 @@ class Table extends Component {
       })
     ),
     onChange: PropTypes.func,
+    onLoad: PropTypes.func,
     size: PropTypes.oneOf(['default', 'small', 'large']),
     bordered: PropTypes.bool,
     striped: PropTypes.bool,
@@ -56,6 +57,12 @@ class Table extends Component {
     };
 
     this.onClickSelect = this.onClickSelect.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.columns !== this.props.columns) {
+      this.preventRequest = false;
+    }
   }
 
   onClickSelectAll(checked) {
@@ -113,7 +120,18 @@ class Table extends Component {
   };
 
   handleScroll = () => {
-    this.refs.table.style.marginLeft = -this.refs.body.scrollLeft + 'px';
+    const { scrollLeft, scrollTop, scrollHeight, clientHeight } = this.refs.body;
+    this.refs.table.style.marginLeft = -scrollLeft + 'px';
+
+    if (scrollTop + clientHeight >= scrollHeight) {
+      if (!this.preventRequest) {
+        console.log('*** loading...');
+        if (this.props.onLoad) {
+          this.props.onLoad(this.props.dataSource.length);
+        }
+        this.preventRequest = true;
+      }
+    }
   };
 
   render() {
