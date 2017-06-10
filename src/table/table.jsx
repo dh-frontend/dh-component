@@ -8,8 +8,6 @@ import Icon from '../icon';
 
 const EXT_WIDTH = 24;
 
-import './table.scss';
-
 class Table extends Component {
   static propTypes = {
     dataSource: PropTypes.array,
