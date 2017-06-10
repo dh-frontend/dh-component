@@ -54,6 +54,7 @@ $tr-height-large: 60px;
   border-radius: $table-radius;
   height: 100%;
   .dh-table-header {
+    height: $tr-height-default + 1px;
     position: relative;
     overflow: hidden;
   }
@@ -125,6 +126,9 @@ $tr-height-large: 60px;
   }
 
   &.dh-table-small {
+    .dh-table-header {
+      height: $tr-height-small + 1px;
+    }
     .dh-table-body {
       padding-top: $tr-height-small;
       margin-top: -$tr-height-small;
@@ -145,6 +149,9 @@ $tr-height-large: 60px;
     }
   }
   &.dh-table-large {
+    .dh-table-header {
+      height: $tr-height-large + 1px;
+    }
     .dh-table-body {
       padding-top: $tr-height-large;
       margin-top: -$tr-height-large;
