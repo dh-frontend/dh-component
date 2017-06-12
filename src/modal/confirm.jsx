@@ -36,7 +36,7 @@ export default function confirm(config) {
   );
 
   let footer = null;
-  if (props.okCancel) {
+  if (props.onCancel) {
     footer = (
       <div className={`${prefixCls}-footer-wapper`}>
         <ActionButton actionFn={props.onOk} closeModal={close} autoFocus>
