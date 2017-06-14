@@ -18,9 +18,9 @@ class ModalDemo extends React.Component {
       onOk: () => {
         console.log('我是confirm');
       },
-      okCancel: () => {}
+      onCancel: () => {}
     })
-  }
+  };
   render() {
     const menu = (
       <Menu>
