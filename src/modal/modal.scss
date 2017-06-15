@@ -90,6 +90,7 @@ $modal-footer-btn-hover-color: #e9f8ea;
             text-transform: none;
             text-rendering: auto;
             line-height: $modal-close-x-height;
+            color: #999;
             &:before {
                 content: "\e629";
                 display: block;
