@@ -19,6 +19,7 @@
 | dataSource | 数据数组 | array | 无
 | columns | 表格列的配置描述，具体项见下表 | array | 无
 | onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) | 无
+| onLoad | 动态加载数据回调,如果传入该参数,当图表滚动至尾部时将会调用该方法 | Function(size) | 无
 | rowSelection | 列表项是否可选择 | object | 无
 | size | 表格尺寸 | string (default, large, small) | default
 | bordered | 是否显示边框 | bool | false

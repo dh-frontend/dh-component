@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import is from 'is_js';
 import RcSlider, { Range, Handle } from 'rc-slider';
 import classnames from 'classnames';
 import { Tooltip, Button } from '../index';
@@ -29,25 +30,51 @@ class Slider extends React.Component {
   }
 
   renderPlacement = (index) => {
-     return index == 0 ? "topLeft" : "bottomRight";
+    const { range, placement } = this.props;
+    if (range) {
+      if (is.array(placement) && is.not.empty(placement)) {
+        return placement[index];
+      } else {
+        return index == 0 ? 'topLeft' : 'bottomRight';
+      }
+    } else {
+      return is.string(placement) ? placement : 'top'
+    }
   }
 
   handleTooltip = ({ value, dragging, index, ...restProps }) => {
-    const { trigger, tooltipPrefixCls, visible } = this.props;
-     return (
-       <Tooltip
-         prefixCls={tooltipPrefixCls}
-         overlay={this.renderHandle(value,index)}
-         placement={this.renderPlacement(index)}
-         key={index}
-         trigger={trigger}
-         visible={visible}
-       >
-         <RcHandle
-           {...restProps}
-         />
-       </Tooltip>
-     );
+    const { trigger, tooltipPrefixCls, visible, auto } = this.props;
+    if (auto) {
+      return (
+        <Tooltip
+          prefixCls={tooltipPrefixCls}
+          overlay={this.renderHandle(value,index)}
+          placement={this.renderPlacement(index)}
+          key={index}
+          visible={visible}
+          trigger={trigger}
+        >
+          <RcHandle
+            {...restProps}
+          />
+        </Tooltip>
+      )
+    } else {
+      return (
+        <Tooltip
+          prefixCls={tooltipPrefixCls}
+          overlay={this.renderHandle(value,index)}
+          placement={this.renderPlacement(index)}
+          key={index}
+          trigger={trigger}
+        >
+          <RcHandle
+            {...restProps}
+          />
+        </Tooltip>
+      )
+    }
+
   }
   render() {
     const { range, reverse, ...restProps } = this.props;

@@ -23,10 +23,10 @@ class Number extends React.Component {
   handleFocus() {
     this.setState({ focus: true });
   }
-  handleBlur() {
+  handleBlur(e) {
     this.setState({ focus: false });
     if (this.props.onBlur) {
-      this.props.onBlur();
+      this.props.onBlur(e);
     }
   }
   render() {

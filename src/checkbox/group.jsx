@@ -60,7 +60,10 @@ class Group extends Component {
             ...child.props,
             onChange: (checked) => this.onSelectChange(checked, key),
             checked: checked.indexOf(key) > -1,
-            key: key
+            key: key,
+            style: {
+              marginRight: i < React.Children.toArray().length - 1 ? 32 : 0
+            }
           };
           return {...child, props};
         })}

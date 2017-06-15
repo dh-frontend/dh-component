@@ -12,13 +12,13 @@ class TooltipDemo extends React.Component {
                 <div style={{
                     marginLeft: "60px"
                 }}>
-                    <Tooltip  trigger="click" overlay="tooltip text" placement="topLeft">
+                    <Tooltip  trigger="hover" overlay="tooltip text" placement="topLeft">
                         <a href="#">TL</a>
                     </Tooltip>
-                    <Tooltip  trigger="click" overlay="tooltip text" placement="top">
+                    <Tooltip  trigger="hover" overlay="tooltip text" placement="top">
                         <a href="#">Top</a>
                     </Tooltip>
-                    <Tooltip  trigger="click" overlay="tooltip text" placement="topRight">
+                    <Tooltip  trigger="hover" overlay="tooltip text" placement="topRight">
                         <a href="#">TR</a>
                     </Tooltip>
                 </div>
@@ -40,13 +40,13 @@ class TooltipDemo extends React.Component {
                     width: "60px",
                     marginLeft: "270px"
                 }}>
-                    <Tooltip  trigger="click" overlay="tooltip text" placement="rightTop">
+                    <Tooltip  trigger="hover" overlay="tooltip text" placement="rightTop">
                         <a href="#">RT</a>
                     </Tooltip>
-                    <Tooltip  trigger="click" overlay="tooltip text" placement="right">
+                    <Tooltip  trigger="hover" overlay="tooltip text" placement="right">
                         <a href="#">Right</a>
                     </Tooltip>
-                    <Tooltip  trigger="click" overlay="tooltip text" placement="rightBottom">
+                    <Tooltip  trigger="hover" overlay="tooltip text" placement="rightBottom">
                         <a href="#">RB</a>
                     </Tooltip>
                 </div>
@@ -54,13 +54,13 @@ class TooltipDemo extends React.Component {
                     marginLeft: "60px",
                     clear: "both"
                 }}>
-                    <Tooltip  trigger="click" overlay="tooltip text" placement="bottomLeft">
+                    <Tooltip  trigger="hover" overlay="tooltip text" placement="bottomLeft">
                         <a href="#">BL</a>
                     </Tooltip>
-                    <Tooltip  trigger="click" overlay="tooltip text" placement="bottom">
+                    <Tooltip  trigger="hover" overlay="tooltip text" placement="bottom">
                         <a href="#">Bottom</a>
                     </Tooltip>
-                    <Tooltip  trigger="click" overlay="tooltip text" placement="bottomRight">
+                    <Tooltip  trigger="hover" overlay="tooltip text" placement="bottomRight">
                         <a href="#">BR</a>
                     </Tooltip>
                 </div>
