@@ -21,7 +21,7 @@ $modal-title-color: #666666;
 
 $modal-title-maxWidth: 94%;
 // 模态框-body
-$modal-body-padding: 10px 20px;
+$modal-body-padding: 13px 24px;
 $modal-body-fontColor: #666666;
 $modal-body-fontSize: 12px;
 $modal-body-backgroundColor: transparent;
@@ -90,6 +90,7 @@ $modal-footer-btn-hover-color: #e9f8ea;
             text-transform: none;
             text-rendering: auto;
             line-height: $modal-close-x-height;
+            color: #999;
             &:before {
                 content: "\e629";
                 display: block;
