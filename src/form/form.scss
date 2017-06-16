@@ -7,10 +7,24 @@
     color: #cccccc;
   }
   &-extra {
-     position: absolute;
+    position: absolute;
     width: 100%;
     font-size: 12px;
     color: #cccccc;
+  }
+  &-item {
+    padding: 9px 0;
+    &-label {
+      text-align: right;
+      margin-right: 20px;
+    }
+    &-control-wrapper {
+      flex: 1;
+    }
+    &-control {
+      position: relative;
+      color: #333333;
+    }
   }
 }
 .dh-form-vertical {
@@ -19,7 +33,7 @@
     align-items: flex-start;
     >.dh-form-item-label {
       width: 100%;
-      text-align: left;
+      text-align: right;
     }
      >.dh-form-item-control-wrapper {
       width: 100%;
@@ -32,21 +46,7 @@
     width: auto;
   }
 }
-.dh-form-item {
-  padding: 16px 0;
-  >.dh-form-item-label {
-    text-align: right;
 
-  }
-  &-control-wrapper {
-    flex: 1;
-  }
-  &-control {
-    position: relative;
-    color: #333333;
-  }
-
-}
 /* 提示信息 设置*/
 .has-error {
   >.dh-form-explain {
