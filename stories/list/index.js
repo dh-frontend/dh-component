@@ -23,7 +23,7 @@ const suffix = (
 storiesOf('列表组件', module)
   .addDecorator(withReadme(listReadme))
   .addWithInfo('默认列表', () => (
-    <List>
+    <List mode="only">
       <List.Item key="1"> 我是默认列表 </List.Item>
       <List.Item key="2"> 我是默认列表 </List.Item>
       <List.Item key="3"> 我是默认列表 </List.Item>
