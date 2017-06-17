@@ -58,7 +58,7 @@ class ModalDemo extends React.Component {
         <Modal
           title="我是一个测试数据"
           visible={this.state.visibleForm}
-          onCancel={() => { this.setState({visible: false})}}
+          onCancel={() => { this.setState({visibleForm: false})}}
           onOk={() => {console.log('modal onOk')}}
         >
           <Form layout="horizontal" >
