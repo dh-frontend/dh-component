@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import is from 'is_js';
 import classNames from 'classnames';
 import ListItem from './item';
 class List extends React.Component {
@@ -27,6 +26,8 @@ class List extends React.Component {
   }
   static childContextTypes = {
     animation: PropTypes.bool,
+    forbid: PropTypes.bool, // 禁用子元素的点击
+    selectedKeys: PropTypes.arrayOf(PropTypes.string)
   }
   static defaultProps = {
     mode: false,
@@ -55,15 +56,26 @@ class List extends React.Component {
   //   }
   // }
   getChildContext() {
+    const forbid = ['only', 'multiple'].indexOf(this.props.mode) !== -1 ? true : false;
     return {
       animation: this.props.animation,
+      selectedKeys: this.state.selectedRowKeys,
+      forbid
     };
   }
   handleChange(key, selected) {
-     const { selectedRowKeys } = this.state;
-     const _selectedRowKeys = selected ? [key] : [];
-     this.setState({ selectedRowKeys: _selectedRowKeys})
-  
+    const { multiple, mode, immutable } = this.props;
+    const { selectedRowKeys } = this.state;
+    let _selectedRowKeys = [];
+    if (typeof mode === 'string' && mode === 'only')  {
+      // immutable -- only 模式下的可变性 
+      if (typeof immutable === 'boolean' && immutable) {
+        _selectedRowKeys = [key];
+      } else {
+        _selectedRowKeys = selected ? [key] : [];
+      }
+    }
+    this.setState({ selectedRowKeys: _selectedRowKeys})
   }
   // handleChange(selected, eventKey) {
   //   const { multiple, mode, immutable } = this.props;
@@ -89,7 +101,6 @@ class List extends React.Component {
   render() {
     const { children, bordered, shadow, className, style } = this.props;
     const { selectedRowKeys } = this.state;
-    console.log('wjb--l', selectedRowKeys);
     return (
       <ul 
         style={style}
@@ -107,7 +118,7 @@ class List extends React.Component {
                 ...child.props,
                 onChange: this.handleChange,
                 eventKey: child.key,
-                selected: selectedRowKeys.indexOf(child.key) !== -1 ? true : false
+                selectedKeys: selectedRowKeys
               };
             return {...child, props};
           })

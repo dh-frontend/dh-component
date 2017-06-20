@@ -8,8 +8,12 @@ import { Icon } from '../index.js';
 class ListItem extends React.Component {
   static contextTypes = {
     animation: PropTypes.bool,
+    forbid: PropTypes.bool,
+    selectedKeys: PropTypes.arrayOf(PropTypes.string)
   }
-
+  static defaultProps = {
+    selectedKeys: []
+  }
   static propTypes = {
     prefix: PropTypes.element, // 前缀元素
     suffix: PropTypes.element, // 后缀元素
@@ -26,30 +30,35 @@ class ListItem extends React.Component {
     this.handleSuffixClick = this.handleSuffixClick.bind(this);
   }
   componentWillMount() {
-    if (this.props.selected) {
-      this.state. selected = this.props.selected;
-    }
+    const {selectedKeys,  eventKey } = this.props;
+    const selected = selectedKeys.indexOf(eventKey) === -1 ? false : true;
+    this.setState({ selected });
   }
   componentDidMount() {
     // this.element = ReactDOM.findDOMNode(this);
     // this.staticEventManger();
   }
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.selected !== this.props.selected) {
-  //     this.state.selected = nextProps.selected;
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    const {selectedKeys,  eventKey } = nextProps
+    const selected = selectedKeys.indexOf(eventKey) === -1 ? false : true;
+    this.setState({ selected });
+  }
   // shouldComponentUpdate(nextProps, nextState) {
   //   return this.props.selected !== nextProps.selected
   // }
   handleClick() {
-    const { eventKey,  selected, onChange} = this.props;
-    // const selected = !this.state.selected;
-    // const eventKey = this.props.eventKey;
-    // this.setState({ selected });
-    // // this.context.onClick(selected, eventKey);
-    if (onChange) {
-      onChange(eventKey, !selected);
+    if (this.context.forbid) {
+      const { eventKey, onChange, onClick} = this.props;
+      const { selected } = this.state;
+      console.log(eventKey, selected)
+      // 回滚父级元素的Change事件
+      if (onChange) {
+        onChange(eventKey, selected);
+      }
+
+      if (onClick) {
+        onClick(eventKey, selected);
+      }
     }
   }
   handleSuffixClick() {
@@ -77,8 +86,8 @@ class ListItem extends React.Component {
     return element;
   }
   render() {
-    const { selected } = this.props;
     const { prefix, suffix, eventKey } = this.props;
+    const { selected } = this.state;
     const borderStyle = {
       transform: selected ? 'scaleY(1)' : ' scaleY(0)'
     }
