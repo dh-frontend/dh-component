@@ -17,16 +17,15 @@ class List extends React.Component {
       PropTypes.bool,
       PropTypes.oneOf(['only', 'multiple']), // LIST模式
     ]),
-    immutable: PropTypes.bool, // only模式下的可变性
     animation: PropTypes.bool,
     onChange: PropTypes.func,
     className: PropTypes.string,
-    icon: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.string,
-    ]), // 子元素的后缀图标， 如果设置false 则不显示
+    itemClassName: PropTypes.string, // 子元素的classNames
+    itemStyles: PropTypes.object, // 子元素的styles
   }
   static childContextTypes = {
+    itemClassName: PropTypes.string, // 子元素的classNames
+    itemStyles: PropTypes.object, // 子元素的styles
     animation: PropTypes.bool,
     forbid: PropTypes.bool, // 禁用子元素的点击
   }
@@ -45,7 +44,7 @@ class List extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   componentDidMount() {
-     let selectedKeys = [];
+    let selectedKeys = [];
     if (this.props.defaultKeys) {
       const defaultKeys = this.props.defaultKeys;
       if (typeof defaultKeys === 'string') {
@@ -90,6 +89,8 @@ class List extends React.Component {
     const forbid = ['only', 'multiple'].indexOf(this.props.mode) !== -1 ? true : false;
     return {
       animation: this.props.animation,
+      itemClassName: this.props.itemClassName, // 子元素的classNames
+      itemStyles: this.props.itemStyles, // 子元素的styles
       forbid
     };
   }

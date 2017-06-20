@@ -1,11 +1,10 @@
 // 字体库
-@font-face {
-  font-family: 'dhfont';  /* project id 267870 */
-  src: url('//at.alicdn.com/t/font_pkywaudl4iyvte29.eot');
-  src: url('//at.alicdn.com/t/font_pkywaudl4iyvte29.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_pkywaudl4iyvte29.woff') format('woff'),
-  url('//at.alicdn.com/t/font_pkywaudl4iyvte29.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_pkywaudl4iyvte29.svg#dhfont') format('svg');
+@font-face {font-family: "dhfont";
+  src: url('iconfont.eot?t=1497947376347'); /* IE9*/
+  src: url('iconfont.eot?t=1497947376347#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1497947376347') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1497947376347') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1497947376347#dhfont') format('svg'); /* iOS 4.1- */
 }
 @mixin keyframes($animationName) {
   @-webkit-keyframes #{$animationName} {

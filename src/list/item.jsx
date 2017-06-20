@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Radio from '../radio';
 import { Icon } from '../index.js';
 
 class ListItem extends React.Component {
   static contextTypes = {
+    itemClassName: PropTypes.string, // 子元素的classNames
+    itemStyles: PropTypes.object, // 子元素的styles
     animation: PropTypes.bool,
     forbid: PropTypes.bool,
   }
@@ -27,7 +30,7 @@ class ListItem extends React.Component {
     this.handleSuffixClick = this.handleSuffixClick.bind(this);
   }
   componentWillMount() {
-    
+
   }
   componentDidMount() {
    const {selectedKeys,  eventKey } = this.props;
@@ -77,12 +80,16 @@ class ListItem extends React.Component {
   render() {
     const { prefix, suffix, eventKey } = this.props;
     const { selected } = this.state;
+    const { itemClassName, itemStyles} = this.context;
     const borderStyle = {
       transform: selected ? 'scaleY(1)' : ' scaleY(0)'
     }
     return (
-      <li 
-        className="dh-list-child"
+      <li
+        className={classNames("dh-list-child", {
+          [itemClassName]: itemClassName
+        })}
+        style={itemStyles &&  itemStyles instanceof Object ? {...itemStyles} : {}}
         data-selected={selected}>
         <div className="dh-list-child__inner">
           {
@@ -96,15 +103,15 @@ class ListItem extends React.Component {
               <div className="dh-list-inner__icon">
                 {this.renderSuffixElement()}
               </div>
-            ) : null      
+            ) : null
           }
 
         </div>
         {
-          typeof this.context.animation === 'boolean' && this.context.animation ? 
-          (<div style={borderStyle} className="dh-list-child__border" />) : null 
+          typeof this.context.animation === 'boolean' && this.context.animation ?
+          (<div style={borderStyle} className="dh-list-child__border" />) : null
         }
-        
+
       </li>
     )
   }
