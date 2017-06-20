@@ -59,7 +59,7 @@ class List extends React.Component {
         selectedKeys = this.props.selectedKeys
       } else {
         throw new Error('selectedKeys is data type error');
-      }  
+      }
     }
      this.setState({ selectedKeys });
   }
@@ -99,15 +99,15 @@ class List extends React.Component {
     let selectedRowKeys = [];
     if (typeof mode === 'string' && mode === 'only')  {
       selectedRowKeys = selected ? [key] : [];
-      // // immutable -- only 模式下的可变性 
+      // // immutable -- only 模式下的可变性
       // if (typeof immutable === 'boolean' && immutable) {
       //   selectedRowKeys = [key];
       // } else {
       //   console.log('wjb-s', selected);
-        
+
       // }
     } else if (typeof mode === 'string' && mode === 'multiple') {
-      selectedRowKeys = selected ? Array.from(new Set([...selectedKeys, key])) 
+      selectedRowKeys = selected ? Array.from(new Set([...selectedKeys, key]))
         : selectedKeys.filter(srk => srk !== key);
     }
     this.setState({ selectedKeys: selectedRowKeys}, () => {
@@ -120,7 +120,7 @@ class List extends React.Component {
     const { children, bordered, shadow, className, style } = this.props;
     const selectedKeys = this.props.selectedKeys ? this.props.selectedKeys : this.state.selectedKeys;
     return (
-      <ul 
+      <ul
         style={style}
         className={
           classNames('dh-list', {

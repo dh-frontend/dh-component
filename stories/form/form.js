@@ -40,28 +40,46 @@ class FormDemo extends React.Component {
               colon
               label="用户名"
             >
-            <Input type="text" />
+            {
+              getFieldDecorator('name', {
+                valuePropName: 'checked',
+              })(<Input type="text" />)
+            }
             </Form.Item>
             <Form.Item
               label="性别"
             >
-              <Select placeholder="请选择">
+              {
+                getFieldDecorator('sex', {
+                  valuePropName: 'checked',
+                })(
+                  <Select placeholder="请选择">
                   <Select.Option value="1">男</Select.Option>
                   <Select.Option value="2">女</Select.Option>
                   <Select.Option value="3">4</Select.Option>
-              </Select>
+                  </Select>
+                )
+              }
             </Form.Item>
             <Form.Item
               label="个人爱好"
               extra="我是个人爱好"
             >
-              <Input type="text" />
+              {
+                getFieldDecorator('name', {
+                  valuePropName: 'checked',
+                })(<Input type="text" />)
+              }
             </Form.Item>
               <Form.Item
               label="个人爱好"
               extra="我是个人爱好"
             >
-            <Input type="text" />
+              {
+                getFieldDecorator('name', {
+                  valuePropName: 'checked',
+                })(<Input type="text" />)
+              }
             </Form.Item>
             <Form.Item
             >
