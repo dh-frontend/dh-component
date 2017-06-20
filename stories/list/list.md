@@ -20,6 +20,8 @@
 | onChange | 列表改变时的回调 (record = array或string) => {}| function | 无 |
 | animation | 过渡效果 | bool | true |
 | className | 可添加样式类 | string | 无 |
+| itemClassName| 可添子元素类 | string | 无 |
+| itemStyles | 可添样式类 | object| 无|
 
 
 
