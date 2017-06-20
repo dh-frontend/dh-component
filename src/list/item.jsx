@@ -9,15 +9,12 @@ class ListItem extends React.Component {
   static contextTypes = {
     animation: PropTypes.bool,
     forbid: PropTypes.bool,
-    selectedKeys: PropTypes.arrayOf(PropTypes.string)
-  }
-  static defaultProps = {
-    selectedKeys: []
   }
   static propTypes = {
     prefix: PropTypes.element, // 前缀元素
     suffix: PropTypes.element, // 后缀元素
     eventKey: PropTypes.string, // 标记的key
+    selectedKeys: PropTypes.arrayOf(PropTypes.string), // 选中状态
     icon: PropTypes.string, // 后缀图标
   }
 
@@ -30,34 +27,28 @@ class ListItem extends React.Component {
     this.handleSuffixClick = this.handleSuffixClick.bind(this);
   }
   componentWillMount() {
-    const {selectedKeys,  eventKey } = this.props;
-    const selected = selectedKeys.indexOf(eventKey) === -1 ? false : true;
-    this.setState({ selected });
+    
   }
   componentDidMount() {
-    // this.element = ReactDOM.findDOMNode(this);
-    // this.staticEventManger();
+   const {selectedKeys,  eventKey } = this.props;
+    const selected = selectedKeys.indexOf(eventKey) === -1 ? false : true;
+    this.setState({ selected });
   }
   componentWillReceiveProps(nextProps) {
     const {selectedKeys,  eventKey } = nextProps
     const selected = selectedKeys.indexOf(eventKey) === -1 ? false : true;
     this.setState({ selected });
   }
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return this.props.selected !== nextProps.selected
-  // }
   handleClick() {
     if (this.context.forbid) {
       const { eventKey, onChange, onClick} = this.props;
-      const { selected } = this.state;
-      console.log(eventKey, selected)
+      const selected = this.state.selected;
       // 回滚父级元素的Change事件
       if (onChange) {
-        onChange(eventKey, selected);
+        onChange(eventKey, !selected);
       }
-
       if (onClick) {
-        onClick(eventKey, selected);
+        onClick(eventKey, !selected);
       }
     }
   }

@@ -23,7 +23,7 @@ const suffix = (
 storiesOf('列表组件', module)
   .addDecorator(withReadme(listReadme))
   .addWithInfo('默认列表', () => (
-    <List mode="only" immutable>
+    <List mode="only" >
       <List.Item key="1" onClick={action('onClick')}> 我是默认列表 </List.Item>
       <List.Item key="2" onClick={action('onClick')}> 我是默认列表 </List.Item>
       <List.Item key="3" onClick={action('onClick')}> 我是默认列表 </List.Item>
@@ -32,7 +32,7 @@ storiesOf('列表组件', module)
   .addWithInfo('单行选择', () => (
     <List
       mode="only"
-      icon="setting"
+      selectedKeys={['1']}
       onChange={action('onChange')}>
       <List.Item key="1"> 我可以被操作选择</List.Item>
       <List.Item key="2"> 我可以被操作选择</List.Item>

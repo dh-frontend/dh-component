@@ -3,18 +3,20 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ListItem from './item';
 class List extends React.Component {
-  static Item = ListItem
-
+  static Item = ListItem;
   static propsTypes = {
     defaultKeys: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.string)
-    ]),
+    ]), // 默认选中的项
+    selectedKeys: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string)
+    ]), //选中的项
     mode: PropTypes.oneOfType([
       PropTypes.bool,
-      PropTypes.oneOf(['only', 'multiple']), //新的模式
+      PropTypes.oneOf(['only', 'multiple']), // LIST模式
     ]),
-    multiple: PropTypes.bool, // 多选模式开启 旧模式
     immutable: PropTypes.bool, // only模式下的可变性
     animation: PropTypes.bool,
     onChange: PropTypes.func,
@@ -27,7 +29,6 @@ class List extends React.Component {
   static childContextTypes = {
     animation: PropTypes.bool,
     forbid: PropTypes.bool, // 禁用子元素的点击
-    selectedKeys: PropTypes.arrayOf(PropTypes.string)
   }
   static defaultProps = {
     mode: false,
@@ -39,70 +40,87 @@ class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedRowKeys: []
+      selectedKeys: []
     };
     this.handleChange = this.handleChange.bind(this);
   }
-  // componentWillMount() {
-  //   if (this.props.defaultKeys) {
-  //     const defaultKeys = this.props.defaultKeys;
-  //     this.state.selectedRowKeys = Array.isArray(defaultKeys) ? defaultKeys : [defaultKeys];
-  //   }
-  // }
-  // componentWillReceiveProps(nextProps) {
-  //   if (JSON.stringify(nextProps.defaultKeys) !== JSON.stringify(this.props.defaultKeys)) {
-  //     const defaultKeys = nextProps.defaultKeys;
-  //     this.state.selectedRowKeys = Array.isArray(defaultKeys) ? defaultKeys : [defaultKeys];
-  //   }
-  // }
+  componentDidMount() {
+     let selectedKeys = [];
+    if (this.props.defaultKeys) {
+      const defaultKeys = this.props.defaultKeys;
+      if (typeof defaultKeys === 'string') {
+        selectedKeys = [defaultKeys];
+        console.error('Error:', 'defaultKeys is defined as Array, you pass in a string!!!');
+      }  else if (Array.isArray(defaultKeys)) {
+        selectedKeys = defaultKeys;
+      }
+    } else if (this.props.selectedKeys ) {
+      if (Array.isArray(this.props.selectedKeys)) {
+        selectedKeys = this.props.selectedKeys
+      } else {
+        throw new Error('selectedKeys is data type error');
+      }
+    }
+     this.setState({ selectedKeys });
+  }
+  componentWillReceiveProps(nextProps) {
+    let selectedKeys = [];
+    if (JSON.stringify(nextProps.defaultKeys) !== JSON.stringify(this.props.defaultKeys)) {
+      if (nextProps.defaultKeys) {
+        const defaultKeys = this.props.defaultKeys;
+        let selectedKeys = [];
+        if (typeof defaultKeys === 'string') {
+          selectedKeys = [defaultKeys];
+          console.error('Error:', 'defaultKeys is defined as Array, you pass in a string!!!');
+        }  else if (Array.isArray(defaultKeys)) {
+          selectedKeys = defaultKeys;
+        }
+      }
+    }
+    if (JSON.stringify(nextProps.selectedKeys) !== JSON.stringify(this.props.defaultKeys)) {
+      let selectedKeys = [];
+      if (Array.isArray(selectedKeys)) {
+        selectedKeys = selectedKeys;
+      } else {
+        throw new Error('selectedKeys is data type error');
+      }
+    }
+  }
   getChildContext() {
     const forbid = ['only', 'multiple'].indexOf(this.props.mode) !== -1 ? true : false;
     return {
       animation: this.props.animation,
-      selectedKeys: this.state.selectedRowKeys,
       forbid
     };
   }
   handleChange(key, selected) {
     const { multiple, mode, immutable } = this.props;
-    const { selectedRowKeys } = this.state;
-    let _selectedRowKeys = [];
+    const { selectedKeys } = this.state;
+    let selectedRowKeys = [];
     if (typeof mode === 'string' && mode === 'only')  {
-      // immutable -- only 模式下的可变性 
-      if (typeof immutable === 'boolean' && immutable) {
-        _selectedRowKeys = [key];
-      } else {
-        _selectedRowKeys = selected ? [key] : [];
-      }
+      selectedRowKeys = selected ? [key] : [];
+      // // immutable -- only 模式下的可变性
+      // if (typeof immutable === 'boolean' && immutable) {
+      //   selectedRowKeys = [key];
+      // } else {
+      //   console.log('wjb-s', selected);
+
+      // }
+    } else if (typeof mode === 'string' && mode === 'multiple') {
+      selectedRowKeys = selected ? Array.from(new Set([...selectedKeys, key]))
+        : selectedKeys.filter(srk => srk !== key);
     }
-    this.setState({ selectedRowKeys: _selectedRowKeys})
+    this.setState({ selectedKeys: selectedRowKeys}, () => {
+      if (this.props.onChange) {
+        this.props.onChange(selectedRowKeys);
+      }
+    });
   }
-  // handleChange(selected, eventKey) {
-  //   const { multiple, mode, immutable } = this.props;
-  //   if (is.not.boolean(mode)) {
-  //     let selectedRowKeys = this.state.selectedRowKeys;
-  //     if ( mode === 'multiple' || is.boolean(multiple) && multiple) {
-  //       selectedRowKeys = selected ? Array.from(new Set([...selectedRowKeys, eventKey])) 
-  //       : selectedRowKeys.filter(srk => srk !== eventKey);
-  //     } else if (mode === 'only') {
-  //       if (is.boolean(immutable) && immutable) {
-  //          selectedRowKeys = [eventKey];
-  //       } else {
-  //         selectedRowKeys = selected ? [eventKey] : [];
-  //       }
-  //     }
-  //       this.setState({ selectedRowKeys });
-  //     if (this.props.onChange) {
-  //       const record = mode === 'only' ? selectedRowKeys[0] : selectedRowKeys;
-  //       this.props.onChange(record)
-  //     }
-  //   }
-  // }
   render() {
     const { children, bordered, shadow, className, style } = this.props;
-    const { selectedRowKeys } = this.state;
+    const selectedKeys = this.props.selectedKeys ? this.props.selectedKeys : this.state.selectedKeys;
     return (
-      <ul 
+      <ul
         style={style}
         className={
           classNames('dh-list', {
@@ -118,7 +136,7 @@ class List extends React.Component {
                 ...child.props,
                 onChange: this.handleChange,
                 eventKey: child.key,
-                selectedKeys: selectedRowKeys
+                selectedKeys
               };
             return {...child, props};
           })
