@@ -10,7 +10,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-
 .dh-icon-list:before { content: "\e600"; }
 
 .dh-icon-refresh:before { content: "\e601"; }
@@ -32,6 +31,8 @@
 .dh-icon-close1:before { content: "\e629"; }
 
 .dh-icon-email:before { content: "\e69f"; }
+
+.dh-icon-add:before { content: "\e6b9"; }
 
 .dh-icon-picture-fill:before { content: "\e72c"; }
 
@@ -69,13 +70,11 @@
 
 .dh-icon-triup:before { content: "\e646"; }
 
+.dh-icon-calculate:before { content: "\e652"; }
+
 .dh-icon-success:before { content: "\e63c"; }
 
 .dh-icon-key:before { content: "\e65c"; }
-
-.dh-icon-resize-full:before { content: "\e624"; }
-
-.dh-icon-resize-small:before { content: "\e623"; }
 
 .dh-icon-warning:before { content: "\e685"; }
 
@@ -95,7 +94,9 @@
 
 .dh-icon-home:before { content: "\e6b5"; }
 
-.dh-icon-list-circle:before { content: "\e622"; }
+.dh-icon-question-circle-o:before { content: "\e618"; }
+
+.dh-icon-list-circle:before { content: "\e60d"; }
 
 .dh-icon-text:before { content: "\e607"; }
 
@@ -141,14 +142,44 @@
 
 .dh-icon-file:before { content: "\e60a"; }
 
+.dh-icon-Slider:before { content: "\e62a"; }
+
 .dh-icon-link-circle:before { content: "\e615"; }
 
-.dh-icon-plus:before { content: "\e616"; }
+.dh-icon-Plus:before { content: "\e616"; }
+
+.dh-icon-ziyuan:before { content: "\e619"; }
 
 .dh-icon-time-setting:before { content: "\e61b"; }
 
-.dh-icon-calculate:before { content: "\e61c"; }
+.dh-icon-ziyuan2:before { content: "\e61c"; }
 
 .dh-icon-link-db:before { content: "\e61d"; }
 
 .dh-icon-ppt:before { content: "\e61e"; }
+
+.dh-icon-ziyuan1:before { content: "\e622"; }
+
+.dh-icon-resize-small:before { content: "\e623"; }
+
+.dh-icon-resize-full:before { content: "\e624"; }
+
+.dh-icon-dengluzhucejinggao:before { content: "\e626"; }
+
+.dh-icon-shurukuangqingkong:before { content: "\e627"; }
+
+.dh-icon-zhu_jiangxu:before { content: "\e62b"; }
+
+.dh-icon-zhu_shengxu:before { content: "\e62c"; }
+
+.dh-icon-zhu_morenpaixu:before { content: "\e62e"; }
+
+.dh-icon-tiao_jiangxu:before { content: "\e62f"; }
+
+.dh-icon-tiao_shengxu:before { content: "\e630"; }
+
+.dh-icon-tiao_morenpaixu:before { content: "\e631"; }
+
+.dh-icon-daohangfanhui:before { content: "\e632"; }
+
+.dh-icon-sousuo:before { content: "\e633"; }

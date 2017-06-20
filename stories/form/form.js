@@ -41,8 +41,11 @@ class FormDemo extends React.Component {
               label="用户名"
             >
             {
-              getFieldDecorator('name', {
-                valuePropName: 'checked',
+              getFieldDecorator('email', {
+                validateTrigger: 'onBlur',
+                rules: [{
+                  type: 'email', message: 'The input is not valid E-mail!',
+              }]
               })(<Input type="text" />)
             }
             </Form.Item>
