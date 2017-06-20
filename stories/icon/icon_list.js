@@ -25,7 +25,7 @@ export default class IconList extends React.Component {
         {
           Object.keys(json).map(key => (
             <div style={style.child}>
-              <p style={{fontSize: 20}}><Icon type={key}/></p>
+              <p><Icon type={key}/></p>
               <p style={{fontSize: 10}}>{key}</p>
             </div>
           ))

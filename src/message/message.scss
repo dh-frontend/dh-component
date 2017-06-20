@@ -1,6 +1,7 @@
 /* 配置 参数 */
 $message-fontSize: 12px;
 $message-padding: 12px;
+$message-noticeMarginBottom: 8px;
 $message-background: #ffffff;
 $message-titleColor: #999999;
 $message-fontColor: #999999;
@@ -12,6 +13,7 @@ $fontTyps: (success: #39b86e, error: #f04134, warning: #ffbf00);
   z-index: 99999;
   &-notice {
     position: relative;
+    margin-bottom: $message-noticeMarginBottom;
   }
   &-container {
     padding: $message-padding;

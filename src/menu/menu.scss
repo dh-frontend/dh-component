@@ -1,3 +1,9 @@
+@import '../styles/_variable';
+$itme-fontSize: $default-fontSize;
+$item-backgroundColor: rgba(35,193,50,.1);
+$item-fontColor: #666666;
+$menu-defaultColor: $theme-default-color;
+$icon-fontSize: $default-fontSize;
 
 @mixin keyframesScale {
   -webkit-animation: keyframesScale .5s cubic-bezier(0.23, 1, 0.32, 1) 0s forwards;
@@ -9,12 +15,12 @@
   vertical-align: baseline;
   text-align: center;
   text-transform: none;
-  font-size: 12px;
+  font-size: $itme-fontSize;
   text-rendering: auto;
   transition: transform .3s ease;
   position: absolute;
   right: 10px;
-  line-height: 37px;
+  line-height: 36px;
 }
 //#23c132
 @mixin avtived($width, $height, $top, $bg) {
@@ -27,6 +33,7 @@
     left: 0;
     background: $bg;
     transform: scaleY(0);
+    box-shadow: 0 0 10px 0 rgba(35,193,50,.5);
     @include keyframesScale;
   }
 }
@@ -36,10 +43,10 @@
   padding-left: 0;
   list-style: none;
   z-index: 1050;
-  color: #666666;
+  color: $item-fontColor;
   background: #fff;
   outline: none;
-  font-size: 14px;
+  font-size: $itme-fontSize;
   line-height: 36px;
   // 子元素
   &-item {
@@ -49,158 +56,25 @@
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 36px;
-  }
-  // 展开元素
-  &-submenu {
-    position: relative;
-    display: block;
-    &-inline {
-      > .dh-menu-submenu-title {
-        position: relative;
-        cursor: pointer;
-        &:after {
-          @extend .dp;
-          content: "\e63e";
-          top: 0;
-        }
+    padding: 0 24px;
+     &-active, &-selected {
+        color: $menu-defaultColor;
       }
-      /*
-      &.dh-menu-submenu-active {
-      .dh-menu-submenu-title {
-         position: relative;
-         background-color: #f5fcf7;
-       }
+     &-selected {
+        background-color: $item-backgroundColor;
+        @include avtived(2px, 100%, 0, $menu-defaultColor);
       }
-      */
-      .dh-menu-submenu-title:hover {
-        position: relative;
-        background-color: #f5fcf7;
-      }
-
-      &.dh-menu-submenu-open  {
-        > .dh-menu-submenu-title {
-          &:after  {
-            transform: rotate(180deg);
-          }
-        }
-      }
-    }
-    &-vertical {
-      > .dh-menu-submenu-title {
-        position: relative;
-        cursor: pointer;
-        padding-left: 24px;
-        &:after {
-          @extend .dp;
-          content: "\e621";
-          top: 0;
-        }
-      }
-      .dh-menu-submenu-title:hover {
-        position: relative;
-        background-color: #f5fcf7;
-      }
-      /*
-      &.dh-menu-submenu-active  {
-        .dh-menu-submenu-title {
-          position: relative;
-          background-color: #f5fcf7;
-        }
-      }
-      */
-      >.dh-menu {
-        top: 0;
-        left: 100%;
-        position: absolute;
-        min-width: 160px;
-        margin-left: 4px;
-        z-index: 1050;
-        background-color: #fff;
-        border-radius: 4px;
-        box-shadow: 0 1px 6px rgba(0,0,0,.2);
-      }
-      >.dh-menu-vertical {
-        .dh-menu-item-selected {
-          &:before {
-            background: transparent;
-          }
-        }
-      }
-    }
-    &-horizontal {
-      float: left;
-      > .dh-menu-submenu-title {
-        position: relative;
-        cursor: pointer;
-        padding: 0 20px;
-      }
-      .dh-menu-submenu-title:hover {
-        position: relative;
-        background-color: #f5fcf7;
-      }
-      /*
-      &.dh-menu-submenu-active  {
-        .dh-menu-submenu-title {
-          position: relative;
-          background-color: #f5fcf7;
-        }
-      }
-      */
-      >.dh-menu-sub {
-        top: 100%;
-        left: 0;
-        position: absolute;
-        min-width: 100%;
-        margin-top: 7px;
-        z-index: 1050;
-      }
-      >.dh-menu-vertical {
-        .dh-menu-item-selected {
-          &:before {
-            background: transparent;
-          }
-        }
-      }
-    }
-    &-menu-hidden {
-      display: none;
-    }
   }
   // 内联的 子菜单样式
   &-inline {
-    font-size: 14px;
-    line-height: 36px;
     z-index: auto;
-    >.dh-menu-item {
-      &-active, &-selected {
-        background-color: #f5fcf7;
-      }
-      &-selected {
-        color: #23c132;
-        font-weight: bold;
-        @include avtived(2px, 100%, 0, #23c132);
-      }
-    }
   }
   // 垂直 子菜单样式
   &-vertical {
     z-index: auto;
-    >.dh-menu-item {
-      padding: 0 24px;
-      &-active, &-selected {
-        background-color: #f5fcf7;
-      }
-      &-selected {
-        color: #23c132;
-        font-weight: bold;
-        @include avtived(2px, 100%, 0, #23c132);
-      }
-    }
-
   }
+  //水平
   &-horizontal {
-    font-size: 16px;
-    line-height: 48px;
     z-index: 0;
     &:after {
       content: "\20";
@@ -211,20 +85,78 @@
     >.dh-menu-item {
       position: relative;
       float: left;
-      padding: 0 20px;
-      line-height: 48px;
-      &-active, &-selected {
-        background-color: #f5fcf7;
-      }
-      &-selected {
-        color: #23c132;
-        font-weight: bold;
-        @include avtived(100%, 2px, 46px, #23c132);
-      }
     }
   }
   &-hidden {
     display: none;
+  }
+   // 展开元素
+  &-submenu {
+    position: relative;
+    display: block;
+    &-title {
+      position: relative;
+      padding: 0 24px;
+      font-size: 12px;
+      line-height: 36px;
+      cursor: pointer;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      &:hover {
+        position: relative;
+        color: $menu-defaultColor;
+      }
+    }
+
+    &-inline {
+      > .dh-menu-submenu-title {
+        &:after {
+          @extend .dp;
+          content: "\e63e";
+          top: 0;
+        }
+      }
+      &.dh-menu-submenu-open  {
+        > .dh-menu-submenu-title {
+          &:after  {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    //垂直
+    &-vertical {
+      > .dh-menu-submenu-title {
+        &:after {
+          @extend .dp;
+          content: "\e621";
+          top: 0;
+        }
+      }
+      >.dh-menu-sub {
+        top: 0;
+        left: 100%;
+        position: absolute;
+        min-width: 160px;
+        margin-left: 4px;
+        z-index: 1050;
+        box-shadow: 0 1px 6px rgba(0,0,0,.2);
+      }
+    }
+    //水平
+    &-horizontal {
+      float: left;
+      >.dh-menu-sub {
+        top: 100%;
+        left: 0;
+        position: absolute;
+        min-width: 100%;
+        margin-top: 4px;
+        box-shadow: 0 1px 6px rgba(0,0,0,.2);
+        z-index: 1050;
+      }
+    }
   }
   &-border {
     &.dh-menu-inline, &.dh-menu-vertical {
