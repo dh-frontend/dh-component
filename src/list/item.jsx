@@ -32,7 +32,7 @@ class ListItem extends React.Component {
   }
   componentWillMount() {
     if (this.props.selected) {
-      this.state. selected = this.props.selected;
+      this.state.selected = this.props.selected;
     }
   }
   componentDidMount() {
@@ -69,11 +69,9 @@ class ListItem extends React.Component {
     } else if (icon && typeof icon === 'string') {
       element = (<span className="dh-list-info" {...otherProps}><Icon type={icon} /></span>)
     } else if (typeof icon === 'boolean' && icon ) {
-     element =  selected ? (
-        <span className="dh-list-info" {...otherProps}> 
-          <Icon type="success" />
-        </span>
-      ) : null;;
+     element =  (<span className="dh-list-info" {...otherProps}>
+          <Icon type={ selected ? 'success' : 'radio'} />
+        </span>);
     }
     return element;
   }

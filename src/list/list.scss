@@ -76,6 +76,9 @@ $ul_border_color: #e6e6e6;
         width: 32px;
         text-align: center;
         line-height: 32px;
+        i[type="radio"] {
+          color: #cccccc;
+        }
       }
     }
   }
