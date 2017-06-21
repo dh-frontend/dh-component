@@ -223,6 +223,7 @@ class Table extends Component {
             ref="body"
             className="dh-table-body-content"
             onWheel={this.handleScroll}
+            onScroll={this.handleScroll}
           >
             <table cellSpacing="0">
               {thead}
