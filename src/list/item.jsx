@@ -7,19 +7,18 @@ import { Icon } from '../index.js';
 
 class ListItem extends React.Component {
   static contextTypes = {
-    onClick: PropTypes.func,
     animation: PropTypes.bool,
-    icon: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.string,
-    ]), // 后缀图标， 如果设置false 则不显示
+    forbid: PropTypes.bool,
+    selectedKeys: PropTypes.arrayOf(PropTypes.string)
   }
-
+  static defaultProps = {
+    selectedKeys: []
+  }
   static propTypes = {
-    prefix: PropTypes.element,
-    suffix: PropTypes.element,
-    eventKey: PropTypes.string,
-    onSuffixClick: PropTypes.func, // 如果选取默认的icon 时点击回调
+    prefix: PropTypes.element, // 前缀元素
+    suffix: PropTypes.element, // 后缀元素
+    eventKey: PropTypes.string, // 标记的key
+    icon: PropTypes.string, // 后缀图标
   }
 
   constructor(props) {
@@ -31,27 +30,36 @@ class ListItem extends React.Component {
     this.handleSuffixClick = this.handleSuffixClick.bind(this);
   }
   componentWillMount() {
-    if (this.props.selected) {
-      this.state.selected = this.props.selected;
-    }
+    const {selectedKeys,  eventKey } = this.props;
+    const selected = selectedKeys.indexOf(eventKey) === -1 ? false : true;
+    this.setState({ selected });
   }
   componentDidMount() {
     // this.element = ReactDOM.findDOMNode(this);
     // this.staticEventManger();
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.selected !== this.props.selected) {
-      this.state.selected = nextProps.selected;
-    }
-  }
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.selected !== nextProps.selected
-  }
-  handleClick() {
-    const selected = !this.state.selected;
-    const eventKey = this.props.eventKey;
+    const {selectedKeys,  eventKey } = nextProps
+    const selected = selectedKeys.indexOf(eventKey) === -1 ? false : true;
     this.setState({ selected });
-    this.context.onClick(selected, eventKey);
+  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.props.selected !== nextProps.selected
+  // }
+  handleClick() {
+    if (this.context.forbid) {
+      const { eventKey, onChange, onClick} = this.props;
+      const { selected } = this.state;
+      console.log(eventKey, selected)
+      // 回滚父级元素的Change事件
+      if (onChange) {
+        onChange(eventKey, selected);
+      }
+
+      if (onClick) {
+        onClick(eventKey, selected);
+      }
+    }
   }
   handleSuffixClick() {
     if (this.props.onSuffixClick) {
@@ -76,8 +84,8 @@ class ListItem extends React.Component {
     return element;
   }
   render() {
-    const { selected } = this.state;
     const { prefix, suffix, eventKey } = this.props;
+    const { selected } = this.state;
     const borderStyle = {
       transform: selected ? 'scaleY(1)' : ' scaleY(0)'
     }

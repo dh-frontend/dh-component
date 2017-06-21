@@ -35,5 +35,6 @@ function loadStories() {
   require('../stories/select/index.js');
   require('../stories/color_picker/index.js');
   require('../stories/menu/index.js');
+  require('../stories/message/index.js');
 }
 configure(loadStories, module);
