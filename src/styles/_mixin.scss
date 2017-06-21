@@ -1,11 +1,11 @@
 // 字体库
 @font-face {
   font-family: 'dhfont';  /* project id 267870 */
-  src: url('//at.alicdn.com/t/font_o7jngx4vag85xw29.eot');
-  src: url('//at.alicdn.com/t/font_o7jngx4vag85xw29.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_o7jngx4vag85xw29.woff') format('woff'),
-  url('//at.alicdn.com/t/font_o7jngx4vag85xw29.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_o7jngx4vag85xw29.svg#dhfont') format('svg');
+  src: url('//at.alicdn.com/t/font_k7jygp4oseq257b9.eot');
+  src: url('//at.alicdn.com/t/font_k7jygp4oseq257b9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_k7jygp4oseq257b9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_k7jygp4oseq257b9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_k7jygp4oseq257b9.svg#dhfont') format('svg');
 }
 @mixin keyframes($animationName) {
   @-webkit-keyframes #{$animationName} {
