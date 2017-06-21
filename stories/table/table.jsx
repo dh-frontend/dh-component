@@ -22,12 +22,12 @@ class TableDemo extends React.Component {
       {title: '体重', dataIndex: 'weight'}
     ];
     return (
-      <div style={{height: 500}}>
+      <div style={{height: 500, width: 300}}>
         <Table
           bordered
           dataSource={dataSource}
           columns={columns}
-          fixed={false}
+          fixed={true}
           onChange={(pagination, filter, sorter) => console.log(pagination, filter, sorter)}
         />
       </div>
