@@ -70,7 +70,7 @@
     "gulp-sourcemaps": "^2.5.1",
     "json-loader": "^0.5.4",
     "moment": "^2.18.1",
-    "node-sass": "^4.5.2",
+    "node-sass": "^4.5.3",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.3",
     "storybook-readme": "^2.0.2",

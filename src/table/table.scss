@@ -53,24 +53,7 @@ $tr-height-large: 60px;
   border: $table-border;
   border-radius: $table-radius;
   height: 100%;
-  .dh-table-header {
-    height: $tr-height-default + 1px;
-    position: relative;
-    overflow: hidden;
-  }
-  .dh-table-body {
-    height: 100%;
-    padding-top: $tr-height-default;
-    margin-top: -$tr-height-default;
-    .dh-table-body-content {
-      height: 100%;
-      position: relative;
-      overflow: auto;
-      table {
-        margin-top: -$tr-height-default - 1px;
-      }
-    }
-  }
+  overflow: auto;
   table {
     width: 100%;
     thead {
@@ -126,18 +109,6 @@ $tr-height-large: 60px;
   }
 
   &.dh-table-small {
-    .dh-table-header {
-      height: $tr-height-small + 1px;
-    }
-    .dh-table-body {
-      padding-top: $tr-height-small;
-      margin-top: -$tr-height-small;
-      .dh-table-body-content {
-        table {
-          margin-top: -$tr-height-small - 1px;
-        }
-      }
-    }
     thead {
       height: $tr-height-small;
       line-height: $tr-height-small;
@@ -149,18 +120,6 @@ $tr-height-large: 60px;
     }
   }
   &.dh-table-large {
-    .dh-table-header {
-      height: $tr-height-large + 1px;
-    }
-    .dh-table-body {
-      padding-top: $tr-height-large;
-      margin-top: -$tr-height-large;
-      .dh-table-body-content {
-        table {
-          margin-top: -$tr-height-large - 1px;
-        }
-      }
-    }
     thead {
       height: $tr-height-large;
       line-height: $tr-height-large;

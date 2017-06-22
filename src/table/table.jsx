@@ -118,12 +118,10 @@ class Table extends Component {
   };
 
   handleScroll = () => {
-    const { scrollLeft, scrollTop, scrollHeight, clientHeight } = this.refs.body;
-    this.refs.table.style.marginLeft = -scrollLeft + 'px';
-
+    const { scrollLeft, scrollTop, scrollHeight, clientHeight } = this.refs.table;
+    this.refs.thead.style.transform = `translateY(${scrollTop}px)`
     if (scrollTop + clientHeight >= scrollHeight) {
       if (!this.preventRequest) {
-        console.log('*** loading...');
         if (this.props.onLoad) {
           this.props.onLoad(this.props.dataSource.length);
         }
@@ -135,9 +133,8 @@ class Table extends Component {
   render() {
     const { dataSource, columns, size, bordered, striped, rowSelection, fixed, sortIcon, ...props } = this.props;
     const { selectedIdx, sorter } = this.state;
-
     const thead = (
-      <thead>
+      <thead ref="thead" >
       <tr>
         {rowSelection && (
           <th>
@@ -149,22 +146,22 @@ class Table extends Component {
             {d.title}&nbsp;&nbsp;
             {d.sorter && (
               <span className="dh-sort-icon" href="javascript:;">
-                      <a className="dh-sort-icon-btn" role="up"
-                         onClick={() => this.handleSortChange(d.dataIndex, 'asc')}>
-                        <Icon type={sortIcon} role={sorter[d.dataIndex] == 'asc' ? 'active' : ''}/>
-                      </a>
-                      <a className="dh-sort-icon-btn" role="down"
-                         onClick={() => this.handleSortChange(d.dataIndex, 'desc')}>
-                        <Icon type={sortIcon} role={sorter[d.dataIndex] == 'desc' ? 'active' : ''}/>
-                      </a>
-                    </span>
+                <a className="dh-sort-icon-btn" role="up"
+                    onClick={() => this.handleSortChange(d.dataIndex, 'asc')}>
+                  <Icon type={sortIcon} role={sorter[d.dataIndex] == 'asc' ? 'active' : ''}/>
+                </a>
+                <a className="dh-sort-icon-btn" role="down"
+                    onClick={() => this.handleSortChange(d.dataIndex, 'desc')}>
+                  <Icon type={sortIcon} role={sorter[d.dataIndex] == 'desc' ? 'active' : ''}/>
+                </a>
+              </span>
             )}
             {d.ext && (
               <span style={{paddingLeft: 20}}>
-                      <div className="dh-table-ext" style={{width: EXT_WIDTH}}>
-                        {d.ext}
-                      </div>
-                    </span>
+                <div className="dh-table-ext" style={{width: EXT_WIDTH}}>
+                  {d.ext}
+                </div>
+              </span>
             )}
           </th>
         ))}
@@ -208,29 +205,14 @@ class Table extends Component {
           [`dh-table-striped`]: striped,
           [`dh-table-fixed`]: fixed
         })}
+        ref="table"
+        onWheel={this.handleScroll}
+        onScroll={this.handleScroll}
       >
-        <div
-          className="dh-table-header"
-        >
-          <table cellSpacing="0" ref="table">
-            {thead}
-            {tbody}
-          </table>
-        </div>
-
-        <div className="dh-table-body">
-          <div
-            ref="body"
-            className="dh-table-body-content"
-            onWheel={this.handleScroll}
-            onScroll={this.handleScroll}
-          >
-            <table cellSpacing="0">
-              {thead}
-              {tbody}
-            </table>
-          </div>
-        </div>
+        <table cellSpacing="0">
+          {tbody}
+          {thead}
+        </table>
       </div>
     )
   }
