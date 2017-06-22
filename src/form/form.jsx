@@ -21,7 +21,7 @@ class Form extends React.Component {
     super(props);
   }
   static Item = FormItem
-  // if create 
+  // if create
   static create(options) {
     const formWrapper = createForm(Object.assign({
       fieldNameProp: 'id',
@@ -47,7 +47,7 @@ class Form extends React.Component {
         warning(
           false,
           '`getFieldProps` is not recommended, please use `getFieldDecorator` instead, ' +
-          'see: http://u.ant.design/get-field-decorator',
+          'see: https://github.com/react-component/form',
         );
         return this.__getFieldProps(name, option);
       },
@@ -72,7 +72,7 @@ class Form extends React.Component {
         })
       }>
         {
-           this.props.children 
+           this.props.children
         }
       </form>
     )

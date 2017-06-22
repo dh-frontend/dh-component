@@ -1,23 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Radio from '../radio';
 import { Icon } from '../index.js';
 
 class ListItem extends React.Component {
   static contextTypes = {
+    itemClassName: PropTypes.string, // 子元素的classNames
+    itemStyles: PropTypes.object, // 子元素的styles
     animation: PropTypes.bool,
     forbid: PropTypes.bool,
-    selectedKeys: PropTypes.arrayOf(PropTypes.string)
-  }
-  static defaultProps = {
-    selectedKeys: []
   }
   static propTypes = {
     prefix: PropTypes.element, // 前缀元素
     suffix: PropTypes.element, // 后缀元素
     eventKey: PropTypes.string, // 标记的key
+    selectedKeys: PropTypes.arrayOf(PropTypes.string), // 选中状态
     icon: PropTypes.string, // 后缀图标
   }
 
@@ -30,34 +30,28 @@ class ListItem extends React.Component {
     this.handleSuffixClick = this.handleSuffixClick.bind(this);
   }
   componentWillMount() {
-    const {selectedKeys,  eventKey } = this.props;
-    const selected = selectedKeys.indexOf(eventKey) === -1 ? false : true;
-    this.setState({ selected });
+
   }
   componentDidMount() {
-    // this.element = ReactDOM.findDOMNode(this);
-    // this.staticEventManger();
+   const {selectedKeys,  eventKey } = this.props;
+    const selected = selectedKeys.indexOf(eventKey) === -1 ? false : true;
+    this.setState({ selected });
   }
   componentWillReceiveProps(nextProps) {
     const {selectedKeys,  eventKey } = nextProps
     const selected = selectedKeys.indexOf(eventKey) === -1 ? false : true;
     this.setState({ selected });
   }
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return this.props.selected !== nextProps.selected
-  // }
   handleClick() {
     if (this.context.forbid) {
       const { eventKey, onChange, onClick} = this.props;
-      const { selected } = this.state;
-      console.log(eventKey, selected)
+      const selected = this.state.selected;
       // 回滚父级元素的Change事件
       if (onChange) {
-        onChange(eventKey, selected);
+        onChange(eventKey, !selected);
       }
-
       if (onClick) {
-        onClick(eventKey, selected);
+        onClick(eventKey, !selected);
       }
     }
   }
@@ -86,12 +80,16 @@ class ListItem extends React.Component {
   render() {
     const { prefix, suffix, eventKey } = this.props;
     const { selected } = this.state;
+    const { itemClassName, itemStyles} = this.context;
     const borderStyle = {
       transform: selected ? 'scaleY(1)' : ' scaleY(0)'
     }
     return (
-      <li 
-        className="dh-list-child"
+      <li
+        className={classNames("dh-list-child", {
+          [itemClassName]: itemClassName
+        })}
+        style={itemStyles &&  itemStyles instanceof Object ? {...itemStyles} : {}}
         data-selected={selected}>
         <div className="dh-list-child__inner">
           {
@@ -105,15 +103,15 @@ class ListItem extends React.Component {
               <div className="dh-list-inner__icon">
                 {this.renderSuffixElement()}
               </div>
-            ) : null      
+            ) : null
           }
 
         </div>
         {
-          typeof this.context.animation === 'boolean' && this.context.animation ? 
-          (<div style={borderStyle} className="dh-list-child__border" />) : null 
+          typeof this.context.animation === 'boolean' && this.context.animation ?
+          (<div style={borderStyle} className="dh-list-child__border" />) : null
         }
-        
+
       </li>
     )
   }
