@@ -12,6 +12,16 @@ class TableDemo extends React.Component {
       {name: '小白', age: 17, sex: 1, height: 165, weight: 49},
       {name: '小黑', age: 20, sex: 1, height: 182, weight: 66},
       {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
+      {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
+      {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
+      {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
+      {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
+      {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
+      {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
+      {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
+      {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
+      {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
+      {name: '小粉', age: 20, sex: 0, height: 153, weight: 59},
       {name: '小绿', age: 19, sex: 1, height: 192, weight: 81}
     ];
     const columns = [
