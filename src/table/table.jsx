@@ -111,10 +111,11 @@ class Table extends Component {
           [field]: this.state.sorter[field] == sort ? '' : sort
         }
       }
-    }));
-    if (this.props.onChange) {
-      this.props.onChange(null, null, this.state.sorter);
-    }
+    }), () => {
+      if (this.props.onChange) {
+        this.props.onChange(null, null, this.state.sorter);
+      }
+    });
   };
 
   handleScroll = () => {
