@@ -105,16 +105,15 @@ class Table extends Component {
   }
 
   handleSortChange = (field, sort) => {
-    this.setState(update(this.state, {
-      sorter: {
-        $merge: {
+    this.setState(
+      {
+        sorter: {
           [field]: this.state.sorter[field] == sort ? '' : sort
         }
-      }
-    }), () => {
-      if (this.props.onChange) {
-        this.props.onChange(null, null, this.state.sorter);
-      }
+      }, () => {
+        if (this.props.onChange) {
+          this.props.onChange(null, null, this.state.sorter);
+        }
     });
   };
 
