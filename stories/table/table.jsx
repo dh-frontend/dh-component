@@ -4,6 +4,9 @@ class TableDemo extends React.Component {
   constructor(props) {
     super(props)
   }
+  handleSort = (pagination, filter, sorter) => {
+    console.log(sorter,"11111111111")
+  } 
   render() {
     const dataSource = [
       {name: '小红', age: 12222222222222222228, sex: 0, height: 163, weight: 46},
@@ -27,9 +30,9 @@ class TableDemo extends React.Component {
     const columns = [
       {title: '姓名', dataIndex: 'name', frozen: true},
       {title: '年龄', dataIndex: 'age', sorter: true, ext:<Icon type="list-circle"/> },
-      {title: '性别', dataIndex: 'sex', render: (text) => text == 1 ? '男' : '女'},
-      {title: '身高', dataIndex: 'height'},
-      {title: '体重', dataIndex: 'weight'}
+      {title: '性别', dataIndex: 'sex', sorter: true, render: (text) => text == 1 ? '男' : '女'},
+      {title: '身高', dataIndex: 'height',sorter: true },
+      {title: '体重', dataIndex: 'weight',sorter: true}
     ];
     return (
       <div style={{height: 500, width: 300}}>
@@ -38,7 +41,7 @@ class TableDemo extends React.Component {
           dataSource={dataSource}
           columns={columns}
           fixed={true}
-          onChange={(pagination, filter, sorter) => console.log(pagination, filter, sorter)}
+          onChange={this.handleSort}
         />
       </div>
     )
