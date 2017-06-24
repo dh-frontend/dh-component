@@ -33,7 +33,8 @@ class Table extends Component {
     striped: PropTypes.bool,
     rowSelection: PropTypes.object,
     fixed: PropTypes.bool,
-    sortIcon: PropTypes.string
+    upIcon: PropTypes.string,
+    downIcon: PropTypes.string
   };
 
   static defaultProps = {
@@ -41,7 +42,8 @@ class Table extends Component {
     striped: true,
     columns: [],
     dataSource: [],
-    sortIcon: 'up',
+    upIcon: 'up',
+    downIcon: 'down',
     fixed: true
   };
 
@@ -131,7 +133,7 @@ class Table extends Component {
   };
 
   render() {
-    const { dataSource, columns, size, bordered, striped, rowSelection, fixed, sortIcon, ...props } = this.props;
+    const { dataSource, columns, size, bordered, striped, rowSelection, fixed, upIcon, downIcon, ...props } = this.props;
     const { selectedIdx, sorter } = this.state;
     const thead = (
       <thead ref="thead" >
@@ -148,11 +150,11 @@ class Table extends Component {
               <span className="dh-sort-icon" href="javascript:;">
                 <a className="dh-sort-icon-btn" role="up"
                     onClick={() => this.handleSortChange(d.dataIndex, 'asc')}>
-                  <Icon type={sortIcon} role={sorter[d.dataIndex] == 'asc' ? 'active' : ''}/>
+                  <Icon type={upIcon} role={sorter[d.dataIndex] == 'asc' ? 'active' : ''}/>
                 </a>
                 <a className="dh-sort-icon-btn" role="down"
                     onClick={() => this.handleSortChange(d.dataIndex, 'desc')}>
-                  <Icon type={sortIcon} role={sorter[d.dataIndex] == 'desc' ? 'active' : ''}/>
+                  <Icon type={downIcon} role={sorter[d.dataIndex] == 'desc' ? 'active' : ''}/>
                 </a>
               </span>
             )}

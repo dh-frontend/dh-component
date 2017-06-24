@@ -19,19 +19,18 @@ $tr-height-large: 60px;
 .dh-sort-icon {
   display: inline-block;
   position: relative;
-  width: 8px;
+  width: 10px;
   height: 18px;
   vertical-align: middle;
   .dh-sort-icon-btn {
     position: absolute;
     left: 0;
-    width: 8px;
-    height: 8px;
-    line-height: 8px;
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
     text-align: center;
     i {
       font-size: 12px;
-      transform-origin: -3px 2px;
       transform: scale(0.8);
       color: #aaa;
       &[role=active] {
@@ -43,7 +42,6 @@ $tr-height-large: 60px;
     }
     &[role=down] {
       bottom: 0;
-      transform: rotate(180deg);
     }
   }
 }
