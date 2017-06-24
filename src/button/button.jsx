@@ -10,7 +10,7 @@ class Button extends React.Component {
   }
   static propTypes = {
     htmlType: PropTypes.oneOf(['button', 'submit']),
-    type: PropTypes.oneOf(['success','primary','info','warning','danger']),
+    type: PropTypes.oneOf(['success','primary','info','warning','danger','default']),
     size: PropTypes.oneOf(['small']),
     shape: PropTypes.oneOf(['circle']),
     icon: PropTypes.string,
@@ -58,8 +58,6 @@ class Button extends React.Component {
             :
             (<span>{this.props.children}</span>)
         }
-
-
       </button>
     )
   }
