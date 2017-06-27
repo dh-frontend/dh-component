@@ -18,32 +18,20 @@ $tr-height-large: 60px;
 
 .dh-sort-icon {
   display: inline-block;
-  position: relative;
-  width: 8px;
-  height: 18px;
-  vertical-align: middle;
-  .dh-sort-icon-btn {
-    position: absolute;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    line-height: 8px;
-    text-align: center;
-    i {
-      font-size: 12px;
-      transform-origin: -3px 2px;
-      transform: scale(0.8);
-      color: #aaa;
-      &[role=active] {
-        color: #108ee9;
-      }
-    }
-    &[role=up] {
-      top: 0;
-    }
-    &[role=down] {
-      bottom: 0;
-      transform: rotate(180deg);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: left;
+  margin-left: 5px;
+  cursor: pointer;
+  i {
+    font-size: 12px;
+    transform: scale(0.8);
+    color: #d8d8d8;
+    opacity: 0;
+    &[role=active] {
+      color: #999999;
+      opacity: 1;
     }
   }
 }
@@ -61,6 +49,9 @@ $tr-height-large: 60px;
       line-height: $tr-height-default;
       th:hover {
         .dh-table-ext {
+          opacity: 1;
+        }
+        .dh-sort-icon i {
           opacity: 1;
         }
       }
