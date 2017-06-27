@@ -42,8 +42,8 @@ class Table extends Component {
     striped: true,
     columns: [],
     dataSource: [],
-    upIcon: 'up',
-    downIcon: 'down',
+    upIcon: 'sort-up',
+    downIcon: 'sort-down',
     fixed: true
   };
 
@@ -105,12 +105,12 @@ class Table extends Component {
     });
     onSelect(dataSource[idx], checked, dataSource.filter((d, i) => selectedIdx.indexOf(i) > -1))
   }
-
-  handleSortChange = (field, sort) => {
+  //默认第一次降序
+  handleSortChange = (field) => {
     this.setState(
       {
         sorter: {
-          [field]: this.state.sorter[field] == sort ? '' : sort
+          [field]: this.state.sorter[field] == 'desc' ? 'asc' : 'desc'
         }
       }, () => {
         if (this.props.onChange) {
@@ -145,17 +145,10 @@ class Table extends Component {
         )}
         {columns.map(d => (
           <th key={d.dataIndex}>
-            {d.title}&nbsp;&nbsp;
+            {d.title}
             {d.sorter && (
-              <span className="dh-sort-icon" href="javascript:;">
-                <a className="dh-sort-icon-btn" role="up"
-                    onClick={() => this.handleSortChange(d.dataIndex, 'asc')}>
-                  <Icon type={upIcon} role={sorter[d.dataIndex] == 'asc' ? 'active' : ''}/>
-                </a>
-                <a className="dh-sort-icon-btn" role="down"
-                    onClick={() => this.handleSortChange(d.dataIndex, 'desc')}>
-                  <Icon type={downIcon} role={sorter[d.dataIndex] == 'desc' ? 'active' : ''}/>
-                </a>
+              <span className="dh-sort-icon" onClick={() => this.handleSortChange(d.dataIndex)}>
+                  <Icon type={sorter[d.dataIndex] == 'asc' ? upIcon : downIcon} role={sorter[d.dataIndex] ? 'active' : ''}  />
               </span>
             )}
             {d.ext && (
