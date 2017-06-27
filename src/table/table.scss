@@ -22,6 +22,7 @@ $tr-height-large: 60px;
   width: 10px;
   height: 18px;
   vertical-align: middle;
+  opacity: 0;
   .dh-sort-icon-btn {
     position: absolute;
     left: 0;
@@ -59,6 +60,9 @@ $tr-height-large: 60px;
       line-height: $tr-height-default;
       th:hover {
         .dh-table-ext {
+          opacity: 1;
+        }
+        .dh-sort-icon {
           opacity: 1;
         }
       }
