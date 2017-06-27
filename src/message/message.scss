@@ -16,6 +16,7 @@ $fontTyps: (success: #39b86e, error: #f04134, warning: #ffbf00);
     margin-bottom: $message-noticeMarginBottom;
   }
   &-container {
+    position: relative;
     padding: $message-padding;
     border-radius: 4px;
     background-color: $message-background;
@@ -28,6 +29,8 @@ $fontTyps: (success: #39b86e, error: #f04134, warning: #ffbf00);
       vertical-align: middle;
     }
     .dh-message-icon {
+      position: absolute;
+      margin-top: 2px;
       i {
         font-size: 14px;
       }
@@ -37,7 +40,7 @@ $fontTyps: (success: #39b86e, error: #f04134, warning: #ffbf00);
       color: $message-titleColor;
     }
     .dh-message-desc {
-      margin-left: 10px;
+      margin-left: 18px;
 
     }
 
