@@ -65,5 +65,7 @@
 	"change": "\\e620",
 	"date": "\\e7a7",
 	"ok-circle": "\\e8a0",
-	"file": "\\e60a"
+	"file": "\\e60a",
+	"revoke": "\\e619",
+	"projection": "\\e61e"
 }
