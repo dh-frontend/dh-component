@@ -49,9 +49,9 @@ class Input extends React.Component {
       this.state.value = nextProps.value;
     }
   }
-  shouldComponentUpdate(nextProps, nextState) {
-    return !nextProps.value !== nextState.value;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return !nextProps.value !== nextState.value;
+  // }
   handleBlur(e) {
     this.setState({
       focus: false
@@ -101,7 +101,7 @@ class Input extends React.Component {
             className="dh-input-warp-inner"
             {...props}
             onFocus={this.handleFocus}
-            onBlur={this.handleBlur}       
+            onBlur={this.handleBlur}
           />
         </div>
 
