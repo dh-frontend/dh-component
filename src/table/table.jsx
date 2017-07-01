@@ -122,7 +122,7 @@ class Table extends Component {
   handleScroll = () => {
     const { scrollLeft, scrollTop, scrollHeight, clientHeight } = this.refs.table;
     this.refs.thead.style.transform = `translateY(${scrollTop}px)`
-    if (scrollTop + clientHeight >= scrollHeight) {
+    if (scrollTop + clientHeight >= scrollHeight - 36) {
       if (!this.preventRequest) {
         if (this.props.onLoad) {
           this.props.onLoad(this.props.dataSource.length);
