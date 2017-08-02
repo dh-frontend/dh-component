@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import RcMenu, { SubMenu, Item, Divider } from 'rc-menu';
+import RcMenu, { SubMenu, Item, Divider, ItemGroup } from 'rc-menu';
 import classNames from 'classnames';
 import Ani from 'css-animation';
 const prefixCls = 'dh-menu';
@@ -9,6 +9,7 @@ class Menu extends React.Component {
   static SubMenu = SubMenu
   static Item = Item
   static Divider = Divider
+  static ItemGroup = ItemGroup
   static defaultProps = {
     bordered: true
   }
