@@ -6,7 +6,7 @@ const sourcemaps  = require('gulp-sourcemaps');
 const concat      = require('gulp-concat');
 /**
  * 批量导入样式 */
-const antds = ['grid', 'form', 'layout', 'upload', 'collapse', 'progress', 'popover', 'tree','date-picker'];
+const antds = ['grid', 'form', 'layout', 'upload', 'collapse', 'progress', 'popover', 'tree','date-picker', 'spin'];
 
 // 编译js文件
 gulp.task('bable', function(){
